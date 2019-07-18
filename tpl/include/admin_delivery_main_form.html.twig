@@ -1,0 +1,17 @@
+{% block admin_payment_main_form %}
+    {% for key, oDelivery in aAllRDFaDeliveries %}
+        {% set name = oDelivery.name %}
+        {% set ident = 'DELIVERY_RDFA_' ~ name %}
+        {% set ident = ident|upper %}
+        {% if oDelivery.type == 0 %}
+            <tr>
+                <td class="edittext" width="70">
+                    {{ translate({ ident: ident }) }}
+                </td>
+                <td class="edittext">
+                    <input type="checkbox" class="edittext" name="ardfadeliveries[]" value="{{ oDelivery.name }}" {% if oDelivery.checked %}checked{% endif %} {{ readonly }}>
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

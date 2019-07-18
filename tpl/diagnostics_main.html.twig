@@ -1,0 +1,153 @@
+
+<h1>{{ translate({ ident: 'OXDIAG_HOME' }) }}</h1>
+
+{% if runAnalysis %}
+
+<span>{{ translate({ ident: 'OXDIAG_GOTO' }) }}:</span>
+	<ul>
+		<li><a href="#shopbasics">{{ translate({ ident: 'OXDIAG_BASICS' }) }}</a></li>
+		{% if oxdiag_frm_modules %}
+			<li><a href="#modules">{{ translate({ ident: 'OXDIAG_MODULES' }) }}</a></li>
+		{% endif %}
+		{% if oxdiag_frm_health %}
+			<li><a href="#health">{{ translate({ ident: 'OXDIAG_HEALTH' }) }}</a></li>
+		{% endif %}
+		{% if oxdiag_frm_php %}
+			<li><a href="#phpinfo">{{ translate({ ident: 'OXDIAG_PHPINFO' }) }}</a>
+			<li><a href="#phpext">{{ translate({ ident: 'OXDIAG_PHPINFO_EXTENSIONS' }) }}</a></li>
+		{% endif %}
+		{% if oxdiag_frm_server %}
+			<li><a href="#serverinfo">{{ translate({ ident: 'OXDIAG_SERVERINFO' }) }}</a></li>
+		{% endif %}
+	</ul>
+<hr>
+
+
+
+<h3><a id="shopbasics"></a>{{ translate({ ident: 'OXDIAG_BASICS' }) }}</h3>
+<table border="0" cellpadding="3">
+	<tr class="h">
+	    <th>{{ translate({ ident: 'OXDIAG_SERVERINFO_COMPONENT' }) }}</th>
+	    <th>{{ translate({ ident: 'OXDIAG_PHPINFO_VALUE' }) }}</th>
+	</tr>
+	{% for param, value in aShopDetails %}
+		{% if value == '' %}
+            {% set value = "OXDIAG_PHPINFO_OFF"|translate %}
+		{% endif %}
+		<tr>
+		<td>{{ param }}:</td><td>{{ value }}</td>
+		</tr>
+	{% endfor %}
+</table>
+
+
+
+{% if oxdiag_frm_modules %}
+	<h3><a id="modules"></a>{{ translate({ ident: 'OXDIAG_MODULES' }) }}</h3>
+	<table border="0" cellpadding="3">
+		<tr>
+		    <th>{{ translate({ ident: 'OXDIAG_MODULES_STATE' }) }}</th>
+		    <th>{{ translate({ ident: 'OXDIAG_MODULES_NAME' }) }}</th>
+		    <th>{{ translate({ ident: 'OXDIAG_MODULES_ID' }) }}</th>
+		    <th>{{ translate({ ident: 'OXDIAG_MODULES_VERSION' }) }}</th>
+		    <th>{{ translate({ ident: 'OXDIAG_MODULES_VENDOR' }) }}</th>
+		</tr>
+		
+		{% for listitem in mylist %}
+		<tr>
+			<td>{% if listitem.isActive() %}A{% else %}x{% endif %}</td>
+			<td>{{ listitem.getTitle() }}</td>
+			<td>{{ listitem.getId() }}</td>
+			<td>{{ listitem.getInfo('version') }}</td>
+			<td>{{ listitem.getInfo('author') }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endif %}
+
+
+
+{% if oxdiag_frm_health %}
+	<h3><a id="health"></a>{{ translate({ ident: 'OXDIAG_HEALTH' }) }}</h3>
+	<table>
+	    {% for sGroupName, aModules in aInfo %}
+	    <tr>
+	    	<th colspan="2">{{ translate({ ident: "SYSREQ_"|cat(sGroupName)|upper }) }}</th>
+	    </tr>
+	        {% for sModule, iModuleState in aModules %}
+	            <tr>
+	                <td>
+						{% if iModuleState == 2 %}
+                            {{ translate({ ident: 'OXDIAG_HEALTH_OK' }) }}
+						{% elseif iModuleState == 1 %}
+                            {{ translate({ ident: 'OXDIAG_HEALTH_MIN' }) }}
+						{% else %}
+							{{ translate({ ident: 'OXDIAG_HEALTH_FAIL' }) }}
+						{% endif %}
+					</td>
+					
+					<td>                
+		                {% if sModule == "memory_limit" %}
+							{{ translate({ ident: "SYSREQ_MEMORY_LIMIT" }) }}
+		                {% else %}
+							{{ translate({ ident: "SYSREQ_"|cat(sModule)|upper }) }}
+		                {% endif %}
+					</td>
+	            </tr>
+	        {% endfor %}
+	    {% endfor %}
+	</table>
+{% endif %}
+
+
+
+{% if oxdiag_frm_php %}
+	<h3><a id="phpinfo"></a>{{ translate({ ident: 'OXDIAG_PHPINFO' }) }}</h3>
+	<table border="0" cellpadding="3">
+		<tr class="h">
+		    <th>{{ translate({ ident: 'OXDIAG_PHPINFO_PARAM' }) }}</th>
+		    <th>{{ translate({ ident: 'OXDIAG_PHPINFO_VALUE' }) }}</th>
+		</tr>
+		{% for param, value in aPhpConfigparams %}
+			{% if value == '' %}
+                {% set value = "OXDIAG_PHPINFO_OFF"|translate %}
+			{% endif %}
+			<tr>
+			<td>{{ param }}:</td><td>{{ value }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+	
+	<h3><a id="phpext"></a>{{ translate({ ident: 'OXDIAG_PHPINFO_EXTENSIONS' }) }}</h3>
+	{{ translate({ ident: 'OXDIAG_PHPINFO_ZENDEX' }) }}: {{ sPhpDecoder }}
+{% endif %}
+
+
+
+{% if oxdiag_frm_server %}
+	<h3><a id="serverinfo"></a>{{ translate({ ident: 'OXDIAG_SERVERINFO' }) }}</h3>
+        <p>{{ translate({ ident: 'OXDIAG_SRVINF_NOTE' }) }}</p>
+	{% if not isExecAllowed %}
+		<p><span style="border-bottom:1px solid #f00;">{{ translate({ ident: 'OXDIAG_SRVINF_NOTALL' }) }}</span></p>
+	{% endif %}
+	
+	<table border="0" cellpadding="3">
+		<tr class="h">
+		    <th>{{ translate({ ident: 'OXDIAG_SERVERINFO_COMPONENT' }) }}</th>
+		    <th>{{ translate({ ident: 'OXDIAG_MODULES_VERSION' }) }}</th>
+		</tr>
+		{% for param, value in aServerInfo %}
+			{% if value == '' %}
+                {% set value = "OXDIAG_SERVERINFO_NOT_DETECTED"|translate %}
+			{% endif %}
+			<tr>
+			<td>{{ param }}:</td><td>{{ value }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endif %}
+
+{% endif %}
+
+
+

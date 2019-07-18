@@ -1,0 +1,190 @@
+{% include "popups/headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<script type="text/javascript">
+    initAoc = function()
+    {
+
+        YAHOO.oxid.container1 = new YAHOO.oxid.aoc( 'container1',
+                                                    [ {% for iKey, aItem in oxajax.container1 %}
+                                                       {{ sSep }}{% spaceless %}{ key:'_{{ iKey }}', ident: {% if aItem.4 %}true{% else %}false{% endif %}
+                                                       {% if not aItem.4 %},
+                                                       label: '{{ translate({ ident: "GENERAL_AJAX_SORT_"|cat(aItem.0)|upper }) }}',
+                                                       visible: {% if aItem.2 %}true{% else %}false{% endif %}
+                                                       {% endif %}}
+                                                      {% endspaceless %}
+                                                      {% set sSep = "," %}
+                                                      {% endfor %} ],
+                                                    '{{ oViewConf.getAjaxLink()|raw }}cmpid=container1&container=attribute_category&synchoxid={{ oxid }}'
+                                                    );
+
+        {% set sSep = "" %}
+
+        YAHOO.oxid.container2 = new YAHOO.oxid.aoc( 'container2',
+                                                    [ {% for iKey, aItem in oxajax.container2 %}
+                                                       {{ sSep }}{% spaceless %}{ key:'_{{ iKey }}', ident: {% if aItem.4 %}true{% else %}false{% endif %}
+                                                       {% if not aItem.4 %},
+                                                       label: '{{ translate({ ident: "GENERAL_AJAX_SORT_"|cat(aItem.0)|upper }) }}',
+                                                       visible: {% if aItem.2 %}true{% else %}false{% endif %},
+                                                       formatter: YAHOO.oxid.aoc.custFormatter
+                                                       {% endif %}}
+                                                      {% endspaceless %}
+                                                      {% set sSep = "," %}
+                                                      {% endfor %} ],
+                                                    '{{ oViewConf.getAjaxLink()|raw }}cmpid=container2&container=attribute_category&oxid={{ oxid }}',
+                                                    { selectionMode:'single' }
+                                                    );
+
+        YAHOO.oxid.container1.getDropAction = function()
+        {
+            return 'fnc=addcattoattr';
+        }
+
+        YAHOO.oxid.container2.getDropAction = function()
+        {
+            return 'fnc=removecatfromattr';
+        }
+
+        YAHOO.oxid.orderBtn = function(upId,downId,autoHide)
+        {
+            YAHOO.oxid.orderBtn.oUp    = new YAHOO.widget.Button(upId);
+            YAHOO.oxid.orderBtn.oDown  = new YAHOO.widget.Button(downId);
+
+            YAHOO.oxid.orderBtn.hide = function()
+            {
+                $D.setStyle(YAHOO.oxid.orderBtn.oUp  , 'visibility', 'hidden');
+                $D.setStyle(YAHOO.oxid.orderBtn.oDown, 'visibility', 'hidden');
+            };
+
+            YAHOO.oxid.orderBtn.show = function()
+            {
+                $D.setStyle(YAHOO.oxid.orderBtn.oUp  , 'visibility', 'visible');
+                $D.setStyle(YAHOO.oxid.orderBtn.oDown, 'visibility', 'visible');
+            };
+
+            YAHOO.oxid.orderBtn.addOn = function(onUp,onDown)
+            {
+                YAHOO.oxid.orderBtn.oUp.on("click", onUp);
+                YAHOO.oxid.orderBtn.oDown.on("click", onDown);
+            };
+
+            if(autoHide){
+                YAHOO.oxid.orderBtn.hide();
+            }
+
+        };
+
+        YAHOO.oxid.container3 = null;
+
+        YAHOO.oxid.orderBtn('orderup','orderdown',true);
+
+        YAHOO.oxid.container2.subscribe( "dataReturnEvent", function( oParam ) {
+            resetSortingContainer();
+        })
+        //
+        YAHOO.oxid.container2.subscribe( "rowSelectEvent", function( oParam )
+        {
+            var sOxid = oParam.record._oData._4;
+
+            if ( YAHOO.oxid.container3 != null && ( !YAHOO.oxid.container3._lastRecord || YAHOO.oxid.container3._lastRecord != oParam.record ) ) {
+                resetSortingContainer();
+            }
+
+            if ( YAHOO.oxid.container3 == null) {
+                YAHOO.oxid.container3 = new YAHOO.oxid.aoc( 'container3',
+                                                [ {% for iKey, aItem in oxajax.container3 %}
+                                                   { key:'_{{ iKey }}', ident: {% if aItem.4 %}true{% else %}false{% endif %}, sortable: false
+                                                   {% if not aItem.4 %},
+                                                   label: '{{ translate({ ident: "GENERAL_AJAX_SORT_"|cat(aItem.0)|upper }) }}',
+                                                   visible: {% if aItem.2 %}true{% else %}false{% endif %},
+                                                   formatter: YAHOO.oxid.aoc.custFormatter
+                                                   {% endif %}},
+                                                  {% endfor %} ],
+                                                '{{ oViewConf.getAjaxLink()|raw }}cmpid=container1&container=attribute_order&oxid='+sOxid,
+                                                { selectionMode:'single' }
+                                                )
+                //
+                YAHOO.oxid.container3._lastRecord = false;
+                YAHOO.oxid.container3.subscribe( "dataReturnEvent", function()
+                {
+                    YAHOO.oxid.orderBtn.hide();
+                })
+                YAHOO.oxid.container3.subscribe( "rowClickEvent", function( oParam )
+                {
+                    if ( YAHOO.oxid.container3.getSelectedRows().length ) {
+                        YAHOO.oxid.orderBtn.show();
+                    }else{
+                        YAHOO.oxid.orderBtn.hide();
+                    }
+                })
+                YAHOO.oxid.container3.setOrderUp = function()
+                {
+                    var aSelRows = YAHOO.oxid.container3.getSelectedRows();
+                    if ( aSelRows.length ) {
+                        sOxid = YAHOO.oxid.container3.getRecord(aSelRows[0])._oData._2;
+                        YAHOO.oxid.container3.modRequest = function( sRequest ) { return sRequest+'&fnc=setSorting&sortoxid='+sOxid+'&direction=up'; }
+                        YAHOO.oxid.container3.getDataSource().flushCache();
+                        YAHOO.oxid.container3.getPage( 0 );
+                    }
+                }
+                YAHOO.oxid.container3.setOrderDown = function()
+                {
+                    var aSelRows = YAHOO.oxid.container3.getSelectedRows();
+                    if ( aSelRows.length ) {
+                        sOxid = YAHOO.oxid.container3.getRecord(aSelRows[0])._oData._2;
+                        YAHOO.oxid.container3.modRequest = function( sRequest ) { return sRequest+'&fnc=setSorting&sortoxid='+sOxid+'&direction=down'; }
+                        YAHOO.oxid.container3.getDataSource().flushCache();
+                        YAHOO.oxid.container3.getPage( 0 );
+                    }
+                }
+
+                YAHOO.oxid.orderBtn.addOn(YAHOO.oxid.container3.setOrderUp,YAHOO.oxid.container3.setOrderDown);
+                YAHOO.oxid.container3._lastRecord = oParam.record;
+            }
+        })
+    }
+    $E.onDOMReady( initAoc );
+    function resetSortingContainer()
+    {
+        if ( YAHOO.oxid.container3.oContextMenu ) {
+            YAHOO.oxid.container3.oContextMenu.destroy();
+        }
+        YAHOO.oxid.container3 = null;
+        $('container3').innerHTML = '';
+        YAHOO.oxid.orderBtn.hide();
+    }
+</script>
+
+    <table width="100%">
+        <colgroup>
+            <col span="3" width="33%" />
+            <col width="1%" />
+        </colgroup>
+        <tr class="edittext">
+            <td colspan="4">{{ translate({ ident: "GENERAL_AJAX_DESCRIPTION" }) }}<br>{{ translate({ ident: "GENERAL_FILTERING" }) }}<br /><br /></td>
+        </tr>
+        <tr class="edittext">
+            <td align="center"><b>{{ translate({ ident: "ATTRIBUTE_CATEGORY_ALLCATEGORY" }) }}</b></td>
+            <td align="center"><b>{{ translate({ ident: "ATTRIBUTE_CATEGORY_ATRCATEGORY" }) }}</b></td>
+            <td align="center" valign="top">{{ translate({ ident: "ATTRIBUTE_CATEGORY_ATRLIST" }) }}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td valign="top" id="container1"></td>
+            <td valign="top" id="container2"></td>
+            <td valign="top" id="container3"></td>
+            <td valign="middle" rowspan="2">
+            <input class="edittext" type="button" id="orderup" value="/\" style="visibility:hidden"><br><br>
+            <input class="edittext" type="button" id="orderdown" value="\/" style="visibility:hidden">
+            </td>
+        </tr>
+        <tr>
+            <td class="oxid-aoc-actions"><input type="button" value="{{ translate({ ident: "GENERAL_AJAX_ASSIGNALL" }) }}" id="container1_btn"></td>
+            <td class="oxid-aoc-actions"><input type="button" value="{{ translate({ ident: "GENERAL_AJAX_UNASSIGNALL" }) }}" id="container2_btn"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>
+

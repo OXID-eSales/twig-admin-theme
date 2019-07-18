@@ -1,0 +1,136 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: "box"} %}
+
+<div id="container">
+
+    <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+        {{ oViewConf.getHiddenSid()|raw }}
+        <input type="hidden" name="oxid" value="{{ oxid }}">
+        <input type="hidden" name="cl" value="module_main">
+        <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+    </form>
+
+    {% block admin_module_sortlist %}{% endblock %}
+
+    <div id="infoContent">
+
+        {% if aDeletedExt %}
+            <div class="msgBox">
+
+                <div class="info">
+                    <p>{{ translate({ ident: "MODULE_EXTENSIONISDELETED" }) }}</p>
+                    <p>{{ translate({ ident: "MODULE_DELETEEXTENSION" }) }}</p>
+
+                    <table cellspacing="0" cellpadding="0" border="0" width="98%">
+                        <tr>
+                            <td class="listheader first">{{ translate({ ident: "MODULE_ID" }) }}</td>
+                            <td class="listheader">{{ translate({ ident: "MODULE_PROBLEMATIC_FILES" }) }}</td>
+                        </tr>
+                        {% for sModuleId, aModules in aDeletedExt %}
+                            {% set listclass = 'listitem' ~ blWhite %}
+                            <tr>
+                                <td valign="top" class="{{ listclass }}">{{ sModuleId }}</td>
+                                <td valign="top" class="{{ listclass }}">
+                                    <ul>
+                                        {% for sClassName, mFile in aModules.extensions %}
+                                            {% set is_int = sClassName > 0 or sClassName < 0 or sClassName is same as(0) %}
+                                            {% if mFile is iterable %}
+                                                {% for sFile in mFile %}
+                                                    <li>{% if not is_int %}{{ sClassName }} =&gt; {% endif %}{{ sFile }}</li>
+                                                {% endfor %}
+                                            {% else %}
+                                                <li>{% if not is_int %}{{ sClassName }} =&gt; {% endif %}{{ mFile }}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for sClassName, sFile in aModules.files %}
+                                            {% set is_int = sClassName > 0 or sClassName < 0 or sClassName is same as(0) %}
+                                            <li>{% if not is_int %}{{ sClassName }} =&gt; {% endif %}{{ sFile }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% if blWhite == "2" %}
+                                {% set blWhite = "" %}
+                            {% else %}
+                                {% set blWhite = "2" %}
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+
+                <div>
+                    <form name="remove" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+                        {{ oViewConf.getHiddenSid()|raw }}
+                        <input type="hidden" name="cl" value="module_sortlist">
+                        <input type="hidden" name="fnc" value="remove">
+                        <input type="hidden" name="oxid" value="{{ oxid }}">
+                        <input type="hidden" name="aModules" value="">
+                        <input type="hidden" name="updatelist" value="1">
+                        <input type="submit" name="yesButton" class="saveButton"
+                               value="{{ translate({ ident: "GENERAL_YES" }) }}">
+                        <input type="submit" name="noButton" class="saveButton"
+                               value="{{ translate({ ident: "GENERAL_NO" }) }}">
+                    </form>
+                </div>
+            </div>
+        {% else %}
+
+            {% if aExtClasses %}
+                <ul class="sortable" id="aModulesList">
+                    {% for sClassName, aModuleNames in aExtClasses %}
+                        <li id="{{ sClassName }}">
+                            <span>{{ sClassName|replace({'-- - ': '&#92;'}) }}</span>
+                            <ul class="sortable2" id="{{ sClassName }}_modules">
+                                {% for sModule in aModuleNames %}
+                                    {% if aDisabledModules is iterable and sModule in aDisabledModules %}
+                                        {% set cssDisabled = "disabled" %}
+                                    {% else %}
+                                        {% set cssDisabled = "" %}
+                                    {% endif %}
+                                    <li id="{{ sModule }}"><span class="{{ cssDisabled }}">{{ sModule }}</span></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endif %}
+    </div>
+
+
+    {{ script({ add: "$('#aModulesList').oxModulesList();", priority: 10, dynamic: __oxid_include_dynamic }) }}
+
+    {{ script({ include: "js/libs/jquery.min.js", dynamic: __oxid_include_dynamic }) }}
+    {{ script({ include: "js/libs/jquery-ui.min.js", dynamic: __oxid_include_dynamic }) }}
+    {{ script({ include: "js/libs/json2.js", dynamic: __oxid_include_dynamic }) }}
+
+    {{ script({ include: "js/widgets/oxmoduleslist.js", dynamic: __oxid_include_dynamic }) }}
+
+</div>
+
+{% if not aDeletedExt and aExtClasses %}
+    <div id="footerBox">
+        <div class="buttonsBox">
+            <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+                {{ oViewConf.getHiddenSid()|raw }}
+                <input type="hidden" name="cl" value="module_sortlist">
+                <input type="hidden" name="fnc" value="save">
+                <input type="hidden" name="oxid" value="{{ oxid }}">
+                <input type="hidden" name="aModules" value="">
+                <input type="button" name="saveButton" class="saveButton" value="{{ translate({ ident: "GENERAL_SAVE" }) }}"
+                       disabled>
+            </form>
+        </div>
+
+        <div class="description">
+            <p>
+                {{ translate({ ident: "MODULE_DRAGANDDROP" }) }}
+
+            </p>
+        </div>
+    </div>
+{% endif %}
+
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}
+

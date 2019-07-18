@@ -1,0 +1,69 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<script type="text/javascript">
+<!--
+function editThis( sID )
+{
+    var oTransfer = top.basefrm.edit.document.getElementById( "transfer" );
+    oTransfer.oxid.value = sID;
+    oTransfer.cl.value = top.basefrm.list.sDefClass;
+
+    //forcing edit frame to reload after submit
+    top.forceReloadingEditFrame();
+
+    var oSearch = top.basefrm.list.document.getElementById( "search" );
+    oSearch.oxid.value = sID;
+    oSearch.actedit.value = 0;
+    oSearch.submit();
+}
+//-->
+</script>
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="article_attribute">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<table cellspacing="0" cellpadding="0" border="0" width="96%">
+    <tr>
+        <td valign="top" class="edittext">
+            {% if oxparentid %}
+                <b>{{ translate({ ident: "GENERAL_VARIANTE" }) }}<a href="Javascript:editThis('{{ parentarticle.oxarticles__oxid.value }}');" class="edittext"><b>{{ parentarticle.oxarticles__oxartnum.value }} {{ parentarticle.oxarticles__oxtitle.value }}</b></a><br>
+                <br>
+            {% endif %}
+
+            {% block admin_article_attribute_assign_attribute %}
+                {% hasrights { "object": "edit", "readonly": "readonly", } %}
+                    <input type="button" value="{{ translate({ ident: "ARTICLE_ATTRIBUTE_ASSIGNATTRIBUTE" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=article_attribute&aoc=1&oxid={{ oxid }}');" {{ readonly }}>
+                {% endhasrights %}
+            {% endblock %}
+
+            {% if not edit.blForeignArticle %}
+                <br><br>
+                <a class="edittext" href="{{ oViewConf.getSelfLink()|raw }}&cl=attribute" target="_new"><b>{{ translate({ ident: "ARTICLE_ATTRIBUTE_OPENINNEWWINDOW" }) }}</b></a>
+            {% endif %}
+
+        </td>
+
+        <!-- Anfang rechte Seite -->
+        <td valign="top" class="edittext" align="left" width="50%">
+            {% block admin_article_attribute_assign_selectlist %}
+                {% hasrights { "object": "edit", "readonly": "readonly", } %}
+                    <input type="button" value="{{ translate({ ident: "ARTICLE_ATTRIBUTE_ASSIGNSELECTLIST" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=article_attribute&aoc=2&oxid={{ oxid }}');" {{ readonly }}>
+                {% endhasrights %}
+            {% endblock %}
+        </td>
+        <!-- Ende rechte Seite -->
+    </tr>
+</table>
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}

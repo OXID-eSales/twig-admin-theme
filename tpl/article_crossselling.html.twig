@@ -1,0 +1,53 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="article_crossselling">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="article_crossselling">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="editval[article__oxid]" value="{{ oxid }}">
+<input type="hidden" name="voxid" value="{{ oxid }}">
+<input type="hidden" name="oxparentid" value="{{ oxparentid }}">
+<input type="hidden" name="sorting" value="">
+<input type="hidden" name="stable" value="">
+<input type="hidden" name="starget" value="">
+
+  <table cellspacing="0" cellpadding="0" border="0" width="98%">
+
+    <tr>
+      <td valign="top" class="edittext">
+        {% block admin_article_crossselling_assign_crossselling %}
+          {% hasrights { "object": "edit", "readonly": "readonly", } %}
+            <input type="button" value="{{ translate({ ident: "ARTICLE_CROSSSELLING_ASSIGNCROSSSELLING" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=article_crossselling&aoc=1&oxid={{ oxid }}');" {{ readonly }}>
+          {% endhasrights %}
+        {% endblock %}
+      </td>
+      <!-- Anfang rechte Seite -->
+      <td valign="top" class="edittext" align="left" width="50%">
+        {% block admin_article_crossselling_assign_accessoires %}
+          {% hasrights { "object": "edit", "readonly": "readonly", } %}
+            <input type="button" value="{{ translate({ ident: "ARTICLE_CROSSSELLING_ASSIGNACCESSORIES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=article_crossselling&aoc=2&oxid={{ oxid }}');" {{ readonly }}>
+          {% endhasrights %}
+        {% endblock %}
+      </td>
+      <!-- Ende rechte Seite -->
+    </tr>
+  </table>
+</form>
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

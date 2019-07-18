@@ -1,0 +1,118 @@
+{% include "headitem.html.twig" with {title: "ADMINLINKS_LIST_TITLE"|translate, box: "list"} %}
+{% set where = oView.getListFilter() %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<script type="text/javascript">
+<!--
+window.onload = function ()
+{
+    top.reloadEditFrame();
+    {% if updatelist == 1 %}
+        top.oxid.admin.updateList('{{ oxid }}');
+    {% endif %}
+}
+//-->
+</script>
+
+<div id="liste">
+
+<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{% include "_formparams.html.twig" with {cl: "adminlinks_list", lstrt: lstrt, actedit: actedit, oxid: oxid, fnc: "", language: actlang, editlanguage: actlang} %}
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+    <colgroup>
+        {% block admin_adminlinks_list_colgroup %}
+        	<col width="3%">
+            <col width="10%">
+            <col width="86%">
+            <col width="2%">
+        {% endblock %}
+    </colgroup>
+    <tr class="listitem">
+        {% block admin_adminlinks_list_filter %}
+			<td valign="top" class="listfilter first" align="right">
+				<div class="r1"><div class="b1">&nbsp;</div></div>
+        	</td>
+            <td valign="top" class="listfilter" height="20">
+                <div class="r1">
+                    <div class="b1">
+                        <input class="listedit" type="text" size="20" maxlength="128" name="where[oxlinks][oxinsert]" value="{{ where.oxlinks.oxinsert }}">
+                    </div>
+                </div>
+            </td>
+            <td valign="top" class="listfilter" colspan="2">
+                <div class="r1">
+                    <div class="b1">
+                        <div class="find">
+                            <select name="changelang" class="editinput" onChange="Javascript:top.oxid.admin.changeLanguage();">
+                                {% for lang in languages %}
+                                <option value="{{ lang.id }}" {% if lang.selected %}SELECTED{% endif %}>{{ lang.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <input class="listedit" type="submit" name="submitit" value="{{ translate({ ident: "GENERAL_SEARCH" }) }}">
+                        </div>
+                        <input class="listedit" type="text" size="20" maxlength="128" name="where[oxlinks][oxurl]" value="{{ where.oxlinks.oxurl }}">
+                    </div>
+                </div>
+            </td>
+        {% endblock %}
+    </tr>
+
+    <tr>
+        {% block admin_adminlinks_list_sorting %}
+        	<td class="listheader first" height="15" width="30" align="center"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxlinks', 'oxactive', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_ACTIVTITLE" }) }}</a></td>
+            <td class="listheader" height="15">&nbsp;<a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxlinks', 'oxinsert', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_DATE" }) }}</a></td>
+            <td class="listheader" colspan="2"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxlinks', 'oxurl', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_URL" }) }}</a></td>
+        {% endblock %}
+    </tr>
+{% set blWhite = "" %}
+{% set _cnt = 0 %}
+{% for listitem in mylist %}
+    {% set _cnt = _cnt+1 %}
+    <tr id="row.{{ _cnt }}">
+
+        {% block admin_adminlinks_list_item %}
+            {% if listitem.blacklist == 1 %}
+                {% set listclass = "listitem3" %}
+            {% else %}
+                {% set listclass = 'listitem' ~ blWhite %}
+            {% endif %}
+            {% if listitem.getId() == oxid %}
+                {% set listclass = "listitem4" %}
+            {% endif %}
+            <td valign="top" class="{{ listclass }}{% if listitem.oxlinks__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</a></div></td>
+            <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxlinks__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxlinks__oxinsert|format_date }}</a></div></td>
+            <td valign="top" class="{{ listclass }}"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxlinks__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxlinks__oxurl.value }}</a></div></td>
+            <td class="{{ listclass }}">
+                {% include "include/adminlinks_list_actions.html.twig" %}
+            </td>
+        {% endblock %}
+    </tr>
+{% if blWhite == "2" %}
+{% set blWhite = "" %}
+{% else %}
+{% set blWhite = "2" %}
+{% endif %}
+{% endfor %}
+{% include "pagenavisnippet.html.twig" with {colspan: "4"} %}
+</table>
+</form>
+</div>
+
+{% include "pagetabsnippet.html.twig" %}
+
+<script type="text/javascript">
+if (parent.parent)
+{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+    parent.parent.sMenuItem    = "{{ translate({ ident: "ADMINLINKS_LIST_MENUITEM" }) }}";
+    parent.parent.sMenuSubItem = "{{ translate({ ident: "ADMINLINKS_LIST_MENUSUBITEM" }) }}";
+    parent.parent.sWorkArea    = "{{ _act }}";
+    parent.parent.setTitle();
+}
+</script>
+</body>
+</html>

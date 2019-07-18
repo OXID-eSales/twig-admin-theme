@@ -1,0 +1,105 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: "list"} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<script type="text/javascript">
+<!--
+window.onload = function ()
+{
+    top.reloadEditFrame();
+    {% if updatelist == 1 %}
+        top.oxid.admin.updateList('{{ oxid }}');
+    {% endif %}
+}
+
+//-->
+</script>
+
+
+<div id="liste">
+
+<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="module_list">
+    <input type="hidden" name="lstrt" value="{{ lstrt }}">
+    <input type="hidden" name="sort" value="{{ sort }}">
+    <input type="hidden" name="actedit" value="{{ actedit }}">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="fnc" value="">
+    <input type="hidden" name="language" value="{{ actlang }}">
+    <input type="hidden" name="editlanguage" value="{{ actlang }}">
+
+{% block admin_modules_list_table %}
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<colgroup>
+    <col width="3%">
+    <col width="98%">
+</colgroup>
+<tr class="listitem">
+    <td valign="top" class="listfilter first" height="20">
+        <div class="r1"><div class="b1">&nbsp;</div></div>
+    </td>
+    <td valign="top" class="listfilter" height="20">
+        <div class="r1"><div class="b1">&nbsp;</div></div>
+    </td>
+</tr>
+<tr>
+    <td class="listheader first" height="15">
+        <b><a href="Javascript:document.search.sort.value='oxtitle';document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_ACTIVE" }) }}</a></b>
+    </td>
+    <td class="listheader" height="15">
+        <b><a href="Javascript:document.search.sort.value='oxtitle';document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_NAME" }) }}</a></b>
+    </td>
+</tr>
+{% for listitem in mylist %}
+<tr id="row.{% set defaultCounter = ( defaultCounter | default(0) ) + 1 %}">
+    {% set zebra = smarty_cycle(["listitem", "listitem2"]) %}
+    {% if listitem.getInfo('id') == oxid %}
+        {% set zebra = "listitem4" %}
+    {% endif %}
+    <td valign="top" class="{{ zebra }}{% if listitem.isActive() %} active{% endif %}" height="15">
+        <div class="listitemfloating">
+            <a href="Javascript:top.oxid.admin.editThis('{{ listitem.getId() }}');">&nbsp;</a></div></td>
+        </div>
+    </td>
+    <td valign="top" class="{{ zebra }}" height="15">
+        <div class="listitemfloating">
+            <a href="Javascript:top.oxid.admin.editThis('{{ listitem.getId() }}');">{{ listitem.getTitle() }}</a>
+        </div>
+    </td>
+</tr>
+{% endfor %}
+{% include "pagenavisnippet.html.twig" with {colspan: "5"} %}
+</table>
+{% endblock %}
+</form>
+</div>
+
+<script language="javascript">
+    sModuleId = '{{ oxid }}';
+    if (sModuleId == '-1' ) {
+        sActClass = "module_main";
+        sDefClass = "module_main";
+        var oSearch = document.getElementById( "search" );
+        oSearch.actedit.value = 1;
+    }
+</script>
+
+{% include "pagetabsnippet.html.twig" %}
+
+<script type="text/javascript">
+if (parent.parent)
+{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+    parent.parent.sMenuItem    = "{{ translate({ ident: "mxextensions" }) }}";
+    parent.parent.sMenuSubItem = "{{ translate({ ident: "mxmodule" }) }}";
+    parent.parent.sWorkArea    = "{{ _act }}";
+    parent.parent.setTitle();
+}
+</script>
+</body>
+</html>
+

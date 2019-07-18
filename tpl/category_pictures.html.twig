@@ -1,0 +1,31 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="category_pictures">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="98%">
+<tr>
+    <td valign="top" class="edittext">
+      {{ edit.oxcategories__oxtitle.value }} {{ translate({ ident: "GENERAL_THUMB" }) }}
+      {% if edit.oxcategories__oxthumb.value %}
+        :<br><br>
+        <img src="{{ edit.getThumbUrl() }}" border="0" hspace="0" vspace="0">
+      {% endif %}
+    </td>
+    <td valign="top" class="edittext">
+      {{ edit.oxcategories__oxtitle.value }} {{ translate({ ident: "GENERAL_ICON" }) }}
+      {% if edit.oxcategories__oxicon.value %}
+        :<br><br>
+        <img src="{{ edit.getIconUrl() }}" border="0" hspace="0" vspace="0">
+      {% endif %}
+    </td>
+</tr>
+</table>
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}

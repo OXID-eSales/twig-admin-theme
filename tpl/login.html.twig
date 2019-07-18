@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>{{ translate({ ident: "LOGIN_TITLE" }) }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset={{ charset }}">
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    <link rel="shortcut icon" href="{{ oViewConf.getImageUrl() }}favicon.ico">
+    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl() }}login.css">
+    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl() }}colors_{{ oViewConf.getEdition()|lower }}.css">
+</head>
+<body>
+
+{% include "include/login_messages.html.twig" %}
+
+<div class="admin-login-box">
+
+    <div id="shopLogo"><img src="{{ oViewConf.getImageUrl('logo_dark.svg') }}" /></div>
+
+    <form action="{{ oViewConf.getSelfLink()|raw }}" target="_top" method="post" name="login" id="login">
+
+        {% block admin_login_form %}
+            {{ oViewConf.getHiddenSid()|raw }}
+
+            <input type="hidden" name="fnc" value="checklogin">
+            <input type="hidden" name="cl" value="login">
+
+            {% if not empty(Errors.default) %}
+                {% include "inc_error.html.twig" with {Errorlist: Errors.default} %}
+            {% endif %}
+
+            <label for="usr">{{ translate({ ident: "GENERAL_USER" }) }}</label>
+            <input type="text" name="user" id="usr" value="{{ user }}" size="49" autofocus><br>
+
+            <label for="pwd">{{ translate({ ident: "GENERAL_PASSWORD" }) }}</label>
+            <input type="password" name="pwd" id="pwd" value="{{ pwd }}" size="49"><br>
+
+            <label for="lng">{{ translate({ ident: "LOGIN_LANGUAGE" }) }}</label>
+            <select name="chlanguage" id="lng">
+                {% for iLang, oLang in aLanguages %}
+                <option value="{{ oLang.id }}" {% if oLang.selected %}SELECTED{% endif %}>{{ oLang.name }}</option>
+                {% endfor %}
+            </select><br>
+
+            {% if profiles %}
+            <label for="prf">{{ translate({ ident: "LOGIN_PROFILE" }) }}</label>
+            <select name="profile" id="prf">
+                {% for position, curr_profile in profiles %}
+                   <option value="{{ position }}" {% if curr_profile.2 %}selected{% endif %}>{{ curr_profile.0 }}</option>
+                {% endfor %}
+            </select><br>
+            {% endif %}
+        {% endblock %}
+
+        <input type="submit" value="{{ translate({ ident: "LOGIN_START" }) }}" class="btn"><br>
+    </form>
+</div>
+
+<script type="text/javascript">if (window != window.top) top.location.href = document.location.href;</script>
+
+</body>
+</html>

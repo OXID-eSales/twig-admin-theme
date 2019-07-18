@@ -1,0 +1,31 @@
+{% include "headitem.html.twig" with {box: "list", title: "NEWSLETTER_SEND_TITLE"|translate, meta_refresh_sec: "2", meta_refresh_url: oViewConf.getSelfLink()|cat("&cl=newsletter_send&iStart=`$iStart`&actedit=`$actedit`&oxid=")|cat(oView.getEditObjectId())} %}
+
+<script type="text/javascript">
+<!--
+window.onload = function ()
+{
+    top.reloadEditFrame();
+    {% if updatelist == 1 %}
+        top.oxid.admin.updateList('{{ oView.getEditObjectId() }}');
+    {% endif %}
+}
+//-->
+</script>
+    <body>
+
+        <form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+            {% include "_formparams.html.twig" with {cl: "pricealarm_list", lstrt: lstrt, actedit: actedit, oxid: oView.getEditObjectId(), fnc: "", language: actlang, editlanguage: actlang} %}
+        </form>
+
+        <div class="liste">
+            {% for sError in oView.getMailErrors() %}
+                {{ sError }}<br>
+            {% endfor %}
+            <center>
+                <h1>{{ translate({ ident: "NEWSLETTER_SEND_SEND1" }) }} : {{ iSend }} {{ translate({ ident: "NEWSLETTER_SEND_SEND2" }) }} {{ oView.getUserCount() }}.</h1>
+            </center>
+        </div>
+
+        {% include "pagetabsnippet.html.twig" with {noOXIDCheck: "true"} %}
+    </body>
+</html>

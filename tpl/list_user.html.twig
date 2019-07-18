@@ -1,0 +1,153 @@
+{% include "headitem.html.twig" with {title: "SHOWLIST_TITLE"|translate, box: " "} %}
+
+{% set where = oView.getListFilter() %}
+{% set whereparam = "" %}
+{% for sTable, aField in where %}
+  {% for sField, sFilter in aField %}
+    {% set whereparam = whereparam|cat("where[")|cat(sTable)|cat("][")|cat(sField)|cat("]=")|cat(sFilter)|cat("&amp;") %}
+  {% endfor %}
+{% endfor %}
+{% set viewListSize = oView.getViewListSize() %}
+{% set whereparam = whereparam|cat("viewListSize=")|cat(viewListSize) %}
+
+<script type="text/javascript">
+<!--
+function editThis( sID)
+{
+    {% set shMen = 1 %}
+
+    {% for menuholder in menustructure %}
+      {% if shMen and menuholder.nodeType == "XML_ELEMENT_NODE" and menuholder.childNodes.length %}
+
+        {% set shMen = 0 %}
+        {% set mn = 1 %}
+
+        {% for menuitem in menuholder.childNodes %}
+          {% if menuitem.nodeType == "XML_ELEMENT_NODE" and menuitem.childNodes.length %}
+            {% if menuitem.getAttribute('id') == 'mxuadmin' %}
+
+              {% for submenuitem in menuitem.childNodes %}
+                {% if submenuitem.nodeType == "XML_ELEMENT_NODE" and submenuitem.getAttribute('cl') == 'admin_user' %}
+
+                    if ( top && top.navigation && top.navigation.adminnav ) {
+                        var _sbli = top.navigation.adminnav.document.getElementById( 'nav-1-{{ mn }}-1' );
+                        var _sba = _sbli.getElementsByTagName( 'a' );
+                        top.navigation.adminnav._navAct( _sba[0] );
+                    }
+
+                {% endif %}
+              {% endfor %}
+
+            {% endif %}
+            {% set mn = mn+1 %}
+
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+    var oTransfer = document.getElementById( "transfer" );
+    oTransfer.oxid.value = sID;
+    oTransfer.cl.value = 'admin_user';
+    oTransfer.submit();
+}
+//-->
+</script>
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="list_user">
+    <input type="hidden" name="updatelist" value="1">
+</form>
+
+{% if noresult %}
+    <span class="listitem">
+        <b>{{ translate({ ident: "SHOWLIST_NORESULTS" }) }}</b><br><br>
+    </span>
+{% endif %}
+
+<div id="liste">
+
+
+<form name="showlist" id="showlist" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="list_user">
+    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+    <tr>
+    {% block admin_list_user_filter %}
+        <td class="listfilter first">
+            <div class="r1"><div class="b1">
+            <input class="listedit" type="text" size="15" maxlength="128" name="where[oxuser][oxfname]" value="{{ where.oxuser.oxfname }}">
+            </div></div>
+        </td>
+        <td class="listfilter">
+            <div class="r1"><div class="b1">
+            <input class="listedit" type="text" size="15" maxlength="128" name="where[oxuser][oxlname]" value="{{ where.oxuser.oxlname }}">
+            </div></div>
+        </td>
+        <td class="listfilter">
+            <div class="r1"><div class="b1">
+            <input class="listedit" type="text" size="15" maxlength="128" name="where[oxuser][oxusername]" value="{{ where.oxuser.oxusername }}">
+            </div></div>
+        </td>
+        <td class="listfilter">
+            <div class="r1">
+              <div class="b1">
+                <div class="find">
+                  <select name="viewListSize" class="editinput" onChange="JavaScript:top.oxid.admin.changeListSize()">
+                    <option value="50" {% if viewListSize == 50 %}SELECTED{% endif %}>50</option>
+                    <option value="100" {% if viewListSize == 100 %}SELECTED{% endif %}>100</option>
+                    <option value="200" {% if viewListSize == 200 %}SELECTED{% endif %}>200</option>
+                  </select>
+                  <input class="listedit" type="submit" name="submitit" value="{{ translate({ ident: "GENERAL_SEARCH" }) }}">
+                </div>
+                <input class="listedit" type="text" size="15" maxlength="128" name="where[oxuser][oxregister]" value="{{ where.oxuser.oxregister|format_date }}">
+              </div>
+            </div>
+        </td>
+    {% endblock %}
+</tr>
+<tr>
+    {% block admin_list_user_sorting %}
+        <td class="listheader first"><a href="javascript:top.oxid.admin.setSorting( document.forms.showlist, 'oxuser', 'oxfname', 'asc');document.forms.showlist.submit();" class="listheader">{{ translate({ ident: "snpuserlistoxfname" }) }}</a></td>
+        <td class="listheader"><a href="javascript:top.oxid.admin.setSorting( document.forms.showlist, 'oxuser', 'oxlname', 'asc');document.forms.showlist.submit();" class="listheader">{{ translate({ ident: "snpuserlistoxlname" }) }}</a></td>
+        <td class="listheader"><a href="javascript:top.oxid.admin.setSorting( document.forms.showlist, 'oxuser', 'oxusername', 'asc');document.forms.showlist.submit();" class="listheader">{{ translate({ ident: "snpuserlistoxusername" }) }}</a></td>
+        <td class="listheader"><a href="javascript:top.oxid.admin.setSorting( document.forms.showlist, 'oxuser', 'oxregister', 'asc');document.forms.showlist.submit();" class="listheader">{{ translate({ ident: "snpuserlistoxcreate" }) }}</a></td>
+    {% endblock %}
+</tr>
+
+{% set blWhite = "" %}
+{% set _cnt = 0 %}
+{% for oUser in mylist %}
+    {% set _cnt = _cnt+1 %}
+    <tr id="row.{{ _cnt }}">
+        {% block admin_list_user_item %}
+            <td class="listitem{{ blWhite }}"><a href="Javascript:editThis( '{{ oUser.oxuser__oxid.value }}');" class="listitem{{ blWhite }}">{{ oUser.oxuser__oxfname.value }}</a></td>
+            <td class="listitem{{ blWhite }}"><a href="Javascript:editThis( '{{ oUser.oxuser__oxid.value }}');" class="listitem{{ blWhite }}">{{ oUser.oxuser__oxlname.value }}</a></td>
+            <td class="listitem{{ blWhite }}"><a href="Javascript:editThis( '{{ oUser.oxuser__oxid.value }}');" class="listitem{{ blWhite }}">{{ oUser.oxuser__oxusername.value }}</a></td>
+            <td class="listitem{{ blWhite }}"><a href="Javascript:editThis( '{{ oUser.oxuser__oxid.value }}');" class="listitem{{ blWhite }}">{{ oUser.oxuser__oxregister|format_date }}</a></td>
+       {% endblock %}
+    </tr>
+{% if blWhite == "2" %}
+    {% set blWhite = "" %}
+{% else %}
+    {% set blWhite = "2" %}
+{% endif %}
+{% endfor %}
+{% include "pagenavisnippet.html.twig" with {colspan: "8"} %}
+</table>
+</form>
+</div>
+
+<script type="text/javascript">
+if (parent.parent)
+{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+    parent.parent.sMenuItem    = "{{ translate({ ident: "USER_LIST_MENNUITEM" }) }}";
+    parent.parent.sMenuSubItem = "{{ translate({ ident: "snpuserlistheader" }) }}";
+    parent.parent.sWorkArea    = "{{ _act }}";
+    parent.parent.setTitle();
+}
+</script>
+</body>
+</html>

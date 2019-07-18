@@ -1,0 +1,23 @@
+{{ script({ include: "js/libs/jquery.min.js", dynamic: __oxid_include_dynamic }) }}
+{{ script({ include: "js/libs/chosen/chosen.jquery.min.js", dynamic: __oxid_include_dynamic }) }}
+{{ script({ include: "js/widgets/oxshopselect.js", dynamic: __oxid_include_dynamic }) }}
+{{ style({ include: "css/libs/chosen/chosen.min.css" }) }}
+
+{% if oView.isMall() %}
+    <form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+        {% block admin_navigation_shopselect_form %}
+            {{ oViewConf.getHiddenSid()|raw }}
+            <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName() }}">
+            <input type="hidden" name="item" value="navigation.tpl">
+            <input type="hidden" name="fnc" value="chshp">
+            <select id="selectshop" class="folderselect" onChange="selectShop( this.value );">
+            {% for oShop in shoplist %}
+                <option value="{{ oShop.oxshops__oxid.value|default(oViewConf.getActiveShopId()) }}" {% if oViewConf.getActiveShopId() == oShop.oxshops__oxid.value|default(oViewConf.getActiveShopId()) %}selected{% endif %}>{{ oShop.oxshops__oxname.value|default("actshop") }}</option>
+            {% endfor %}
+            </select>
+        {% endblock %}
+    </form>
+{% endif %}
+
+{{ script({ dynamic: __oxid_include_dynamic }) }}
+{{ style() }}

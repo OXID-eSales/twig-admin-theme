@@ -1,0 +1,54 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="newsletter_plain">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="newsletter_plain">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="editval[oxnewsletter__oxid]" value="{{ oxid }}">
+
+<table cellspacing="0" cellpadding="0" border="0" width="98%">
+<tr>
+    <td valign="top" class="edittext">
+        <table cellspacing="0" cellpadding="0" border="0">
+        {% block admin_newsleter_plain_form %}
+            <tr>
+                <td class="edittext" width="100">
+                {{ translate({ ident: "NEWSLETTER_PLAIN_TEXT" }) }}
+                </td>
+                <td class="edittext">
+                <textarea class="editinput" cols="150" rows="15" wrap="VIRTUAL" name="editval[oxnewsletter__oxplaintemplate]" {{ readonly }}>{{ edit.oxnewsletter__oxplaintemplate.value }}</textarea><br>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_NEWSLETTER_PLAIN_TEXT"), 'sHelpText': help_text("HELP_NEWSLETTER_PLAIN_TEXT")} %}
+                </td>
+            </tr>
+        {% endblock %}
+        <tr>
+            <td class="edittext">
+            </td>
+            <td class="edittext"><br>
+            <input type="submit" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'"" {{ readonly }}>
+            </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+</table>
+
+</form>
+
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

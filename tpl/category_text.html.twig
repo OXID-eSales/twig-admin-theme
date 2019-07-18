@@ -1,0 +1,43 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<script type="text/javascript">
+<!--
+function loadLang(obj)
+{
+    var langvar = document.getElementById("catlang");
+    if (langvar != null )
+        langvar.value = obj.value;
+    document.myedit.submit();
+}
+//-->
+</script>
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="category_text">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+    <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post" onSubmit="copyLongDesc( 'oxcategories__oxlongdesc' );" style="padding: 0px;margin: 0px;height:0px;">
+        {{ oViewConf.getHiddenSid()|raw }}
+        <input type="hidden" name="cl" value="category_text">
+        <input type="hidden" name="fnc" value="">
+        <input type="hidden" name="oxid" value="{{ oxid }}">
+        <input type="hidden" name="voxid" value="{{ oxid }}">
+        <input type="hidden" name="editval[oxcategories__oxid]" value="{{ oxid }}">
+        <input type="hidden" name="catlang" value="{{ catlang }}">
+        <input type="hidden" name="editval[oxcategories__oxlongdesc]" value="">
+
+        {% include "include/category_text_editor.html.twig" %}
+    </form>
+
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

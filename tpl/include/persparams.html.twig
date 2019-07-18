@@ -1,0 +1,8 @@
+{% block admin_include_persparams %}
+{% for persParamKey, persParamValue in persParams %}
+    {% if not loop.first %}&nbsp;,&nbsp;{% endif %}
+    <em>
+        {% if persParams|length == 1 %}{{ translate({ ident: "GENERAL_LABEL" }) }}:{% else %}{{ persParamKey }}:{% endif %} {{ persParamValue }}
+    </em>
+{% endfor %}
+{% endblock %}

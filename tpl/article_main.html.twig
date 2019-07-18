@@ -1,0 +1,302 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<script type="text/javascript">
+<!--
+function editThis( sID )
+{
+    var oTransfer = top.basefrm.edit.document.getElementById( "transfer" );
+    oTransfer.oxid.value = sID;
+    oTransfer.cl.value = top.basefrm.list.sDefClass;
+
+    //forcing edit frame to reload after submit
+    top.forceReloadingEditFrame();
+
+    var oSearch = top.basefrm.list.document.getElementById( "search" );
+    oSearch.oxid.value = sID;
+    oSearch.actedit.value = 0;
+    oSearch.submit();
+}
+{% if not oxparentid %}
+window.onload = function ()
+{
+    {% if updatelist == 1 %}
+        top.oxid.admin.updateList('{{ oxid }}');
+    {% endif %}
+    var oField = top.oxid.admin.getLockTarget();
+    oField.onchange = oField.onkeyup = oField.onmouseout = top.oxid.admin.unlockSave;
+}
+{% endif %}
+//-->
+</script>
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="oxidCopy" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="article_main">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+    <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post" onSubmit="return copyLongDesc('oxarticles__oxlongdesc');" style="padding: 0px;margin: 0px;height:0px;">
+      {{ oViewConf.getHiddenSid()|raw }}
+      <input type="hidden" name="cl" value="article_main">
+      <input type="hidden" name="fnc" value="">
+      <input type="hidden" name="oxid" value="{{ oxid }}">
+      <input type="hidden" name="voxid" value="{{ oxid }}">
+      <input type="hidden" name="oxparentid" value="{{ oxparentid }}">
+      <input type="hidden" name="editval[oxarticles__oxid]" value="{{ oxid }}">
+      <input type="hidden" name="editval[oxarticles__oxlongdesc]" value="">
+      <table cellspacing="0" cellpadding="0" border="0" style="width:98%;">
+        <tr>
+          <td valign="top" class="edittext" style="padding-top:10px;padding-left:10px;">
+            <table cellspacing="0" cellpadding="0" border="0">
+              {% block admin_article_main_form %}
+                  {% if errorsavingatricle %}
+                  <tr>
+                    <td colspan="2">
+                      {% if errorsavingatricle == 1 %}
+                      <div class="errorbox">{{ translate({ ident: "ARTICLE_MAIN_ERRORSAVINGARTICLE" }) }}</div>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% endif %}
+                  {% block admin_article_main_extended_errorbox %}{% endblock %}
+                  {% if oxparentid %}
+                  <tr>
+                    <td class="edittext" width="120">
+                        <b>{{ translate({ ident: "ARTICLE_MAIN_VARIANTE" }) }}</b>
+                    </td>
+                    <td class="edittext">
+                      <a href="Javascript:editThis('{{ parentarticle.oxarticles__oxid.value }}');" class="edittext"><b>{{ parentarticle.oxarticles__oxartnum.value }} {{ parentarticle.oxarticles__oxtitle.value }} {% if not parentarticle.oxarticles__oxtitle.value %}{{ parentarticle.oxarticles__oxvarselect.value }}{% endif %}</b></a>
+                    </td>
+                  </tr>
+                  {% endif %}
+
+                    <tr>
+                      <td class="edittext" width="120">
+                        {{ translate({ ident: "ARTICLE_MAIN_ACTIVE" }) }}
+                      </td>
+                      <td class="edittext">
+                        <input type="hidden" name="editval[oxarticles__oxactive]" value="0">
+                        <input class="edittext" type="checkbox" name="editval[oxarticles__oxactive]" value='1' {% if edit.oxarticles__oxactive.value == 1 %}checked{% endif %} {{ readonly }}>
+                        {{ translate({ ident: "ARTICLE_MAIN_HIDDEN" }) }}&nbsp;&nbsp;&nbsp;
+                        <input type="hidden" name="editval[oxarticles__oxhidden]" value="0">
+                        <input class="edittext" type="checkbox" name="editval[oxarticles__oxhidden]" value='1' {% if edit.oxarticles__oxhidden.value == 1 %}checked{% endif %} {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_ACTIVE"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_ACTIVE")} %}
+                      </td>
+                    </tr>
+
+                    {% if blUseTimeCheck %}
+                    <tr>
+                      <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_ACTIVFROMTILL" }) }}&nbsp;
+                      </td>
+                      <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_ACTIVEFROM" }) }}&nbsp;<input type="text" class="editinput" size="27" name="editval[oxarticles__oxactivefrom]" value="{{ edit.oxarticles__oxactivefrom|format_date }}" {% include "help.html.twig" with {helpid: "article_vonbis"} %} {{ readonly }}><br>
+                        {{ translate({ ident: "ARTICLE_MAIN_ACTIVETO" }) }}&nbsp;&nbsp;<input type="text" class="editinput" size="27" name="editval[oxarticles__oxactiveto]" value="{{ edit.oxarticles__oxactiveto|format_date }}" {% include "help.html.twig" with {helpid: "article_vonbis"} %} {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_ACTIVFROMTILL"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_ACTIVFROMTILL")} %}
+                      </td>
+                    </tr>
+                    {% endif %}
+
+                    <tr>
+                      <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_TITLE" }) }}&nbsp;
+                      </td>
+                      <td class="edittext">
+                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxtitle.fldmax_length }}" id="oLockTarget" name="editval[oxarticles__oxtitle]" value="{{ edit.oxarticles__oxtitle.value }}">
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_TITLE"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_TITLE")} %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_ARTNUM" }) }}&nbsp;
+                      </td>
+                      <td class="edittext">
+                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxartnum.fldmax_length }}" name="editval[oxarticles__oxartnum]" value="{{ edit.oxarticles__oxartnum.value }}" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_ARTNUM"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_ARTNUM")} %}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_EAN" }) }}&nbsp;
+                      </td>
+                      <td class="edittext">
+                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxean.fldmax_length }}" name="editval[oxarticles__oxean]" value="{{ edit.oxarticles__oxean.value }}">
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_EAN"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_EAN")} %}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_DISTEAN" }) }}&nbsp;
+                      </td>
+                      <td class="edittext">
+                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxdistean.fldmax_length }}" name="editval[oxarticles__oxdistean]" value="{{ edit.oxarticles__oxdistean.value }}">
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_DISTEAN"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_DISTEAN")} %}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_MPN" }) }}&nbsp;
+                      </td>
+                      <td class="edittext">
+                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxmpn.fldmax_length }}" name="editval[oxarticles__oxmpn]" value="{{ edit.oxarticles__oxmpn.value }}">
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_MPN"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_MPN")} %}
+                      </td>
+                    </tr>
+
+                  <tr>
+                    <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_SHORTDESC" }) }}&nbsp;
+                    </td>
+                    <td class="edittext">
+                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxshortdesc.fldmax_length }}" name="editval[oxarticles__oxshortdesc]" value="{{ edit.oxarticles__oxshortdesc.value }}" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_SHORTDESC"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_SHORTDESC")} %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_SEARCHKEYS" }) }}&nbsp;
+                    </td>
+                    <td class="edittext">
+                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxsearchkeys.fldmax_length }}" name="editval[oxarticles__oxsearchkeys]" value="{{ edit.oxarticles__oxsearchkeys.value }}" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_SEARCHKEYS"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_SEARCHKEYS")} %}
+                    </td>
+                  </tr>
+
+                  {% block admin_article_main_extended %}{% endblock %}
+
+                  <tr>
+                    <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_VENDORID" }) }}
+                    </td>
+                    <td class="edittext">
+                        <select class="editinput" name="editval[oxarticles__oxvendorid]" {{ readonly }}>
+                        <option value="" selected>---</option>
+                        {% for oVendor in oView.getVendorList() %}
+                        <option value="{{ oVendor.oxvendor__oxid.value }}"{% if edit.oxarticles__oxvendorid.value == oVendor.oxvendor__oxid.value %} selected{% endif %}>{{  oVendor.oxvendor__oxtitle.value  }}</option>
+                        {% endfor %}
+                        </select>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_VENDORID"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_VENDORID")} %}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_MANUFACTURERID" }) }}
+                    </td>
+                    <td class="edittext">
+                        <select class="editinput" name="editval[oxarticles__oxmanufacturerid]" {{ readonly }}>
+                        <option value="" selected>---</option>
+                        {% for oManufacturer in oView.getManufacturerList() %}
+                        <option value="{{ oManufacturer.oxmanufacturers__oxid.value }}"{% if edit.oxarticles__oxmanufacturerid.value == oManufacturer.oxmanufacturers__oxid.value %} selected{% endif %}>{{  oManufacturer.oxmanufacturers__oxtitle.value  }}</option>
+                        {% endfor %}
+                        </select>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_MANUFACTURERID"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_MANUFACTURERID")} %}
+                    </td>
+                  </tr>
+
+                  {% if edit.isParentNotBuyable() %}
+                  <tr>
+                    <td colspan="2">
+                      <div class="errorbox">{{ translate({ ident: "ARTICLE_MAIN_PARENTNOTBUYABLE" }) }}</div>
+                    </td>
+                  </tr>
+                  {% endif %}
+                    <tr>
+                      <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_PRICE" }) }} ({{ oActCur.sign }})
+                      </td>
+                      <td class="edittext">
+                        <input type="text" class="editinput" size="8" maxlength="{{ edit.oxarticles__oxprice.fldmax_length }}" name="editval[oxarticles__oxprice]" value="{{ edit.oxarticles__oxprice.value }}" {{ readonly }}>
+                        {% set oPrice = edit.getPrice() %}
+                        &nbsp;<em>( {{ oPrice.getBruttoPrice() }} )</em>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_PRICE"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_PRICE")} %}
+                      </td>
+                    </tr>
+
+                  <tr>
+                    <td class="edittext">
+                    {{ translate({ ident: "ARTICLE_MAIN_ALDPRICE" }) }} ({{ oActCur.sign }})
+                    </td>
+                    <td class="edittext" nowrap>
+                        {{ translate({ ident: "ARTICLE_MAIN_PRICEA" }) }}: <input type="text" class="editinput" size="4" maxlength="{{ edit.oxarticles__oxpricea.fldmax_length }}" name="editval[oxarticles__oxpricea]" value="{{ edit.oxarticles__oxpricea.value }}" {{ readonly }}>
+                        {{ translate({ ident: "ARTICLE_MAIN_PRICEB" }) }}: <input type="text" class="editinput" size="4" maxlength="{{ edit.oxarticles__oxpriceb.fldmax_length }}" name="editval[oxarticles__oxpriceb]" value="{{ edit.oxarticles__oxpriceb.value }}" {{ readonly }}>
+                        {{ translate({ ident: "ARTICLE_MAIN_PRICEC" }) }}: <input type="text" class="editinput" size="4" maxlength="{{ edit.oxarticles__oxpricec.fldmax_length }}" name="editval[oxarticles__oxpricec]" value="{{ edit.oxarticles__oxpricec.value }}" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_ALDPRICE"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_ALDPRICE")} %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="edittext">
+                        {{ translate({ ident: "ARTICLE_MAIN_VAT" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="text" class="editinput" size="10" maxlength="{{ edit.oxarticles__oxvat.fldmax_length }}" name="editval[oxarticles__oxvat]" value="{{ edit.oxarticles__oxvat.value }}" {% include "help.html.twig" with {helpid: "article_vat"} %} {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_VAT"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_VAT")} %}
+                    </td>
+                  </tr>
+
+              {% endblock %}
+
+              <tr>
+                <td class="edittext" colspan="2"><br><br>
+                <input type="submit" class="edittext" id="oLockButton" name="saveArticle" value="{{ translate({ ident: "ARTICLE_MAIN_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'" {% if not edit.oxarticles__oxtitle.value and not oxparentid %}disabled{% endif %} {{ readonly }}>
+                {% if oxid!= - 1 and not readonly %}
+                  <input type="submit" class="edittext" name="save" value="{{ translate({ ident: "ARTICLE_MAIN_ARTCOPY" }) }}" onClick="Javascript:document.myedit.fnc.value='copyArticle';" {{ readonly }}>&nbsp;&nbsp;&nbsp;
+                {% endif %}
+                </td>
+              </tr>
+              {% if oxid == -1 %}
+                <tr>
+                  <td class="edittext">
+                {{ translate({ ident: "ARTICLE_MAIN_INCATEGORY" }) }}:
+                </td>
+                <td class="edittext">
+                <select name="art_category" class="editinput" onChange="Javascript:top.oxid.admin.changeLstrt()" {{ readonly }}>
+                <option value="-1">{{ translate({ ident: "ARTICLE_MAIN_NONE" }) }}</option>
+                {% for pcat in oView.getCategoryList() %}
+                <option value="{{ pcat.oxcategories__oxid.value|raw }}">{{ pcat.oxcategories__oxtitle.getRawValue()|truncate(40, "..", true) }}</option>
+                {% endfor %}
+                </select>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_"), 'sHelpText': help_text("HELP_")} %}
+                </td>
+              </tr>
+              {% endif %}
+              <tr>
+                <td class="edittext" colspan="2"><br>
+                {% include "language_edit.html.twig" %}<br>
+                </td>
+              </tr>
+              {% if oxid!= - 1 and thisvariantlist %}
+              <tr>
+                <td class="edittext">{{ translate({ ident: "ARTICLE_MAIN_GOTO" }) }}</td>
+                <td class="edittext">
+                {% include "variantlist.html.twig" %}
+                </td>
+              </tr>
+              {% endif %}
+            </table>
+          </td>
+    <!-- Anfang rechte Seite -->
+          <td valign="top" class="edittext" align="left" style="width:100%;height:99%;padding-left:5px;padding-bottom:30px;padding-top:10px;">
+            {% block admin_article_main_editor %}
+              {% include "include/editor.html.twig" %}
+            {% endblock %}
+          </td>
+    <!-- Ende rechte Seite -->
+        </tr>
+      </table>
+    </form>
+
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

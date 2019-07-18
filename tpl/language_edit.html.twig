@@ -1,0 +1,32 @@
+{% block admin_language_edit %}
+    {% if oxid != oViewConf.getAjaxLink()|raw %}
+        <table cellspacing="2" cellpadding="2" border="0">
+        <tr>
+        <td align="left" class="saveinnewlangtext">
+            {{ translate({ ident: "GENERAL_LANGUAGE" }) }}
+        </td>
+        <td align="left">
+            <select name="editlanguage" id="test_editlanguage" class="saveinnewlanginput" onChange="Javascript:document.myedit.submit();" {{ custreadonly }}>
+            {% for lang, olang in otherlang %}
+            <option value="{{ lang }}"{% if olang.selected %}SELECTED{% endif %}>{{ olang.sLangDesc }}</option>
+            {% endfor %}
+            </select>
+        </td>
+        </tr>
+        {% if posslang %}
+        <tr>
+        <td align="left">
+            <input type="submit" name="save" value="{{ translate({ ident: "GENERAL_SAVEIN" }) }}" class="saveinnewlangtext" style="width: 100;" onClick="Javascript:document.myedit.fnc.value='saveinnlang'" {{ readonly }} {{ readonly_fields }} {{ custreadonly }}>
+        </td>
+        <td align="left">
+            <select name="new_lang" class="saveinnewlanginput" {{ readonly }} {{ readonly_fields }}>
+            {% for lang, desc in posslang %}
+            <option value="{{ lang }}">{{ desc }}</option>
+            {% endfor %}
+            </select>
+        </td>
+        </tr>
+        {% endif %}
+        </table>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% include "headitem.html.twig" with {box: "none ", meta_refresh_sec: refresh, meta_refresh_url: oViewConf.getSelfLink()|raw|cat("&cl=" ~ sClassDo ~ "&iStart=" ~ iStart ~ "&fnc=run")} %}
+{% set blShowStatus = true %}
+
+<table cellspacing="2" cellpadding="0" width="100%">
+  <colgroup width="50%"></colgroup>
+  <colgroup width="50%"></colgroup>
+{% if not isset(refresh) %}
+    {% if iError == -2 %}
+    <tr>
+        <td class="edittext" colspan="2">
+            {{ translate({ ident: "VOUCHERSERIE_EXPORTDONE" }) }}
+            <b><a href="{{ oView.getDownloadUrl() }}" target="_blank">{{ translate({ ident: "VOUCHERSERIE_EXPORTDOWNLOAD" }) }}</a></b><br>
+        </td>
+    </tr>
+    {% endif %}
+{% else %}
+    {% set blShowStatus = false %}
+    <tr>
+        <td class="edittext" colspan="2">
+            {{ translate({ ident: "VOUCHERSERIE_EXPORTING" }) }}<br>
+            {{ translate({ ident: "VOUCHERSERIE_EXPORTED" }) }} {{ iExpItems|default(0) }}
+        </td>
+    </tr>
+{% endif %}
+
+{% if blShowStatus %}
+    {% set status = oView.getStatus() %}
+    <tr>
+        <td class="edittext">
+            {{ translate({ ident: "GENERAL_SUM" }) }}:
+        </td>
+        <td class="edittext">
+            <b>{{ status.total }}</b>
+        </td>
+    </tr>
+    <tr>
+        <td class="edittext">
+            {{ translate({ ident: "VOUCHERSERIE_MAIN_AVAILABLE" }) }}:
+            </td>
+            <td class="edittext">
+            <b>{{ status.available }}</b>
+        </td>
+    </tr>
+    <tr>
+        <td class="edittext">
+            {{ translate({ ident: "VOUCHERSERIE_MAIN_USED" }) }}:
+            </td>
+            <td class="edittext">
+            <b>{{ status.used }}</b>
+        </td>
+    </tr>
+{% endif %}
+</table>
+
+{% include "bottomitem.html.twig" %}

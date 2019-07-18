@@ -1,0 +1,63 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: "box"} %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="theme_main">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+{% if oTheme %}
+{% block admin_theme_main_form %}
+<table cellspacing="10" width="98%">
+    <tr>
+        <td width="20%" valign="top"><img src="{{ oViewConf.getBaseDir() }}/out/{{ oTheme.getInfo('id') }}/{{ oTheme.getInfo('thumbnail') }}" hspace="20" vspace="10"></td>
+        <td width="50%" valign="top">
+            <h1 style="color:#000;font-size:25px;">{{ oTheme.getInfo('title') }}</h1>
+            <p>{{ oTheme.getInfo('description') }}</p>
+            {% if oTheme.getInfo('parentTheme') %}
+                <strong>{{ translate({ ident: "THEME_PARENT_THEME_TITLE" }) }}: </strong>
+                {% set _oParent = oTheme.getParent() %}
+                {% if _oParent %}
+                    <a class="themetitle" href="{{ oViewConf.getSelfLink()|raw }}&amp;cl=theme_main&amp;oxid={{ oTheme.getInfo('parentTheme') }}&amp;updatelist=1">{{ _oParent.getInfo('title') }}</a>
+                {% else %}
+                    <span class="error">{{ oTheme.getInfo('parentTheme') }}</span>
+                {% endif %}
+                <br>
+                <strong>{{ translate({ ident: "THEME_PARENT_VERSIONS" }) }}: </strong> {{ oTheme.getInfo('parentVersions')|join(', ') }}
+            {% endif %}
+            <hr>
+            <p style="color:#aaa;">
+            <b>{{ translate({ ident: "THEME_AUTHOR" }) }}</b> {{ oTheme.getInfo('author') }}<br><br>
+            {{ translate({ ident: "THEME_VERSION" }) }} {{ oTheme.getInfo('version') }}
+            </p>
+        </td>
+        {% if not oTheme.getInfo('active') %}
+            <td width="1%">
+                <img src="{{ oViewConf.getImageUrl() }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
+            </td>
+            <td width="19%" valign="top">
+                {% set _sError = oTheme.checkForActivationErrors() %}
+                {% if not _sError %}
+                    <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+                        <p>
+                        {{ oViewConf.getHiddenSid()|raw }}
+                        <input type="hidden" name="cl" value="theme_main">
+                        <input type="hidden" name="fnc" value="setTheme">
+                        <input type="hidden" name="updatelist" value="1">
+                        <input type="hidden" name="oxid" value="{{ oTheme.getInfo('id') }}">
+                        <input type="submit" value="{{ translate({ ident: "THEME_ACTIVATE" }) }}">
+                        </p>
+                    </form>
+                {% else %}
+                    <div class="error">{{ translate({ ident: _sError }) }}</div>
+                {% endif %}
+            </td>
+        {% endif %}
+    </tr>
+</table>
+{% endblock %}
+{% endif %}
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}

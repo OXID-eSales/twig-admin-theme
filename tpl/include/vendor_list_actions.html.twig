@@ -1,0 +1,3 @@
+{% if not readonly %}
+    <a href="Javascript:top.oxid.admin.deleteThis('{{ listitem.oxvendor__oxid.value }}');" class="delete" id="del.{{ _cnt }}" title="" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+{% endif %}

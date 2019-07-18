@@ -1,0 +1,49 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: " "} %}
+
+<script type="text/javascript">
+    if(top)
+    {
+        top.sMenuItem    = "{{ translate({ ident: "SYSTEMINFO_MENUITEM" }) }}";
+        top.sMenuSubItem = "{{ translate({ ident: "SYSTEMINFO_MENUSUBITEM" }) }}";
+        top.sWorkArea    = "{{ _act }}";
+        top.setTitle();
+    }
+</script>
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="oxidCopy" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="article_main">
+    <input type="hidden" name="w" value="main">
+</form>
+
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="article_main">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="voxid" value="{{ oxid }}">
+<input type="hidden" name="oxparentid" value="{{ oxparentid }}">
+<input type="hidden" name="editval[oxarticles__oxid]" value="{{ oxid }}">
+
+</form><br /><br />
+<div class="center">
+
+{% if isdemo %}
+    <h1>{{ translate({ ident: "SYSTEMINFO_DEMOMODE" }) }}</h1>
+{% endif %}
+
+<table border="0" cellpadding="3" width="600">
+<tr class="h">
+    <th>{{ translate({ ident: "SYSTEMINFO_VARIABLE" }) }}</th>
+    <th>{{ translate({ ident: "SYSTEMINFO_VALUE" }) }}</th>
+</tr>
+{% for name, value in aSystemInfo %}
+<tr>
+    <td class="e">{{ name }}</td>
+    <td class="v">{{ value|raw }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>

@@ -1,0 +1,185 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, skip_onload: "true"} %}
+
+<script type="text/javascript">
+    if (top)
+    {   top.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+        top.sMenuItem    = "{{ translate({ ident: "GENIMPORT_MENUITEM" }) }}";
+        top.sMenuSubItem = "{{ translate({ ident: "GENIMPORT_MENUSUBITEM" }) }}";
+        top.sWorkArea    = "{{ _act }}";
+        top.setTitle();
+    }
+</script>
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<div id="genimportnav_vline"></div>
+
+<ul class="genimportnav">
+    {% if sNavStep == 2 or sNavStep == 3 %}
+        {% set blLinkToFirstStep = "1" %}
+    {% endif %}
+    <li class="{% if sNavStep == 1 %}active{% endif %}{% if blLinkToFirstStep %} link{% endif %}">{% if blLinkToFirstStep %}<a href="{{ oViewConf.getSelfLink()|raw }}&cl=genimport_main">{% endif %}{{ translate({ ident: "GENIMPORT_STEP" }) }} 1{% if blLinkToFirstStep %}</a>{% endif %}</li>
+    <li class="{% if sNavStep == 2 %}active{% endif %}">{{ translate({ ident: "GENIMPORT_STEP" }) }} 2</li>
+    <li class="{% if sNavStep == 3 %}active{% endif %}">{{ translate({ ident: "GENIMPORT_FINISH" }) }}</li>
+</ul>
+
+<div id="genimportpage">
+    <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+        {{ oViewConf.getHiddenSid()|raw }}
+        <input type="hidden" name="oxid" value="1">
+        <input type="hidden" name="cl" value="">
+    </form>
+
+    {% if sNavStep == 1 %}
+    <h3>{{ translate({ ident: "GENIMPORT_STEP_1_TITLE" }) }}</h3>
+    {% if Errors.genimport %}
+    <div class="errorbox">
+        {% for key, oEr in Errors.genimport %}
+            <p>{{ oEr.getOxMessage() }}</p>
+        {% endfor %}
+    </div>
+    <br>
+    {% endif %}
+
+    {% if iRepeatImport %}
+    <p>{{ translate({ ident: "GENIMPORT_IMPORTDONE" }) }}</p>
+    <p>{{ translate({ ident: "GENIMPORT_TOTALROWS" }) }}: <b>{{ iTotalRows }}</b></p>
+    <p>{{ translate({ ident: "GENIMPORT_REPEATINGIMPORT" }) }}...</p>
+    <br>
+    {% endif %}
+
+
+    <table cellspacing="0" cellpadding="0" border="0">
+        <form name="myedit" id="myedit" method="post" action="{{ oViewConf.getSelfLink()|raw }}" enctype="multipart/form-data">
+        {{ oViewConf.getHiddenSid()|raw }}
+        <input type="hidden" name="cl" value="genimport_main">
+        <input type="hidden" name="fnc" value="">
+        <input type="hidden" name="sNavStep" value="{{ sNavStep }}">
+        <tr>
+            <td class="edittext" width="60" height="40">{{ translate({ ident: "GENIMPORT_TABLE" }) }}:</td>
+            <td class="edittext">
+                <select name="sType" {{ readonly }} style="width: 210px;">
+                {% for sTableTypePrefix, sTableType in aImportTables %}
+                    <option value="{{ sTableTypePrefix }}">{{ sTableType }}</option>
+                {% endfor %}
+                </select>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENIMPORT_TABLE"), 'sHelpText': help_text("HELP_GENIMPORT_TABLE")} %}
+            </td>
+        </tr>
+        <tr>
+            <td class="edittext" height="40">{{ translate({ ident: "GENIMPORT_CSVFILE" }) }}:</td>
+            <td class="edittext">
+            <input type="file" class="edittext" style="width: 210px;" name="csvfile" {{ readonly }}>
+            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENIMPORT_CSVFILE"), 'sHelpText': help_text("HELP_GENIMPORT_CSVFILE")} %}
+            </td>
+        </tr>
+        <tr>
+            <td class="edittext" height="40" nowrap>{{ translate({ ident: "GENIMPORT_FIELDSTERMINATEDBY" }) }}:</td>
+            <td class="edittext">
+            <input type="input" class="edittext" style="width: 20px;" maxlength="1" name="sGiCsvFieldTerminator" value="{{ sGiCsvFieldTerminator }}" {{ readonly }}>
+            </td>
+        </tr>
+        <tr>
+            <td class="edittext" height="40">{{ translate({ ident: "GENIMPORT_FIELDSENCLOSEDBY" }) }}:</td>
+            <td class="edittext">
+            <input type="input" class="edittext" style="width: 20px;" maxlength="1" name="sGiCsvFieldEncloser" value="{{ sGiCsvFieldEncloser|raw }}" {{ readonly }}>
+            </td>
+        </tr>
+        <tr>
+            <td class="edittext" height="40"></td>
+            <td class="edittext">
+                <input type="checkbox" class="edittext" name="blContainsHeader" value="1" {{ readonly }}>{% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENIMPORT_FIRSTCOLHEADER"), 'sHelpText': help_text("HELP_GENIMPORT_FIRSTCOLHEADER")} %} {{ translate({ ident: "GENIMPORT_FIRSTCOLHEADER" }) }}
+            </td>
+        </tr>
+        <tr>
+            <td class="edittext" height="40"></td>
+            <td class="edittext">
+            <input type="submit" class="edittext" style="width: 210px;" name="save" value="{{ translate({ ident: "GENIMPORT_UPLOADFILE" }) }}" {{ readonly }}>
+            </td>
+        </tr>
+        </form>
+    </table>
+    {% endif %}
+
+    {% if sNavStep == 2 %}
+    <h3>{{ translate({ ident: "GENIMPORT_STEP_2_TITLE" }) }}</h3>
+
+    {% if Errors.genimport %}
+    <div class="errorbox">
+        {% for key, oEr in Errors.genimport %}
+            <p>{{ oEr.getOxMessage() }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <p>{{ translate({ ident: "GENIMPORT_ASSIGNFIELDS" }) }} <b>"{{ sImportTable }}"</b></p>
+    <table cellspacing="1" cellpadding="0" border="0" class="genImportFieldsAssign">
+        <form name="myedit" id="myedit" method="post" action="{{ oViewConf.getSelfLink()|raw }}">
+        {{ oViewConf.getHiddenSid()|raw }}
+        <input type="hidden" name="cl" value="genimport_main">
+        <input type="hidden" name="fnc" value="">
+        <input type="hidden" name="sNavStep" value="{{ sNavStep }}">
+        <input type="hidden" name="sType" value="{{ sType }}">
+        <thead>
+            <td class="edittext">{{ translate({ ident: "GENIMPORT_CSVFILE" }) }}</td>
+            <td class="edittext">{{ translate({ ident: "GENIMPORT_DBFIELDS" }) }}</td>
+        </thead>
+        {% for sCsvField in aCsvFieldsList %}
+        <tr>
+            <td class="edittext" width="1%" nowrap>{{ sCsvField }}: &nbsp;</td>
+            <td class="edittext">
+                <select name="aCsvFields[{{ sCsvField }}]" style="width: 210px;">
+                    <option value="">--- {{ translate({ ident: "GENIMPORT_SKIP" }) }} ---</option>
+                {% for sDbField in aDbFieldsList %}
+                    <option value="{{ sDbField }}" {% if sDbField == sCsvField %}selected{% endif %}>{{ sDbField }}</option>
+                {% endfor %}
+                </select>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENIMPORT_DBFIELDS"), 'sHelpText': help_text("HELP_GENIMPORT_DBFIELDS")} %}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td class="edittext"></td>
+            <td class="edittext">
+                <input type="checkbox" class="edittext" name="iRepeatImport" value="1"> {{ translate({ ident: "GENIMPORT_REPEATIMPORT" }) }}
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENIMPORT_REPEATIMPORT"), 'sHelpText': help_text("HELP_GENIMPORT_REPEATIMPORT")} %}
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td class="edittext"></td>
+            <td class="edittext">
+            <input type="submit" class="edittext" style="width: 210px;" name="save" value="{{ translate({ ident: "GENIMPORT_BEGINIMPORT" }) }}" {{ readonly }}>
+            </td>
+        </tr>
+        </form>
+    </table>
+    {% endif %}
+
+    {% if sNavStep == 3 %}
+    <h3>{{ translate({ ident: "GENIMPORT_STEP_3_TITLE" }) }}</h3>
+
+    {% if Errors.genimport %}
+    <div class="errorbox">
+        {% for key, oEr in Errors.genimport %}
+            <p>{{ oEr.getOxMessage() }}</p>
+        {% endfor %}
+    </div>
+    <p>{{ translate({ ident: "GENIMPORT_IMPORTDONEWITHERRORS" }) }}</p>
+    {% else %}
+    <p>{{ translate({ ident: "GENIMPORT_IMPORTDONE" }) }}</p>
+    {% endif %}
+
+    <p>{{ translate({ ident: "GENIMPORT_TOTALROWS" }) }}: <b>{{ iTotalRows }}</b></p>
+    {% endif %}
+
+
+</div>
+
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

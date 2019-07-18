@@ -1,0 +1,136 @@
+</div>
+
+<div class="actions">
+    {% spaceless %}
+        <ul>
+            {% block admin_bottomnaviitem %}
+                {% set allowSharedEdit = true %}
+                {% if not disablenew %}
+                    {# user #}
+                    {% if bottom_buttons.user_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWUSER" }) }}</a> |</li>
+                    {% endif %}
+                    {% if bottom_buttons.user_newremark and oxid != oViewConf.getAjaxLink()|raw %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.newremark" href="#" onClick="Javascript:top.oxid.admin.changeEditBar('user_remark', 3); return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWREMARK" }) }}</a> |</li>
+                    {% endif %}
+                    {% if bottom_buttons.user_newaddress and oxid != oViewConf.getAjaxLink()|raw %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.newaddress" href="#" onClick="Javascript:top.oxid.admin.changeEditBar('user_address', 4); return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWADDRESS" }) }}</a> |</li>
+                    {% endif %}
+                    {# payment #}
+                    {% if bottom_buttons.payment_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWPAYMENT" }) }}</a> |</li>
+                    {% endif %}
+                    {# newsletter #}
+                    {% if bottom_buttons.newsletter_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWNEWSLETTER" }) }}</a> |</li>
+                    {% endif %}
+                    {# shop #}
+                    {% if bottom_buttons.shop_new and oView.isMall() and malladmin == 1 %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWSHOP" }) }}</a> |</li>
+                    {% endif %}
+                    {# usergroups #}
+                    {% if bottom_buttons.usergroup_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWUSERGROUP" }) }}</a> |</li>
+                    {% endif %}
+                    {# category #}
+                    {% if bottom_buttons.category_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWCATEGORY" }) }}</a> |</li>
+                    {% endif %}
+                    {% if bottom_buttons.category_refresh %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.refresh" href="#" onClick="Javascript:var agree=confirm('{{ translate({ ident: "BOTTOMNAVIITEM_ATTENTION" }) }}');if (agree){top.oxid.admin.editThis( -1 );popupWin=window.open('{{ oViewConf.getSelfLink()|replace({"&amp;": "&"}) }}&cl=category_update', 'remote', 'scrollbars=yes,width=500,height=400')}" target="edit">{{ translate({ ident: "TOOLTIPS_NEWCATTREE" }) }}</a> |</li>
+                    {% endif %}
+                    {% if bottom_buttons.category_resetnrofarticles %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.resetnrofarticles" href="#" onClick="Javascript:document.myedit.fnc.value='resetNrOfCatArticles';document.myedit.submit();" target="edit">{{ translate({ ident: "TOOLTIPS_RESETNROFARTICLESINCAT" }) }}</a> |</li>
+                    {% endif %}
+                    {# article #}
+                    {% if bottom_buttons.article_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWARTICLE" }) }}</a> |</li>
+                    {% endif %}
+                    {% if bottom_buttons.article_preview and oxid != -1 %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.preview" href="{% if edit %}{{ edit.getStdLink() }}{% else %}{{ oViewConf.getBaseDir() }}?cl=details&anid={{ oxid }}{% endif %}&amp;preview={{ oView.getPreviewId() }}" target="new">{{ translate({ ident: "TOOLTIPS_ARTICLEREVIEW" }) }}</a> |</li>
+                    {% endif %}
+                    {# attribute #}
+                    {% if bottom_buttons.attribute_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWITEMS" }) }}</a> |</li>
+                    {% endif %}
+                    {# selectlist #}
+                    {% if bottom_buttons.selectlist_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWSELECTLIST" }) }}</a> |</li>
+                    {% endif %}
+                    {# discount #}
+                    {% if bottom_buttons.discount_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWDISCOUNT" }) }}</a> |</li>
+                    {% endif %}
+                    {# delivery #}
+                    {% if bottom_buttons.delivery_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWDELIVERY" }) }}</a> |</li>
+                    {% endif %}
+                    {# deliveryset #}
+                    {% if bottom_buttons.deliveryset_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWDELIVERYSET" }) }}</a> |</li>
+                    {% endif %}
+                    {# vat #}
+                    {% if bottom_buttons.vat_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWMWST" }) }}</a> |</li>
+                    {% endif %}
+                    {# news #}
+                    {% if bottom_buttons.news_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWNEWS" }) }}</a> |</li>
+                    {% endif %}
+                    {# links #}
+                    {% if bottom_buttons.links_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWLINK" }) }}</a> |</li>
+                    {% endif %}
+                    {# voucher #}
+                    {% if bottom_buttons.voucher_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWVOUCHER" }) }}</a> |</li>
+                    {% endif %}
+                    {# order #}
+                    {% if bottom_buttons.order_newremark and oxid!= - 1 %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.newremark" href="#" onClick="Javascript:top.oxid.admin.changeEditBar('order_remark', 4);return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWREMARK" }) }}</a> |</li>
+                    {% endif %}
+                    {# imex #}
+                    {# country #}
+                    {% if bottom_buttons.country_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWCOUNTRY" }) }}</a> |</li>
+                    {% endif %}
+                    {# language #}
+                    {% if bottom_buttons.language_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWLANGUAGE" }) }}</a> |</li>
+                    {% endif %}
+                    {# vendor #}
+                    {% if bottom_buttons.vendor_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWVENDOR" }) }}</a> |</li>
+                    {% endif %}
+                    {% if bottom_buttons.vendor_resetnrofarticles %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.resetnrofarticles" href="#" onClick="Javascript:document.myedit.fnc.value='resetNrOfVendorArticles';document.myedit.submit();" target="edit">{{ translate({ ident: "TOOLTIPS_RESETNROFARTICLESINVND" }) }}</a> |</li>
+                    {% endif %}
+                    {# manufacturer #}
+                    {% if bottom_buttons.manufacturer_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWMANUFACTURER" }) }}</a> |</li>
+                    {% endif %}
+                    {% if bottom_buttons.manufacturer_resetnrofarticles %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.resetnrofarticles" href="#" onClick="Javascript:document.myedit.fnc.value='resetNrOfManufacturerArticles';document.myedit.submit();" target="edit">{{ translate({ ident: "TOOLTIPS_RESETNROFARTICLESINMAN" }) }}</a> |</li>
+                    {% endif %}
+                    {# wrapping #}
+                    {% if bottom_buttons.wrapping_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWWRAPPING" }) }}</a> |</li>
+                    {% endif %}
+                    {# content #}
+                    {% if bottom_buttons.content_new %}
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWCONTENT" }) }}</a> |</li>
+                    {% endif %}
+                {% endif %}
+
+                {% block admin_bottomnavicustom %}
+                    {% include "bottomnavicustom.html.twig" %}
+                {% endblock %}
+
+                {% if sHelpURL %}
+                    {# HELP #}
+                    <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.help" href="{{ sHelpURL }}/{{ oViewConf.getActiveClassName()|lower }}.html" OnClick="window.open('{{ sHelpURL }}/{{ oViewConf.getActiveClassName()|lower }}.html','OXID_Help','width=800,height=600,resizable=no,scrollbars=yes');return false;">{{ translate({ ident: "TOOLTIPS_OPENHELP" }) }}</a></li>
+                {% endif %}
+            {% endblock %}
+        </ul>
+    {% endspaceless %}
+</div>

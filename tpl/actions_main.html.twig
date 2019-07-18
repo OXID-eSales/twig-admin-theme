@@ -1,0 +1,289 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% endif %}
+
+{% if oViewConfig.getEdition == 'EE' and not allowSharedEdit %}
+    {% set disableSharedEdit = "readonly disabled" %}
+{% endif %}
+
+<script type="text/javascript">
+<!--
+
+function DeletePic(sField)
+{
+    var oForm = document.getElementById("myedit");
+    document.getElementById(sField).value="";
+    oForm.fnc.value='save';
+    oForm.submit();
+}
+
+//-->
+</script>
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="actions_main">
+</form>
+
+
+<form name="myedit" enctype="multipart/form-data" id="myedit" onSubmit="copyLongDesc('oxactions__oxlongdesc');" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="actions_main">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="editval[oxactions__oxid]" value="{{ oxid }}">
+<input type="hidden" name="sorting" value="">
+<input type="hidden" name="stable" value="">
+<input type="hidden" name="starget" value="">
+<input type="hidden" name="editval[oxactions__oxlongdesc]" value="">
+
+{% if edit.oxactions__oxtype.value == 3 and oViewConf.isAltImageServerConfigured() %}
+     <div class="warning">{{ translate({ ident: "ALTERNATIVE_IMAGE_SERVER_NOTE" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE"), 'sHelpText': help_text("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE")} %}</div>
+{% endif %}
+<table cellspacing="0" cellpadding="0" border="0" width="98%">
+
+<tr>
+    <td valign="top" class="edittext" style="padding-right: 20px;">
+        <table cellspacing="0" cellpadding="0" border="0">
+        {% block admin_actions_main_form %}
+            <tr>
+                <td class="edittext" width="120">
+                {{ translate({ ident: "GENERAL_NAME" }) }}
+                </td>
+                <td class="edittext">
+                <input
+                    type="text"
+                    class="editinput"
+                    size="32"
+                    maxlength="{{ edit.oxactions__oxtitle.fldmax_length }}"
+                    name="editval[oxactions__oxtitle]"
+                    value="{{ edit.oxactions__oxtitle.value }}"
+                    {{ readonly }}
+                >
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_NAME"), 'sHelpText': help_text("HELP_GENERAL_NAME")} %}
+                </td>
+            </tr>
+
+            <tr>
+              <td class="edittext" width="120">
+                {% if edit.oxactions__oxtype.value != 2 %}
+                  {{ translate({ ident: "GENERAL_ALWAYS_ACTIVE" }) }}
+                {% else %}
+                  {{ translate({ ident: "GENERAL_ACTIVE" }) }}
+                {% endif %}
+              </td>
+              <td class="edittext">
+                <input class="edittext" type="checkbox" name="editval[oxactions__oxactive]" value='1' {% if edit.oxactions__oxactive.value == 1 %}checked{% endif %} {{ readonly }}>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ACTIVE"), 'sHelpText': help_text("HELP_GENERAL_ACTIVE")} %}
+              </td>
+            </tr>
+            <tr>
+              <td class="edittext">
+                  {% if edit.oxactions__oxtype.value != 2 %}{{ translate({ ident: "GENERAL_ACTIVFROMTILL" }) }}{% endif %}&nbsp;
+              </td>
+              <td class="edittext" align="right">
+               {{ translate({ ident: "GENERAL_FROM" }) }} <input type="text" class="editinput" size="27" name="editval[oxactions__oxactivefrom]" value="{{ edit.oxactions__oxactivefrom|format_date }}" {% include "help.html.twig" with {helpid: "article_vonbis"} %} {{ readonly }}><br>
+               {{ translate({ ident: "GENERAL_TILL" }) }} <input type="text" class="editinput" size="27" name="editval[oxactions__oxactiveto]" value="{{ edit.oxactions__oxactiveto|format_date }}" {% include "help.html.twig" with {helpid: "article_vonbis"} %} {{ readonly }}>
+              {% if edit.oxactions__oxtype.value != 2 %}{% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ACTIVFROMTILL"), 'sHelpText': help_text("HELP_GENERAL_ACTIVFROMTILL")} %}{% endif %}
+              </td>
+            </tr>
+            {% if oxid == "-1" %}
+            <tr>
+                <td class="edittext">
+              {{ translate({ ident: "GENERAL_TYPE" }) }}&nbsp;
+                </td>
+              <td class="edittext">
+                <select class="editinput" name="editval[oxactions__oxtype]">
+                  <option value="1">{{ translate({ ident: "PROMOTIONS_MAIN_TYPE_ACTION" }) }}</option>
+                  <option value="2">{{ translate({ ident: "PROMOTIONS_MAIN_TYPE_PROMO" }) }}</option>
+                  <option value="3">{{ translate({ ident: "PROMOTIONS_MAIN_TYPE_BANNER" }) }}</option>
+                </select>
+              </td>
+            </tr>
+            {% endif %}
+        {% endblock %}
+        <tr>
+            <td class="edittext">
+            </td>
+            <td class="edittext"><br>
+                {% include "language_edit.html.twig" %}
+            </td>
+        </tr>
+        {% if edit.oxactions__oxtype.value == 3 %}
+            <td class="edittext" width="120">
+            {{ translate({ ident: "GENERAL_SORT" }) }}
+            </td>
+            <td class="edittext">
+            <input type="text" class="editinput" size="32" maxlength="{{ edit.oxactions__oxsort.fldmax_length }}" name="editval[oxactions__oxsort]" value="{{ edit.oxactions__oxsort.value }}" {{ readonly }}>
+            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_SORT"), 'sHelpText': help_text("HELP_GENERAL_SORT")} %}
+            </td>
+        {% endif %}
+        <tr>
+            <td class="edittext">
+            </td>
+            <td class="edittext"><br>
+            <input
+                type="submit"
+                class="edittext"
+                name="save"
+                value="{{ translate({ ident: "GENERAL_SAVE" }) }}"
+                onClick="Javascript:document.myedit.fnc.value='save'"
+                {{ readonly }}
+            >
+            <br><br>
+
+            {% if oxid != oViewConf.getAjaxLink()|raw %}
+
+                {% if edit.oxactions__oxtype.value < 2 %}
+                   <input type="button" value="{{ translate({ ident: "GENERAL_ASSIGNARTICLES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=actions_main&aoc=1&oxid={{ oxid }}');" {{ readonly }}>
+                {% else %}
+                    <input type="button" value="{{ translate({ ident: "GENERAL_ASSIGNGROUPS" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=actions_main&oxpromotionaoc=groups&oxid={{ oxid }}');" {{ readonly }}>
+                {% endif %}
+
+            {% endif %}
+
+            </td>
+        </tr>
+        </table>
+    </td>
+    {% if edit.oxactions__oxtype.value > 1 %}
+
+        {% if edit.oxactions__oxtype.value == 3 %}
+            <td width="180" valign="top" style="padding: 0 25px 0 25px; border-left: 1px solid #ddd;">
+            {% if (not (edit.oxactions__oxpic.value=="nopic.jpg" or edit.oxactions__oxpic.value=="")) %}
+                <div style="padding-bottm: 10px;">
+                    <a href="{{ edit.getBannerPictureUrl() }}" target="_blank">
+                        <img src="{{ edit.getBannerPictureUrl() }}" width="120px;" border="0">
+                    </a>
+                    <div style="width: 120px; color: #666; padding-top: 5px; border-top: 1px solid #ccc; text-align: center;">
+                        Banner picture
+                    </div>
+                </div>
+            {% endif %}
+            </td>
+        {% endif %}
+
+        <td valign="top" class="edittext" align="left" style="width:100%;padding-left:5px;padding-bottom:10px;">
+            <table cellspacing="0" cellpadding="0" border="0">
+                {% if edit.oxactions__oxtype.value == 2 %}
+                    {% block admin_actions_main_editor %}
+                        <!-- Promotions editor -->
+                        <tr>
+                            <td class="edittext" width="100%" colspan="2">
+                                {{ editor|raw }}
+                            </td>
+                        </tr>
+                    {% endblock %}
+                {% endif %}
+
+                {% if edit.oxactions__oxtype.value == 3 %}
+                <!-- Banners picture upload and link -->
+                <tr>
+                    <td class="edittext">
+                        <table cellspacing="0" cellpadding="0" width="100%" border="0" class="listTable">
+                          {% block admin_actions_main_product %}
+                              <colgroup>
+                                  <col width="1%" nowrap>
+                                  <col width="1%" nowrap>
+                                  <col width="98%">
+                              </colgroup>
+                              <tr>
+                                  <th colspan="5" valign="top">
+                                     {{ translate({ ident: "PROMOTIONS_BANNER_PICTUREANDLINK" }) }}
+                                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_PROMOTIONS_BANNER_PICTUREANDLINK"), 'sHelpText': help_text("HELP_PROMOTIONS_BANNER_PICTUREANDLINK")} %}
+                                  </th>
+                              </tr>
+
+                              <tr>
+                                <td class="text">
+                                    <b>{{ translate({ ident: "PROMOTIONS_BANNER_PICTUREUPLOAD" }) }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }}):</b>
+                                </td>
+                                <td class="edittext">
+                                    <input class="editinput" name="myfile[PROMO@oxactions__oxpic]" type="file" size="26"{{ readonly_fields }}>
+                                    <input id="oxpic" type="hidden" maxlength="{{ edit.oxactions__oxpic.fldmax_length }}" name="editval[oxactions__oxpic]" value="{{ edit.oxactions__oxpic.value }}" readonly>
+                                </td>
+                                <td nowrap="nowrap">
+                                    {% if (not (edit.oxactions__oxpic.value=="nopic.jpg" or edit.oxactions__oxpic.value=="")) and not readonly %}
+                                        <div style="display: inline-block;">
+                                            <a href="Javascript:DeletePic('oxpic');" class="deleteText"><span class="ico"></span><span style="float: left;>">{{ translate({ ident: "GENERAL_DELETE" }) }}</span></a>
+                                        </div>
+                                    {% endif %}
+                                </td>
+                              </tr>
+
+                              {% set _oArticle = edit.getBannerArticle() %}
+
+                              <tr>
+                                <td class="text">
+                                    <b>{{ translate({ ident: "PROMOTIONS_BANNER_LINK" }) }}:</b>
+                                </td>
+                                <td class="text">
+                                    <input type="text" class="editinput" size="43" name="editval[oxactions__oxlink]" value="{{ edit.oxactions__oxlink.value }}" {{ readonly }}>
+                                </td>
+                                <td nowrap="nowrap">
+                                    {% if edit.oxactions__oxlink.value %}
+                                        <div style="display: inline-block;">
+                                            <a href="{{ edit.getBannerLink() }}" class="zoomText" target="_blank"><span class="ico"></span><span style="float: left;>">{{ translate({ ident: "ARTICLE_PICTURES_PREVIEW" }) }}</span></a>
+                                        </div>
+                                    {% endif %}
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td class="text">
+                                    <b>{{ translate({ ident: "PROMOTIONS_BANNER_ASSIGNEDARTICLE" }) }}:</b>
+                                </td>
+                                <td class="text" colspan="2">
+                                    <b>
+                                        <span id="assignedArticleTitle">
+                                        {% if _oArticle %}
+                                            {{ _oArticle.oxarticles__oxartnum.value }} {{ _oArticle.oxarticles__oxtitle.value }}
+                                        {% else %}
+                                            ---
+                                        {% endif %}
+                                        </span>
+                                    </b>
+                                </td>
+                              </tr>
+                          {% endblock %}
+                        </table>
+
+                        <input type="button" value="{{ translate({ ident: "GENERAL_ASSIGNARTICLE" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=actions_main&oxpromotionaoc=article&oxid={{ oxid }}');" {{ readonly }}>
+
+                    </td>
+                </tr>
+                {% endif %}
+            </table>
+        </td>
+        <!-- Ende rechte Seite -->
+    {% endif %}
+
+    </tr>
+</table>
+
+</form>
+
+</div>
+
+<!-- START new promotion button -->
+<div class="actions">
+{% spaceless %}
+
+  <ul>
+    <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWPROMOTION" }) }}</a> |</li>
+    {% include "bottomnavicustom.html.twig" %}
+
+    {% if sHelpURL %}
+    {# HELP #}
+    <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.help" href="{{ sHelpURL }}/{{ oViewConf.getActiveClassName()|lower }}.html" OnClick="window.open('{{ sHelpURL }}/{{ oViewConf.getActiveClassName()|lower }}.html','OXID_Help','width=800,height=600,resizable=no,scrollbars=yes');return false;">{{ translate({ ident: "TOOLTIPS_OPENHELP" }) }}</a></li>
+    {% endif %}
+  </ul>
+{% endspaceless %}
+</div>
+
+<!-- END new promotion button -->
+
+{% include "bottomitem.html.twig" %}

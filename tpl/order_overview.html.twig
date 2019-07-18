@@ -1,0 +1,272 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="order_overview">
+</form>
+
+    <table cellspacing="0" cellpadding="0" border="0" width="98%">
+    <tr>
+        <td valign="top" class="edittext" width="50%">
+        {% if edit %}
+            <table width="200" border="0" cellspacing="0" cellpadding="0" nowrap>
+            <tr><td class="edittext" valign="top">
+            {% block admin_order_overview_billingaddress %}
+                <b>{{ translate({ ident: "GENERAL_BILLADDRESS" }) }}</b><br>
+                <br>
+                {% if edit.oxorder__oxbillcompany.value %}{{ translate({ ident: "GENERAL_COMPANY" }) }} {{ edit.oxorder__oxbillcompany.value }}<br>{% endif %}
+                {% if edit.oxorder__oxbilladdinfo.value %}{{ edit.oxorder__oxbilladdinfo.value }}<br>{% endif %}
+                <a class="jumplink" href="{{ oViewConf.getSelfLink()|raw }}cl=admin_user&oxid={{ edit.oxorder__oxuserid.value }}" target="basefrm" onclick="_homeExpActByName('admin_user');">{{ edit.oxorder__oxbillsal.value|translate_salutation }} {{ edit.oxorder__oxbillfname.value }} {{ edit.oxorder__oxbilllname.value }}</a><br>
+                {{ edit.oxorder__oxbillstreet.value }} {{ edit.oxorder__oxbillstreetnr.value }}<br>
+                {{ edit.oxorder__oxbillstateid.value }}
+                {{ edit.oxorder__oxbillzip.value }} {{ edit.oxorder__oxbillcity.value }}<br>
+                {{ edit.oxorder__oxbillcountry.value }}<br>
+                {% if edit.oxorder__oxbillcompany.value and edit.oxorder__oxbillustid.value %}
+                    <br>
+                    {{ translate({ ident: "ORDER_OVERVIEW_VATID" }) }}:
+                    {{ edit.oxorder__oxbillustid.value }}<br>
+                    {% include "include/message_vat_check_failed.html.twig" %}
+                {% endif %}
+                <br>
+                {{ translate({ ident: "GENERAL_EMAIL" }) }}: <a href="mailto:{{ edit.oxorder__oxbillemail.value }}?subject={{ actshop }} - {{ translate({ ident: "GENERAL_ORDERNUM" }) }} {{ edit.oxorder__oxordernr.value }}" class="edittext"><em>{{ edit.oxorder__oxbillemail.value }}</em></a><br>
+                <br>
+            {% endblock %}
+            </td>
+            {% if edit.oxorder__oxdelstreet.value %}
+            <td class="edittext" valign="top">
+                {% block admin_order_overview_deliveryaddress %}
+                    <b>{{ translate({ ident: "GENERAL_DELIVERYADDRESS" }) }}:</b><br>
+                    <br>
+                    {% if edit.oxorder__oxdelcompany.value %}{{ translate({ ident: "GENERAL_COMPANY" }) }} {{ edit.oxorder__oxdelcompany.value }}<br>{% endif %}
+                    {% if edit.oxorder__oxdeladdinfo.value %}{{ edit.oxorder__oxdeladdinfo.value }}<br>{% endif %}
+                    {{ edit.oxorder__oxdelsal.value|translate_salutation }} {{ edit.oxorder__oxdelfname.value }} {{ edit.oxorder__oxdellname.value }}<br>
+                    {{ edit.oxorder__oxdelstreet.value }} {{ edit.oxorder__oxdelstreetnr.value }}<br>
+                    {{ edit.oxorder__oxdelstateid.value }}
+                    {{ edit.oxorder__oxdelzip.value }} {{ edit.oxorder__oxdelcity.value }}<br>
+                    {{ edit.oxorder__oxdelcountry.value }}<br>
+                    <br>
+                {% endblock %}
+            </td>
+            {% endif %}
+            </tr></table>
+            <b>{{ translate({ ident: "GENERAL_ITEM" }) }}:</b><br>
+            <br>
+            <table cellspacing="0" cellpadding="0" border="0">
+            {% block admin_order_overview_items %}
+                {% for listitem in orderArticles %}
+                <tr>
+                    <td valign="top" class="edittext">{{ listitem.oxorderarticles__oxamount.value }} * </td>
+                    <td valign="top" class="edittext">&nbsp;{{ listitem.oxorderarticles__oxartnum.value }}</td>
+                    <td valign="top" class="edittext">&nbsp;{{ listitem.oxorderarticles__oxtitle.getRawValue()|truncate(20, "")|striptags }}{% if listitem.oxwrapping__oxname.value %}&nbsp;({{ listitem.oxwrapping__oxname.value }})&nbsp;{% endif %}</td>
+                    <td valign="top" class="edittext">&nbsp;{{ listitem.oxorderarticles__oxselvariant.value }}</td>
+                    {% if edit.isNettoMode() %}
+                        <td valign="top" class="edittext">&nbsp;&nbsp;{{ listitem.getNetPriceFormated() }} {{ edit.oxorder__oxcurrency.value }}</td>
+                    {% else %}
+                        <td valign="top" class="edittext">&nbsp;&nbsp;{{ listitem.getTotalBrutPriceFormated() }} {{ edit.oxorder__oxcurrency.value }}</td>
+                    {% endif %}
+                    {% if listitem.getPersParams() %}
+                    <td valign="top" class="edittext">
+                        {% block admin_order_overview_persparams %}
+                            {% include "include/persparams.html.twig" with {persParams: listitem.getPersParams()} %}
+                        {% endblock %}
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            {% endblock %}
+            </table>
+            <br>
+            {% if edit.oxorder__oxstorno.value %}
+            <span class="orderstorno">{{ translate({ ident: "ORDER_OVERVIEW_STORNO" }) }}</span><br><br>
+            {% endif %}
+            <b>{{ translate({ ident: "GENERAL_ATALL" }) }}: </b><br><br>
+            {% block admin_order_overview_total %}
+                {% include "include/order_info.html.twig" %}
+            {% endblock %}
+
+            <br>
+            <table>
+            {% block admin_order_overview_checkout %}
+                <tr>
+                    <td class="edittext">{{ translate({ ident: "ORDER_OVERVIEW_PAYMENTTYPE" }) }}: </td>
+                    <td class="edittext"><b>{{ paymentType.oxpayments__oxdesc.value }}</b></td>
+                </tr>
+                <tr>
+                    <td class="edittext">{{ translate({ ident: "ORDER_OVERVIEW_DELTYPE" }) }}: </td>
+                    <td class="edittext"><b>{{ deliveryType.oxdeliveryset__oxtitle.value|raw }}</b><br></td>
+                </tr>
+            {% endblock %}
+            </table>
+
+            <br>
+            {% if paymentType.__get('aDynValues') %}
+                <table cellspacing="0" cellpadding="0" border="0">
+                {% block admin_order_overview_dynamic %}
+                    {% for value in paymentType.__get('aDynValues') %}
+                    {% set ident = 'ORDER_OVERVIEW_'|cat(value.name) %}
+                    {% set ident = ident|upper %}
+                    <tr>
+                        <td class="edittext">
+                        {{ translate({ ident: ident }) }}:&nbsp;
+                        </td>
+                        <td class="edittext">
+                           {{ value.value }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% endblock %}
+                </table><br>
+            {% endif %}
+            {% if edit.oxorder__oxremark.value %}
+            <b>{{ translate({ ident: "GENERAL_REMARK" }) }}</b>
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <td class="edittext wrap">{{ edit.oxorder__oxremark.value }}</td>
+                </tr>
+            </table>
+            {% endif %}
+        {% endif %}
+        </td>
+        <td>&nbsp;&nbsp;
+        </td>
+        <td valign="top" class="edittext">
+            {% if edit %}
+            {% block admin_order_overview_order_number %}
+                <b>{{ translate({ ident: "GENERAL_ORDERNUM" }) }}: </b>{{ edit.oxorder__oxordernr.value }}<br>
+            {% endblock %}
+            {% block admin_order_overview_customer_number %}
+                {% set user = edit.getOrderUser() %}
+                <b>{{ translate({ ident: "CUSTOMERNUM" }) }}: </b><a class="jumplink" href="{{ oViewConf.getSelfLink()|raw }}cl=admin_user&oxid={{ edit.oxorder__oxuserid.value }}" target="basefrm" onclick="_homeExpActByName('admin_user');">{{ user.oxuser__oxcustnr.value }}</a><br>
+            {% endblock %}
+            <br>
+                <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+                {{ oViewConf.getHiddenSid()|raw }}
+                <input type="hidden" name="cl" value="order_overview">
+                <input type="hidden" name="fnc" value="changefolder">
+                <input type="hidden" name="oxid" value="{{ oxid }}">
+                <input type="hidden" name="folderclass" value="oxorder">
+                {% block admin_order_overview_folder_form %}
+                    {{ translate({ ident: "ORDER_OVERVIEW_INFOLDER" }) }}:&nbsp;
+                    <select name="setfolder" class="folderselect" onChange="document.myedit.submit();" {{ readonly }}>
+                    {% for field, color in afolder %}
+                    <option value="{{ field }}" {% if edit.oxorder__oxfolder.value == field or (field|translate == edit.oxorder__oxfolder.value) %}SELECTED{% endif %} style="color: {{ color }};">{{ translate({ ident: field, noerror: true }) }}</option>
+                    {% endfor %}
+                    </select>
+                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ORDER_OVERVIEW_INFOLDER"), 'sHelpText': help_text("HELP_ORDER_OVERVIEW_INFOLDER")} %}
+                    &nbsp;&nbsp;
+                {% endblock %}
+                </form>
+            {% endif %}
+            {% if edit and edit.oxorder__oxtransstatus.value %}
+                {% block admin_order_overview_status %}
+                    {{ translate({ ident: "ORDER_OVERVIEW_INTSTATUS" }) }}:&nbsp;<b>{{ edit.oxorder__oxtransstatus.value }}</b><br>
+                {% endblock %}
+            {% endif %}
+            <br>
+            <b>{{ translate({ ident: "GENERAL_REVIEW" }) }}: </b>
+            <br>
+            <table cellspacing="0" cellpadding="0" border="0">
+            {% block admin_order_overview_general %}
+                <tr>
+                    <td class="edittext" height="20">
+                    {{ translate({ ident: "ORDER_OVERVIEW_ORDERAMTODAY" }) }}:
+                    </td>
+                    <td class="edittext">
+                    &nbsp;<b>{{ ordercnt }}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" height="20">
+                    {{ translate({ ident: "ORDER_OVERVIEW_ORDERSUMTODAY" }) }}:
+                    </td>
+                    <td class="edittext">
+                    &nbsp;<b>{{ ordersum }}</b> {{ currency.name }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" height="20">
+                    {{ translate({ ident: "ORDER_OVERVIEW_ORDERAMTOTAL" }) }}:
+                    </td>
+                    <td class="edittext">
+                    &nbsp;<b>{{ ordertotalcnt }}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" height="20">
+                    {{ translate({ ident: "ORDER_OVERVIEW_ORDERSUMTOTAL" }) }}:
+                    </td>
+                    <td class="edittext">
+                    &nbsp;<b>{{ ordertotalsum }}</b> {{ currency.name }}
+                    </td>
+                </tr>
+            {% endblock %}
+            </table>
+        <br>
+        {% if edit %}
+        <table cellspacing="0" cellpadding="0" border="0">
+        <form name="sendorder" id="sendorder" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+        {{ oViewConf.getHiddenSid()|raw }}
+        <input type="hidden" name="cl" value="order_overview">
+        <input type="hidden" name="fnc" value="sendorder">
+        <input type="hidden" name="oxid" value="{{ oxid }}">
+        <input type="hidden" name="editval[oxorder__oxid]" value="{{ oxid }}">
+        {% block admin_order_overview_send_form %}
+            <tr>
+                <td class="edittext">
+                </td>
+                <td class="edittext" style="border : 1px #A9A9A9; border-style : solid solid solid solid; padding-top: 5px; padding-bottom: 5px; padding-right: 5px; padding-left: 5px;">
+                    <input type="submit" class="edittext" name="save" value="&nbsp;&nbsp;{{ translate({ ident: "GENERAL_NOWSEND" }) }}&nbsp;&nbsp;" {{ readonly }}><br>
+                    {{ translate({ ident: "GENERAL_SENDEMAIL" }) }} <input class="edittext" type="checkbox" name="sendmail" value='1' {{ readonly }}>
+                </td>
+            </tr>
+            </form>
+            <tr>
+                <td class="edittext">
+                </td>
+                <td class="edittext" valign="bottom"><br>
+                {% if oView.canResetShippingDate() %}
+                    <b>{{ translate({ ident: "GENERAL_SENDON" }) }}</b><b>{{ edit.oxorder__oxsenddate|format_date('datetime', true) }}</b>
+                {% else %}
+                    <b>{{ translate({ ident: "GENERAL_NOSENT" }) }}</b>
+                {% endif %}
+                </td>
+            </tr>
+        {% endblock %}
+        {% if oView.canResetShippingDate() %}
+        <form name="resetorder" id="resetorder" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+        {{ oViewConf.getHiddenSid()|raw }}
+        <input type="hidden" name="cl" value="order_overview">
+        <input type="hidden" name="fnc" value="resetorder">
+        <input type="hidden" name="oxid" value="{{ oxid }}">
+        <input type="hidden" name="editval[oxorder__oxid]" value="{{ oxid }}">
+        {% block admin_order_overview_reset_form %}
+            <tr>
+                <td class="edittext">
+                </td>
+                <td class="edittext"><br>
+                    <input type="submit" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_SETBACKSENDTIME" }) }}" {{ readonly }}>
+                </td>
+            </tr>
+        {% endblock %}
+        </form>
+        {% endif %}
+        </table>
+        {% endif %}
+        </td>
+
+        <td valign="top" class="edittext" align="right">
+            {% block admin_order_overview_export %}
+            {% endblock %}
+        </td>
+    </tr>
+    </table>
+{% include "bottomnaviitem.html.twig" %}
+</table>
+{% include "bottomitem.html.twig" %}

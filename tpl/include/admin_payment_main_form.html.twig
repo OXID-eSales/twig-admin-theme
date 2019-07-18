@@ -1,0 +1,17 @@
+{% block admin_payment_main_form %}
+    {% for key, oPayment in aAllRDFaPayments %}
+        {% set name = oPayment.name %}
+        {% set ident = 'PAYMENT_RDFA_' ~ name %}
+        {% set ident = ident|upper %}
+        {% if oPayment.type == 1 %}
+            <tr>
+                <td class="edittext" width="70">
+                    {{ translate({ ident: ident }) }}
+                </td>
+                <td class="edittext">
+                    <input type="checkbox" class="edittext" name="ardfapayments[]" value="{{ oPayment.name }}" {% if oPayment.checked %}checked{% endif %} {{ readonly }}>
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

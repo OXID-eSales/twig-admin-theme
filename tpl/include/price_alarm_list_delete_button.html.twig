@@ -1,0 +1,3 @@
+{% if not listitem.isOx() and readonly == "" %}
+    <a href="Javascript:top.oxid.admin.deleteThis('{{ listitem.oxpricealarm__oxid.value }}');" class="delete" id="del.{{ _cnt }}" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+{% endif %}

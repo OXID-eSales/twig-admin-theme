@@ -1,0 +1,9 @@
+{% block admin_inc_error %}
+    {% if Errors.default is iterable and count(Errors.default)>0 %}
+    <div class="errorbox">
+        {% for key, oEr in Errors.default %}
+            <p>{{ oEr.getOxMessage() }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,140 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<script type="text/javascript">
+<!--
+window.onload = function ()
+{
+    {% if updatelist == 1 %}
+        top.oxid.admin.updateList('{{ oxid }}');
+    {% endif %}
+    var oField = top.oxid.admin.getLockTarget();
+    oField.onchange = oField.onkeyup = oField.onmouseout = top.oxid.admin.unlockSave;
+}
+//-->
+</script>
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="oxidCopy" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="manufacturer_main">
+    <input type="hidden" name="language" value="{{ actlang }}">
+</form>
+
+<form name="myedit" id="myedit" enctype="multipart/form-data" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+<input type="hidden" name="MAX_FILE_SIZE" value="{{ iMaxUploadFileSize }}">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="manufacturer_main">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="voxid" value="{{ oxid }}">
+<input type="hidden" name="oxparentid" value="{{ oxparentid }}">
+<input type="hidden" name="editval[oxmanufacturers__oxid]" value="{{ oxid }}">
+<input type="hidden" name="language" value="{{ actlang }}">
+
+{% if oViewConf.isAltImageServerConfigured() %}
+    <div class="warning">{{ translate({ ident: "ALTERNATIVE_IMAGE_SERVER_NOTE" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE"), 'sHelpText': help_text("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE")} %}</div>
+{% endif %}
+
+<table border="0" width="98%">
+<tr>
+    <td valign="top" class="edittext">
+
+        <table cellspacing="0" cellpadding="0" border="0">
+        {% block admin_manufacturer_main_form %}
+            <tr>
+                <td class="edittext" width="120">
+                {{ translate({ ident: "GENERAL_ACTIVE" }) }}
+                </td>
+                <td class="edittext">
+                <input class="edittext" type="checkbox" name="editval[oxmanufacturers__oxactive]" value='1' {% if edit.oxmanufacturers__oxactive.value == 1 %}checked{% endif %} {{ readonly }}>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ACTIVE"), 'sHelpText': help_text("HELP_GENERAL_ACTIVE")} %}
+                </td>
+            </tr>
+            <tr>
+                <td class="edittext">
+                {{ translate({ ident: "GENERAL_TITLE" }) }}
+                </td>
+                <td class="edittext">
+                <input type="text" class="editinput" size="40" maxlength="{{ edit.oxmanufacturers__oxtitle.fldmax_length }}" id="oLockTarget" name="editval[oxmanufacturers__oxtitle]" value="{{ edit.oxmanufacturers__oxtitle.value }}" {{ readonly }}>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_TITLE"), 'sHelpText': help_text("HELP_GENERAL_TITLE")} %}
+                </td>
+            </tr>
+            <tr>
+                <td class="edittext">
+                {{ translate({ ident: "GENERAL_SHORTDESC" }) }}
+                </td>
+                <td class="edittext">
+                <input type="text" class="editinput" size="40" maxlength="{{ edit.oxmanufacturers__oxshortdesc.fldmax_length }}" name="editval[oxmanufacturers__oxshortdesc]" value="{{ edit.oxmanufacturers__oxshortdesc.value }}" {{ readonly }}>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_SHORTDESC"), 'sHelpText': help_text("HELP_GENERAL_SHORTDESC")} %}
+                </td>
+            </tr>
+
+            <tr>
+                <td class="edittext">
+                {{ translate({ ident: "GENERAL_ICON" }) }}
+                </td>
+                <td class="edittext">
+                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxicon.fldmax_length }}" name="editval[oxmanufacturers__oxicon]" value="{{ edit.oxmanufacturers__oxicon.value }}" {{ readonly }}>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ICON"), 'sHelpText': help_text("HELP_GENERAL_ICON")} %}
+                </td>
+            </tr>
+            <tr>
+                <td class="edittext">
+                {{ translate({ ident: "MANUFACTURER_MAIN_ICONUPLOAD" }) }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }}):<br>
+                </td>
+                <td class="edittext">
+                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon]" type="file" {{ readonly }}>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_MAIN_ICONUPLOAD"), 'sHelpText': help_text("HELP_MANUFACTURER_MAIN_ICONUPLOAD")} %}
+                </td>
+            </tr>
+        {% endblock %}
+
+        {% if oxid != oViewConf.getAjaxLink()|raw %}
+        <tr>
+            <td class="edittext">
+            </td>
+            <td class="edittext"><br>
+                {% include "language_edit.html.twig" %}
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <td class="edittext"><br><br>
+            </td>
+            <td class="edittext"><br><br>
+            <input type="submit" class="edittext" id="oLockButton" name="saveArticle" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'"" {{ readonly }} {% if not edit.oxmanufacturers__oxtitle.value and not oxparentid %}disabled{% endif %} {{ readonly }}><br>
+            </td>
+        </tr>
+
+
+        </table>
+    </td>
+    <!-- Anfang rechte Seite -->
+    <td valign="top" class="edittext" align="left" width="55%">
+        {% block admin_manufacturer_main_assign_articles %}
+            {% if oxid != oViewConf.getAjaxLink()|raw %}
+                <input {{ readonly }}
+                    type="button" 
+                    value="{{ translate({ ident: "GENERAL_ASSIGNARTICLES" }) }}"
+                    class="edittext" 
+                    onclick="JavaScript:showDialog('&cl=manufacturer_main&aoc=1&oxid={{ oxid }}');"
+                    {{ readonly }}>
+            {% endif %}
+        {% endblock %}
+    </td>
+    <!-- Ende rechte Seite -->
+
+    </tr>
+</table>
+
+</form>
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}

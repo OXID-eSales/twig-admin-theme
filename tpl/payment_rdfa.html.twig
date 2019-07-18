@@ -1,0 +1,51 @@
+{% if shopid != "1" or readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% set aAllRDFaPayments = oView.getAllRDFaPayments() %}
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="payment_rdfa">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="payment_rdfa">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="editval[oxobject2payment__oxpaymentid]" value="{{ oxid }}">
+<input type="hidden" name="editval[oxobject2payment__oxtype]" value="rdfapayment">
+
+
+<strong>{{ translate({ ident: "PAYMENT_RDFA_ASIGN_PAYMENT" }) }}</strong><br>
+    {% set oxDesc = edit.oxpayments__oxdesc.value %}{{ translate({ ident: "PAYMENT_RDFA_ADVICE", args: oxDesc }) }}.
+<table cellspacing="0" cellpadding="0" border="0" width="98%">
+<tr>
+    <td valign="top" class="edittext">
+        <b>{{ translate({ ident: "PAYMENT_RDFA_GENERAL" }) }}</b>
+        <table cellspacing="0" cellpadding="0" border="0">
+            {% include 'include/admin_payment_main_form.html.twig' %}
+        </table>
+    </td>
+    <td valign="top" class="edittext" align="left" width="50%">
+        <b>{{ translate({ ident: "PAYMENT_RDFA_CREDITCARD" }) }}</b>
+        <table cellspacing="0" cellpadding="0" border="0">
+            {% include 'include/admin_payment_main_form.html.twig' %}
+        </table>
+    </td>
+
+    </tr>
+</table>
+
+<input type="submit" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'" {{ readonly }}>
+
+</form>
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}

@@ -1,0 +1,110 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: "list"} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<script type="text/javascript">
+<!--
+window.onload = function ()
+{
+    top.reloadEditFrame();
+    {% if updatelist == 1 %}
+        top.oxid.admin.updateList('{{ oxid }}');
+    {% endif %}
+}
+//-->
+</script>
+
+<div id="liste">
+
+
+<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{% include "_formparams.html.twig" with {cl: "language_list", lstrt: lstrt, actedit: actedit, oxid: oxid, fnc: "", language: actlang, editlanguage: actlang} %}
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+    <colgroup>
+        {% block admin_language_list_colgroup %}
+            <col width="4%">
+            <col width="5%">
+            <col width="90%">
+            <col width="1%">
+        {% endblock %}
+    </colgroup>
+    <tr class="listitem">
+        {% block admin_language_list_filter %}
+            <td valign="top" class="listfilter first" align="center">
+                <div class="r1"><div class="b1">
+                </div></div>
+            </td>
+            <td valign="top" class="listfilter">
+                <div class="r1"><div class="b1">
+                </div></div>
+            </td>
+            <td valign="top" class="listfilter" colspan="2">
+                <div class="r1"><div class="b1">
+                </div></div>
+            </td>
+       {% endblock %}
+    </tr>
+
+    <tr>
+        {% block admin_language_list_sorting %}
+            <td class="listheader first" height="15" align="center"><a href="Javascript:top.oxid.admin.setSorting( document.forms.search, '', 'active', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_ARTICLE_OXACTIVE" }) }}</a></td>
+            <td class="listheader" height="15"><a href="Javascript:top.oxid.admin.setSorting( document.forms.search, '', 'abbr', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "LANGUAGE_ABBERVATION" }) }}</a></td>
+            <td class="listheader" height="15" colspan="2"><a href="Javascript:top.oxid.admin.setSorting( document.forms.search, '', 'name', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_LANGUAGE_NAME" }) }}</a></td>
+        {% endblock %}
+    </tr>
+
+{% set blWhite = "" %}
+{% set _cnt = 0 %}
+{% for listitem in mylist %}
+    {% set _cnt = _cnt+1 %}
+    <tr id="row.{{ _cnt }}">
+        {% block admin_language_list_item %}
+            {% if listitem.blacklist == 1 %}
+                {% set listclass = "listitem3" %}
+            {% else %}
+                {% set listclass = 'listitem' ~ blWhite %}
+            {% endif %}
+            {% if listitem.oxid == oxid %}
+                {% set listclass = "listitem4" %}
+            {% endif %}
+            <td valign="top" class="{{ listclass }}{% if listitem.active == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxid }}');" class="{{ listclass }}">
+             &nbsp;
+            </a></div></td>
+            <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxid }}');" class="{{ listclass }}">{{ listitem.abbr }}</a></div></td>
+            <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxid }}');" class="{{ listclass }}">{% if listitem.default %}<b>{% endif %}{{ listitem.name }}{% if listitem.default %}</b>{% endif %}</a></div></td>
+            <td align="right" class="{{ listclass }}">
+            {% if not readonly and not listitem.default %}
+            <a href="Javascript:top.oxid.admin.deleteThis('{{ listitem.oxid }}');" class="delete" id="del.{{ _cnt }}" title="" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+            {% endif %}
+            </td>
+        {% endblock %}
+    </tr>
+{% if blWhite == "2" %}
+{% set blWhite = "" %}
+{% else %}
+{% set blWhite = "2" %}
+{% endif %}
+{% endfor %}
+{% include "pagenavisnippet.html.twig" with {colspan: "5"} %}
+</table>
+</form>
+</div>
+
+
+{% include "pagetabsnippet.html.twig" %}
+
+<script type="text/javascript">
+if (parent.parent)
+{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+    parent.parent.sMenuItem    = "{{ translate({ ident: "LANGUAGE_LIST_MENUITEM" }) }}";
+    parent.parent.sMenuSubItem = "{{ translate({ ident: "LANGUAGE_LIST_MENUSUBITEM" }) }}";
+    parent.parent.sWorkArea    = "{{ _act }}";
+    parent.parent.setTitle();
+}
+</script>
+</body>
+</html>

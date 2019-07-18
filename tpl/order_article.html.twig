@@ -1,0 +1,268 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<script type="text/javascript">
+<!--
+function editThis(sID)
+{
+    var oSearch = document.getElementById("search");
+    oSearch.oxid.value = sID;
+    oSearch.cl.value = 'article_main';
+    oSearch.submit();
+
+    var oSearch = parent.list.document.getElementById("search");
+    oSearch.sort.value = '';
+    oSearch.fnc.value = '';
+    oSearch.lstrt.value = '';
+    oSearch.oxid.value = sID;
+    oSearch.cl.value = 'article_list';
+    oSearch.actedit.value = 1;
+    oSearch.submit();
+}
+function EditVoucher( sID)
+{
+    var oSearch = document.getElementById("search");
+    oSearch.oxid.value=sID;
+    oSearch.cl.value='voucher_main';
+    oSearch.submit();
+
+    var oSearch = parent.list.document.getElementById("search");
+    oSearch.sort.value = '';
+    oSearch.cl.value='voucher_list';
+    oSearch.actedit.value=1;
+    oSearch.submit();
+}
+function DeleteThisArticle( sID)
+{
+    blCheck = confirm("{{ translate({ ident: "ORDER_ARTICLE_YOUWANTTODELETE" }) }}");
+    if( blCheck == true)
+    {
+        var oDeleteThisArticle = document.getElementById("DeleteThisArticle");
+        oDeleteThisArticle.sArtID.value=sID;
+        oDeleteThisArticle.submit();
+    }
+}
+
+function StornoThisArticle( sID)
+{
+    blCheck = confirm("{{ translate({ ident: "ORDER_ARTICLE_YOUWANTTOSTORNO" }) }}");
+    if( blCheck == true)
+    {
+        var oDeleteThisArticle = document.getElementById("DeleteThisArticle");
+        oDeleteThisArticle.sArtID.value=sID;
+        oDeleteThisArticle.fnc.value='storno';
+        oDeleteThisArticle.submit();
+    }
+}
+
+//-->
+</script>
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+{% set oCurr = edit.getOrderCurrency() %}
+
+<form name="DeleteThisArticle" id="DeleteThisArticle" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cur" value="{{ oCurr.id }}">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="sArtID" value="">
+    <input type="hidden" name="cl" value="order_article">
+    <input type="hidden" name="fnc" value="DeleteThisArticle">
+</form>
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cur" value="{{ oCurr.id }}">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="order_article">
+</form>
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="98%">
+<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cur" value="{{ oCurr.id }}">
+    <input type="hidden" name="cl" value="order_article">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="fnc" value="updateOrder">
+<tr>
+    {% block admin_order_article_header %}
+        <td class="listheader first">{{ translate({ ident: "GENERAL_SUM" }) }}</td>
+        <td class="listheader" height="15">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_ITEMNR" }) }}</td>
+        <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_TITLE" }) }}</td>
+        <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_TYPE" }) }}</td>
+        <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "ORDER_ARTICLE_PARAMS" }) }}</td>
+        <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_SHORTDESC" }) }}</td>
+        {% if edit.isNettoMode() %}
+            <td class="listheader">{{ translate({ ident: "ORDER_ARTICLE_ENETTO" }) }}</td>
+        {% else %}
+            <td class="listheader">{{ translate({ ident: "ORDER_ARTICLE_EBRUTTO" }) }}</td>
+        {% endif %}
+        <td class="listheader">{{ translate({ ident: "GENERAL_ATALL" }) }}</td>
+        <td class="listheader" colspan="3">{{ translate({ ident: "ORDER_ARTICLE_MWST" }) }}</td>
+    {% endblock %}
+</tr>
+{% set blWhite = "" %}
+{% for listitem in edit.getOrderArticles() %}
+<tr id="art.{{ loop.index }}">
+    {% block admin_order_article_listitem %}
+        {% if listitem.oxorderarticles__oxstorno.value == 1 %}
+            {% set listclass = "listitem3" %}
+        {% else %}
+            {% set listclass = 'listitem' ~ blWhite %}
+        {% endif %}
+        <td valign="top" class="{{ listclass }}">{% if listitem.oxorderarticles__oxstorno.value != 1 and not listitem.isBundle() %}<input type="text" name="aOrderArticles[{{ listitem.getId() }}][oxamount]" value="{{ listitem.oxorderarticles__oxamount.value }}" class="listedit">{% else %}{{ listitem.oxorderarticles__oxamount.value }}{% endif %}</td>
+        <td valign="top" class="{{ listclass }}" height="15">{% if listitem.oxarticles__oxid.value %}<a href="Javascript:editThis('{{ listitem.oxarticles__oxid.value }}');" class="{{ listclass }}">{% endif %}{{ listitem.oxorderarticles__oxartnum.value }}</a></td>
+        <td valign="top" class="{{ listclass }}">{% if listitem.oxarticles__oxid.value %}<a href="Javascript:editThis('{{ listitem.oxarticles__oxid.value }}');" class="{{ listclass }}">{% endif %}{{ listitem.oxorderarticles__oxtitle.value|truncate(20, "")|striptags }}</a></td>
+        <td valign="top" class="{{ listclass }}">{{ listitem.oxorderarticles__oxselvariant.value }}</td>
+        <td valign="top" class="{{ listclass }}">
+            {% if listitem.getPersParams() %}
+                {% block admin_order_article_persparams %}
+                    {% include "include/persparams.html.twig" with {persParams: listitem.getPersParams()} %}
+                {% endblock %}
+            {% endif %}
+        </td>
+        <td valign="top" class="{{ listclass }}">{{ listitem.oxorderarticles__oxshortdesc.value|truncate(20, "")|striptags }}</td>
+        {% if edit.isNettoMode() %}
+        <td valign="top" class="{{ listclass }}">{{ listitem.getNetPriceFormated() }} <small>{{ edit.oxorder__oxcurrency.value }}</small></td>
+        <td valign="top" class="{{ listclass }}">{{ listitem.getTotalNetPriceFormated() }} <small>{{ edit.oxorder__oxcurrency.value }}</small></td>
+        {% else %}
+        <td valign="top" class="{{ listclass }}">{{ listitem.getBrutPriceFormated() }} <small>{{ edit.oxorder__oxcurrency.value }}</small></td>
+        <td valign="top" class="{{ listclass }}">{{ listitem.getTotalBrutPriceFormated() }} <small>{{ edit.oxorder__oxcurrency.value }}</small></td>
+        {% endif %}
+        <td valign="top" class="{{ listclass }}">{{ listitem.oxorderarticles__oxvat.value }}</td>
+        <td valign="top" class="{{ listclass }}">{% if not listitem.isBundle() %}<a href="Javascript:DeleteThisArticle('{{ listitem.oxorderarticles__oxid.value }}');" class="delete" {% if readonly %}onclick="JavaScript:return false;"{% endif %} {% include "help.html.twig" with {helpid: "item_delete"} %}></a>{% endif %}</td>
+        <td valign="top" class="{{ listclass }}">{% if not listitem.isBundle() %}<a href="Javascript:StornoThisArticle('{{ listitem.oxorderarticles__oxid.value }}');" class="pause" {% if readonly %}onclick="JavaScript:return false;"{% endif %} {% include "help.html.twig" with {helpid: "item_storno"} %}></a>{% endif %}</td>
+    {% endblock %}
+</tr>
+{% if blWhite == "2" %}
+{% set blWhite = "" %}
+{% else %}
+{% set blWhite = "2" %}
+{% endif %}
+{% endfor %}
+</table>
+
+<input type="submit" value="{{ translate({ ident: "ORDER_ARTICLE_UPDATE_STOCK" }) }}" {{ readonly }}>
+
+</form>
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td valign="top" style="padding-left:10px;">
+    <br />
+    {% if edit.oxorder__oxstorno.value %}
+    <span class="orderstorno">{{ translate({ ident: "ORDER_ARTICLE_STORNO" }) }}</span><br><br>
+    {% endif %}
+    <b>{{ translate({ ident: "GENERAL_ATALL" }) }} : </b><br>
+    {% block admin_order_article_total %}
+        {% include "include/order_info.html.twig" %}
+    {% endblock %}
+  </td>
+    <td valign="top" align="left" width="60%">
+<br />
+
+
+    <form method="POST" name="searchForProduct" id="searchForProduct" action="{{ oViewConf.getSelfLink()|raw }}">
+      {{ oViewConf.getHiddenSid()|raw }}
+      <input type="hidden" name="oxid" value="{{ oxid }}">
+      <input type="hidden" name="cl" value="order_article">
+      <input type="hidden" name="cur" value="{{ oCurr.id }}">
+      <input type="hidden" name="fnc" value="">
+
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="edittext" height="15">
+            {{ translate({ ident: "GENERAL_ARTNUM" }) }}:
+          </td>
+          <td class="edittext">
+            <input class="listedit" type="text" name="sSearchArtNum" value="{{ oView.getSearchProductArtNr() }}" size="15" {{ readonly }}>
+          </td>
+          <td class="edittext">
+            <input class="listedit" type="submit" value="{{ translate({ ident: "ORDER_ARTICLE_SEARCH" }) }}" name="search" {{ readonly }}>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    {% set oSearchProd = oView.getSearchProduct() %}
+    {% if oSearchProd %}
+    {% set oMainProd = oView.getMainProduct() %}
+
+    <form method="POST" name="AddThisArticle" id="AddThisArticle" action="{{ oViewConf.getSelfLink()|raw }}">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cur" value="{{ oCurr.id }}">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="order_article">
+    <input type="hidden" name="sSearchArtNum" value="{{ oView.getSearchProductArtNr() }}">
+    <input type="hidden" name="fnc" value="addThisArticle">
+
+
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <br />
+            <fieldset>
+              <legend>
+                <select name="aid">
+                  {% for iSel, oProduct in oView.getProductList() %}
+
+                  {% set _disabled = "" %}
+                  {% set _selected = "" %}
+
+                  {% if oProduct.isNotBuyable() or oProduct.isParentNotBuyable() %}
+                    {% set _disabled = "disabled=\"disabled\"" %}
+                  {% elseif oSearchProd.getId() == oProduct.getId() %}
+                    {% set _selected = "selected=\"selected\"" %}
+                  {% endif %}
+
+                  <option value="{{ oProduct.getId() }}" {{ _selected }} {{ _disabled }}>{{ oMainProd.oxarticles__oxtitle.value }} {{ oProduct.oxarticles__oxvarselect.value }} {{ oProduct.getFPrice() }} {{ oCurr.name }}</option>
+                  {% endfor %}
+                </select>
+              </legend>
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="edittext">{{ translate({ ident: "GENERAL_SUM" }) }}:</td>
+                  <td class="edittext"><input class="listedit" type="text" name="am" value="1" size="4" {{ readonly }}></td>
+                <tr>
+
+                {% set oSearchProdSelList = oSearchProd.getSelectLists() %}
+                {% if oSearchProdSelList %}
+                    {% for iSel, oList in oSearchProdSelList %}
+                    <tr>
+                      <td class="edittext">{{ oList.name }}:</td>
+                      <td class="edittext">
+                        <select id="test_select_{{ product.oxarticles__oxid.value }}_{{ iSel }}" name="sel[{{ iSel }}]" class="listedit">
+                        {% for iSelIdx, oSelItem in oList %}
+                          {% if oSelItem.name %}<option value="{{ iSelIdx }}">{{ oSelItem.name }}</option>{% endif %}
+                        {% endfor %}
+                        </select>
+                      </td>
+                      </div>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+
+                <tr>
+                  <td colspan="2" class="edittext"><input class="listedit" type="submit" value="{{ translate({ ident: "ORDER_ARTICLE_ADDITEM" }) }}" name="add" {{ readonly }}></td>
+                </tr>
+              </table>
+            </fieldset>
+          </td>
+        </tr>
+      </table>
+
+    </form>
+    {% elseif oView.getSearchProductArtNr() %}
+      <br />{{ translate({ ident: "ORDER_ARTICLE_SEARCH_NOITEMSFOUND" }) }}
+    {% endif %}
+</td>
+</tr>
+</table>
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

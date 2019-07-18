@@ -1,0 +1,85 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+{% set disableSharedEdit = "" %}
+{% if oViewConf.getEdition() == 'EE' and not allowSharedEdit %}
+    {% set disableSharedEdit = "readonly disabled" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="usergroup_main">
+</form>
+
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="usergroup_main">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="editval[oxgroups__oxid]" value="{{ oxid }}">
+
+<table cellspacing="0" cellpadding="0" border="0" width="98%">
+<tr>
+
+    <td valign="top" class="edittext">
+
+        <table cellspacing="0" cellpadding="0" border="0">
+        {% block admin_usergroup_main_form %}
+            <tr>
+                <td class="edittext" width="70">
+                {{ translate({ ident: "GENERAL_ACTIVE" }) }}
+                </td>
+                <td class="edittext">
+                <input class="edittext" type="checkbox" name="editval[oxgroups__oxactive]" value='1' {% if edit.oxgroups__oxactive.value == 1 %}checked{% endif %} {{ readonly }} {{ disableSharedEdit }}>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ACTIVE"), 'sHelpText': help_text("HELP_GENERAL_ACTIVE")} %}
+                </td>
+            </tr>
+            <tr>
+                <td class="edittext" width="100">
+                {{ translate({ ident: "GENERAL_NAME" }) }}
+                </td>
+                <td class="edittext">
+                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxgroups__oxtitle.fldmax_length }}" name="editval[oxgroups__oxtitle]" value="{{ edit.oxgroups__oxtitle.value }}" {{ readonly }} {{ disableSharedEdit }}>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_NAME"), 'sHelpText': help_text("HELP_GENERAL_NAME")} %}
+                </td>
+            </tr>
+        {% endblock %}
+        <tr>
+            <td class="edittext">
+            </td>
+            <td class="edittext"><br>
+                {% include "language_edit.html.twig" %}
+            </td>
+        </tr>
+        <tr>
+            <td class="edittext">
+            </td>
+            <td class="edittext"><br>
+            <input type="submit" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'"" {{ readonly }} {{ disableSharedEdit }}>
+            </td>
+        </tr>
+        </table>
+    </td>
+    <!-- Anfang rechte Seite -->
+    <td valign="top" class="edittext" align="left" width="50%">
+        {% block admin_usergroup_main_assign_users %}
+            {% if oxid != oViewConf.getAjaxLink()|raw %}
+                <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNUSERS" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=usergroup_main&aoc=1&oxid={{ oxid }}');">
+            {% endif %}
+        {% endblock %}
+    </td>
+
+    </tr>
+</table>
+
+</form>
+
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

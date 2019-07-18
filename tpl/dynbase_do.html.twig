@@ -1,0 +1,22 @@
+{% include "headitem.html.twig" with {box: "export ", title: "AUCTMASTER_DO_TITLE"|translate, meta_refresh_sec: refresh, meta_refresh_url: oViewConf.getSelfLink()|raw|cat("&cl=" ~ sClassDo ~ "&iStart=" ~ iStart ~ "&fnc=run")} %}
+
+{% if not isset(refresh) %}
+    {% if not isset(iError) %}
+        {{ translate({ ident: "AUCTMASTER_DO_EXPORTNOTSTARTED" }) }}
+    {% else %}
+        {% if iError %}
+            {% if iError == -2 %}
+                {{ translate({ ident: "AUCTMASTER_DO_EXPORTEND" }) }}
+            <b>{% set oxDownloadFile = sDownloadFile %}{{ translate({ ident: "DYNBASE_DO_SUCCESS", args: oxDownloadFile })|raw }}</b><br>
+                {{ translate({ ident: "DYNBASE_DO_LINK" }) }}<em>{{ sDownloadFile }}</em>
+            {% endif %}
+
+            {% if iError == -1 %}{{ translate({ ident: "AUCTMASTER_DO_UNKNOWNERROR" }) }}{% endif %}
+            {% if iError == 1 %}{% set oxOutputFile = sOutputFile %}{{ translate({ ident: "AUCTMASTER_DO_EXPORTFILE", args: oxOutputFile }) }}{% endif %}
+        {% endif %}
+    {% endif %}
+{% else %}
+  {{ translate({ ident: "GENEXPORT_EXPRUNNING" }) }} {{ translate({ ident: "GENEXPORT_EXPORTEDITEMS" }) }}: {{ iExpItems|default(0) }}
+{% endif %}
+
+{% include "bottomitem.html.twig" %}

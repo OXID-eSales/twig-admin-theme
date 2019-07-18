@@ -1,0 +1,34 @@
+{% set shop = oEmailView.getShop() %}
+{% set oViewConf = oEmailView.getViewConfig() %}
+{% set currency = oEmailView.getCurrency() %}
+{% set user = oEmailView.getUser() %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>{{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_PRICEALARMIN" }) }}{{ shop.oxshops__oxname.value }}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={{ oEmailView.getCharset() }}">
+</head>
+<body bgcolor="#FFFFFF" link="#355222" alink="#355222" vlink="#355222" style="font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 10px;">
+<br>
+<img src="{{ oViewConf.getImageUrl() }}logo_white.gif" border="0" hspace="0" vspace="0" alt="{{ shop.oxshops__oxname.value }}" align="texttop"><br>
+<br>
+{{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_HY" }) }}<br>
+<br>
+{{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_HAVEPRICEALARM" }) }} {{ shop.oxshops__oxname.value }}!<br>
+<br>
+{{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_ITEM1" }) }} {{ oPriceAlarm.getTitle() }} {{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_ITEM2" }) }} {{ oPriceAlarm.getFProposedPrice() }} {{ currency.sign }}
+{{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_ITEM3" }) }} {{ oPriceAlarm.getFPrice() }} {{ currency.sign }} {{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_ITEM4" }) }}<br>
+<br>
+
+{% include "include/email/pricealarm_customer_button.html.twig" %}
+
+<br>
+<br>
+{{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_TEAM1" }) }} {{ shop.oxshops__oxname.value }} {{ translate({ ident: "EMAIL_PRICEALARM_CUSTOMER_TEAM2" }) }}<br>
+
+{% include "include/email/pricealarm_footer.html.twig" %}
+
+</body>
+</html>
+

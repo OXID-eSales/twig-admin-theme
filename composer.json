@@ -1,0 +1,29 @@
+{
+    "name": "oxid-esales/twig-admin-theme",
+    "description": "This is twig version of Admin Theme for OXID eShop.",
+    "type": "oxideshop-theme",
+    "keywords": [
+        "oxid",
+        "themes",
+        "eShop"
+    ],
+    "homepage": "https://www.oxid-esales.com/en/home.html",
+    "license": [
+        "GPL-3.0-only"
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "oxideshop": {
+            "target-directory": "admin_twig",
+            "assets-directory": "out/admin_twig",
+            "blacklist-filter": [
+                ".gitattributes",
+                ".gitignore",
+                "CHANGELOG.md",
+                "composer.json",
+                "CONTRIBUTING.md",
+                "package.json"
+            ]
+        }
+    }
+}

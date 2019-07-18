@@ -1,0 +1,46 @@
+<div class="tabs">
+<table cellspacing="0" cellpadding="0" border="0">
+<tr>
+{% set _cnt = "0" %}
+{% for edit in editnavi %}
+  {% if edit.getAttribute('active') %}
+    {% set _act = edit.getAttribute('id') %}
+    {% set _state = "active" %}
+  {% elseif oxid == oViewConf.getAjaxLink()|raw %}
+    {% set _state = "disabled" %}
+  {% else %}
+    {% set _state = "inactive" %}
+  {% endif %}
+
+  {% if _cnt == 0 %}
+    {% set _state = _state|cat(") %}
+  {% endif %}
+
+  {% if _cnt == editnavi.length -1 %}
+    {% set _state = _state|cat(") %}
+  {% endif %}
+
+  {% if edit.getAttribute('external') == 'true' %}
+    {% set _action = "ChangeExternal" %}
+    {% set _param1 = edit.getAttribute('location') %}
+  {% else %}
+    {% set _action = sEditAction|default("top.oxid.admin.changeEditBar") %}
+    {% set _param1 = edit.getAttribute('cl') %}
+  {% endif %}
+
+  <td class="tab {{ _state }}">
+      <div class="r1"><div class="b1">
+          {% if oxid != oViewConf.getAjaxLink()|raw or noOXIDCheck %}
+            <a href="#{{ _param1 }}" onclick="{{ _action }}('{{ _param1 }}',{{ _cnt }});return false;">{{ translate({ ident: edit.getAttribute('id'), noerror: true }) }}</a>
+          {% else %}
+            {{ translate({ ident: edit.getAttribute('id'), noerror: true }) }}
+          {% endif %}
+      </div></div>
+  </td>
+
+  {% set _cnt = _cnt+1 %}
+{% endfor %}
+  <td class="line"></td>
+</tr>
+</table>
+</div>

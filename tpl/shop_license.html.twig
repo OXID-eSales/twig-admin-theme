@@ -1,0 +1,47 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% if error %}<div class="errorbox">{{ error }}</div>{% endif %}
+{% if message %}<div class="messagebox">{{ message }}</div>{% endif %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="shop_license">
+    <input type="hidden" name="fnc" value="">
+    <input type="hidden" name="actshop" value="{{ oViewConf.getActiveShopId() }}">
+    <input type="hidden" name="updatenav" value="">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+{% include "include/update_views_notice.html.twig" %}
+<table id="tShopLicense" border="0" width="45%">
+    <tr>
+        <td class="edittext">
+            <br><strong>{{ translate({ ident: "SHOP_LICENSE_VERSION" }) }}</strong>
+        </td>
+        <td class="edittext">
+            <b>{{ translate({ ident: "GENERAL_OXIDESHOP" }) }}
+               {{ oView.getShopEdition() }} {{ oView.getShopVersion() }}
+               {% if oView.isDemoVersion() %}
+                   {{ translate({ ident: "SHOP_LICENSE_DEMO" }) }}
+               {% endif %}
+            </b>
+        </td>
+    </tr>
+</table>
+<table id="tVersionInfo" border="0">
+    <tr>
+        <td>
+            <span>{{ aCurVersionInfo }}</span>
+        </td>
+    </tr>
+</table>
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html id="top" >
+<head>
+    <title>{{ translate({ ident: "MAIN_TITLE" }) }}</title>
+    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl() }}main.css">
+    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl() }}colors_{{ oViewConf.getEdition()|lower }}.css">
+    <meta http-equiv="Content-Type" content="text/html; charset={{ charset }}">
+</head>
+<body>
+
+<script type="text/javascript">
+    parent.sShopTitle = "{{ actshop|addslashes }}";
+    parent.setTitle();
+</script>
+
+<h1>{{ translate({ ident: "NAVIGATION_FAVORITES" }) }}</h1>
+<p class="desc">
+    <b>{{ translate({ ident: "FAVORITES_DESC" }) }}</b>
+</p>
+
+
+    <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post" target="navigation">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="navigation">
+    <input type="hidden" name="favorites[]" value="">
+    <select size="25" name="favorites[]" multiple="multiple" style="min-width:30%">
+    {% for menuholder in menustructure %}
+        {% if menuholder.nodeType == "XML_ELEMENT_NODE" and menuholder.childNodes.length %}
+
+            {% for menuitem in menuholder.childNodes %}
+                {% if menuitem.nodeType == "XML_ELEMENT_NODE" and menuitem.childNodes.length %}
+                <optgroup label="{{ translate({ noerror: true, ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')) }) }}">
+                    {% for submenuitem in menuitem.childNodes %}
+                        {% if submenuitem.nodeType == "XML_ELEMENT_NODE" %}
+                            <option value="{{ submenuitem.getAttribute('cl') }}" {% if submenuitem.getAttribute('cl') in aFavorites %}selected{% endif %}>{{ translate({ noerror: true, ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')) }) }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </optgroup>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    </select><br>
+    <input type="submit" value="{{ translate({ ident: "GENERAL_SAVE" }) }}">
+    </form>
+</body>
+</html>

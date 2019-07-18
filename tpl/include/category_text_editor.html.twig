@@ -1,0 +1,20 @@
+{% include "include/editor.html.twig" %}
+
+<table>
+    <tr>
+        <td valign="top" class="edittext">
+            {% if languages %}<b>{{ translate({ ident: "GENERAL_LANGUAGE" }) }}</b>
+                <select name="catlang" class="editinput" onchange="Javascript:loadLang(this)" {{ readonly }}>
+                    {% for key, item in languages %}
+                        <option value="{{ key }}"{% if catlang == key %} SELECTED{% endif %}>{{ item.name }}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" class="edittext" name="save" value="{{ translate({ ident: "CATEGORY_TEXT_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'">
+        </td>
+    </tr>
+</table>

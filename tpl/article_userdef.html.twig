@@ -1,0 +1,51 @@
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="article_userdef">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+<table cellspacing="0" cellpadding="0" border="0" width="99%" height="100%">
+<tr>
+<td valign="top" background="{{ oViewConf.getImageUrl() }}/edit_back.gif" width="100%">
+
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="article_userdef">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="editval[article__oxid]" value="{{ oxid }}">
+
+<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+<tr height="10">
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td width="15"></td>
+    <td valign="top" class="edittext">
+
+    {{ translate({ ident: "ARTICLE_USERDEF_USERDEFRANGE" }) }}
+
+    </td>
+    <!-- Anfang rechte Seite -->
+    <td valign="top" class="edittext" align="left" width="50%">
+    </td>
+    <!-- Ende rechte Seite -->
+
+    </tr>
+</table>
+</form>
+</td>
+</tr>
+{% include "bottomnaviitem.html.twig" %}
+</table>
+{% include "bottomitem.html.twig" %}

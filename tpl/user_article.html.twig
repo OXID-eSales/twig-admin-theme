@@ -1,0 +1,50 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="user_article">
+</form>
+
+<table cellspacing="0" cellpadding="0" border="0" width="98%">
+<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="article_main">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="fnc" value="">
+<tr>
+    <td class="listheader first">{{ translate({ ident: "USER_ARTICLE_QUANTITY" }) }}</td>
+    <td class="listheader" height="15">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_ITEMNR" }) }}</td>
+    <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_TITLE" }) }}</td>
+    <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_TYPE" }) }}</td>
+    <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_SHORTDESC" }) }}</td>
+</tr>
+{% set blWhite = "" %}
+{% for listitem in oArticlelist %}
+<tr>
+    {% set listclass = 'listitem' ~ blWhite %}
+    <td valign="top" class="{{ listclass }}">{{ listitem.oxorderarticles__oxamount.value }}</td>
+    <td valign="top" class="{{ listclass }}" height="15">{{ listitem.oxorderarticles__oxartnum.value }}</td>
+    <td valign="top" class="{{ listclass }}">{{ listitem.oxorderarticles__oxtitle.value|truncate(30, "")|striptags }}</td>
+    <td valign="top" class="{{ listclass }}">{{ listitem.oxorderarticles__oxselvariant.value }}</td>
+    <td valign="top" class="{{ listclass }}">{{ listitem.oxorderarticles__oxshortdesc.value|truncate(30, "")|striptags }}</td>
+</tr>
+{% if blWhite == "2" %}
+{% set blWhite = "" %}
+{% else %}
+{% set blWhite = "2" %}
+{% endif %}
+{% endfor %}
+</form>
+</table>
+
+
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

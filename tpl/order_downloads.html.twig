@@ -1,0 +1,68 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="order_downloads">
+</form>
+
+<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="order_downloads">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="fnc" value="resetDownloadLink">
+    <input type="hidden" name="oxorderfileid" value="{{ oxid }}">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%">
+        <tr>
+            {% block admin_order_downloads_header %}
+            <td class="listheader" height="15">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_ITEMNR" }) }}</td>
+            <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "GENERAL_TITLE" }) }}</td>
+            <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "ORDER_DOWNLOADS_FILE" }) }}</td>
+            <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "ORDER_DOWNLOADS_FIRSTDOWNLOAD" }) }}</td>
+            <td class="listheader">&nbsp;&nbsp;&nbsp;{{ translate({ ident: "ORDER_DOWNLOADS_LASTDOWNLOAD" }) }}</td>
+            <td class="listheader">{{ translate({ ident: "ORDER_DOWNLOADS_COUNTOFDOWNLOADS" }) }}</td>
+            <td class="listheader">{{ translate({ ident: "ORDER_DOWNLOADS_MAXCOUNT" }) }}</td>
+            <td class="listheader">{{ translate({ ident: "ORDER_DOWNLOADS_EXPIRATIONTIME" }) }}</td>
+            <td class="listheader" colspan="2">{{ translate({ ident: "ORDER_DOWNLOADS_COUNTOFRESETS" }) }}</td>
+            {% endblock %}
+        </tr>
+        {% set blWhite = "" %}
+        {% for listfile in edit %}
+        <tr id="file.{{ loop.index }}">
+            {% block admin_order_downloads_filelist %}
+            {% set listclass = 'listitem' ~ blWhite %}
+            <td valign="top" class="{{ listclass }}">{{ listfile.oxorderfiles__oxarticleartnum.value }}</td>
+            <td valign="top" class="{{ listclass }}">{{ listfile.oxorderfiles__oxarticletitle.value }}</td>
+            <td valign="top" class="{{ listclass }}">{{ listfile.oxorderfiles__oxfilename.value }}</td>
+            <td valign="top" class="{{ listclass }}">{{ listfile.oxorderfiles__oxfirstdownload.value }}</td>
+            <td valign="top" class="{{ listclass }}">{{ listfile.oxorderfiles__oxlastdownload.value }}</td>
+            <td valign="top" class="{{ listclass }}">{{ listfile.oxorderfiles__oxdownloadcount.value }}</td>
+            <td valign="top" class="{{ listclass }}">{{ listfile.oxorderfiles__oxmaxdownloadcount.value }}</td>
+            <td valign="top" class="{{ listclass }}">{{ listfile.oxorderfiles__oxvaliduntil.value }}</td>
+            <td valign="top" class="{{ listclass }}">&nbsp;&nbsp;{{ listfile.oxorderfiles__oxresetcount.value }}</td>
+            <td align="right" class="{{ listclass }}">
+                &nbsp;&nbsp;&nbsp;
+                <input class="edittext" type="submit"
+                       onClick="document.forms['search'].oxorderfileid.value = '{{ listfile.oxorderfiles__oxid.value }}';"
+                       value="{{ translate({ ident: "ORDER_DOWNLOADS_RESET" }) }}" {{ readonly }}>
+            </td>
+            {% endblock %}
+        </tr>
+        {% if blWhite == "2" %}
+        {% set blWhite = "" %}
+        {% else %}
+        {% set blWhite = "2" %}
+        {% endif %}
+        {% endfor %}
+    </table>
+</form>
+
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

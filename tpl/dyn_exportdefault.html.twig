@@ -1,0 +1,179 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, skip_onload: "true"} %}
+
+<script type="text/javascript">
+    if (top) {
+        top.sMenuItem = "{{ translate({ ident: "GENEXPORT_MENUITEM" }) }}";
+        top.sMenuSubItem = "{{ translate({ ident: "GENEXPORT_MENUSUBITEM" }) }}";
+        top.sWorkArea = "{{ _act }}";
+        top.setTitle();
+    }
+</script>
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="1">
+    <input type="hidden" name="cl" value="">
+</form>
+
+<table cellspacing="0" cellpadding="0" border="0" width="98%">
+
+    <tr>
+        <td valign="top" class="edittext">
+            <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" target="dynexport_do"
+                  method="post">
+                <table cellspacing="0" cellpadding="0" border="0">
+                    {{ oViewConf.getHiddenSid()|raw }}
+                    <input type="hidden" name="cl" value="{{ sClassDo }}">
+                    <input type="hidden" name="fnc" value="start">
+                    <tr>
+                        <td class="edittext" width="180" height="40" valign="top">
+                            {{ translate({ ident: "GENERAL_CATEGORYSELECT" }) }}
+                        </td>
+                        <td class="edittext">
+                            <select name="acat[]" size="20" multiple class="editinput"
+                                    style="width: 210px;" {{ readonly }}>
+                                {% for oCat in cattree %}
+                                    <option value="{{ oCat.getId() }}">{{ oCat.oxcategories__oxtitle.value|raw }}</option>
+                                {% endfor %}
+                        </td>
+                        </select>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_CATEGORYSELECT"), 'sHelpText': help_text("HELP_GENERAL_CATEGORYSELECT")} %}
+                    </tr>
+                    <tr>
+                        <td class="edittext" width="180" height="40">
+                            {{ translate({ ident: "GENERAL_SEARCHKEY" }) }}
+                        </td>
+                        <td class="edittext">
+                            <input type="text" class="editinput" size="39" maxlength="128" name="search"
+                                   value="" {{ readonly }}>
+                            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_SEARCHKEY"), 'sHelpText': help_text("HELP_GENERAL_SEARCHKEY")} %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="edittext" width="180" height="40">
+                        </td>
+                        <td class="edittext">
+                            <input type="submit" class="edittext" style="width: 210px;" name="save"
+                                   value="{{ translate({ ident: "GENERAL_ESTART" }) }}" {{ readonly }}>
+                        </td>
+                    </tr>
+                </table>
+
+        </td>
+        <!-- Anfang rechte Seite -->
+        <td valign="top" class="edittext" align="left">
+
+            <table cellspacing="0" cellpadding="0" border="0">
+                <!--<tr>
+            <td class="edittext" width="180" height="40">
+            {{ translate({ ident: "GENERAL_EXPORTDELCOST" }) }}
+            </td>
+            <td class="edittext">
+            <input type="text" class="editinput" size="10" maxlength="10" name="sExportDelCost" value="0,00" {{ readonly }}> &euro;
+            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXPORTDELCOST"), 'sHelpText': help_text("HELP_GENERAL_EXPORTDELCOST")} %}
+            </td>
+        </tr>-->
+                <tr>
+                    <td class="edittext" width="180" height="40">
+                        {{ translate({ ident: "GENERAL_EXPORTMINSTOCK" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="text" class="editinput" size="10" maxlength="10" name="sExportMinStock"
+                               value="1" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXPORTMINSTOCK"), 'sHelpText': help_text("HELP_GENERAL_EXPORTMINSTOCK")} %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" width="180" height="40">
+                        {{ translate({ ident: "GENERAL_EXPORTMINPRICE" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="text" class="editinput" size="10" maxlength="10" name="sExportMinPrice"
+                               value="0" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXPORTMINPRICE"), 'sHelpText': help_text("HELP_GENERAL_EXPORTMINPRICE")} %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" width="180" height="40">
+                        {{ translate({ ident: "GENERAL_EXPOSTVARS" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="checkbox" name="blExportVars" value="true" checked {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXPOSTVARS"), 'sHelpText': help_text("HELP_GENERAL_EXPOSTVARS")} %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" width="180" height="40">
+                        {{ translate({ ident: "GENERAL_EXPORTMAINVARS" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="checkbox" name="blExportMainVars" value="true" checked {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXPORTMAINVARS"), 'sHelpText': help_text("HELP_GENERAL_EXPORTMAINVARS")} %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" width="180" height="40">
+                        {{ translate({ ident: "GENERAL_EXPORTCAMPAIGN" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="text" class="editinput" size="20" maxlength="10" name="sExportCampaign"
+                               value="" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXPORTCAMPAIGN"), 'sHelpText': help_text("HELP_GENERAL_EXPORTCAMPAIGN")} %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" width="180" height="40">
+                        {{ translate({ ident: "DYNBASE_ADDCATTOCAMPAIGN" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="checkbox" name="blAppendCatToCampaign" value="true" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_DYNBASE_ADDCATTOCAMPAIGN"), 'sHelpText': help_text("HELP_DYNBASE_ADDCATTOCAMPAIGN")} %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" width="180" height="40">
+                        {{ translate({ ident: "GENERAL_EXPORTLANGUAGE" }) }}
+                    </td>
+                    <td class="edittext">
+                        <select name="iExportLanguage" class="saveinnewlanginput" {{ readonly }}>
+                            {% for lang, olang in aLangs %}
+                                <option value="{{ lang }}"
+                                        {% if olang.selected %}SELECTED{% endif %}>{{ olang.name }}</option>
+                            {% endfor %}
+                        </select>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXPORTLANGUAGE"), 'sHelpText': help_text("HELP_GENERAL_EXPORTLANGUAGE")} %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext" width="180" height="40">
+                        {{ translate({ ident: "GENERAL_EXPORTCUSTOMHEADER" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="text" class="editinput" size="50" name="sExportCustomHeader"
+                               value="" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXPORTCUSTOMHEADER"), 'sHelpText': help_text("HELP_GENERAL_EXPORTCUSTOMHEADER")} %}
+                    </td>
+                </tr>
+            </table>
+            </form>
+            <!--
+        Bitte Land f&uuml;r Versandkosten w&auml;hlen : <br>
+        <select name="country" class="editinput" style="width: 210px;" {{ readonly }}>
+        {% for oCountry in countrylist %}
+        <option value="{{ oCountry.oxcountry__oxid.value }}">{{ oCountry.oxcountry__oxtitle.value }}</option>
+        {% endfor %}
+        -->
+        </td>
+
+    </tr>
+</table>
+
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}

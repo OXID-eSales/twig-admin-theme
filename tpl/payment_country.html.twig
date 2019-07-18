@@ -1,0 +1,31 @@
+{% if shopid != "1" or readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="payment_country">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+
+
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cl" value="payment_country">
+<input type="hidden" name="fnc" value="">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="editval[oxpayments__oxid]" value="{{ oxid }}">
+
+{% if oxid != oViewConf.getAjaxLink()|raw %}
+    <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNCOUNTRIES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=payment_country&aoc=1&oxid={{ oxid }}');">
+{% endif %}
+
+</form>
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}
