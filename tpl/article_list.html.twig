@@ -145,7 +145,7 @@
                             {% set listclass = "listitem4" %}
                         {% endif %}
                         <td valign="top"
-                            class="{{ listclass }}{% if listitem.oxarticles__oxactive.value == 1 %} active{% endif %}"
+                            class="{{ listclass }}{% if listitem.showActiveCheckInAdminPanel %} active{% endif %}"
                             height="15">
                             <div class="listitemfloating">&nbsp</a></div>
                         </td>
