@@ -11,6 +11,10 @@
     "license": [
         "GPL-3.0-only"
     ],
+    "require": {
+        "php": ">=7.1",
+        "oxid-esales/twig-component": "*"
+    },
     "minimum-stability": "dev",
     "extra": {
         "oxideshop": {
