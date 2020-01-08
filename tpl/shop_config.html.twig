@@ -433,18 +433,6 @@ function editThis(sID)
 
             <dl>
                 <dt>
-                    <input type=hidden name=confbools[blStoreCreditCardInfo] value=false>
-                    <input type=checkbox name=confbools[blStoreCreditCardInfo] value=true  {% if (confbools.blStoreCreditCardInfo) %}checked{% endif %} {{ readonly }}>
-                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_STORECREDITCARDINFO"), 'sHelpText': help_text("HELP_SHOP_CONFIG_STORECREDITCARDINFO")} %}
-                </dt>
-                <dd>
-                    {{ translate({ ident: "SHOP_CONFIG_STORECREDITCARDINFO" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_ATTENTION"), 'sHelpText': help_text("HELP_SHOP_CONFIG_ATTENTION")} %}
-                </dd>
-                <div class="spacer"></div>
-            </dl>
-
-            <dl>
-                <dt>
                     <input type=hidden name=confbools[blShowTSInternationalFeesMessage] value=false>
                     <input type=checkbox name=confbools[blShowTSInternationalFeesMessage] value=true  {% if (confbools.blShowTSInternationalFeesMessage) %}checked{% endif %} {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE"), 'sHelpText': help_text("HELP_SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE")} %}
