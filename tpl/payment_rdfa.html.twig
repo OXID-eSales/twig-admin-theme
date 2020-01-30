@@ -26,13 +26,20 @@
 <strong>{{ translate({ ident: "PAYMENT_RDFA_ASIGN_PAYMENT" }) }}</strong><br>
     {% set oxDesc = edit.oxpayments__oxdesc.value %}{{ translate({ ident: "PAYMENT_RDFA_ADVICE", args: oxDesc }) }}.
 <table cellspacing="0" cellpadding="0" border="0" width="98%">
-    <tr>
-        <td valign="top" class="edittext">
-            <b>{{ translate({ ident: "PAYMENT_RDFA_GENERAL" }) }}</b>
-            <table cellspacing="0" cellpadding="0" border="0">
-                {% include 'include/admin_payment_main_form.html.twig' %}
-            </table>
-        </td>
+<tr>
+    <td valign="top" class="edittext">
+        <b>{{ translate({ ident: "PAYMENT_RDFA_GENERAL" }) }}</b>
+        <table cellspacing="0" cellpadding="0" border="0">
+            {% include 'include/admin_payment_main_form.html.twig' %}
+        </table>
+    </td>
+    <td valign="top" class="edittext" align="left" width="50%">
+        <b>{{ translate({ ident: "PAYMENT_RDFA_CREDITCARD" }) }}</b>
+        <table cellspacing="0" cellpadding="0" border="0">
+            {% include 'include/admin_payment_main_form.html.twig' %}
+        </table>
+    </td>
+
     </tr>
 </table>
 
