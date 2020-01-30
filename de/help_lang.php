@@ -176,7 +176,10 @@ $aLang =  [
 
 'HELP_SHOP_CONFIG_POINTSFORREGISTRATION'      => 'Anzahl Bonuspunkte, die der Eingeladene erhält, der sich aufgrund der Einladung registriert.',
 
+//  @deprecated since v1.0.1 (2020-01-27); credit card payment method will be no longer supported
 'HELP_SHOP_CONFIG_ATTENTION'                  => 'ACHTUNG! Üblicherweise ist in den Verträgen mit MasterCard und VISA die Speicherung der Daten ausdrücklich verboten.',
+// END deprecated
+
 
 'HELP_SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE' => 'Im 4. Schritt des Bestellprozesses wird die CMS-Seite "oxtsinternationalfees" ergänzend angezeigt.',
 
