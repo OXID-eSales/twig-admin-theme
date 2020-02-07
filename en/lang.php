@@ -1119,11 +1119,6 @@ $aLang = [
     'SHOP_CONFIG_STOCKWARNINGLIMIT'                           => 'Stock Level at which Users are informed that only a few Products remain in Stock',
     'SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE'                      => 'Use default "out-of-stock" Message',
     'SHOP_CONFIG_STOCKONDEFAULTMESSAGE'                       => 'Use default "in-stock" Message',
-
-    //  @deprecated since v1.0.1 (2020-01-27); credit card payment method will be no longer supported
-    'SHOP_CONFIG_STORECREDITCARDINFO'                         => 'Save Credit Card information',
-    // END deprecated
-
     'SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE'              => 'Display a message about possible international delivery fees',
     'SHOP_CONFIG_SHOWTSCODMESSAGE'                            => 'Display a message about possible "cash on delivery" payment method fees',
     'SHOP_CONFIG_TIMEFORMAT'                                  => 'Time Format in eShop Admin',
@@ -1849,16 +1844,6 @@ $aLang = [
     'PAYMENT_RDFA_BYINVOICE'               => 'Invoice',
     'PAYMENT_RDFA_CHECKINADVANCE'          => 'Check in advance',
     'PAYMENT_RDFA_BYBANKTRANSFERINADVANCE' => 'Cash in advance',
-
-    //  @deprecated since v1.0.1 (2020-01-27); credit card payment method will be no longer supported
-    'PAYMENT_RDFA_CREDITCARD'              => 'Credit card payment',
-    'PAYMENT_RDFA_AMERICANEXPRESS'         => 'American Express',
-    'PAYMENT_RDFA_DINERSCLUB'              => 'Diners Club',
-    'PAYMENT_RDFA_DISCOVER'                => 'Discover',
-    'PAYMENT_RDFA_JCB'                     => 'JCB',
-    'PAYMENT_RDFA_MASTERCARD'              => 'MasterCard',
-    'PAYMENT_RDFA_VISA'                    => 'VISA',
-    // END deprecated
 
     'DELIVERY_RDFA_ASIGN_DELIVERY'             => 'Assign delivery method',
     'DELIVERY_RDFA_ADVICE'                     => '<b>Hint:</b> Please choose only those delivery methods, pre-defined in GoodRelations, that comply with your shipping method',
