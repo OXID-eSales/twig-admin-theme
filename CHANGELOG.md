@@ -17,7 +17,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `PAYMENT_RDFA_MASTERCARD`
     - `PAYMENT_RDFA_VISA`
     - `HELP_SHOP_CONFIG_ATTENTION`
-
+- Suggest (Recommend Product) feature:
+    - Usage in: `shop_config.html.twigl`
+    - Language Constants: 
+        - `SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE`
+        - `HELP_SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE`
+        
 ## [1.0.1] Unreleased
 
 ### Deprecated

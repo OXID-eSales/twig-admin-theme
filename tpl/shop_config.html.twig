@@ -311,18 +311,6 @@ function editThis(sID)
             </dl>
             <dl>
                 <dt>
-                    <input type=hidden name=confbools[blAllowSuggestArticle] value=false>
-                    <input type=checkbox name=confbools[blAllowSuggestArticle] value=true {% if (confbools.blAllowSuggestArticle) %}checked{% endif %} {{ readonly }}>
-                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE"), 'sHelpText': help_text("HELP_SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE")} %}
-                </dt>
-                <dd>
-                    {{ translate({ ident: "SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE" }) }}
-                </dd>
-                <div class="spacer"></div>
-            </dl>
-
-            <dl>
-                <dt>
                     <input type=hidden name=confbools[bl_perfLoadReviews] value=false>
                     <input type=checkbox name=confbools[bl_perfLoadReviews] value=true  {% if (confbools.bl_perfLoadReviews) %}checked{% endif %} {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_LOADREVIEWS"), 'sHelpText': help_text("HELP_SHOP_CONFIG_LOADREVIEWS")} %}
