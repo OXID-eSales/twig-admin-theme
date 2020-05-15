@@ -73,10 +73,6 @@
                     {% if bottom_buttons.vat_new %}
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWMWST" }) }}</a> |</li>
                     {% endif %}
-                    {# news #}
-                    {% if bottom_buttons.news_new %}
-                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWNEWS" }) }}</a> |</li>
-                    {% endif %}
                     {# links #}
                     {% if bottom_buttons.links_new %}
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWLINK" }) }}</a> |</li>

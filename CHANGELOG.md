@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Language Constants: 
         - `SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE`
         - `HELP_SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE`
+- News feature
         
 ## [1.0.1] Unreleased
 

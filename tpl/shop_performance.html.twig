@@ -346,28 +346,6 @@ function editThis( sID )
 
                 <tr>
                  <td valign="top" class="conftext">
-                    <input type=hidden name=confbools[bl_perfLoadNews] value=false>
-                    <input type=checkbox name=confbools[bl_perfLoadNews] value=true  {% if (confbools.bl_perfLoadNews) %}checked{% endif %} {{ readonly }}>
-                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_PERF_LOADNEWS"), 'sHelpText': help_text("HELP_SHOP_PERF_LOADNEWS")} %}
-                 </td>
-                 <td valign="top" class="conftext" width="100%">
-                  {{ translate({ ident: "SHOP_PERF_LOADNEWS" }) }}
-                 </td>
-                </tr>
-
-                <tr>
-                 <td valign="top" class="conftext">
-                    <input type=hidden name=confbools[bl_perfLoadNewsOnlyStart] value=false>
-                    <input type=checkbox name=confbools[bl_perfLoadNewsOnlyStart] value=true  {% if (confbools.bl_perfLoadNewsOnlyStart) %}checked{% endif %} {{ readonly }}>
-                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_PERF_LOADNEWSONLYSTART"), 'sHelpText': help_text("HELP_SHOP_PERF_LOADNEWSONLYSTART")} %}
-                 </td>
-                 <td valign="top" class="conftext" width="100%">
-                  {{ translate({ ident: "SHOP_PERF_LOADNEWSONLYSTART" }) }}
-                 </td>
-                </tr>
-
-                <tr>
-                 <td valign="top" class="conftext">
                     <input type=hidden name=confbools[bl_perfParseLongDescinSmarty] value=false>
                     <input type=checkbox name=confbools[bl_perfParseLongDescinSmarty] value=true  {% if (confbools.bl_perfParseLongDescinSmarty) %}checked{% endif %} {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_PERF_PARSELONGDESCINSMARTY"), 'sHelpText': help_text("HELP_SHOP_PERF_PARSELONGDESCINSMARTY")} %}

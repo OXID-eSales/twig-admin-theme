@@ -29,7 +29,7 @@
             <option value="{{ allitem.oxremark__oxid.value }}" {% if allitem.selected %}SELECTED{% endif %}>{{ allitem.oxremark__oxheader|format_date("datetime") }}
             
             {% block admin_user_remark_type %}
-                {% if allitem.oxremark__oxtype.value == "r" %}{{ translate({ ident: "USER_REMARK_REMARK" }) }}{% elseif allitem.oxremark__oxtype.value == "o" %}{{ translate({ ident: "USER_REMARK_ORDER" }) }}{% elseif allitem.oxremark__oxtype.value == "c" %}{{ translate({ ident: "USER_REMARK_USER" }) }}{% else %}{{ translate({ ident: "USER_REMARK_NEWS" }) }}{% endif %}
+                {% if allitem.oxremark__oxtype.value == "r" %}{{ translate({ ident: "USER_REMARK_REMARK" }) }}{% elseif allitem.oxremark__oxtype.value == "o" %}{{ translate({ ident: "USER_REMARK_ORDER" }) }}{% elseif allitem.oxremark__oxtype.value == "c" %}{{ translate({ ident: "USER_REMARK_USER" }) }}{% endif %}
             {% endblock %}
             
             </option>
