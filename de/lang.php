@@ -1329,7 +1329,9 @@ $aLang = [
     'TOOLTIPS_NEWMWST'                        => 'Neuen MwSt. Satz anlegen',
     'TOOLTIPS_NEWDELIVERY'                    => 'Neue Versandkostenregel anlegen',
     'TOOLTIPS_NEWDELIVERYSET'                 => 'Neue Versandart anlegen',
+    // @deprecated 1.0.1 "News" feature will be removed completely
     'TOOLTIPS_NEWNEWS'                        => 'Neue Nachricht anlegen',
+    // END deprecated
     'TOOLTIPS_NEWVOUCHER'                     => 'Neue Gutscheinserie anlegen',
     'TOOLTIPS_NEWCATTREE'                     => 'Kategoriebaum neu indizieren',
     'TOOLTIPS_NEWLINK'                        => 'Neuen Link anlegen',

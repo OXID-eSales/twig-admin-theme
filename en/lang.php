@@ -1335,7 +1335,9 @@ $aLang = [
     'TOOLTIPS_NEWMWST'                        => 'Create new VAT',
     'TOOLTIPS_NEWDELIVERY'                    => 'Create new Shipping Cost Rule',
     'TOOLTIPS_NEWDELIVERYSET'                 => 'Create new Shipping Method',
+    // @deprecated 1.0.1 "News" feature will be removed completely
     'TOOLTIPS_NEWNEWS'                        => 'Create new Message',
+    // END @deprecated
     'TOOLTIPS_NEWVOUCHER'                     => 'Create new Coupon Serie',
     'TOOLTIPS_NEWCATTREE'                     => 'Re-Index Category Tree',
     'TOOLTIPS_NEWLINK'                        => 'Create new Link',
