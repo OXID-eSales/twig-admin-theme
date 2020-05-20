@@ -37,5 +37,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `PAYMENT_RDFA_MASTERCARD`
     - `PAYMENT_RDFA_VISA`
     - `HELP_SHOP_CONFIG_ATTENTION`
+    - `TOOLTIPS_NEWNEWS`
 
 ## [1.0.0] - 2019-11-21
