@@ -26,6 +26,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
         
 ## [1.0.1] Unreleased
 
+### Renamed
+- Changed price alert to wished price
+
 ### Deprecated
 - Language Variable:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
