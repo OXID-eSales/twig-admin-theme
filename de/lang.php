@@ -682,7 +682,7 @@ $aLang = [
     'EXCEPTION_NODESCRIPTIONADDED'                   => 'Bitte Beschreibung angeben',
     'EXCEPTION_NOMEDIAADDED'                         => 'Bitte Medien URL angeben',
     'EXCEPTION_COULDNOTWRITETOFILE'                  => 'Kann die Datei nicht schreiben',
-    'EXCEPTION_FILENOTFOUND'                         => 'Datei nicht gefunden (bitte EXCEPTION_LOG.txt für Details prüfen)',
+    'EXCEPTION_FILENOTFOUND'                         => 'Datei nicht gefunden (bitte oxideshop.log für Details prüfen)',
     'EXCEPTION_THEME_NOT_LOADED'                     => 'Theme kann nicht geladen werden',
     'EXCEPTION_MODULE_NOT_LOADED'                    => 'Modul kann nicht geladen werden',
     'EXCEPTION_PARENT_VERSION_UNSPECIFIED'           => 'Eltern-Theme stellt keine Version(ierung) zur Verfügung',
@@ -764,6 +764,15 @@ $aLang = [
     'NAVIGATION_HOME'                                => 'Home',
     'NAVIGATION_PAGE'                                => 'Seite',
     'NAVIGATION_NEWVERSIONAVAILABLE'                 => 'Version %s ist verfügbar!',
+    // @deprecated 6.5.6 "News" feature will be removed completely
+    'NEWS_LIST_TITLE'                                => '[OXID Newsverwaltung]',
+    'NEWS_LIST_SHORTTEXT'                            => 'Titel',
+    'NEWS_LIST_MENUITEM'                             => 'Kundeninformation',
+    'NEWS_LIST_MENUSUBITEM'                          => 'Nachrichten',
+    'NEWS_MAIN_SHORTDESC'                            => 'Titel',
+    'NEWS_MAIN_SHOWFORGROUP'                         => 'Sichtbar für Benutzergruppe',
+    'NEWS_MAIN_NOTSHOWFORGROUP'                      => 'Nicht sichtbar für Benutzergruppe',
+    // END deprecated
     'NAVIGATION_FAVORITES'                           => 'Favoriten',
     'NAVIGATION_FAVORITES_EDIT'                      => '[ändern]',
     'FAVORITES_DESC'                                 => 'Beschreibung der Favoriten ...',
@@ -835,6 +844,9 @@ $aLang = [
     'ORDER_REMARK_REMARK'                                => '[Bem.]',
     'ORDER_REMARK_ORDER'                                 => '[Best.]',
     'ORDER_REMARK_USER'                                  => '[Reg.]',
+    // @deprecated 6.5.6 "News" feature will be removed completely
+    'ORDER_REMARK_NEWS'                                  => '[News]',
+    // END deprecated
     'ORDER_OVERVIEW_VATIDCHECKFAIL'                      => 'Umsatzsteuer-Identnummer Validierung fehlgeschlagen',
     'ORDER_OVERVIEW_VATID'                               => 'Umsatzsteuer-Identnummer',
     'ORDER_OVERVIEW_DELTYPE'                             => 'Versandart',
@@ -883,30 +895,30 @@ $aLang = [
     'PAYMENT_MAIN_LONGDESC'                              => 'Beschreibung der Zahlungsart',
     'PAYMENT_MAIN_NOTICEDEFAULTVALUESSELECTED'           => 'Standardwerte wurden ausgewählt',
     'PAYMENT_OVERVIEW_HOWMANYPAYMENTS'                   => 'Wieviel Einkäufe wurden mit dieser Zahlungsart gemacht',
-    'PRICEALARM_DONE_SENDEMAIL'                          => 'Wunschpreis E-Mails versendet.',
-    'PRICEALARM_DONE_GOTOPRICEALARM'                     => 'gehen Sie zu Wunschpreis ',
-    'PRICEALARM_LIST_CONFIRMDATE'                        => 'Bestätigungsdatum',
-    'PRICEALARM_LIST_SENDDATE'                           => 'Versanddatum',
-    'PRICEALARM_LIST_CUSTOMERSPRICE'                     => 'Kundenpreis',
-    'PRICEALARM_LIST_STANDARTPRICE'                      => 'Standardpreis',
+    'PRICEALARM_DONE_SENDEMAIL'                          => 'Benachrichtigungsmail(s) versendet.',
+    'PRICEALARM_DONE_GOTOPRICEALARM'                     => 'Gehen Sie zu Wunschpreis ',
+    'PRICEALARM_LIST_CONFIRMDATE'                        => 'Eingegangen',
+    'PRICEALARM_LIST_SENDDATE'                           => 'Benachrichtigt',
+    'PRICEALARM_LIST_CUSTOMERSPRICE'                     => 'Wunschpreis',
+    'PRICEALARM_LIST_STANDARTPRICE'                      => 'Reg. Preis',
     'PRICEALARM_LIST_MENUITEM'                           => 'Kundeninformation',
     'PRICEALARM_LIST_MENUSUBITEM'                        => 'Wunschpreis',
-    'PRICEALARM_MAIL_OXIDPRICEALARM'                     => 'OXID eSales Wunschpreis',
-    'PRICEALARM_MAIL_OPENEMAILS1'                        => 'Es sind',
-    'PRICEALARM_MAIL_OPENEMAILS2'                        => 'Wunschpreis E-Mails offen und zu versenden.',
-    'PRICEALARM_MAIL_SENDPRICEALARMEMAIL1'               => 'Um die Wunschpreis E-Mails an die Kunden zu schicken bitte',
-    'PRICEALARM_MAIL_SENDPRICEALARMEMAIL2'               => 'hier klicken.',
+    'PRICEALARM_MAIL_OXIDPRICEALARM'                     => 'Wunschpreis',
+    'PRICEALARM_MAIL_OPENEMAILS1'                        => 'Der Wunschpreis wurde',
+    'PRICEALARM_MAIL_OPENEMAILS2'                        => '-mal erreicht.',
+    'PRICEALARM_MAIL_SENDPRICEALARMEMAIL1'               => 'Um die Benachrichtigungsmail(s) zu verschicken, bitte',
+    'PRICEALARM_MAIL_SENDPRICEALARMEMAIL2'               => 'hier klicken!',
     'PRICEALARM_MAIN_SUCCESS'                            => 'E-Mail erfolgreich versendet',
-    'PRICEALARM_MAIN_ERROR'                              => 'Fehler beim E-Mail Versand',
-    'PRICEALARM_MAIN_EMAIL'                              => 'E-Mail',
-    'PRICEALARM_MAIN_CUSTOMER'                           => 'Kunde',
-    'PRICEALARM_MAIN_SUBSCRIPTIONDATE'                   => 'Subskriptions Datum',
-    'PRICEALARM_MAIN_MAILINGDATE'                        => 'Send. Datum',
+    'PRICEALARM_MAIN_ERROR'                              => 'Fehler beim E-Mail-Versand',
+    'PRICEALARM_MAIN_EMAIL'                              => 'E-Mail-Adresse',
+    'PRICEALARM_MAIN_CUSTOMER'                           => 'Name des Kunden',
+    'PRICEALARM_MAIN_SUBSCRIPTIONDATE'                   => 'Eingegangen',
+    'PRICEALARM_MAIN_MAILINGDATE'                        => 'Benachrichtigt',
     'PRICEALARM_MAIN_PRODUCT'                            => 'Artikel',
-    'PRICEALARM_MAIN_CUSTOMERPRICE'                      => 'Kund. Preis',
-    'PRICEALARM_MAIN_REGULARPRICE'                       => 'Normal. Preis',
+    'PRICEALARM_MAIN_CUSTOMERPRICE'                      => 'Wunschpreis',
+    'PRICEALARM_MAIN_REGULARPRICE'                       => 'Regulärer Preis',
     'PRICEALARM_MAIN_EMAILSEND'                          => 'E-Mail senden',
-    'PRICEALARM_SEND_TITLE'                              => 'oxid Wunschpreis',
+    'PRICEALARM_SEND_TITLE'                              => '[!] Wunschpreis',
     'PRICEALARM_MESSAGE_SENT'                            => 'Gesendet',
     'PRICEALARM_SEND_FROM'                               => 'von insgesamt',
     'ROLES_LIST_TITLE'                                   => 'Titel',
@@ -995,6 +1007,9 @@ $aLang = [
     'SHOP_MALL_MALLINHERIT_OXDISCOUNT'                   => 'Alle <b>Rabatte</b> vom Elternshop erben',
     'SHOP_MALL_MALLINHERIT_OXLINKS'                      => 'Alle <b>Links</b> vom Elternshop erben',
     'SHOP_MALL_MALLINHERIT_OXVOUCHERSERIES'              => 'Alle <b>Gutscheinserien</b> vom Elternshop erben',
+    // @deprecated 6.5.6 "News" feature will be removed completely
+    'SHOP_MALL_MALLINHERIT_OXNEWS'                       => 'Alle <b>Nachrichten</b> vom Elternshop erben',
+    // END deprecated
     'SHOP_MALL_MALLINHERIT_OXSELECTLIST'                 => 'Alle <b>Auswahllisten</b> vom Elternshop erben',
     'SHOP_MALL_MALLINHERIT_OXVENDOR'                     => 'Alle <b>Lieferanten</b> vom Elternshop erben',
     'SHOP_MALL_MALLINHERIT_OXMANUFACTURER'               => 'Alle <b>Hersteller</b> vom Elternshop erben',
@@ -1039,6 +1054,9 @@ $aLang = [
     'SHOP_CONFIG_CSVSEPARATOR'                                => 'CSV-Trennzeichen beim Im- und Export',
     'SHOP_CONFIG_CSVFIELDENCLOSER'                            => 'Zeichen, um CSV-Daten beim Im/Export einzufassen',
     'SHOP_CONFIG_DISABLEARTDUBLICATES'                        => 'Wenn Artikel kopiert werden: Kopierten Artikel <b>nicht</b> auf "Aktiv" setzen',
+    /** @deprecated since v6.5.4 (2020-04-06); Suggest feature will be removed completely */
+    'SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE'                       => 'Empfehlen von Artikeln erlauben',
+    /** end deprecated */
     'SHOP_CONFIG_EXPORTNUMBEROFLINES'                         => 'Anzahl von Zeilen im CSV, die pro Tick exportiert werden',
     'SHOP_CONFIG_MWSTSETTING'                                 => 'MwSt.-Einstellungen für XML-Export',
     'SHOP_CONFIG_NUMBEROFEMAILSPERTICK'                       => 'Anzahl von E-Mails, die der Newsletter pro Tick verschickt',
@@ -1061,7 +1079,9 @@ $aLang = [
     'SHOP_CONFIG_CALCPAYVATONTOP'                             => 'Zahlungsarten-Gebühren als Nettopreise eingeben (zuzüglich MwSt.)',
     'SHOP_CONFIG_CALCULATEVATOFORPAYCHARGE'                   => 'Die in den Zahlungsarten-Gebühren enthaltene Mehrwertsteuer im Warenkorb und in der Rechnung anzeigen',
     'SHOP_CONFIG_CMSFOLDER'                                   => 'Ordner für CMS-Seiten',
+    // @deprecated 6.5.6 "News" feature will be removed completely
     'SHOP_CONFIG_CNTOFNEWS'                                   => 'Anzahl der Nachrichten, die in der Nachrichten-Box links angezeigt werden',
+    // END deprecated
     'SHOP_CONFIG_DATEFORMAT'                                  => 'Datumsformat im Administrationsbereich',
     'SHOP_CONFIG_DELIVERYCOSTS'                               => 'Versandkosten auch dann berechnen, wenn der Kunde noch nicht eingeloggt ist',
     'SHOP_CONFIG_DEFAULTVAT'                                  => 'Standard-MwSt.-Satz für alle Artikel',
@@ -1095,6 +1115,11 @@ $aLang = [
     'SHOP_CONFIG_STOCKWARNINGLIMIT'                           => 'Lagerbestand, ab dem den Benutzern angezeigt wird, dass nur noch wenige Artikel auf Lager sind',
     'SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE'                      => 'Die "Nicht-auf-Lager"-Standardmeldung nutzen',
     'SHOP_CONFIG_STOCKONDEFAULTMESSAGE'                       => 'Die "Auf-Lager"-Standardmeldung nutzen',
+
+    // @deprecated since v6.5.1 (2019-02-07); credit card payment method will be no longer supported
+    'SHOP_CONFIG_STORECREDITCARDINFO'                         => 'Kreditkarten-Informationen speichern',
+    // END deprecated
+
     'SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE'              => 'Zeige Meldung über mögliche internationale Liefergebühren',
     'SHOP_CONFIG_SHOWTSCODMESSAGE'                            => 'Zeige Meldung über mögliche Nachnahmegebühren',
     'SHOP_CONFIG_TIMEFORMAT'                                  => 'Zeitformat im Administrationsbereich',
@@ -1212,7 +1237,9 @@ $aLang = [
     'SYSREQ_MOD_REWRITE'                      => 'Apache mod_rewrite Modul',
     'SYSREQ_ALLOW_URL_FOPEN'                  => 'allow_url_fopen oder fsockopen auf Port 80',
     'SYSREQ_PHP4_COMPAT'                      => 'Zend Kompatibilitätsmodus muss ausgeschaltet sein',
-    'SYSREQ_PHP_VERSION'                      => 'PHP Version 7.0 oder 7.1',
+    // @deprecated since v.6.5.1 (2020-02-12);
+    'SYSREQ_PHP_VERSION'                      => 'PHP Version 7.1 and 7.4',
+    // END deprecated
     'SYSREQ_REQUEST_URI'                      => 'REQUEST_URI vorhanden',
     'SYSREQ_LIB_XML2'                         => 'LIB XML2',
     'SYSREQ_PHP_XML'                          => 'DOM',
@@ -1221,7 +1248,11 @@ $aLang = [
     'SYSREQ_TOKENIZER'                        => 'Tokenizer',
     'SYSREQ_BC_MATH'                          => 'BCMath',
     'SYSREQ_MYSQL_CONNECT'                    => 'PDO_MySQL',
+
+    // @deprecated since v6.5.1 (2020-03-12); We do not check mysql version
     'SYSREQ_MYSQL_VERSION'                    => 'MySQL Version 5.5 oder 5.7',
+    // END deprecated
+
     'SYSREQ_GD_INFO'                          => 'GDlib v2 incl. JPEG Unterstützung',
     'SYSREQ_INI_SET'                          => 'ini_set erlaubt',
     'SYSREQ_REGISTER_GLOBALS'                 => 'register_globals muss ausgeschaltet sein',
@@ -1306,6 +1337,9 @@ $aLang = [
     'TOOLTIPS_NEWMWST'                        => 'Neuen MwSt. Satz anlegen',
     'TOOLTIPS_NEWDELIVERY'                    => 'Neue Versandkostenregel anlegen',
     'TOOLTIPS_NEWDELIVERYSET'                 => 'Neue Versandart anlegen',
+    // @deprecated 6.5.6 "News" feature will be removed completely
+    'TOOLTIPS_NEWNEWS'                        => 'Neue Nachricht anlegen',
+    // END deprecated
     'TOOLTIPS_NEWVOUCHER'                     => 'Neue Gutscheinserie anlegen',
     'TOOLTIPS_NEWCATTREE'                     => 'Kategoriebaum neu indizieren',
     'TOOLTIPS_NEWLINK'                        => 'Neuen Link anlegen',
@@ -1360,6 +1394,9 @@ $aLang = [
     'USER_REMARK_REMARK'                      => '[Bem.]',
     'USER_REMARK_ORDER'                       => '[Best.]',
     'USER_REMARK_USER'                        => '[Reg.]',
+    // @deprecated 6.5.6 "News" feature will be removed completely
+    'USER_REMARK_NEWS'                        => '[News]',
+    // END deprecated
     'USERGROUP_LIST_MENUITEM'                 => 'Benutzer verwalten',
     'USERGROUP_LIST_MENUSUBITEM'              => 'Benutzergruppen',
     'USERGROUP_MAIN_MEMBERINGROUP'            => 'Mitglieder der Benutzergruppe',
@@ -1436,6 +1473,10 @@ $aLang = [
     'SHOP_PERF_LOADCATTREE'                   => 'Kategorien laden und Kategorienavigation anzeigen',
     'SHOP_PERF_LOADCURRENCY'                  => 'Währungen anzeigen',
     'SHOP_PERF_LOADLANGUAGES'                 => 'Sprachen anzeigen',
+    // @deprecated 6.5.6 "News" feature will be removed completely
+    'SHOP_PERF_LOADNEWS'                      => 'Nachrichten anzeigen',
+    'SHOP_PERF_LOADNEWSONLYSTART'             => 'Nachrichten nur auf der Startseite anzeigen',
+    // END deprecated
     'SHOP_PERF_LOADVARIANTS'                  => 'Varianten in Artikellisten laden (z. B. Suchergebnisse, Kategorieansichten). Diese Einstellung verbraucht viel Speicher und kann zu Problemen auf schwachen Servern führen.',
     'SHOP_PERF_LOADMANUFACTURERTREE'          => 'Herstellerliste laden und anzeigen',
     'SHOP_PERF_NEWESTARTICLES'                => 'Liste der neusten Artikel (Frisch eingetroffen!)',
@@ -1498,6 +1539,9 @@ $aLang = [
     'mxlist'                   => 'Benutzerliste',
     'mxmanageprod'             => 'Artikel verwalten',
     'mxmainmenu'               => 'Stammdaten',
+    // @deprecated 6.5.6 "News" feature will be removed completely
+    'mxnews'                   => 'Nachrichten',
+    // END deprecated
     'mxorders'                 => 'Bestellungen verwalten',
     'mxpaymeth'                => 'Zahlungsarten',
     'mxpricealarm'             => 'Wunschpreis',
@@ -1574,6 +1618,10 @@ $aLang = [
     'tbcldiscount_users'       => 'Benutzer',
     //languages
     'tbcllanguage_main'        => 'Stamm',
+    // @deprecated 6.5.6 "News" feature will be removed completely
+    'tbclnews_main'            => 'Stamm',
+    'tbclnews_text'            => 'Text',
+    // END deprecated
     //  order_list',
     'tbclorder_overview'       => 'Übersicht',
     'tbclorder_main'           => 'Stamm',
@@ -1641,7 +1689,9 @@ $aLang = [
     'tbcldeliveryset_mall'     => 'Mall',
     'tbcldiscount_mall'        => 'Mall',
     'tbclmanufacturer_mall'    => 'Mall',
+    // @deprecated 6.5.6 "News" feature will be removed completely
     'tbclnews_mall'            => 'Mall',
+    // END deprecated
     'tbclvendor_mall'          => 'Mall',
     'tbclselectlist_mall'      => 'Mall',
     'tbclvoucherserie_mall'    => 'Mall',
@@ -1811,6 +1861,16 @@ $aLang = [
     'PAYMENT_RDFA_CHECKINADVANCE'          => 'Barscheck',
     'PAYMENT_RDFA_BYBANKTRANSFERINADVANCE' => 'Vorauskasse',
 
+    // @deprecated since v6.5.1 (2019-02-07); credit card payment method will be no longer supported
+    'PAYMENT_RDFA_CREDITCARD'              => 'Kreditkartenzahlung',
+    'PAYMENT_RDFA_AMERICANEXPRESS'         => 'American Express',
+    'PAYMENT_RDFA_DINERSCLUB'              => 'Diners Club',
+    'PAYMENT_RDFA_DISCOVER'                => 'Discover',
+    'PAYMENT_RDFA_JCB'                     => 'JCB',
+    'PAYMENT_RDFA_MASTERCARD'              => 'MasterCard',
+    'PAYMENT_RDFA_VISA'                    => 'VISA',
+    // END deprecated
+
     'DELIVERY_RDFA_ASIGN_DELIVERY'             => 'Versandarten zuordnen',
     'DELIVERY_RDFA_ADVICE'                     => '<b>Hinweis:</b> Bitte wählen Sie nur die in GoodRelations vordefinierten Versandarten aus, die Ihrer Versandart %s entsprechen',
     'DELIVERY_RDFA_GENERAL'                    => 'Allgemeine Versandarten',
@@ -1860,6 +1920,7 @@ $aLang = [
     'OXDIAG_LIST_MENUSUBITEM' => 'Diagnosewerkzeug',
 
     'OXDIAG_MAIN_TITLE'                              => 'Diagnose Ihres OXID Shops',
+    'OXDIAG_VERSIONCHECKER'                          => 'Versionsprüfung',
     'OXDIAG_INTROINFORMATION_CONTACT_US'             => 'Sie können sich mit uns in Verbindung setzen. Verwenden Sie das ',
     'OXDIAG_INTROINFORMATION_ONLINE_CONTACT_FORM'    => 'Online Kontaktformular',
 
@@ -1869,15 +1930,36 @@ $aLang = [
     'OXDIAG_RESULT'                       => 'Diagnose-Prüfergebnis',
     'OXDIAG_DOWNLOAD_FILE'                => 'Hier klicken, um das Ergebnis als Datei herunterzuladen',
     'OXDIAG_ERRORMESSAGETEMPLATE'         => 'Aufgetretene Fehler',
+    'OXDIAG_VERSION'                      => 'Version',
+    'OXDIAG_EDITION'                      => 'Edition',
+    'OXDIAG_REVISION'                     => 'Revision',
+    'OXDIAG_SUMMARY'                      => 'Zusammenfassung',
+    'OXDIAG_HINTS'                        => 'Hinweise',
+    'OXDIAG_OK'                           => 'OK',
+    'OXDIAG_MODIFIED'                     => 'Geändert',
+    'OXDIAG_VERSION_MISMATCH'             => 'Versionsungleichheit',
+    'OXDIAG_UNKNOWN'                      => 'Unbekannt',
+    'OXDIAG_NUMBER_OF_INVESTIGATED_FILES' => 'Anzahl der insgesamt überprüften Dateien',
+    'OXDIAG_SHOP_DOES_NOT_FIT'            => 'Dieser OXID eShop ist nicht 100% original',
+    'OXDIAG_SHOP_ORIGINAL'                => 'Dieser OXID eShop wurde nicht verändert und ist original',
+
+    'OXDIAG_MODIFIEDHINTS1'                       => 'OXID eShop kann durch Module funktional erweitert werden, ohne dass dabei die  ausgelieferten Dateien angepasst werden müssen. Shopdateien sollten niemals geändert werden. Siehe dazu unsere englischen <a href="http://blog.oxid-esales.com/2009/02/how-extend-oxid-eshop-with-modules-part-1/" target=_blank>Tutorials</a>.',
+    'OXDIAG_MODIFIEDHINTS2'                       => 'Seit OXID eShop 4.2.0 ist es möglich, <a href="https://oxidforge.org/en/oxid-eshop-version-4-2-0.html#New_Features" target=_blank>eigene Templates zu verwenden</a>, ohne die ausgelieferten Templates zu ändern.',
+    'OXDIAG_VERSIONMISMATCHHINTS'                 => 'Offenbar schlug ein Update oder auch mehrere fehl. Klicken Sie auf den Details-Link, um mehr Informationen zu jeder einzelnen Datei zu erhalten. Eine übrig gebliebene Datei, die nicht mehr länger zum OXID eShop gehört, kann auch ein <u>möglicher</u> Grund für eine Versionsungleichheit sein. Informationen zum Update finden Sie in unserer <a href="http://www.oxid-esales.com/de/support-services/dokumentation-und-hilfe/oxid-eshop/installation/oxid-eshop-aktualisieren" target=_blank>Dokumentation und Hilfe</a>.',
+
 
     'OXDIAG_HOME'                     => 'OXID Diagnose',
-    'OXDIAG_ABOUT'                    => 'Dieses Modul sammelt technische Informationen &uuml;ber Ihren Shop und den Server. Diese Informationen k&ouml;nnen vor einem Update, einer Modulinstallation oder zu Diagnosezwecken interessant sein.',
+    'OXDIAG_ABOUT'                    => 'Dieses Modul sammelt technische Informationen &uuml;ber Ihren Shop und den Server.
+                                            Diese Informationen k&ouml;nnen vor einem Update, einer Modulinstallation oder zu Diagnosezwecken interessant sein.',
+    'OXDIAG_DOWNLOADLOG'              => 'Bericht herunterladen',
 
     //initial form
     'OXDIAG_COLLECT_MODULES'          => 'Module ermitteln',
     'OXDIAG_COLLECT_HEALTH'           => 'Systemgesundheit abfragen',
     'OXDIAG_COLLECT_PHP'              => 'PHP-Konfiguration (Auswahl) abfragen',
     'OXDIAG_COLLECT_SERVER'           => 'Serverinformationen abfragen (sofern m&ouml;glich)',
+    'OXDIAG_STORE_ANALYSIS'           => 'Auswertung speichern',
+    'OXDIAG_COLLECT_START'            => 'Analyse starten!',
 
     //index
     'OXDIAG_GOTO'                     => 'Gehe zu',
@@ -1886,7 +1968,9 @@ $aLang = [
     'OXDIAG_HEALTH'                   => 'Systemgesundheit',
     'OXDIAG_PHPINFO'                  => 'PHP-Informationen',
     'OXDIAG_SERVERINFO'               => 'Serverinformationen',
+    'OXDIAG_RESTART'                  => 'Neue Analyse',
 
+    'OXDIAG_DISCL'                    => 'Die Informationen unterhalb der Linie wurden in einem Bericht gespeichert.',
     'OXDIAG_HEALTH_OK'                => 'OK',
     'OXDIAG_HEALTH_MIN'               => 'MiN',
     'OXDIAG_HEALTH_FAIL'              => 'N OK',
@@ -1912,13 +1996,16 @@ $aLang = [
     'OXDIAG_SERVERINFO_COMPONENT'     => 'Komponente',
     'SUBJECT_UNABLE_TO_SEND_VIA_CURL' => 'Informationen können nicht via CURL an den OXID Server gesendet werden',
 
+    //final note
+    'OXDIAG_FINALNOTE'                => 'Ende der Auswertung',
+
     'OLC_ERROR_SERIAL_NOT_VALID'    => 'Lizenzschlüsselabgleich fehlgeschlagen. Bitte versuchen Sie es später noch einmal oder kontaktieren Sie den Support, falls dieses Problem weiterhin bestehen sollte.',
     'OLC_ERROR_RESPONSE_NOT_VALID'  => 'Fehler: Dienst nicht verfügbar. Bitte versuchen Sie es später noch einmal. Falls das Problem weiterhin bestehen sollte, überprüfen Sie bitte, dass Ihr Shop ausgehende Verbindungen aufbauen kann.',
     'OLC_ERROR_RESPONSE_UNEXPECTED' => 'Fehler: Antwort vom Server kann wegen unerwarteten Formats nicht ausgewertet werden. Bitte versuchen Sie es erneut.',
 
     'VERSION_UPDATE_LINK' => 'http://www.oxid-esales.com/de/support-services/dokumentation-und-hilfe/oxid-eshop/installation/oxid-eshop-aktualisieren/update-vorbereiten.html',
 
-    'ERROR_METADATA_CONTROLLERS_NOT_UNIQUE' => 'Fehler: Modul nicht aktiviert.<br />In einem Shop oder Sub-Shop müssen Schlüssel und Werte für "controllers" eindeutig sein.<br />Folgende Schlüssel oder Werte für "controllers", die in der Datei metadata.php dieses Moduls definiert sind, existieren schon im Shop:<br /> %s',
+    'ERROR_METADATA_CONTROLLERS_NOT_UNIQUE' => 'Fehler: Modul nicht aktiviert.<br />In einem Shop oder Sub-Shop müssen Schüssel und Werte für "controllers" eindeutig sein.<br />Folgende Schlüssel oder Werte für "controllers", die in der Datei metadata.php dieses Moduls definiert sind, existieren schon im Shop:<br /> %s',
 
     'SHOP_CONFIG_FIELDS_CONTACTFORM' => 'Pflichtfelder des Kontaktformulars',
     'EMAIL'                          => 'E-Mail',
@@ -1927,6 +2014,8 @@ $aLang = [
     'TITLE'                          => 'Anrede',
     'SUBJECT'                        => 'Betreff',
     'MESSAGE'                        => 'Nachricht',
+    'ADMIN_SETTINGS_LICENSE_VERSION_FETCH_INFO_ERROR' => 'Fehler beim Abrufen von Versionsinformationen!',
+    'CURL_EXECUTE_ERROR' => 'Verbindungsfehler (%s). Bitte versuchen Sie es später noch einmal.',
 ];
 
 /*
