@@ -4,10 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.2.0] Unreleased
+## [2.0.0] Unreleased
 
 ### Removed
-- Language Variable:
+- Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
     - `PAYMENT_RDFA_CREDITCARD`
     - `PAYMENT_RDFA_AMERICANEXPRESS`
@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `PAYMENT_RDFA_MASTERCARD`
     - `PAYMENT_RDFA_VISA`
     - `HELP_SHOP_CONFIG_ATTENTION`
+    - `NAVIGATION_NEWVERSIONAVAILABLE`
 - Suggest (Recommend Product) feature:
     - Usage in: `shop_config.html.twigl`
     - Language Constants: 
