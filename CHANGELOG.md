@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Changed price alert to wished price
 
 ### Deprecated
-- Language Variable:
+- Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
     - `PAYMENT_RDFA_CREDITCARD`
     - `PAYMENT_RDFA_AMERICANEXPRESS`
@@ -41,5 +41,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `PAYMENT_RDFA_VISA`
     - `HELP_SHOP_CONFIG_ATTENTION`
     - `TOOLTIPS_NEWNEWS`
+    - `NAVIGATION_NEWVERSIONAVAILABLE`
 
 ## [1.0.0] - 2019-11-21
