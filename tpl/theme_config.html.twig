@@ -58,7 +58,7 @@ function _groupExp(el) {
                             {% elseif var_type == 'arr' %}
                                 <textarea class="txtfield" name=confarrs[{{ theme_var }}] {{ readonly }}>{{ confarrs[theme_var] }}</textarea>
                             {% elseif var_type == 'aarr' %}
-                                <textarea class="txtfield" style="width: 430px;" name=confaarrs[{{ theme_var }}] wrap="off" {{ readonly }}>{{ confaarrs[theme_var] }}</textarea>
+                                <textarea class="txtfield" style="width: 430px;" name=confaarrs[{{ theme_var }}] wrap="off" {{ readonly }}>{{ confaarrs[theme_var]|raw }}</textarea>
                             {% elseif var_type == 'select' %}
                                 <select class="select" name=confselects[{{ theme_var }}] {{ readonly }}>
                                     {% for _field in var_constraints[theme_var] %}
