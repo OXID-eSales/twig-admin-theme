@@ -67,6 +67,26 @@
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_DELIVERYSET_MAIN_POS"), 'sHelpText': help_text("HELP_DELIVERYSET_MAIN_POS")} %}
                 </td>
             </tr>
+            <tr>
+                <td class="edittext" width="140">
+                    {{ translate({ ident: "DELIVERYSET_MAIN_TRACKINGURL" }) }}
+                </td>
+                <td class="edittext" width="250">
+                    <input
+                            type="text"
+                            class="editinput"
+                            size="50"
+                            maxlength="{{ edit.oxdeliveryset__oxtrackingurl.fldmax_length }}"
+                            name="editval[oxdeliveryset__oxtrackingurl]"
+                            value="{{ edit.oxdeliveryset__oxtrackingurl.value }}"
+                            {{ readonly }}>
+                    {% include "inputhelp.html.twig"
+                        with {
+                        'sHelpId': help_id("HELP_SHOP_CONFIG_PARCELSERVICE"),
+                        'sHelpText': help_text("HELP_SHOP_CONFIG_PARCELSERVICE")
+                    } %}
+                </td>
+            </tr>
         {% endblock %}
         <tr><td colspan="2">&nbsp;</td></tr>
         {% if oxid != oViewConf.getAjaxLink()|raw %}
