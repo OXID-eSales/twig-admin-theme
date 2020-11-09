@@ -192,7 +192,9 @@ $aLang =  [
 'HELP_SHOP_CONFIG_LINK_EXPIRATION_TIME'       => 'Specify the time in hours, the download link is valid after order. This is the default setting for all products.'.
                                                  'You can change this value for every file of product in Administer Products -> Products -> Downloads.',
 
-'HELP_SHOP_CONFIG_PARCELSERVICE'   			  => 'Please fill in the tracking URL of your shipping provider. <i>##ID##</i> is a placeholder and will be replaced with the respective tracking number.',
+'HELP_SHOP_CONFIG_PARCELSERVICE'   			  => 'Please fill in the tracking URL of your shipping provider. It will be used if no tracking url is set for the detailed shipping method. <i>##ID##</i> is a placeholder and will be replaced with the respective tracking number.',
+
+'HELP_DELIVERYSET_MAIN_TRACKINGURL'           => 'Please fill in the tracking URL of your shipping provider. <i>##ID##</i> is a placeholder and will be replaced with the respective tracking number.',
 
 'HELP_SHOP_CONFIG_DOWNLOAD_EXPIRATION_TIME'   => 'Specify the time in hours, the download link is valid after the first download. This is the default setting for all products.'.
                                                  'You can change this value for every file of product in Administer Products -> Products -> Downloads.',
