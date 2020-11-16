@@ -102,7 +102,7 @@ function editThis(sID)
                  {% endif %}
 
                   {% for picRow in 1..iPicCount+1 %}
-                  {% set iIndex = smarty.section.picRow.index %}
+                  {% set iIndex = loop.index %}
 
                   <tr>
                     <td class="index">
