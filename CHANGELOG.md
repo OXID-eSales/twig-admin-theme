@@ -44,4 +44,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `TOOLTIPS_NEWNEWS`
     - `NAVIGATION_NEWVERSIONAVAILABLE`
 
+### Fixed
+- Fix textareas with arrays display and saving bug [PR-2](https://github.com/OXID-eSales/twig-admin-theme/pull/2)
+
 ## [1.0.0] - 2019-11-21

@@ -833,7 +833,7 @@ function editThis(sID)
             <a href="#" onclick="_groupExp(this);return false;" class="rc"><b>{{ translate({ ident: "SHOP_OPTIONS_GROUP_ADMINISTRATION" }) }}</b></a>
             <dl>
                 <dt>
-                    <textarea class="txtfield" name=confaarrs[aCMSfolder] {{ readonly }}>{{ confaarrs.aCMSfolder }}</textarea>
+                    <textarea class="txtfield" name=confaarrs[aCMSfolder] {{ readonly }}>{{ confaarrs.aCMSfolder|raw }}</textarea>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_CMSFOLDER"), 'sHelpText': help_text("HELP_SHOP_CONFIG_CMSFOLDER")} %}
                 </dt>
                 <dd>
@@ -856,7 +856,7 @@ function editThis(sID)
 
             <dl>
                 <dt>
-                    <textarea class="txtfield" name=confaarrs[aOrderfolder] {{ readonly }}>{{ confaarrs.aOrderfolder }}</textarea>
+                    <textarea class="txtfield" name=confaarrs[aOrderfolder] {{ readonly }}>{{ confaarrs.aOrderfolder|raw }}</textarea>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_ORDERFOLDER"), 'sHelpText': help_text("HELP_SHOP_CONFIG_ORDERFOLDER")} %}
                 </dt>
                 <dd>
