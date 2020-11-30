@@ -208,7 +208,7 @@ function editThis( sID )
             <a href="#" onclick="_groupExp(this);return false;" class="rc"><b>{{ translate({ ident: "SHOP_OPTIONS_GROUP_ADMINISTRATION" }) }}</b></a>
             <dl>
                 <dt>
-                    <textarea class="txtfield" name=confaarrs[aInterfaceProfiles] {{ readonly }}>{{ confaarrs.aInterfaceProfiles }}</textarea>
+                    <textarea class="txtfield" name=confaarrs[aInterfaceProfiles] {{ readonly }}>{{ confaarrs.aInterfaceProfiles|raw }}</textarea>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_SYSTEM_INTERFACEPROFILES"), 'sHelpText': help_text("HELP_SHOP_SYSTEM_INTERFACEPROFILES")} %}
                 </dt>
                 <dd>
