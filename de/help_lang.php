@@ -551,7 +551,7 @@ $aLang =  [
 'HELP_PROMOTIONS_BANNER_PICTUREANDLINK'       => 'Laden Sie ein Bild für den großen Startseitenbanner hoch und geben die URL für den Klick auf den Banner an. Falls ein Artikel zugeordnet wird, wird dessen URL automatisch als Banner-URL verwendet.',
 'HELP_SHOP_PERF_SEO_CACHE'                    => 'Aktivierter SEO Cache verbessert die Performance, benötigt aber sehr viel Speicherplatz im /tmp-Verzeichnis.',
 
-'HELP_ALTERNATIVE_IMAGE_SERVER_NOTE'          => 'In der Konfigurationsdatei config.inc.php kann mit den Parametern <i>sAltImageUrl</i> und <i>sSSLAltImageUrl</i> eine URL zu einem externen Bilder-Server gesetzt werden. Dadurch werden alle Artikelbilder von diesem alternativen Server geladen. Alle hochgeladenen Dateien werden jedoch lokal gespeichert, so dass sie manuell oder per Script mit dem externen Server synchronisiert werden müssen.',
+'HELP_ALTERNATIVE_IMAGE_SERVER_NOTE'          => 'In der Konfigurationsdatei <i>config.inc.php</i> kann mit den Parametern <i>sAltImageUrl</i> und <i>sSSLAltImageUrl</i> eine URL zu einem externen Bilder-Server gesetzt werden. Dadurch werden alle Artikelbilder von diesem alternativen Server geladen.',
 
 'HELP_SHOP_RDFA_CONTENT_OFFERER'              => 'Wählen Sie hier aus, welche Content-Seite die Hauptinformationen zum eShop anzeigt, beispielsweise "Impressum".',
 'HELP_SHOP_RDFA_CONTENT_PAYMENT'              => 'Wählen Sie hier aus, welche Content-Seite (beispielsweise "AGB") Zahlungsinformationen anzeigt, die RDFa nicht zugewiesen wurden. Um Ihre Zahlungsarten den RDFa-Zahlungsarten generell zuzuordnen, gehen Sie zu Shopeinstellungen -> Zahlungsarten -> RDFa.',

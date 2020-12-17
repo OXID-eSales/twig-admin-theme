@@ -66,7 +66,15 @@ function LockAssignment(obj)
 <input type="hidden" name="masterPicField" value="">
 
 {% if oViewConf.isAltImageServerConfigured() %}
-    <div class="warning">{{ translate({ ident: "ALTERNATIVE_IMAGE_SERVER_NOTE" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE"), 'sHelpText': help_text("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE")} %}</div>
+    {% set oConfig = oViewConf.getConfig() %}
+
+    {% if oConfig.getConfigParam('sAltImageUrl') %}
+        {% set imageUrl = oConfig.getConfigParam('sAltImageUrl') %}
+    {% else %}
+        {% set imageUrl = oConfig.getConfigParam('sSSLAltImageUrl') %}
+    {% endif %}
+
+    <div class="warning">{{ translate({ ident: "ALTERNATIVE_IMAGE_SERVER_NOTE", args: imageUrl }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE"), 'sHelpText': help_text("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE")} %}</div>
 {% endif %}
 
 <table cellspacing="0" cellpadding="0" border="0" width="98%">
