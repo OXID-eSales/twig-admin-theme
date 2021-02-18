@@ -20,10 +20,6 @@
                     {% if bottom_buttons.payment_new %}
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWPAYMENT" }) }}</a> |</li>
                     {% endif %}
-                    {# newsletter #}
-                    {% if bottom_buttons.newsletter_new %}
-                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWNEWSLETTER" }) }}</a> |</li>
-                    {% endif %}
                     {# shop #}
                     {% if bottom_buttons.shop_new and oView.isMall() and malladmin == 1 %}
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWSHOP" }) }}</a> |</li>
