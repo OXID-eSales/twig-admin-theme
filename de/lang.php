@@ -1517,6 +1517,7 @@ $aLang = [
     'mxattributes'             => 'Attribute',
     'mxcategories'             => 'Kategorien',
     'mxcontent'                => 'CMS-Seiten',
+    'mxcustnews'               => 'Kundeninformation',
     'mxcoresett'               => 'Grundeinstellungen',
     'mxcountries'              => 'Länder',
     'mxdiscount'               => 'Rabatte',
