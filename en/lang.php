@@ -1052,7 +1052,7 @@ $aLang = [
     /** end deprecated */
     'SHOP_CONFIG_EXPORTNUMBEROFLINES'                         => 'Number of Lines which are exported per Tick in CSV Export',
     'SHOP_CONFIG_MWSTSETTING'                                 => 'VAT Settings for XML export',
-    'SHOP_CONFIG_NUMBEROFEMAILSPERTICK'                       => 'Number of emails sent per Tick',
+    'SHOP_CONFIG_NUMBEROFEMAILSPERTICK'                       => 'Number of emails sent per tick',
     'SHOP_CONFIG_UPDATEVIEWS'                                 => 'Database views needs to be updated!',
     'SHOP_CONFIG_ASSIGNDEFAULTCAT'                            => 'Assign default category',
     'SHOP_CONFIG_UNASSIGNDEFAULTCAT'                          => 'Unassign default category',

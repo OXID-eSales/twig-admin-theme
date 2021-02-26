@@ -1048,7 +1048,7 @@ $aLang = [
     /** end deprecated */
     'SHOP_CONFIG_EXPORTNUMBEROFLINES'                         => 'Anzahl von Zeilen im CSV, die pro Tick exportiert werden',
     'SHOP_CONFIG_MWSTSETTING'                                 => 'MwSt.-Einstellungen für XML-Export',
-    'SHOP_CONFIG_NUMBEROFEMAILSPERTICK'                       => 'Anzahl von E-Mails der pro Tick verschickt',
+    'SHOP_CONFIG_NUMBEROFEMAILSPERTICK'                       => 'Anzahl von E-Mails, die pro Tick verschickt werden',
     'SHOP_CONFIG_UPDATEVIEWS'                                 => 'Datenbank Views müssen aktualisiert werden!',
     'SHOP_CONFIG_ASSIGNDEFAULTCAT'                            => 'Aktive Kategorie setzen',
     'SHOP_CONFIG_UNASSIGNDEFAULTCAT'                          => 'Zuordnung löschen',
