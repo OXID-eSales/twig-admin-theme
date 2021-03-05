@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.0.0] Unreleased
 
+### Added
+- Functionality to export newsletter recipients
+
 ### Removed
 - Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`

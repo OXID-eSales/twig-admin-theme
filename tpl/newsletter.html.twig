@@ -1,15 +1,26 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
 
-<html>
-<head>
-    <title>{{ translate({ ident: "GENERAL_ADMIN_TITLE" }) }}</title>
-</head>
+<form name="export_recipients" id="export_recipients" action="{{ oViewConf.getSelfLink()|raw }}" method="post"
+      onSubmit="copyLongDesc( 'oxnewsletter__oxtemplate' );">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="admin_newsletter">
+    <input type="hidden" name="fnc" value="">
+    <input type="hidden" name="editval[oxnewsletter__oxtemplate]" value="">
 
-<!-- frames -->
-<frameset  rows="40%,*" border="0" onload="top.loadEditFrame('{{ oViewConf.getSelfLink()|raw }}&{{ editurl }}{% if oxid %}&oxid={{ oxid }}{% endif %}');">
-    <frame src="{{ oViewConf.getSelfLink()|raw }}&{{ listurl }}{% if oxid %}&oxid={{ oxid }}{% endif %}" name="list" marginwidth="0" marginheight="0" scrolling="auto" frameborder="0">
-    <frame src="" name="edit" id="edit" marginwidth="0" marginheight="0" scrolling="auto" frameborder="0">
-</frameset>
+    <table cellspacing="0" cellpadding="0" border="0" width="98%;">
+        <tr>
+            <td class="edittext">
+            </td>
+            <td class="edittext"><br>
+                <input type="submit" class="edittext" name="export" id="newsletter_recipients"
+                       value="{{ translate({ ident: "tbclnewsletter_recipients" }) }}"
+                onClick="Javascript:document.export_recipients.fnc.value='export'">
+            </td>
+        </tr>
+    </table>
 
+</form>
 
-</html>
+{% include "bottomnaviitem.html.twig" %}
+
+{% include "bottomitem.html.twig" %}
