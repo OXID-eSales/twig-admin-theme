@@ -67,6 +67,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `HELP_SHOP_CONFIG_ATTENTION`
     - `TOOLTIPS_NEWNEWS`
     - `NAVIGATION_NEWVERSIONAVAILABLE`
+- Management of Newsletter emails:
+  - Language constants
+    - `NEWSLETTER_DONE_NEWSSEND`
+    - `NEWSLETTER_DONE_GOTONEWSLETTE`
+    - `NEWSLETTER_DONE_TITLE`
+    - `NEWSLETTER_SUBJECT`
+    - `NEWSLETTER_MAIN_MODEL`
+    - `NEWSLETTER_PLAIN_TEXT`
+    - `NEWSLETTER_PREVIEW_PLAINTEXT`
+    - `NEWSLETTER_PREVIEW_HTML`
+    - `NEWSLETTER_SELECTION_SELMAILRESAVER`
+    - `NEWSLETTER_SELECTION_SENDNEWS`
+    - `NEWSLETTER_SELECTION_USEDGROUP`
+    - `NEWSLETTER_SEND_TITLE`
+    - `NEWSLETTER_SEND_SEND1`
+    - `NEWSLETTER_SEND_SEND2`
+    - `TOOLTIPS_NEWNEWSLETTER`
+    - `tbclnewsletter_plain`
+    - `tbclnewsletter_preview`
+    - `tbclnewsletter_selection`
 
 ### Fixed
 - Fix textareas with arrays display and saving bug [PR-2](https://github.com/OXID-eSales/twig-admin-theme/pull/2)
