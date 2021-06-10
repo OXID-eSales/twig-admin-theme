@@ -48,6 +48,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `tbclnewsletter_plain`
     - `tbclnewsletter_preview`
     - `tbclnewsletter_selection`
+- block `admin_shop_rdfa_submiturl` in `tpl/shop_rdfa.html.twig`
         
 ## [1.0.1] Unreleased
 
