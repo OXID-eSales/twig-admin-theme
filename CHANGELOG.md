@@ -8,9 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Functionality to export newsletter recipients
-- Support for PHP 8
+- Support for PHP v8
+
+### Changed
+- Switched to Twig v3
 
 ### Removed
+- Support for PHP < v7.4
 - Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
     - `HELP_SHOP_CONFIG_ATTENTION`
