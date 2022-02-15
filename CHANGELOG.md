@@ -8,8 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Functionality to export newsletter recipients
+- Support for PHP v8
+
+### Changed
+- Switched to Twig v3
 
 ### Removed
+- Support for PHP < v7.4
 - Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
     - `PAYMENT_RDFA_CREDITCARD`
@@ -49,7 +54,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `tbclnewsletter_preview`
     - `tbclnewsletter_selection`
 - block `admin_shop_rdfa_submiturl` in `tpl/shop_rdfa.html.twig`
-        
+
 ## [1.0.1] Unreleased
 
 ### Renamed

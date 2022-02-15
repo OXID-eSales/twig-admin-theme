@@ -54,7 +54,7 @@
                     <dt>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')) }) }}</dt>
                     <dd>
                         <ul>
-                        {% spaceless %}
+                        {% apply spaceless %}
                         {% for submenuitem in menuitem.childNodes %}
                         {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
                             <li>
@@ -63,7 +63,7 @@
                             {% set sb = sb+1 %}
                         {% endif %}
                         {% endfor %}
-                        {% endspaceless %}
+                        {% endapply %}
                         </ul>
                     </dd>
                 </dl>
