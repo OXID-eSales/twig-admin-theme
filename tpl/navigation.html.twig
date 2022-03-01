@@ -12,12 +12,12 @@
         window.onload = function ()
         {
             //
-            top.header.document.getElementById( "homelink" ).href = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl=navigation&item=home.tpl";
+            top.header.document.getElementById( "homelink" ).href = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl=navigation&item=home.html.twig";
             if ( '{{ listview }}' != '' ) {
                 top.basefrm.list.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl={{ listview }}&oxid={{ oViewConf.getActiveShopId() }}&actedit={{ actedit }}";
                 top.basefrm.edit.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl={{ editview }}&oxid={{ oViewConf.getActiveShopId() }}";
             } else if ( top.basefrm ) {
-                top.basefrm.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl=navigation&item=home.tpl";
+                top.basefrm.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl=navigation&item=home.html.twig";
             }
         }
         {% endif %}
@@ -106,7 +106,7 @@
                 {% set mn = 1 %}
                 {% set sm = 0 %}
                 <li id="nav-{{ mh }}-{{ mn }}" class="{% if blOpenHistory %}exp{% set sHistoryId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}">
-                    <a class="rc" name="_hist" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=navigation.tpl&openHistory=1&{{ smarty.now }}#_hist"><b>{{ translate({ ident: "NAVIGATION_HISTORY", noerror: true }) }}</b></a>
+                    <a class="rc" name="_hist" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=navigation.html.twig&openHistory=1&{{ smarty.now }}#_hist"><b>{{ translate({ ident: "NAVIGATION_HISTORY", noerror: true }) }}</b></a>
 
                     <ul>
                         {% for submenuitem in menuhistory %}
@@ -131,7 +131,7 @@
                 {% set sm = 0 %}
                 <li id="nav-{{ mh }}-{{ mn }}">
                     <a class="rc" onclick="_navExp(this);return false;" href="#" ><b>{{ translate({ ident: "NAVIGATION_FAVORITES", noerror: true }) }}</b></a>
-                    <a class="ed" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;item=favorites.tpl" target="basefrm" >{{ translate({ ident: "NAVIGATION_FAVORITES_EDIT", noerror: true }) }}</a>
+                    <a class="ed" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;item=favorites.html.twig" target="basefrm" >{{ translate({ ident: "NAVIGATION_FAVORITES_EDIT", noerror: true }) }}</a>
                     <ul>
                         {% for submenuitem in menufavorites %}
                             {% if submenuitem.nodeType == "XML_ELEMENT_NODE" %}

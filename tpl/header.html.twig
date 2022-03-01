@@ -12,7 +12,7 @@
     <ul>
       {% block admin_header_links %}
           <li class="act">
-              <a href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;item=home.tpl" id="homelink" target="basefrm" class="rc"><b>{{ translate({ ident: "NAVIGATION_HOME" }) }}</b></a>
+              <a href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;item=home.html.twig" id="homelink" target="basefrm" class="rc"><b>{{ translate({ ident: "NAVIGATION_HOME" }) }}</b></a>
           </li>
           <li class="sep">
               <a href="{{ shopURL }}" id="shopfrontlink" target="_blank" class="rc"><b>{{ translate({ ident: "NAVIGATION_SHOPFRONT" }) }}</b></a>

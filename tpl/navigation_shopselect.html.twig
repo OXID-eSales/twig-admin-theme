@@ -8,7 +8,7 @@
         {% block admin_navigation_shopselect_form %}
             {{ oViewConf.getHiddenSid()|raw }}
             <input type="hidden" name="cl" value="{{ oViewConf.getActiveClassName() }}">
-            <input type="hidden" name="item" value="navigation.tpl">
+            <input type="hidden" name="item" value="navigation.html.twig">
             <input type="hidden" name="fnc" value="chshp">
             <select id="selectshop" class="folderselect" onChange="selectShop( this.value );">
             {% for oShop in shoplist %}
