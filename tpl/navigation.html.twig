@@ -60,7 +60,7 @@
                 {% if menuholder.getAttribute('url') %}</a>{% endif %}
             </h2>
             <ul>
-            {% apply spaceless %}
+            {% spaceless %}
                 {% for menuitem in menuholder.childNodes %}
                 {% set actClass = menuitem.childNodes.length %}
                 {% if menuitem.nodeType == constant("XML_ELEMENT_NODE") %}
@@ -91,7 +91,7 @@
                     </li>
                 {% endif %}
                 {% endfor %}
-              {% endapply %}
+              {% endspaceless %}
             </ul>
         {% endif %}
         {% endfor %}
@@ -101,7 +101,7 @@
 
     <ul>
         {% block admin_navigation_history %}
-            {% apply spaceless %}
+            {% spaceless %}
                 {% set mh = mh+1 %}
                 {% set mn = 1 %}
                 {% set sm = 0 %}
@@ -119,13 +119,13 @@
                         {% endfor %}
                     </ul>
                 </li>
-            {% endapply %}
+            {% endspaceless %}
         {% endblock %}
     </ul>
 
     <ul>
         {% block admin_navigation_favorites %}
-            {% apply spaceless %}
+            {% spaceless %}
                 {% set mh = mh+1 %}
                 {% set mn = 1 %}
                 {% set sm = 0 %}
@@ -143,7 +143,7 @@
                         {% endfor %}
                     </ul>
                 </li>
-            {% endapply %}
+            {% endspaceless %}
         {% endblock %}
     </ul>
 

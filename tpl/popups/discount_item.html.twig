@@ -6,12 +6,12 @@
 
         YAHOO.oxid.container1 = new YAHOO.oxid.aoc( 'container1',
                                                     [ {% for iKey, aItem in oxajax.container1 %}
-                                                       {{ sSep }}{% apply spaceless %}{ key:'_{{ iKey }}', ident: {% if aItem.4 %}true{% else %}false{% endif %}
+                                                       {{ sSep }}{% spaceless %}{ key:'_{{ iKey }}', ident: {% if aItem.4 %}true{% else %}false{% endif %}
                                                        {% if not aItem.4 %},
                                                        label: '{{ translate({ ident: "GENERAL_AJAX_SORT_"|cat(aItem.0)|upper }) }}',
                                                        visible: {% if aItem.2 %}true{% else %}false{% endif %}
                                                        {% endif %}}
-                                                      {% endapply %}
+                                                      {% endspaceless %}
                                                       {% set sSep = "," %}
                                                       {% endfor %} ],
                                                     '{{ oViewConf.getAjaxLink()|raw }}cmpid=container1&container=discount_item&synchoxid={{ oxid }}'
@@ -21,13 +21,13 @@
 
         YAHOO.oxid.container2 = new YAHOO.oxid.aoc( 'container2',
                                                     [ {% for iKey, aItem in oxajax.container2 %}
-                                                       {{ sSep }}{% apply spaceless %}{ key:'_{{ iKey }}', ident: {% if aItem.4 %}true{% else %}false{% endif %}
+                                                       {{ sSep }}{% spaceless %}{ key:'_{{ iKey }}', ident: {% if aItem.4 %}true{% else %}false{% endif %}
                                                        {% if not aItem.4 %},
                                                        label: '{{ translate({ ident: "GENERAL_AJAX_SORT_"|cat(aItem.0)|upper }) }}',
                                                        visible: {% if aItem.2 %}true{% else %}false{% endif %},
                                                        formatter: YAHOO.oxid.aoc.custFormatter
                                                        {% endif %}}
-                                                      {% endapply %}
+                                                      {% endspaceless %}
                                                       {% set sSep = "," %}
                                                       {% endfor %} ],
                                                     '{{ oViewConf.getAjaxLink()|raw }}cmpid=container2&container=discount_item&oxid={{ oxid }}'
@@ -87,3 +87,4 @@
 
 </body>
 </html>
+
