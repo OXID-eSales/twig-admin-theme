@@ -12,7 +12,7 @@
         "GPL-3.0-only"
     ],
     "require": {
-        "php": ">=7.4",
+        "php": ">=7.1",
         "oxid-esales/twig-component": "*"
     },
     "minimum-stability": "dev",

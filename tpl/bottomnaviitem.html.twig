@@ -1,7 +1,7 @@
 </div>
 
 <div class="actions">
-    {% apply spaceless %}
+    {% spaceless %}
         <ul>
             {% block admin_bottomnaviitem %}
                 {% set allowSharedEdit = true %}
@@ -124,5 +124,5 @@
                 {% endif %}
             {% endblock %}
         </ul>
-    {% endapply %}
+    {% endspaceless %}
 </div>
