@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Functionality to export newsletter recipients
+- Support for PHP 8
 
 ### Removed
 - Language Constants:
