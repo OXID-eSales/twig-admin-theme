@@ -44,7 +44,7 @@
                         <div class="r1">
                             <div class="b1">
                                 <input class="listedit" type="text" size="9" maxlength="128"
-                                       name="where[oxarticles][oxartnum]" value="{{ where.oxarticles.oxartnum }}">
+                                       name="where[oxarticles][oxartnum]" value="{{ where.oxarticles.oxartnum|raw }}">
                             </div>
                         </div>
                     </td>
@@ -84,7 +84,7 @@
                                 </select>
                                 <input class="listedit" type="text" size="20" maxlength="128"
                                        name="where[oxarticles][{{ pwrsearchfld|lower }}]"
-                                       value="{{ pwrsearchinput }}" {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
+                                       value="{{ pwrsearchinput|raw }}" {% include "help.html.twig" with {helpid: "searchfieldoxdynamic"} %}>
                             </div>
                         </div>
                     </td>
@@ -105,7 +105,7 @@
                                 </div>
                                 <input class="listedit" type="text" size="25" maxlength="128"
                                        name="where[oxarticles][oxshortdesc]"
-                                       value="{{ where.oxarticles.oxshortdesc }}" {% include "help.html.twig" with {helpid: "searchfieldoxshortdesc"} %}>
+                                       value="{{ where.oxarticles.oxshortdesc|raw }}" {% include "help.html.twig" with {helpid: "searchfieldoxshortdesc"} %}>
                             </div>
                         </div>
                     </td>

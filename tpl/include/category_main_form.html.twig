@@ -16,7 +16,7 @@
                 {{ translate({ ident: "CATEGORY_MAIN_TITLE" }) }}
             </td>
             <td class="edittext" colspan="2">
-                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxcategories__oxtitle.fldmax_length }}" name="editval[oxcategories__oxtitle]" value="{{ edit.oxcategories__oxtitle.value }}" {{ readonly }}>
+                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxcategories__oxtitle.fldmax_length }}" name="editval[oxcategories__oxtitle]" value="{{ edit.oxcategories__oxtitle.value|raw }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_CATEGORY_MAIN_TITLE"), 'sHelpText': help_text("HELP_CATEGORY_MAIN_TITLE")} %}
             </td>
         </tr>

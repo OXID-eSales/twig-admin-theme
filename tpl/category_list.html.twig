@@ -37,7 +37,7 @@
                     </td>
                     <td valign="top" class="listfilter" height="20" align="center">
                         <div class="r1"><div class="b1">
-                                <input class="listedit" type="text" size="5" maxlength="128" name="where[oxcategories][oxsort]" value="{{ where.oxcategories.oxsort }}">
+                                <input class="listedit" type="text" size="5" maxlength="128" name="where[oxcategories][oxsort]" value="{{ where.oxcategories.oxsort|raw }}">
                             </div></div>
                     </td>
                     <td valign="top" class="listfilter" height="20" colspan="2">
@@ -57,7 +57,7 @@
                                     {% endfor %}
                                 </select>
 
-                                <input class="listedit" type="text" size="50" maxlength="128" name="where[oxcategories][oxtitle]" value="{{ where.oxcategories.oxtitle }}">
+                                <input class="listedit" type="text" size="50" maxlength="128" name="where[oxcategories][oxtitle]" value="{{ where.oxcategories.oxtitle|raw }}">
                             </div></div>
                     </td>
                 {% endblock %}
@@ -86,8 +86,8 @@
                             {% set listclass = "listitem4" %}
                         {% endif %}
                         <td valign="top" class="{{ listclass }}{% if listitem.oxcategories__oxactive.value == 1 %} active{% endif %}"><div class="listitemfloating">&nbsp;</div></td>
-                        <td valign="top" class="{{ listclass }}" height="15" align="center"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcategories__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcategories__oxsort.value }}</a></div></td>
-                        <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcategories__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcategories__oxtitle.value }}</a></div></td>
+                        <td valign="top" class="{{ listclass }}" height="15" align="center"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcategories__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcategories__oxsort.value|raw }}</a></div></td>
+                        <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcategories__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcategories__oxtitle.value|raw }}</a></div></td>
                         <td class="{{ listclass }}">
                             {% if not readonly %}
                                 {% include "include/category_list_item_actions.html.twig" %}
