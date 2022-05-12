@@ -110,7 +110,7 @@ window.onload = function ()
                         {{ translate({ ident: "ARTICLE_MAIN_TITLE" }) }}&nbsp;
                       </td>
                       <td class="edittext">
-                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxtitle.fldmax_length }}" id="oLockTarget" name="editval[oxarticles__oxtitle]" value="{{ edit.oxarticles__oxtitle.value }}">
+                        <input type="text" class="editinput" size="32" maxlength="{{ edit.oxarticles__oxtitle.fldmax_length }}" id="oLockTarget" name="editval[oxarticles__oxtitle]" value="{{ edit.oxarticles__oxtitle.value|raw }}">
                         {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_MAIN_TITLE"), 'sHelpText': help_text("HELP_ARTICLE_MAIN_TITLE")} %}
                       </td>
                     </tr>
