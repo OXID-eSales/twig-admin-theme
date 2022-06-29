@@ -78,7 +78,7 @@
                 <ul class="sortable" id="aModulesList">
                     {% for sClassName, aModuleNames in aExtClasses %}
                         <li id="{{ sClassName }}">
-                            <span>{{ sClassName|replace({'-- - ': '&#92;'}) }}</span>
+                            <span>{{ sClassName|replace({'---': '&#92;'}) }}</span>
                             <ul class="sortable2" id="{{ sClassName }}_modules">
                                 {% for sModule in aModuleNames %}
                                     {% if aDisabledModules is iterable and sModule in aDisabledModules %}
@@ -133,4 +133,3 @@
 
 {% include "bottomnaviitem.html.twig" %}
 {% include "bottomitem.html.twig" %}
-

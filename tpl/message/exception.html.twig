@@ -12,9 +12,9 @@
     </head>
 
     <body>
-        
+
         <div class="errorBox" style="width: auto;">
-              {% if count(Errors) > 0 and count(Errors.default) > 0 %}
+              {% if Errors.default is iterable and count(Errors) > 0 and count(Errors.default) > 0 %}
               <div class="error">
                   {% for key, oEr in Errors.default %}
                       <p class="msg">{{ oEr.getOxMessage() }}</p>
@@ -22,7 +22,7 @@
                       <p class="stackTrace">{{ oEr.getStackTrace()|nl2br }};</p>
                   {% endfor %}
               </div>
-              {% endif %}          
+              {% endif %}
         </div>
     </body>
 
