@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Switched to Twig v3
 
 ### Removed
-- Support for PHP < v7.4
+- Support for PHP v7
 - Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
     - `HELP_SHOP_CONFIG_ATTENTION`
