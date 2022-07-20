@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -1833,7 +1834,7 @@ $aLang = [
     'SHOP_RDFA_SHOW_PRODUCTSTOCK'     => 'Show real available product stock',
 
     'PAYMENT_RDFA_ASIGN_PAYMENT'           => 'Assign payment',
-    'PAYMENT_RDFA_ADVICE'                  => '<b>Hint:</b> Please choose only those payment methods, pre-defined in GoodRelations, that comply with your payment method <b>%s</b>.',
+    'PAYMENT_RDFA_ADVICE'                  => '<b>Hint:</b> Please choose only those payment methods, pre-defined in GoodRelations, that comply with your payment method <b>%s</b>',
     'PAYMENT_RDFA_GENERAL'                 => 'General payment methods',
     'PAYMENT_RDFA_CASH'                    => 'Cash',
     'PAYMENT_RDFA_GOOGLECHECKOUT'          => 'Google Checkout',
@@ -1844,8 +1845,6 @@ $aLang = [
     'PAYMENT_RDFA_BYINVOICE'               => 'Invoice',
     'PAYMENT_RDFA_CHECKINADVANCE'          => 'Check in advance',
     'PAYMENT_RDFA_BYBANKTRANSFERINADVANCE' => 'Cash in advance',
-
-    // @deprecated since v6.5.1 (2019-02-07); credit card payment method will be no longer supported
     'PAYMENT_RDFA_CREDITCARD'              => 'Credit card payment',
     'PAYMENT_RDFA_AMERICANEXPRESS'         => 'American Express',
     'PAYMENT_RDFA_DINERSCLUB'              => 'Diners Club',
@@ -1853,7 +1852,6 @@ $aLang = [
     'PAYMENT_RDFA_JCB'                     => 'JCB',
     'PAYMENT_RDFA_MASTERCARD'              => 'MasterCard',
     'PAYMENT_RDFA_VISA'                    => 'VISA',
-    // END deprecated
 
     'DELIVERY_RDFA_ASIGN_DELIVERY'             => 'Assign delivery method',
     'DELIVERY_RDFA_ADVICE'                     => '<b>Hint:</b> Please choose only those delivery methods, pre-defined in GoodRelations, that comply with your shipping method',

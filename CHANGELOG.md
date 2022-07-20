@@ -13,13 +13,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 - Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
-    - `PAYMENT_RDFA_CREDITCARD`
-    - `PAYMENT_RDFA_AMERICANEXPRESS`
-    - `PAYMENT_RDFA_DINERSCLUB`
-    - `PAYMENT_RDFA_DISCOVER`
-    - `PAYMENT_RDFA_JCB`
-    - `PAYMENT_RDFA_MASTERCARD`
-    - `PAYMENT_RDFA_VISA`
     - `HELP_SHOP_CONFIG_ATTENTION`
     - `NAVIGATION_NEWVERSIONAVAILABLE`
 - Suggest (Recommend Product) feature:
@@ -50,8 +43,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `tbclnewsletter_preview`
     - `tbclnewsletter_selection`
 - block `admin_shop_rdfa_submiturl` in `tpl/shop_rdfa.html.twig`
-        
-## [1.0.1] Unreleased
+
+## [1.1.0] Unreleased
 
 ### Renamed
 - Changed price alert to wished price
@@ -59,13 +52,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Deprecated
 - Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
-    - `PAYMENT_RDFA_CREDITCARD`
-    - `PAYMENT_RDFA_AMERICANEXPRESS`
-    - `PAYMENT_RDFA_DINERSCLUB`
-    - `PAYMENT_RDFA_DISCOVER`
-    - `PAYMENT_RDFA_JCB`
-    - `PAYMENT_RDFA_MASTERCARD`
-    - `PAYMENT_RDFA_VISA`
     - `HELP_SHOP_CONFIG_ATTENTION`
     - `TOOLTIPS_NEWNEWS`
     - `NAVIGATION_NEWVERSIONAVAILABLE`
