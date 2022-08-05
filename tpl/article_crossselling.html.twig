@@ -31,7 +31,7 @@
     <tr>
       <td valign="top" class="edittext">
         {% block admin_article_crossselling_assign_crossselling %}
-          {% hasrights { "object": "edit", "readonly": "readonly", } %}
+          {% hasrights { object: edit, readonly: readonly } %}
             <input type="button" value="{{ translate({ ident: "ARTICLE_CROSSSELLING_ASSIGNCROSSSELLING" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=article_crossselling&aoc=1&oxid={{ oxid }}');" {{ readonly }}>
           {% endhasrights %}
         {% endblock %}
@@ -39,7 +39,7 @@
       <!-- Anfang rechte Seite -->
       <td valign="top" class="edittext" align="left" width="50%">
         {% block admin_article_crossselling_assign_accessoires %}
-          {% hasrights { "object": "edit", "readonly": "readonly", } %}
+          {% hasrights { object: edit, readonly: readonly } %}
             <input type="button" value="{{ translate({ ident: "ARTICLE_CROSSSELLING_ASSIGNACCESSORIES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=article_crossselling&aoc=2&oxid={{ oxid }}');" {{ readonly }}>
           {% endhasrights %}
         {% endblock %}

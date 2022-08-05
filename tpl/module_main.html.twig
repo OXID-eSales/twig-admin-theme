@@ -1,7 +1,7 @@
 {% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: "box"} %}
 
 {% if updatenav %}
-    {{ script({ add: "top.oxid.admin.reloadNavigation('`$shopid`');", priority: 10, dynamic: __oxid_include_dynamic }) }}
+    {{ script({ add: "top.oxid.admin.reloadNavigation('" ~ shopid ~ "');", priority: 10, dynamic: __oxid_include_dynamic }) }}
 {% endif %}
 
 <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">

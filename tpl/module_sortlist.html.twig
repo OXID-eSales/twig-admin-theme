@@ -32,7 +32,7 @@
                                 <td valign="top" class="{{ listclass }}">
                                     <ul>
                                         {% for sClassName, mFile in aModules.extensions %}
-                                            {% set is_int = sClassName > 0 or sClassName < 0 or sClassName is same as(0) %}
+                                            {% set is_int = sClassName matches '/^\\d+$/' %}
                                             {% if mFile is iterable %}
                                                 {% for sFile in mFile %}
                                                     <li>{% if not is_int %}{{ sClassName }} =&gt; {% endif %}{{ sFile }}</li>
@@ -42,7 +42,7 @@
                                             {% endif %}
                                         {% endfor %}
                                         {% for sClassName, sFile in aModules.files %}
-                                            {% set is_int = sClassName > 0 or sClassName < 0 or sClassName is same as(0) %}
+                                            {% set is_int = sClassName matches '/^\\d+$/' %}
                                             <li>{% if not is_int %}{{ sClassName }} =&gt; {% endif %}{{ sFile }}</li>
                                         {% endfor %}
                                     </ul>

@@ -1,0 +1,20 @@
+{% set oConfig = oViewConf.getConfig() %}
+<ul>
+    {% block admin_header_links %}
+    <li class="act">
+        <a href="{{ oViewConf.getSelfLink() }}&cl=navigation&item=home.tpl" id="homelink" target="basefrm" class="rc">
+            <b>{{ translate({ ident: "NAVIGATION_HOME" }) }}</b>
+        </a>
+    </li>
+    <li class="sep">
+        <a href="{{ oConfig.getShopURL() }}" id="shopfrontlink" target="_blank" class="rc">
+            <b>{{ translate({ ident: "NAVIGATION_SHOPFRONT" }) }}</b>
+        </a>
+    </li>
+    <li class="sep">
+        <a href="{{ oViewConf.getSelfLink() }}&cl=navigation&fnc=logout" id="logoutlink" target="_parent" class="rc">
+            <b>{{ translate({ ident: "NAVIGATION_LOGOUT" }) }}</b>
+        </a>
+    </li>
+    {% endblock %}
+</ul>
