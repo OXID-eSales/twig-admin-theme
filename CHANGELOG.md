@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Switched to Twig v3
 
+### Fixed
+- Increased the size of smtp password input field [CE-PR-898](https://github.com/OXID-eSales/oxideshop_ce/pull/898)
+
 ### Removed
 - Support for PHP v7
 - Language Constants:
