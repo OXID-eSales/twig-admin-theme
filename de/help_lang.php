@@ -33,6 +33,9 @@ $aLang =  [
                                                  '<li>Oberhalb von ca. 80 kann man kaum eine Verbesserung der Bildqualität feststellen, während die Dateigröße enorm zunimmt.</li></ul><br>'.
                                                  'Die Standardeinstellung ist 75.',
 
+'HELP_SHOP_SYSTEM_CONVERT_IMAGES_TO_WEBP'     => 'Empfohlen: Aktivieren Sie die WebP-Konvertierung, damit die Seiten Ihres OXID eShops schneller geladen werden.<br>' .
+                                                 'Prüfen Sie jedoch, ob die Qualität Ihrer Bilder durch die im Vergleich mit dem JPG-Format stärkere Kompression beeinträchtigt wird. Deaktivieren Sie die WebP-Konvertierung gegebenenfalls wieder.',
+
 'HELP_SHOP_SYSTEM_SHOWVARIANTREVIEWS'         => 'Diese Einstellung beeinflusst das Verhalten, wenn Varianten bewertet werden: Wenn die Einstellung aktiv ist, dann werden die Bewertungen der Varianten auch beim Vater-Artikel angezeigt.',
 
 'HELP_SHOP_SYSTEM_VARIANTSSELECTION'          => 'Im eShop gibt es oft Listen, in denen Sie Artikel zuordnen können, z. B. wenn Sie Artikel zu Rabatten zuordnen. Wenn die Einstellung aktiv ist, werden in diesen Listen auch  Varianten angezeigt.',

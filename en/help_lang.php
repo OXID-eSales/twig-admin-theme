@@ -34,6 +34,9 @@ $aLang =  [
                                                  '<li>Above 80 hardly any quality improvement can be detected, but the filesize increases enormously.</li></ul><br>'.
                                                  'The default value is 75.',
 
+'HELP_SHOP_SYSTEM_CONVERT_IMAGES_TO_WEBP'     => 'Recommended: Enable WebP conversion to make your OXID eShop pages load faster.<br>' .
+                                                 'However, check if the quality of your images is affected by the stronger compression compared to the JPG format. If necessary, deactivate the WebP conversion again.',
+
 'HELP_SHOP_SYSTEM_SHOWVARIANTREVIEWS'         => 'This setting affects how reviews for variants are handled: If the setting is checked, remarks from variants are also shown at the parent product.',
 
 'HELP_SHOP_SYSTEM_VARIANTSSELECTION'          => 'In eShop there are many lists for assigning products, e.g. assigning products to discounts. If this setting is checked, variants are shown in these lists, too.',
