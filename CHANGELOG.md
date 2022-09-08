@@ -42,3 +42,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Port changes from main admin theme
 
 ## [1.0.0] - 2019-11-21
+
+[1.1.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/OXID-eSales/twig-admin-theme/releases/tag/v1.0.0

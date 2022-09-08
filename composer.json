@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "oxid-esales/twig-component": "v1.1.0"
+        "oxid-esales/twig-component": "dev-b-6.5.x"
     },
     "minimum-stability": "dev",
     "extra": {
