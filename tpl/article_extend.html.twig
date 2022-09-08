@@ -355,20 +355,20 @@ function processUnitInput( oSelect, sInputId )
 
             <table cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                    {% hasrights { "field": "oxupdateprice", "object": "edit", "readonly": "readonly", } %}
+                    {% hasrights { field: "oxupdateprice", object: edit, readonly: readonly } %}
                         <td>{{ translate({ ident: "ARTICLE_EXTEND_UPDATEPRICE" }) }}: ({{ oActCur.sign }}):&nbsp;</td><td><input type="text" class="editinput" size="4" maxlength="{{ edit.oxarticles__oxupdateprice.fldmax_length }}" name="editval[oxarticles__oxupdateprice]" value="{{ edit.oxarticles__oxupdateprice.value }}" {{ readonly }}></td>
                     {% endhasrights %}
-                    {% hasrights { "field": "oxupdatepricea", "object": "edit", "readonly": "readonly", } %}
+                    {% hasrights { field: "oxupdatepricea", object: edit, readonly: readonly } %}
                         <td>&nbsp;{{ translate({ ident: "ARTICLE_EXTEND_UPDATEPRICEA" }) }}:&nbsp;</td><td><input type="text" class="editinput" size="4" maxlength="{{ edit.oxarticles__oxupdatepricea.fldmax_length }}" name="editval[oxarticles__oxupdatepricea]" value="{{ edit.oxarticles__oxupdatepricea.value }}" {{ readonly }}></td>
                     {% endhasrights %}
-                    {% hasrights { "field": "oxupdatepriceb", "object": "edit", "readonly": "readonly", } %}
+                    {% hasrights { field: "oxupdatepriceb", object: edit, readonly: readonly } %}
                         <td>&nbsp;{{ translate({ ident: "ARTICLE_EXTEND_UPDATEPRICEB" }) }}:&nbsp;</td><td><input type="text" class="editinput" size="4" maxlength="{{ edit.oxarticles__oxupdatepriceb.fldmax_length }}" name="editval[oxarticles__oxupdatepriceb]" value="{{ edit.oxarticles__oxupdatepriceb.value }}" {{ readonly }}></td>
                     {% endhasrights %}
-                    {% hasrights { "field": "oxupdatepricec", "object": "edit", "readonly": "readonly", } %}
+                    {% hasrights { field: "oxupdatepricec", object: edit, readonly: readonly } %}
                         <td>&nbsp;{{ translate({ ident: "ARTICLE_EXTEND_UPDATEPRICEC" }) }}:&nbsp;</td><td><input type="text" class="editinput" size="4" maxlength="{{ edit.oxarticles__oxupdatepricec.fldmax_length }}" name="editval[oxarticles__oxupdatepricec]" value="{{ edit.oxarticles__oxupdatepricec.value }}" {{ readonly }}></td>
                     {% endhasrights %}
                 </tr>
-                {% hasrights { "field": "oxupdatepricetime", "object": "edit", "readonly": "readonly", } %}
+                {% hasrights { field: "oxupdatepricetime", object: edit, readonly: readonly } %}
                 <tr>
                     <td>{{ translate({ ident: "ARTICLE_EXTEND_UPDATEPRICETIME" }) }}:&nbsp;</td>
                     <td colspan="7">

@@ -13,11 +13,11 @@
   {% endif %}
 
   {% if _cnt == 0 %}
-    {% set _state = _state|cat(") %}
+    {% set _state = _state ~ " first" %}
   {% endif %}
 
   {% if _cnt == editnavi.length -1 %}
-    {% set _state = _state|cat(") %}
+    {% set _state = _state ~ "last" %}
   {% endif %}
 
   {% if edit.getAttribute('external') == 'true' %}

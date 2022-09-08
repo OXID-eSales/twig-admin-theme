@@ -41,7 +41,7 @@ function editThis( sID )
             {% endif %}
 
             {% block admin_article_attribute_assign_attribute %}
-                {% hasrights { "object": "edit", "readonly": "readonly", } %}
+                {% hasrights { object: edit, readonly: readonly } %}
                     <input type="button" value="{{ translate({ ident: "ARTICLE_ATTRIBUTE_ASSIGNATTRIBUTE" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=article_attribute&aoc=1&oxid={{ oxid }}');" {{ readonly }}>
                 {% endhasrights %}
             {% endblock %}
@@ -56,7 +56,7 @@ function editThis( sID )
         <!-- Anfang rechte Seite -->
         <td valign="top" class="edittext" align="left" width="50%">
             {% block admin_article_attribute_assign_selectlist %}
-                {% hasrights { "object": "edit", "readonly": "readonly", } %}
+                {% hasrights { object: edit, readonly: readonly } %}
                     <input type="button" value="{{ translate({ ident: "ARTICLE_ATTRIBUTE_ASSIGNSELECTLIST" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=article_attribute&aoc=2&oxid={{ oxid }}');" {{ readonly }}>
                 {% endhasrights %}
             {% endblock %}

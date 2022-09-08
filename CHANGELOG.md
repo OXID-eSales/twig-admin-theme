@@ -51,7 +51,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `tbclnewsletter_selection`
 - block `admin_shop_rdfa_submiturl` in `tpl/shop_rdfa.html.twig`
 
-## [1.1.0] Unreleased
+## [1.1.0] - 2022-09-08
 
 ### Renamed
 - Changed price alert to wished price
@@ -85,5 +85,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Fix textareas with arrays display and saving bug [PR-2](https://github.com/OXID-eSales/twig-admin-theme/pull/2)
+- Fix wrongly converted {% hasrights %} tags
+- Port changes from main admin theme
 
 ## [1.0.0] - 2019-11-21
+
+[1.1.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.1.0...b-7.0.x
+[1.1.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/OXID-eSales/twig-admin-theme/releases/tag/v1.0.0

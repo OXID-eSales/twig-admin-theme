@@ -183,7 +183,7 @@
         {% endblock %}
 
         {% block admin_payment_main_editor %}
-            {% hasrights { "field": "oxlongdesc", "object": "edit", "readonly": "readonly", } %}
+            {% hasrights { field: "oxlongdesc", object: edit, readonly: readonly } %}
                 <div>
                     <p>{{ translate({ ident: "PAYMENT_MAIN_LONGDESC" }) }}</p>
                     {{ editor|raw }}
