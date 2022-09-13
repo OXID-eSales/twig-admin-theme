@@ -1,4 +1,3 @@
-{% set oConfig = oViewConf.getConfig() %}
 <ul>
     {% block admin_header_links %}
     <li class="act">
@@ -7,7 +6,7 @@
         </a>
     </li>
     <li class="sep">
-        <a href="{{ oConfig.getShopURL() }}" id="shopfrontlink" target="_blank" class="rc">
+        <a href="{{ oViewConf.getShopURL() }}" id="shopfrontlink" target="_blank" class="rc">
             <b>{{ translate({ ident: "NAVIGATION_SHOPFRONT" }) }}</b>
         </a>
     </li>
