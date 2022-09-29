@@ -58,7 +58,7 @@ window.onload = function ()
                 </td>
             </tr>
             <tr>
-                <td class="edittext">
+                <td class="edittext" width="120">
                 {{ translate({ ident: "GENERAL_TITLE" }) }}
                 </td>
                 <td class="edittext">
@@ -67,7 +67,7 @@ window.onload = function ()
                 </td>
             </tr>
             <tr>
-                <td class="edittext">
+                <td class="edittext" width="120">
                 {{ translate({ ident: "GENERAL_SHORTDESC" }) }}
                 </td>
                 <td class="edittext">
@@ -75,9 +75,9 @@ window.onload = function ()
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_SHORTDESC"), 'sHelpText': help_text("HELP_GENERAL_SHORTDESC")} %}
                 </td>
             </tr>
-
+            {# icon #}
             <tr>
-                <td class="edittext">
+                <td class="edittext" width="120">
                 {{ translate({ ident: "GENERAL_ICON" }) }}
                 </td>
                 <td class="edittext">
@@ -86,12 +86,62 @@ window.onload = function ()
                 </td>
             </tr>
             <tr>
-                <td class="edittext">
+                <td class="edittext" width="120">
                 {{ translate({ ident: "MANUFACTURER_MAIN_ICONUPLOAD" }) }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }}):<br>
                 </td>
                 <td class="edittext">
                 <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon]" type="file" {{ readonly }}>
-                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_MAIN_ICONUPLOAD"), 'sHelpText': help_text("HELP_MANUFACTURER_MAIN_ICONUPLOAD")} %}
+                </td>
+            </tr>
+            {# promo icon #}
+            <tr>
+                <td class="edittext" width="120">
+                {{ translate({ ident: "MANUFACTURER_PROMO_ICON" }) }}
+                </td>
+                <td class="edittext">
+                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxpromoicon.fldmax_length }}" name="editval[oxmanufacturers__oxpromoicon]" value="{{ edit.oxmanufacturers__oxpromoicon.value }}" {{ readonly }}>
+                </td>
+            </tr>
+            <tr>
+                <td class="edittext" width="120">
+                {{ translate({ ident: "MANUFACTURER_PROMO_ICONUPLOAD" }) }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }}):<br>
+                </td>
+                <td class="edittext">
+                <input class="editinput" name="myfile[MPICO@oxmanufacturers__oxpromoicon]" type="file" {{ readonly }}>
+                </td>
+            </tr>
+            {# thumbnail #}
+            <tr>
+                <td class="edittext" width="120">
+                {{ translate({ ident: "GENERAL_THUMB" }) }}
+                </td>
+                <td class="edittext">
+                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxthumb.fldmax_length }}" name="editval[oxmanufacturers__oxthumb]" value="{{ edit.oxmanufacturers__oxthumb.value }}" {{ readonly }}>
+                </td>
+            </tr>
+            <tr>
+                <td class="edittext" width="120">
+                {{ translate({ ident: "MANUFACTURER_THUMBUPLOAD" }) }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }}):<br>
+                </td>
+                <td class="edittext">
+                <input class="editinput" name="myfile[TM@oxmanufacturers__oxthumb]" type="file" {{ readonly }}>
+                </td>
+            </tr>
+            {# main pic #}
+            <tr>
+                <td class="edittext" width="120">
+                {{ translate({ ident: "MANUFACTURER_GENERAL_PIC" }) }}
+                </td>
+                <td class="edittext">
+                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxpic.fldmax_length }}" name="editval[oxmanufacturers__oxpic]" value="{{ edit.oxmanufacturers__oxpic.value }}" {{ readonly }}>
+                </td>
+            </tr>
+            <tr>
+                <td class="edittext" width="120">
+                {{ translate({ ident: "MANUFACTURER_PICTUREUPLOAD" }) }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }}):<br>
+                </td>
+                <td class="edittext">
+                <input class="editinput" name="myfile[MPIC@oxmanufacturers__oxpic]" type="file" {{ readonly }}>
                 </td>
             </tr>
         {% endblock %}
