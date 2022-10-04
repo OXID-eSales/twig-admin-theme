@@ -44,30 +44,5 @@
     <li class="null"> - {{ translate({ ident: "SYSREQ_DESCRIPTION_NULL" }) }}</li>
 </ul>
 
-{% set _tplBlockErr = oView.getMissingTemplateBlocks() %}
-{% if _tplBlockErr|length %}
-    <ul class="req">
-        <h3>{{ translate({ ident: "SYSREQ_MODULE_BLOCKS_REQ" }) }}:</h3>
-        <table class="moduleBlockErrorsTable">
-            <thead>
-                <tr>
-                    <td>{{ translate({ ident: "SYSREQ_MODULE_BLOCKS_MODNAME" }) }}</td>
-                    <td>{{ translate({ ident: "SYSREQ_MODULE_BLOCKS_BLOCKNAME" }) }}</td>
-                    <td>{{ translate({ ident: "SYSREQ_MODULE_BLOCKS_TPLFILE" }) }}</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for _err in _tplBlockErr %}
-                <tr>
-                    <td>{{ _err.module|escape }}</td>
-                    <td>{{ _err.block|escape }}</td>
-                    <td>{{ _err.template|escape }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </ul>
-{% endif %}
-
 {% include "bottomnaviitem.html.twig" %}
 {% include "bottomitem.html.twig" %}

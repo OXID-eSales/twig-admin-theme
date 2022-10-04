@@ -1227,9 +1227,6 @@ $aLang = [
     'SYSREQ_MOD_REWRITE'                      => 'Apache mod_rewrite Modul',
     'SYSREQ_ALLOW_URL_FOPEN'                  => 'allow_url_fopen oder fsockopen auf Port 80',
     'SYSREQ_PHP4_COMPAT'                      => 'Zend Kompatibilitätsmodus muss ausgeschaltet sein',
-    // @deprecated since v.6.5.1 (2020-02-12);
-    'SYSREQ_PHP_VERSION'                      => 'PHP Version 7.1 and 7.4',
-    // END deprecated
     'SYSREQ_REQUEST_URI'                      => 'REQUEST_URI vorhanden',
     'SYSREQ_LIB_XML2'                         => 'LIB XML2',
     'SYSREQ_PHP_XML'                          => 'DOM',
@@ -1238,11 +1235,6 @@ $aLang = [
     'SYSREQ_TOKENIZER'                        => 'Tokenizer',
     'SYSREQ_BC_MATH'                          => 'BCMath',
     'SYSREQ_MYSQL_CONNECT'                    => 'PDO_MySQL',
-
-    // @deprecated since v6.5.1 (2020-03-12); We do not check mysql version
-    'SYSREQ_MYSQL_VERSION'                    => 'MySQL Version 5.5 oder 5.7',
-    // END deprecated
-
     'SYSREQ_GD_INFO'                          => 'GDlib v2 incl. JPEG Unterstützung',
     'SYSREQ_INI_SET'                          => 'ini_set erlaubt',
     'SYSREQ_REGISTER_GLOBALS'                 => 'register_globals muss ausgeschaltet sein',
@@ -1268,6 +1260,7 @@ $aLang = [
     'SYSREQ_MODULE_BLOCKS_BLOCKNAME'          => 'Blockname',
     'SYSREQ_MODULE_BLOCKS_TPLFILE'            => 'Template Dateiname',
     'SYSREQ_MAGIC_QUOTES_GPC'                 => 'magic_quotes_gpc muss ausgeschaltet sein',
+    'SYSREQ_CRYPTOGRAPHICALLY_SUFFICIENT_CONFIGURATION' => 'Kryptografisch ausreichender',
     'TOOLS_LIST_TITLE'                        => '[OXID Tools]',
     'TOOLS_LIST_SECCESS'                      => 'Backup data erfolgreich gemailt.',
     'TOOLS_LIST_ACTIONEND'                    => 'Aktion beendet',
