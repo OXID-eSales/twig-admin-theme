@@ -100,7 +100,7 @@ function editThis(sID)
     <div class="groupExp">
         <div>
             <a href="#" onclick="_groupExp(this);return false;" class="rc"><b>{{ translate({ ident: "SHOP_OPTIONS_GROUP_SEARCH" }) }}</b></a>
-          
+
             <dl>
                 <dt>
                     <textarea class="txtfield" name=confarrs[aSearchCols] {{ readonly }}>{{ confarrs.aSearchCols }}</textarea>
@@ -996,68 +996,6 @@ function editThis(sID)
                 </dt>
                 <dd>
                     {{ translate({ ident: "SHOP_CONFIG_DELETERATINGLOGS" }) }}
-                </dd>
-                <div class="spacer"></div>
-            </dl>
-
-            <dl>
-                <dt>
-                    <input type=text class="txt" name=confstrs[iRssItemsCount] value="{{ confstrs.iRssItemsCount }}" {{ readonly }}>
-                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSITEMSCOUNT"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSITEMSCOUNT")} %}
-                </dt>
-                <dd>
-                    {{ translate({ ident: "SHOP_CONFIG_RSSITEMSCOUNT" }) }}
-                </dd>
-                <div class="spacer"></div>
-            </dl>
-
-            <dl>
-                <dt>
-                </dt>
-                <dd>
-                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSSELECTED"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSSELECTED")} %}{{ translate({ ident: "SHOP_CONFIG_RSSSELECTED" }) }}
-                    <div style="margin-left:10px;">
-                        <input type=hidden name=confbools[bl_rssTopShop] value=false>
-                        <input type=checkbox name=confbools[bl_rssTopShop] value=true  {% if (confbools.bl_rssTopShop) %}checked{% endif %} {{ readonly }}>
-                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSTOPSHOP"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSTOPSHOP")} %}
-                        {{ translate({ ident: "SHOP_CONFIG_RSSTOPSHOP" }) }}
-                        <br />
-
-                        <input type=hidden name=confbools[bl_rssBargain] value=false>
-                        <input type=checkbox name=confbools[bl_rssBargain] value=true  {% if (confbools.bl_rssBargain) %}checked{% endif %} {{ readonly }}>
-                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSBARGAIN"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSBARGAIN")} %}
-                        {{ translate({ ident: "SHOP_CONFIG_RSSBARGAIN" }) }}
-                        <br />
-
-                        <input type=hidden name=confbools[bl_rssNewest] value=false>
-                        <input type=checkbox name=confbools[bl_rssNewest] value=true  {% if (confbools.bl_rssNewest) %}checked{% endif %} {{ readonly }}>
-                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSNEWEST"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSNEWEST")} %}
-                        {{ translate({ ident: "SHOP_CONFIG_RSSNEWEST" }) }}
-                        <br />
-
-                        <input type=hidden name=confbools[bl_rssCategories] value=false>
-                        <input type=checkbox name=confbools[bl_rssCategories] value=true  {% if (confbools.bl_rssCategories) %}checked{% endif %} {{ readonly }}>
-                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSCATEGORIES"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSCATEGORIES")} %}
-                        {{ translate({ ident: "SHOP_CONFIG_RSSCATEGORIES" }) }}
-                        <br />
-
-                        <input type=hidden name=confbools[bl_rssSearch] value=false>
-                        <input type=checkbox name=confbools[bl_rssSearch] value=true  {% if (confbools.bl_rssSearch) %}checked{% endif %} {{ readonly }}>
-                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSSEARCH"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSSEARCH")} %}
-                        {{ translate({ ident: "SHOP_CONFIG_RSSSEARCH" }) }}
-                        <br />
-
-                        <input type=hidden name=confbools[bl_rssRecommLists] value=false>
-                        <input type=checkbox name=confbools[bl_rssRecommLists] value=true  {% if (confbools.bl_rssRecommLists) %}checked{% endif %} {{ readonly }}>
-                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSARTRECOMMLISTS"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSARTRECOMMLISTS")} %}
-                        {{ translate({ ident: "SHOP_CONFIG_RSSARTRECOMMLISTS" }) }}
-                        <br />
-
-                        <input type=hidden name=confbools[bl_rssRecommListArts] value=false>
-                        <input type=checkbox name=confbools[bl_rssRecommListArts] value=true  {% if (confbools.bl_rssRecommListArts) %}checked{% endif %} {{ readonly }}>
-                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_RSSRECOMMLISTARTS"), 'sHelpText': help_text("HELP_SHOP_CONFIG_RSSRECOMMLISTARTS")} %}
-                        {{ translate({ ident: "SHOP_CONFIG_RSSRECOMMLISTARTS" }) }}
-                    </div>
                 </dd>
                 <div class="spacer"></div>
             </dl>

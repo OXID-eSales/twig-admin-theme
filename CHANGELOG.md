@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 - Support for PHP v7
+- RSS functionality
 - Language Constants:
     - `SHOP_CONFIG_STORECREDITCARDINFO`
     - `HELP_SHOP_CONFIG_ATTENTION`
