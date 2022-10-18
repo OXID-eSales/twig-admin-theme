@@ -161,7 +161,7 @@ function changeLanguage()
 
 <script type="text/javascript">
 if (parent.parent)
-{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
     parent.parent.sMenuItem    = "{{ translate({ ident: "GENERAL_MENUITEM" }) }}";
     parent.parent.sMenuSubItem = "{{ translate({ ident: "snpreviewlistheader" }) }}";
     parent.parent.sWorkArea    = "{{ _act }}";

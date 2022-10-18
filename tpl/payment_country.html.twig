@@ -21,7 +21,7 @@
 <input type="hidden" name="oxid" value="{{ oxid }}">
 <input type="hidden" name="editval[oxpayments__oxid]" value="{{ oxid }}">
 
-{% if oxid != oViewConf.getAjaxLink()|raw %}
+{% if oxid != "-1" %}
     <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNCOUNTRIES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=payment_country&aoc=1&oxid={{ oxid }}');">
 {% endif %}
 

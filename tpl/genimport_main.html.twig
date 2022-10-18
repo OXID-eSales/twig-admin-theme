@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
     if (top)
-    {   top.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+    {   top.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
         top.sMenuItem    = "{{ translate({ ident: "GENIMPORT_MENUITEM" }) }}";
         top.sMenuSubItem = "{{ translate({ ident: "GENIMPORT_MENUSUBITEM" }) }}";
         top.sWorkArea    = "{{ _act }}";

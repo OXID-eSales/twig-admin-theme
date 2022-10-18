@@ -128,7 +128,7 @@
             </tr>
         {% endblock %}
         <tr><td colspan="2">&nbsp;</td></tr>
-        {% if oxid != oViewConf.getAjaxLink()|raw %}
+        {% if oxid != "-1" %}
         <tr>
             <td class="edittext">
             </td>
@@ -148,7 +148,7 @@
     </td>
     <td valign="top" width="50%">
         {% block admin_delivery_main_assign_countries %}
-            {% if oxid != oViewConf.getAjaxLink()|raw %}
+            {% if oxid != "-1" %}
                 <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNCOUNTRIES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=delivery_main&aoc=1&oxid={{ oxid }}');">
             {% endif %}
         {% endblock %}

@@ -16,7 +16,7 @@
                 {{ translate({ ident: "CATEGORY_MAIN_TITLE" }) }}
             </td>
             <td class="edittext" colspan="2">
-                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxcategories__oxtitle.fldmax_length }}" name="editval[oxcategories__oxtitle]" value="{{ edit.oxcategories__oxtitle.value|raw }}" {{ readonly }}>
+                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxcategories__oxtitle.fldmax_length }}" name="editval[oxcategories__oxtitle]" value="{{ edit.oxcategories__oxtitle.value }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_CATEGORY_MAIN_TITLE"), 'sHelpText': help_text("HELP_CATEGORY_MAIN_TITLE")} %}
             </td>
         </tr>
@@ -36,7 +36,7 @@
             <td class="edittext" colspan="2">
                 <select name="editval[oxcategories__oxparentid]" class="editinput" {{ readonly }}>
                     {% for pcat in cattree.__get('aList') %}
-                        <option value="{% if pcat.oxcategories__oxid.value %}{{ pcat.oxcategories__oxid.value }}{% else %}oxrootid{% endif %}" {% if pcat.selected %}SELECTED{% endif %}>{{ pcat.oxcategories__oxtitle.getRawValue()|truncate(33, "..", true) }}</option>
+                        <option value="{% if pcat.oxcategories__oxid.value %}{{ pcat.oxcategories__oxid.value }}{% else %}oxrootid{% endif %}" {% if pcat.selected %}SELECTED{% endif %}>{{ pcat.oxcategories__oxtitle.value|truncate(33, "..", true) }}</option>
                     {% endfor %}
                 </select>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_CATEGORY_MAIN_PARENTID"), 'sHelpText': help_text("HELP_CATEGORY_MAIN_PARENTID")} %}
@@ -186,7 +186,7 @@
 <!-- Anfang rechte Seite -->
 <td valign="top" class="edittext" align="left" width="50%">
     {% block admin_category_main_assign_articles %}
-        {% if oxid != oViewConf.getAjaxLink()|raw %}
+        {% if oxid != "-1" %}
             <input {{ readonly }} type="button" name="assignArticle" value="{{ translate({ ident: "GENERAL_ASSIGNARTICLES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=category_main&aoc=1&oxid={{ oxid }}');" {% if edit.oxcategories__oxpriceto.value > 0 %} disabled {% endif %}>
         {% endif %}
     {% endblock %}

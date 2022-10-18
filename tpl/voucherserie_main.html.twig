@@ -154,7 +154,7 @@ function changeFnc( fncName )
     </td>
     <td width="355" valign="top">
 
-        {% if oxid != oViewConf.getAjaxLink()|raw %}
+        {% if oxid != "-1" %}
 
         <form name="myexport" id="myexport" action="{{ oViewConf.getSelfLink()|raw }}" target="dynexport_do" method="post">
         {{ oViewConf.getHiddenSid()|raw }}

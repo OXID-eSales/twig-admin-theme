@@ -39,7 +39,7 @@
                             <select name="acat[]" size="20" multiple class="editinput"
                                     style="width: 210px;" {{ readonly }}>
                                 {% for oCat in cattree %}
-                                    <option value="{{ oCat.getId() }}">{{ oCat.oxcategories__oxtitle.value|raw }}</option>
+                                    <option value="{{ oCat.getId() }}">{{ oCat.oxcategories__oxtitle.value }}</option>
                                 {% endfor %}
                         </td>
                         </select>

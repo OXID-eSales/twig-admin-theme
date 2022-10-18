@@ -26,13 +26,13 @@
 <tr>
     <!-- Anfang rechte Seite -->
     <td valign="top" class="edittext" align="left" width="50%">
-    {% if oxid != oViewConf.getAjaxLink()|raw %}
+    {% if oxid != "-1" %}
         <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNGROUPS" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=delivery_users&aoc=2&oxid={{ oxid }}');">
     {% endif %}
     </td>
     <!-- Anfang rechte Seite -->
     <td valign="top" class="edittext" align="left">
-    {% if oxid != oViewConf.getAjaxLink()|raw %}
+    {% if oxid != "-1" %}
         <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNUSERS" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=delivery_users&aoc=1&oxid={{ oxid }}');">
     {% endif %}
     </td>

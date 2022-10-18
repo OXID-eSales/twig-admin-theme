@@ -35,7 +35,7 @@
                 {{ translate({ ident: "GENERAL_NAME" }) }}
                 </td>
                 <td class="edittext" width="250">
-                <input type="text" class="editinput" size="50" maxlength="{{ edit.oxdeliveryset__oxtitle.fldmax_length }}" name="editval[oxdeliveryset__oxtitle]" value="{{ edit.oxdeliveryset__oxtitle.value|raw }}" {{ readonly }}>
+                <input type="text" class="editinput" size="50" maxlength="{{ edit.oxdeliveryset__oxtitle.fldmax_length }}" name="editval[oxdeliveryset__oxtitle]" value="{{ edit.oxdeliveryset__oxtitle.value }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_NAME"), 'sHelpText': help_text("HELP_GENERAL_NAME")} %}
                 </td>
             </tr>
@@ -89,7 +89,7 @@
             </tr>
         {% endblock %}
         <tr><td colspan="2">&nbsp;</td></tr>
-        {% if oxid != oViewConf.getAjaxLink()|raw %}
+        {% if oxid != "-1" %}
         <tr>
             <td class="edittext">
             </td>
@@ -109,7 +109,7 @@
     </td>
     <td valign="top" width="50%">
         {% block admin_deliveryset_main_assign_delivery %}
-            {% if oxid != oViewConf.getAjaxLink()|raw %}
+            {% if oxid != "-1" %}
                 <input {{ readonly }} type="button" value="{{ translate({ ident: "DELIVERYSET_MAIN_ASSIGNDELIVERY" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=deliveryset_main&aoc=1&oxid={{ oxid }}');"><br>
                 <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNCOUNTRIES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=deliveryset_payment&aoc=2&oxid={{ oxid }}');">
             {% endif %}

@@ -109,7 +109,7 @@ function DeletePic( sField )
                 </td>
             </tr>
         {% endblock %}
-        {% if oxid != oViewConf.getAjaxLink()|raw %}
+        {% if oxid != "-1" %}
         <tr>
             <td class="edittext">
             </td>
@@ -133,7 +133,7 @@ function DeletePic( sField )
     <!-- Anfang rechte Seite -->
     <td valign="top" class="edittext" align="left" width="50%">
         {% block admin_wrapping_main_picture %}
-            {% if oxid != oViewConf.getAjaxLink()|raw %}
+            {% if oxid != "-1" %}
                 {% if edit.oxwrapping__oxpic.value %}
                     {{ translate({ ident: "WRAPPING_MAIN_PICTURE" }) }} <br>
                     <img src="{{ edit.getPictureUrl() }}" border="0" hspace="0" vspace="0">

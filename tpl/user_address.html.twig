@@ -24,7 +24,7 @@
 <tr>
     <!-- Anfang rechte Seite -->
     <td valign="top" class="edittext" align="left" width="50%">
-    {% if oxid != oViewConf.getAjaxLink()|raw %}
+    {% if oxid != "-1" %}
 
         <table cellspacing="0" cellpadding="0" border="0">
         <tr>
@@ -159,7 +159,7 @@
             </td>
             <td class="edittext"><br>
             <input type="submit" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'"" {{ readonly }}>
-            {% if oxaddressid != oViewConf.getAjaxLink()|raw %}
+            {% if oxaddressid != "-1" %}
                 <input type="submit" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_DELETE" }) }}" onClick="Javascript:document.myedit.fnc.value='deladdress'"" {{ readonly }}>
             {% endif %}
             </td>

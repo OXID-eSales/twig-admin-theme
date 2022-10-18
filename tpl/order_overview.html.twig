@@ -64,7 +64,7 @@
                 <tr>
                     <td valign="top" class="edittext">{{ listitem.oxorderarticles__oxamount.value }} * </td>
                     <td valign="top" class="edittext">&nbsp;{{ listitem.oxorderarticles__oxartnum.value }}</td>
-                    <td valign="top" class="edittext">&nbsp;{{ listitem.oxorderarticles__oxtitle.getRawValue()|truncate(20, "")|striptags }}{% if listitem.oxwrapping__oxname.value %}&nbsp;({{ listitem.oxwrapping__oxname.value }})&nbsp;{% endif %}</td>
+                    <td valign="top" class="edittext">&nbsp;{{ listitem.oxorderarticles__oxtitle.value|truncate(20, "")|striptags }}{% if listitem.oxwrapping__oxname.value %}&nbsp;({{ listitem.oxwrapping__oxname.value }})&nbsp;{% endif %}</td>
                     <td valign="top" class="edittext">&nbsp;{{ listitem.oxorderarticles__oxselvariant.value }}</td>
                     {% if edit.isNettoMode() %}
                         <td valign="top" class="edittext">&nbsp;&nbsp;{{ listitem.getNetPriceFormated() }} {{ edit.oxorder__oxcurrency.value }}</td>
@@ -100,7 +100,7 @@
                 </tr>
                 <tr>
                     <td class="edittext">{{ translate({ ident: "ORDER_OVERVIEW_DELTYPE" }) }}: </td>
-                    <td class="edittext"><b>{{ deliveryType.oxdeliveryset__oxtitle.value|raw }}</b><br></td>
+                    <td class="edittext"><b>{{ deliveryType.oxdeliveryset__oxtitle.value }}</b><br></td>
                 </tr>
             {% endblock %}
             </table>

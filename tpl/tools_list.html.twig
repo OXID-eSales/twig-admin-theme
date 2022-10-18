@@ -49,7 +49,7 @@ window.onload = function ()
         {% set sErrorMsg = aErrorMessages['key'] %}
         {% set iErrorNum = aErrorNumbers['key'] %}
         {% if sQuery %}
-        <tr valign="top"><td>{{ translate({ ident: "TOOLS_LIST_SQLQUERY" }) }} ({{ key + 1 }}) : </td><td>{{ sQuery|wordwrap(100, "<br>", true) }}</td></tr>
+        <tr valign="top"><td>{{ translate({ ident: "TOOLS_LIST_SQLQUERY" }) }} ({{ key + 1 }}) : </td><td>{{ sQuery|wordwrap(100, "<br>", true)|raw }}</td></tr>
         {% endif %}
         {% if sAffectedRows %}
         <tr><td colspan="2"><br></td></tr>
@@ -73,7 +73,7 @@ window.onload = function ()
 
 <script type="text/javascript">
 if (parent.parent)
-{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
     parent.parent.sMenuItem    = "{{ translate({ ident: "TOOLS_LIST_MENUITEM" }) }}";
     parent.parent.sMenuSubItem = "{{ translate({ ident: "TOOLS_LIST_MENUSUBITEM" }) }}";
     parent.parent.sWorkArea    = "{{ _act }}";

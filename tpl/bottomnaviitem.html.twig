@@ -10,10 +10,10 @@
                     {% if bottom_buttons.user_new %}
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWUSER" }) }}</a> |</li>
                     {% endif %}
-                    {% if bottom_buttons.user_newremark and oxid != oViewConf.getAjaxLink()|raw %}
+                    {% if bottom_buttons.user_newremark and oxid != "-1" %}
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.newremark" href="#" onClick="Javascript:top.oxid.admin.changeEditBar('user_remark', 3); return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWREMARK" }) }}</a> |</li>
                     {% endif %}
-                    {% if bottom_buttons.user_newaddress and oxid != oViewConf.getAjaxLink()|raw %}
+                    {% if bottom_buttons.user_newaddress and oxid != "-1" %}
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.newaddress" href="#" onClick="Javascript:top.oxid.admin.changeEditBar('user_address', 4); return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWADDRESS" }) }}</a> |</li>
                     {% endif %}
                     {# payment #}

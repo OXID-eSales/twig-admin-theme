@@ -57,19 +57,19 @@
                                     <optgroup label="{{ translate({ ident: "GENERAL_CATEGORY" }) }}">
                                         {% for pcat in cattree.__get('aList') %}
                                             <option value="cat@@{{ pcat.oxcategories__oxid.value }}"
-                                                    {% if pcat.selected %}SELECTED{% endif %}>{{ pcat.oxcategories__oxtitle.getRawValue()|raw }}</option>
+                                                    {% if pcat.selected %}SELECTED{% endif %}>{{ pcat.oxcategories__oxtitle.value }}</option>
                                         {% endfor %}
                                     </optgroup>
                                     <optgroup label="{{ translate({ ident: "GENERAL_MANUFACTURER" }) }}">
                                         {% for pmnf in mnftree %}
                                             <option value="mnf@@{{ pmnf.oxmanufacturers__oxid.value }}"
-                                                    {% if pmnf.selected %}SELECTED{% endif %}>{{ pmnf.oxmanufacturers__oxtitle.value|raw }}</option>
+                                                    {% if pmnf.selected %}SELECTED{% endif %}>{{ pmnf.oxmanufacturers__oxtitle.value }}</option>
                                         {% endfor %}
                                     </optgroup>
                                     <optgroup label="{{ translate({ ident: "GENERAL_VENDOR" }) }}">
                                         {% for pvnd in vndtree %}
                                             <option value="vnd@@{{ pvnd.oxvendor__oxid.value }}"
-                                                    {% if pvnd.selected %}SELECTED{% endif %}>{{ pvnd.oxvendor__oxtitle.value|raw }}</option>
+                                                    {% if pvnd.selected %}SELECTED{% endif %}>{{ pvnd.oxvendor__oxtitle.value }}</option>
                                         {% endfor %}
                                     </optgroup>
                                 </select>
@@ -186,7 +186,7 @@
 
 <script type="text/javascript">
     if (parent.parent) {
-        parent.parent.sShopTitle = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+        parent.parent.sShopTitle = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
         parent.parent.sMenuItem = "{{ translate({ ident: "GENERAL_MENUITEM" }) }}";
         parent.parent.sMenuSubItem = "{{ translate({ ident: "ARTICLE_LIST_MENUSUBITEM" }) }}";
         parent.parent.sWorkArea = "{{ _act }}";

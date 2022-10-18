@@ -61,7 +61,7 @@ window.onload = function ()
                     {{ translate({ ident: "GENERAL_NAME" }) }}
                     </td>
                     <td class="edittext" width="250">
-                    <input type="text" class="editinput" size="50" maxlength="{{ edit.oxdiscount__oxtitle.fldmax_length }}" name="editval[oxdiscount__oxtitle]" value="{% if oxid == oViewConf.getAjaxLink()|raw %}{{ discount_title }}{% else %}{{ edit.oxdiscount__oxtitle.value }}{% endif %}" {{ readonly }}>
+                    <input type="text" class="editinput" size="50" maxlength="{{ edit.oxdiscount__oxtitle.fldmax_length }}" name="editval[oxdiscount__oxtitle]" value="{% if oxid == "-1" %}{{ discount_title }}{% else %}{{ edit.oxdiscount__oxtitle.value }}{% endif %}" {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_NAME"), 'sHelpText': help_text("HELP_GENERAL_NAME")} %}
                     </td>
                 </tr>
@@ -70,7 +70,7 @@ window.onload = function ()
                         {{ translate({ ident: "DISCOUNT_MAIN_SORT" }) }}
                     </td>
                     <td class="edittext" colspan="2">
-                        <input type="text" class="editinput" size="25" maxlength="{{ edit.oxdiscount__oxsort.fldmax_length }}" id="oLockTarget" name="editval[oxdiscount__oxsort]" value="{% if oxid == oViewConf.getAjaxLink()|raw %}{{ oView.getNextOxsort() }}{% else %}{{ edit.oxdiscount__oxsort.value }}{% endif %}" {{ readonly }}>
+                        <input type="text" class="editinput" size="25" maxlength="{{ edit.oxdiscount__oxsort.fldmax_length }}" id="oLockTarget" name="editval[oxdiscount__oxsort]" value="{% if oxid == "-1" %}{{ oView.getNextOxsort() }}{% else %}{{ edit.oxdiscount__oxsort.value }}{% endif %}" {{ readonly }}>
                         {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_DISCOUNT_MAIN_SORT"), 'sHelpText': help_text("HELP_DISCOUNT_MAIN_SORT")} %}
                     </td>
                 </tr>
@@ -175,7 +175,7 @@ window.onload = function ()
     </td>
     <td valign="top" width="50%">
         {% block admin_discount_main_assign_countries %}
-            {% if oxid != oViewConf.getAjaxLink()|raw %}
+            {% if oxid != "-1" %}
                 <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNCOUNTRIES" }) }}" class="edittext" onclick="showDialog('&cl=discount_main&aoc=1&oxid={{ oxid }}');">
             {% endif %}
         {% endblock %}

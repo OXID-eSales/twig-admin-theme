@@ -11,7 +11,7 @@
 <body>
 
 <script type="text/javascript">
-    parent.sShopTitle = "{{ actshop|addslashes }}";
+    parent.sShopTitle = "{{ actshop|addslashes|raw }}";
     parent.setTitle();
 </script>
 

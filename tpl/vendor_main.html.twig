@@ -96,7 +96,7 @@ window.onload = function ()
                 </td>
             </tr>
         {% endblock %}
-        {% if oxid != oViewConf.getAjaxLink()|raw %}
+        {% if oxid != "-1" %}
         <tr>
             <td class="edittext">
             </td>
@@ -119,7 +119,7 @@ window.onload = function ()
     <!-- Anfang rechte Seite -->
     <td valign="top" class="edittext" align="left" width="55%">
         {% block admin_vendor_main_assign_articles %}
-            {% if oxid != oViewConf.getAjaxLink()|raw %}
+            {% if oxid != "-1" %}
                 <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNARTICLES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=vendor_main&aoc=1&oxid={{ oxid }}');" {{ readonly }}>
             {% endif %}
         {% endblock %}

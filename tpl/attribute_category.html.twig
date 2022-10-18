@@ -22,7 +22,7 @@
 <input type="hidden" name="editval[oxattribute__oxid]" value="{{ oxid }}">
 
 {% block admin_attribute_category_assign_categories %}
-    {% if oxid != oViewConf.getAjaxLink()|raw %}
+    {% if oxid != "-1" %}
         <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNCATEGORIES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=attribute_category&aoc=1&oxid={{ oxid }}');">
     {% endif %}
 {% endblock %}

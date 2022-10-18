@@ -205,7 +205,7 @@ function chkInsert()
                   {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_BIRTHDATE"), 'sHelpText': help_text("HELP_GENERAL_BIRTHDATE")} %}
                 </td>
             </tr>
-            {% if oxid != oViewConf.getAjaxLink()|raw %}
+            {% if oxid != "-1" %}
             <tr>
                 <td class="edittext"><br>
                 {{ translate({ ident: "USER_MAIN_HASPASSWORD" }) }}
@@ -238,7 +238,7 @@ function chkInsert()
     <!-- Starting right column -->
     <td valign="top" class="edittext vr" align="left" width="50%">
         {% block admin_user_main_assign_groups %}
-            {% if oxid != oViewConf.getAjaxLink()|raw %}
+            {% if oxid != "-1" %}
                <input {{ readonly }} type="button" value="{{ translate({ ident: "GENERAL_ASSIGNGROUPS" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=user_main&aoc=1&oxid={{ oxid }}');">
             {% endif %}
         {% endblock %}

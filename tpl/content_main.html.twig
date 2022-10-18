@@ -184,7 +184,7 @@
                                 <select name="editval[oxcontents__oxcatid]" class="editinput" {{ readonly }}>
                                     {% for pcat in cattree %}
                                         <option value="{{ pcat.oxcategories__oxid.value }}"
-                                                {% if pcat.selected %}SELECTED{% endif %}>{{ pcat.oxcategories__oxtitle.value|raw|truncate(33, "..", true) }}</option>
+                                                {% if pcat.selected %}SELECTED{% endif %}>{{ pcat.oxcategories__oxtitle.value|truncate(33, "..", true) }}</option>
                                     {% endfor %}
                                 </select>
                                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_CONTENT_MAIN_INSERTBEFORE"), 'sHelpText': help_text("HELP_CONTENT_MAIN_INSERTBEFORE")} %}

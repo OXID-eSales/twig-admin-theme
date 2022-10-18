@@ -53,7 +53,7 @@
 
                                 <select name="where[oxcategories][oxparentid]" class="editinput" onChange="Javascript:document.search.submit();">
                                     {% for pcat in cattree.__get('aList') %}
-                                        <option value="{{ pcat.oxcategories__oxid.value }}" {% if pcat.selected %}SELECTED{% endif %}>{{ pcat.oxcategories__oxtitle.getRawValue()|raw }}</option>
+                                        <option value="{{ pcat.oxcategories__oxid.value }}" {% if pcat.selected %}SELECTED{% endif %}>{{ pcat.oxcategories__oxtitle.value }}</option>
                                     {% endfor %}
                                 </select>
 
@@ -86,8 +86,8 @@
                             {% set listclass = "listitem4" %}
                         {% endif %}
                         <td valign="top" class="{{ listclass }}{% if listitem.oxcategories__oxactive.value == 1 %} active{% endif %}"><div class="listitemfloating">&nbsp;</div></td>
-                        <td valign="top" class="{{ listclass }}" height="15" align="center"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcategories__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcategories__oxsort.value|raw }}</a></div></td>
-                        <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcategories__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcategories__oxtitle.value|raw }}</a></div></td>
+                        <td valign="top" class="{{ listclass }}" height="15" align="center"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcategories__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcategories__oxsort.value }}</a></div></td>
+                        <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcategories__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcategories__oxtitle.value }}</a></div></td>
                         <td class="{{ listclass }}">
                             {% if not readonly %}
                                 {% include "include/category_list_item_actions.html.twig" %}
@@ -111,7 +111,7 @@
 
 <script type="text/javascript">
     if (parent.parent)
-    {   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+    {   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
         parent.parent.sMenuItem    = "{{ translate({ ident: "GENERAL_MENUITEM" }) }}";
         parent.parent.sMenuSubItem = "{{ translate({ ident: "CATEGORY_LIST_MENUSUBITEM" }) }}";
         parent.parent.sWorkArea    = "{{ _act }}";

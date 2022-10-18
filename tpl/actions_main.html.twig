@@ -135,7 +135,7 @@ function DeletePic(sField)
             >
             <br><br>
 
-            {% if oxid != oViewConf.getAjaxLink()|raw %}
+            {% if oxid != "-1" %}
 
                 {% if edit.oxactions__oxtype.value < 2 %}
                    <input type="button" value="{{ translate({ ident: "GENERAL_ASSIGNARTICLES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=actions_main&aoc=1&oxid={{ oxid }}');" {{ readonly }}>

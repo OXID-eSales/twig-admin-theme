@@ -88,7 +88,7 @@ window.onload = function ()
 
 <script type="text/javascript">
 if (parent.parent)
-{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname.getRawValue()|addslashes }}";
+{   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
     parent.parent.sMenuItem    = "{{ translate({ ident: "mxextensions" }) }}";
     parent.parent.sMenuSubItem = "{{ translate({ ident: "mxtheme" }) }}";
     parent.parent.sWorkArea    = "{{ _act }}";
