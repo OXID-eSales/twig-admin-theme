@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.1] - Unreleased
+
+### Fixed
+- "window.navigation" is overriden by some browsers now, so frame with id "navigation" renamed to "navigationfrm" 
+
 ## [1.1.0] - 2022-09-08
 
 ### Renamed
@@ -43,5 +48,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.0] - 2019-11-21
 
+[1.1.1]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.1.0...b-6.5.x
 [1.1.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/OXID-eSales/twig-admin-theme/releases/tag/v1.0.0
