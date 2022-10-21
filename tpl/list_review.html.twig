@@ -29,10 +29,10 @@ function editThis ( sID )
               {% for submenuitem in menuitem.childNodes %}
                 {% if submenuitem.nodeType == "XML_ELEMENT_NODE" and submenuitem.getAttribute('cl') == 'article' %}
 
-                    if ( top && top.navigationfrm && top.navigationfrm.adminnav ) {
-                        var _sbli = top.navigationfrm.adminnav.document.getElementById( 'nav-1-{{ mn }}-1' );
+                    if ( top && top.frames['navigation'] && top.frames['navigation'].adminnav ) {
+                        var _sbli = top.frames['navigation'].adminnav.document.getElementById( 'nav-1-{{ mn }}-1' );
                         var _sba = _sbli.getElementsByTagName( 'a' );
-                        top.navigationfrm.adminnav._navAct( _sba[0] );
+                        top.frames['navigation'].adminnav._navAct( _sba[0] );
                     }
 
                 {% endif %}
