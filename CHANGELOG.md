@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.1.1] - Unreleased
 
 ### Fixed
-- "window.navigation" is overriden by some browsers now, so frame with id "navigation" renamed to "navigationfrm" 
+- Admin navigation frame access with top.navigation is broken for chrome. 
 
 ## [1.1.0] - 2022-09-08
 
