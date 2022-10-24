@@ -1,5 +1,11 @@
 {% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
 
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
 <form name="export_recipients" id="export_recipients" action="{{ oViewConf.getSelfLink()|raw }}" method="get"
       onSubmit="copyLongDesc( 'oxnewsletter__oxtemplate' );">
     {{ oViewConf.getHiddenSid()|raw }}
@@ -14,7 +20,7 @@
             <td class="edittext"><br>
                 <input type="submit" class="edittext" name="export" id="newsletter_recipients"
                        value="{{ translate({ ident: "tbclnewsletter_recipients" }) }}"
-                onClick="Javascript:document.export_recipients.fnc.value='export'">
+                onClick="Javascript:document.export_recipients.fnc.value='export'" {{ readonly }}>
             </td>
         </tr>
     </table>

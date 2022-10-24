@@ -99,13 +99,14 @@ function ThisDate( sID)
                                 </td>
                             </tr>
 
-                            {% if edit.blIsPaid %}
+                            {% set paymentDate = edit.oxorder__oxpaid.value|replace({"0000-00-00 00:00:00": ""}) %}
+                            {% if paymentDate %}
                             <tr>
                                 <td class="edittext" valign="middle">
                                 <b>{{ translate({ ident: "ORDER_MAIN_ORDERPAID" }) }}</b>
                                 </td>
                                 <td class="edittext" valign="bottom">
-                                <b>{{ edit.oxorder__oxpaid.value|format_date('datetime', true) }}</b>
+                                <b>{{ paymentDate|format_date('datetime', true) }}</b>
                                 </td>
                                 <td class="edittext"></td>
                             </tr>
@@ -115,7 +116,7 @@ function ThisDate( sID)
                                 <td class="edittext">
                                     {{ translate({ ident: "ORDER_MAIN_PAIDON" }) }}
                                 </td>
-                                <td class="edittext">{% set date = edit.oxorder__oxpaid.value|replace({"0000-00-00 00:00:00": ""}) %}
+                                <td class="edittext">
                                     <input type="text" class="editinput" size="25" name="editval[oxorder__oxpaid]" value="{{ edit.oxorder__oxpaid|format_date }}" {% include "help.html.twig" with {helpid: "article_vonbis"} %} {{ readonly }}>&nbsp;<a href="Javascript:ThisDate('{{ sNowValue|format_date('datetime', true) }}');" class="edittext" {% if readonly %}onclick="JavaScript:return false;"{% endif %}><u>{{ translate({ ident: "ORDER_MAIN_CURRENT_DATE" }) }}</u></a>
                                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ORDER_MAIN_PAIDON"), 'sHelpText': help_text("HELP_ORDER_MAIN_PAIDON")} %}
                                 </td>
