@@ -4,9 +4,8 @@ Admin theme based on the twig engine.
 
 ## Branch Compatibility
 
-* master branch is compatible with OXID eShop compilation master
-* b-1.x branch is compatible with OXID eShop b-6.2.x
-* b-3.x branch is compatible with OXID eShop b-6.3.x
+* b-7.0.x branch is compatible with OXID eShop b-7.0.x
+* b-6.5.x branch is compatible with OXID eShop b-6.5.x
 
 ## Installation
 
