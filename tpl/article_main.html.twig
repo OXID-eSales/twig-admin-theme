@@ -264,7 +264,7 @@ window.onload = function ()
                 <select name="art_category" class="editinput" onChange="Javascript:top.oxid.admin.changeLstrt()" {{ readonly }}>
                 <option value="-1">{{ translate({ ident: "ARTICLE_MAIN_NONE" }) }}</option>
                 {% for pcat in oView.getCategoryList() %}
-                <option value="{{ pcat.oxcategories__oxid.value|raw }}">{{ pcat.oxcategories__oxtitle.getRawValue()|truncate(40, "..", true) }}</option>
+                <option value="{{ pcat.oxcategories__oxid.value|raw }}">{{ pcat.oxcategories__oxtitle.value|truncate(40, "..", true) }}</option>
                 {% endfor %}
                 </select>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_"), 'sHelpText': help_text("HELP_")} %}
