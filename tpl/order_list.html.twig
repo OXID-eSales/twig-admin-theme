@@ -64,7 +64,7 @@ window.onload = function ()
                     <option value="{{ field }}" {% if folder == field %}SELECTED{% endif %} style="color: {{ color }};">{{ translate({ ident: field, noerror: true }) }}</option>
                     {% endfor %}
                 </select>
-                <input class="listedit" type="text" size="15" maxlength="128" name="where[oxorder][oxorderdate]" value="{{ where.oxorder.oxorderdate|format_date }}" {% include "help.html.twig" with {helpid: "order_date"} %}>
+                <input class="listedit" type="text" size="15" maxlength="128" name="where[oxorder][oxorderdate]" value="{% if where.oxorder.oxorderdate %}{{ where.oxorder.oxorderdate|format_date }}{% endif %}" {% include "help.html.twig" with {helpid: "order_date"} %}>
                 </div></div>
             </td>
             <td valign="top" class="listfilter" height="20">
@@ -127,8 +127,8 @@ window.onload = function ()
             {% if listitem.getId() == oxid %}
                 {% set listclass = "listitem4" %}
             {% endif %}
-            <td valign="top" class="{{ listclass }} order_time" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxorder__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxorder__oxorderdate.value|format_date('datetime', true) }}</a></div></td>
-            <td valign="top" class="{{ listclass }} payment_date" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxorder__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxorder__oxpaid.value|format_date }}</a></div></td>
+            <td valign="top" class="{{ listclass }} order_time" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxorder__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxorder__oxorderdate|format_date('datetime', true) }}</a></div></td>
+            <td valign="top" class="{{ listclass }} payment_date" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxorder__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxorder__oxpaid|format_date }}</a></div></td>
             <td valign="top" class="{{ listclass }} order_no" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxorder__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxorder__oxordernr.value }}</a></div></td>
             <td valign="top" class="{{ listclass }} first_name" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxorder__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxorder__oxbillfname.value }}</a></div></td>
             <td valign="top" class="{{ listclass }} last_name" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxorder__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxorder__oxbilllname.value }}</a></div></td>
