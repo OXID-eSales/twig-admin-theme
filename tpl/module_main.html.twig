@@ -26,7 +26,7 @@
             </td>
             <td width="" valign="top">
                 <h1 style="color:#000;font-size:25px;">{{ oModule.getTitle() }}</h1>
-                <p>{{ oModule.getDescription() }}</p>
+                <p>{{ oModule.getDescription()|raw }}</p>
                 <hr>
 
                 <dl class="moduleDesc clear">
@@ -34,7 +34,7 @@
                     <dd>{{ oModule.getInfo('version')|default(' - ') }}</dd>
 
                     <dt>{{ translate({ ident: "MODULE_AUTHOR" }) }}</dt>
-                    <dd>{{ oModule.getInfo('author')|default(' - ') }}</dd>
+                    <dd>{{ oModule.getInfo('author')|raw|default(' - ') }}</dd>
 
                     <dt>{{ translate({ ident: "GENERAL_EMAIL" }) }}</dt>
                     <dd>

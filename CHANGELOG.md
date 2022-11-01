@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.1] - Unreleased
+
+### Fixed
+- Wrong characters shown in module class sort list
+- Do not escape the module description and author
+
 ## [2.0.0] - 2022-10-28
 
 ### Added
@@ -97,6 +103,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.0] - 2019-11-21
 
+[2.0.1]: https://github.com/OXID-eSales/twig-admin-theme/compare/v2.0.0...b-7.0.x
 [2.0.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.1.0...v2.0.0
 [1.1.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/OXID-eSales/twig-admin-theme/releases/tag/v1.0.0
