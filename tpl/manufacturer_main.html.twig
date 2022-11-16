@@ -68,6 +68,15 @@ window.onload = function ()
             </tr>
             <tr>
                 <td class="edittext">
+                    {{ translate({ ident: "GENERAL_SORT" }) }}
+                </td>
+                <td class="edittext">
+                    <input type="text" class="editinput" size="40" maxlength="{{ edit.oxmanufacturers__oxtitle.fldmax_length }}" name="editval[oxmanufacturers__oxsort]" value="{{ edit.oxmanufacturers__oxsort.value }}" {{ readonly }}>
+                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_SORT"), 'sHelpText': help_text("HELP_GENERAL_SORT")} %}
+                </td>
+            </tr>
+            <tr>
+                <td class="edittext">
                 {{ translate({ ident: "GENERAL_SHORTDESC" }) }}
                 </td>
                 <td class="edittext">
