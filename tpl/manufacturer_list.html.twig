@@ -39,6 +39,11 @@ window.onload = function ()
             </td>
             <td valign="top" class="listfilter">
                 <div class="r1"><div class="b1">
+                    &nbsp
+                </div></div>
+            </td>
+            <td valign="top" class="listfilter">
+                <div class="r1"><div class="b1">
                 <input class="listedit" type="text" size="50" maxlength="128" name="where[oxmanufacturers][oxtitle]" value="{{ where.oxmanufacturers.oxtitle }}">
                 </div></div>
             </td>
@@ -62,6 +67,7 @@ window.onload = function ()
     <tr>
         {% block admin_manufacturer_list_sorting %}
             <td class="listheader first" height="15" width="30" align="center"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxmanufacturers', 'oxactive', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_ACTIVTITLE" }) }}</a></td>
+            <td class="listheader" height="15" align="center"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxmanufacturers', 'oxsort', 'desc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_SORT" }) }}</a></td>
             <td class="listheader" height="15">&nbsp;<a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxmanufacturers', 'oxtitle', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_TITLE" }) }}</a></td>
             <td class="listheader" height="15" colspan="2"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxmanufacturers', 'oxshortdesc', 'asc');document.search.submit();" class="listheader">{{ translate({ ident: "GENERAL_SHORTDESC" }) }}</a></td>
         {% endblock %}
@@ -82,6 +88,7 @@ window.onload = function ()
                 {% set listclass = "listitem4" %}
             {% endif %}
             <td valign="top" class="{{ listclass }}{% if listitem.oxmanufacturers__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp;</div></td>
+            <td valign="top" class="{{ listclass }}" height="15" align="center"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxmanufacturers__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxmanufacturers__oxsort.value }}</a></div></td>
             <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxmanufacturers__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxmanufacturers__oxtitle.value }}</a></div></td>
             <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxmanufacturers__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxmanufacturers__oxshortdesc.value }}</a></div></td>
             <td class="{{ listclass }}" align="right">

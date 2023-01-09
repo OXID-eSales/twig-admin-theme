@@ -94,6 +94,15 @@ window.onload = function ()
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_MAIN_ICONUPLOAD"), 'sHelpText': help_text("HELP_MANUFACTURER_MAIN_ICONUPLOAD")} %}
                 </td>
             </tr>
+            <tr>
+                <td class="edittext">
+                    {{ translate({ ident: "GENERAL_SORT" }) }}
+                </td>
+                <td class="edittext">
+                    <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxshortdesc.fldmax_length }}" name="editval[oxmanufacturers__oxsort]" value="{{ edit.oxmanufacturers__oxsort.value }}" {{ readonly }}>
+                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_SORT"), 'sHelpText': help_text("HELP_MANUFACTURER_SORT")} %}
+                </td>
+            </tr>
         {% endblock %}
 
         {% if oxid != "-1" %}

@@ -512,7 +512,6 @@ $aLang = [
 
     'HELP_MANUFACTURER_MAIN_ICON' => 'Bei <span class="navipath_or_inputname">Icon</span> und <span class="navipath_or_inputname">Hersteller-Icon hochladen</span> können Sie ein Bild für den Hersteller hochladen (z. B. das Logo des Herstellers). Wählen Sie bei <span class="navipath_or_inputname">Hersteller-Icon hochladen</span> das Bild aus, das Sie hochladen möchten. Wenn Sie auf Speichern klicken, wird das Bild hochgeladen. Nachdem das Bild hochgeladen ist, wird der Dateiname des Bildes in <span class="navipath_or_inputname">Icon</span> angezeigt.',
 
-
     'HELP_MANUFACTURER_SEO_FIXED' => 'Sie können die SEO URLs vom eShop neu berechnen lassen. Eine Herstellerseite bekommt z. B. eine neue SEO URL, wenn Sie den Titel des Herstellers ändern. Die Einstellung <span class="navipath_or_inputname">URL fixiert</span> unterbindet das: Wenn sie aktiv ist, wird die alte SEO URL beibehalten und keine neue SEO URL berechnet.',
 
     'HELP_MANUFACTURER_SEO_SHOWSUFFIX' => 'Diese Einstellung bestimmt, ob das Suffix für den Fenstertitel angezeigt wird, wenn die Herstellerseite im eShop aufgerufen wird. Das Titel Suffix können Sie unter <span class="navipath_or_inputname">Stammdaten -> Grundeinstellungen -> SEO -> Titel Suffix</span> einstellen.',
@@ -520,7 +519,10 @@ $aLang = [
     'HELP_MANUFACTURER_SEO_KEYWORDS' => 'Diese Stichwörter werden in den HTML-Quelltext (Meta Keywords) eingebunden. Diese Information wird von Suchmaschinen ausgewertet. Hier können Sie passende Stichwörter zu dem Hersteller eingeben. Wenn Sie nichts eingeben, werden die Stichwörter automatisch erzeugt.',
 
     'HELP_MANUFACTURER_SEO_DESCRIPTION' => 'Dieser Beschreibungstext wird in den HTML-Quelltext (Meta Description) eingebunden. Dieser Text wird von vielen Suchmaschinen bei den Suchergebnissen angezeigt. Hier können Sie eine passende Beschreibung für den Hersteller eingeben. Wenn Sie nichts eingeben, wird die Beschreibung automatisch erzeugt.',
-    'HELP_VOUCHERSERIE_MAIN_DISCOUNT' => 'Bei <span class="navipath_or_inputname">Rabatt</span> stellen Sie ein, wie hoch der Rabatt des Gutscheins sein soll sein soll. Mit der Auswahlliste hinter dem Eingabefeld können Sie auswählen, ob der Rabatt absolut oder prozentual sein soll:' .
+
+    'HELP_MANUFACTURER_SORT' => 'Mit <span class="navipath_or_inputname">Sortierung</span> können Sie festlegen, in welcher Reihenfolge die Hersteller angezeigt werden. Der Hersteller mit der größten Zahl wird zuerst angezeigt, der Hersteller mit der kleinsten Zahl zuletzt.',
+
+    'HELP_VOUCHERSERIE_MAIN_DISCOUNT' => 'Bei <span class="navipath_or_inputname">Rabatt</span> stellen Sie ein, wie hoch der Rabatt des Gutscheins sein soll. Mit der Auswahlliste hinter dem Eingabefeld können Sie auswählen, ob der Rabatt absolut oder prozentual sein soll:' .
         '<ul>' .
         '<li><span class="userinput_or_code">abs</span>: Der Rabatt ist absolut, z. B. 5 Euro.</li>' .
         '<li><span class="userinput_or_code">%</span>: Der Rabatt ist prozentual, z. B. 10 Prozent vom Einkaufswert.</li>' .

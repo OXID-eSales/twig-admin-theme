@@ -506,6 +506,8 @@ $aLang = [
 
     'HELP_MANUFACTURER_SEO_SHOWSUFFIX' => 'With this setting you can specify if the title suffix is shown in the browser window title when the manufacturer page is opened. The title suffix can be set in <span class="navipath_or_inputname">Master Settings -> Core Settings -> SEO -> Title Suffix</span>.',
 
+    'HELP_MANUFACTURER_SORT' => 'You can use <span class="navipath_or_inputname">Sorting</span> to define the order in which manufacturers are displayed. The manufacturer with the biggest number is displayed first, and the manufacturer with the lowest number last.',
+
     'HELP_VOUCHERSERIE_MAIN_DISCOUNT' => 'In <span class="navipath_or_inputname">Discount</span>, you specify the magnitude of the discount. You can use the selection list after the entry field to specify whether the discount is to be applied as an absolute discount or as a percentage discount:' .
         '<ul>' .
         '<li><span class="userinput_or_code">abs</span>: The discount is an absolute discount, e.g. EUR 5.</li>' .
