@@ -1968,7 +1968,7 @@ $aLang = [
     'OLC_ERROR_RESPONSE_NOT_VALID' => 'Fehler: Dienst nicht verfügbar. Bitte versuchen Sie es später noch einmal. Falls das Problem weiterhin bestehen sollte, überprüfen Sie bitte, dass Ihr Shop ausgehende Verbindungen aufbauen kann.',
     'OLC_ERROR_RESPONSE_UNEXPECTED' => 'Fehler: Antwort vom Server kann wegen unerwarteten Formats nicht ausgewertet werden. Bitte versuchen Sie es erneut.',
 
-    'VERSION_UPDATE_LINK' => 'http://www.oxid-esales.com/de/support-services/dokumentation-und-hilfe/oxid-eshop/installation/oxid-eshop-aktualisieren/update-vorbereiten.html',
+    'VERSION_UPDATE_LINK' => 'https://docs.oxid-esales.com/eshop/de/latest/installation/index.html',
 
     'ERROR_METADATA_CONTROLLERS_NOT_UNIQUE' => 'Fehler: Modul nicht aktiviert.<br />In einem Shop oder Sub-Shop müssen Schüssel und Werte für "controllers" eindeutig sein.<br />Folgende Schlüssel oder Werte für "controllers", die in der Datei metadata.php dieses Moduls definiert sind, existieren schon im Shop:<br /> %s',
 
