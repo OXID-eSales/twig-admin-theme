@@ -44,10 +44,10 @@ window.onload = function ()
     <br>
     <table cellspacing="0" cellpadding="0" border="0" width="100%" class="editnavigation">
     {% for key, query in aQueries %}
-        {% set sQuery = aQueries['key'] %}
-        {% set sAffectedRows = aAffectedRows['key'] %}
-        {% set sErrorMsg = aErrorMessages['key'] %}
-        {% set iErrorNum = aErrorNumbers['key'] %}
+        {% set sQuery = aQueries[key] %}
+        {% set sAffectedRows = aAffectedRows[key] %}
+        {% set sErrorMsg = aErrorMessages[key] %}
+        {% set iErrorNum = aErrorNumbers[key] %}
         {% if sQuery %}
         <tr valign="top"><td>{{ translate({ ident: "TOOLS_LIST_SQLQUERY" }) }} ({{ key + 1 }}) : </td><td>{{ sQuery|wordwrap(100, "<br>", true)|raw }}</td></tr>
         {% endif %}
