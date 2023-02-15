@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Manufacturer sort field
 
+### Removed
+- Deprecated language constants
+
 ## [2.0.1] - 2022-11-23
 
 ### Fixed

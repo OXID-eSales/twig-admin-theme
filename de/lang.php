@@ -766,15 +766,6 @@ $aLang = [
     'NAVIGATION_HOME' => 'Home',
     'NAVIGATION_PAGE' => 'Seite',
     'NAVIGATION_NEW_VERSION_AVAILABLE' => 'Sie verwenden Version %s, Version %s ist jetzt verfügbar. Bitte aktualisieren Sie jetzt.',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'NEWS_LIST_TITLE' => '[OXID Newsverwaltung]',
-    'NEWS_LIST_SHORTTEXT' => 'Titel',
-    'NEWS_LIST_MENUITEM' => 'Kundeninformation',
-    'NEWS_LIST_MENUSUBITEM' => 'Nachrichten',
-    'NEWS_MAIN_SHORTDESC' => 'Titel',
-    'NEWS_MAIN_SHOWFORGROUP' => 'Sichtbar für Benutzergruppe',
-    'NEWS_MAIN_NOTSHOWFORGROUP' => 'Nicht sichtbar für Benutzergruppe',
-    // END deprecated
     'NAVIGATION_FAVORITES' => 'Favoriten',
     'NAVIGATION_FAVORITES_EDIT' => '[ändern]',
     'FAVORITES_DESC' => 'Beschreibung der Favoriten ...',
@@ -834,9 +825,6 @@ $aLang = [
     'ORDER_REMARK_REMARK' => '[Bem.]',
     'ORDER_REMARK_ORDER' => '[Best.]',
     'ORDER_REMARK_USER' => '[Reg.]',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'ORDER_REMARK_NEWS' => '[News]',
-    // END deprecated
     'ORDER_OVERVIEW_VATIDCHECKFAIL' => 'Umsatzsteuer-Identnummer Validierung fehlgeschlagen',
     'ORDER_OVERVIEW_VATID' => 'Umsatzsteuer-Identnummer',
     'ORDER_OVERVIEW_DELTYPE' => 'Versandart',
@@ -997,9 +985,6 @@ $aLang = [
     'SHOP_MALL_MALLINHERIT_OXDISCOUNT' => 'Alle <b>Rabatte</b> vom Elternshop erben',
     'SHOP_MALL_MALLINHERIT_OXLINKS' => 'Alle <b>Links</b> vom Elternshop erben',
     'SHOP_MALL_MALLINHERIT_OXVOUCHERSERIES' => 'Alle <b>Gutscheinserien</b> vom Elternshop erben',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'SHOP_MALL_MALLINHERIT_OXNEWS' => 'Alle <b>Nachrichten</b> vom Elternshop erben',
-    // END deprecated
     'SHOP_MALL_MALLINHERIT_OXSELECTLIST' => 'Alle <b>Auswahllisten</b> vom Elternshop erben',
     'SHOP_MALL_MALLINHERIT_OXVENDOR' => 'Alle <b>Lieferanten</b> vom Elternshop erben',
     'SHOP_MALL_MALLINHERIT_OXMANUFACTURER' => 'Alle <b>Hersteller</b> vom Elternshop erben',
@@ -1044,9 +1029,6 @@ $aLang = [
     'SHOP_CONFIG_CSVSEPARATOR' => 'CSV-Trennzeichen beim Im- und Export',
     'SHOP_CONFIG_CSVFIELDENCLOSER' => 'Zeichen, um CSV-Daten beim Im/Export einzufassen',
     'SHOP_CONFIG_DISABLEARTDUBLICATES' => 'Wenn Artikel kopiert werden: Kopierten Artikel <b>nicht</b> auf "Aktiv" setzen',
-    /** @deprecated since v6.5.4 (2020-04-06); Suggest feature will be removed completely */
-    'SHOP_CONFIG_ALLOW_SUGGEST_ARTICLE' => 'Empfehlen von Artikeln erlauben',
-    /** end deprecated */
     'SHOP_CONFIG_EXPORTNUMBEROFLINES' => 'Anzahl von Zeilen im CSV, die pro Tick exportiert werden',
     'SHOP_CONFIG_MWSTSETTING' => 'MwSt.-Einstellungen für XML-Export',
     'SHOP_CONFIG_NUMBEROFEMAILSPERTICK' => 'Anzahl von E-Mails, die pro Tick verschickt werden',
@@ -1069,9 +1051,6 @@ $aLang = [
     'SHOP_CONFIG_CALCPAYVATONTOP' => 'Zahlungsarten-Gebühren als Nettopreise eingeben (zuzüglich MwSt.)',
     'SHOP_CONFIG_CALCULATEVATOFORPAYCHARGE' => 'Die in den Zahlungsarten-Gebühren enthaltene Mehrwertsteuer im Warenkorb und in der Rechnung anzeigen',
     'SHOP_CONFIG_CMSFOLDER' => 'Ordner für CMS-Seiten',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'SHOP_CONFIG_CNTOFNEWS' => 'Anzahl der Nachrichten, die in der Nachrichten-Box links angezeigt werden',
-    // END deprecated
     'SHOP_CONFIG_DATEFORMAT' => 'Datumsformat im Administrationsbereich',
     'SHOP_CONFIG_DELIVERYCOSTS' => 'Versandkosten auch dann berechnen, wenn der Kunde noch nicht eingeloggt ist',
     'SHOP_CONFIG_DEFAULTVAT' => 'Standard-MwSt.-Satz für alle Artikel',
@@ -1105,10 +1084,6 @@ $aLang = [
     'SHOP_CONFIG_STOCKWARNINGLIMIT' => 'Lagerbestand, ab dem den Benutzern angezeigt wird, dass nur noch wenige Artikel auf Lager sind',
     'SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE' => 'Die "Nicht-auf-Lager"-Standardmeldung nutzen',
     'SHOP_CONFIG_STOCKONDEFAULTMESSAGE' => 'Die "Auf-Lager"-Standardmeldung nutzen',
-
-    // @deprecated since v6.5.1 (2019-02-07); credit card payment method will be no longer supported
-    'SHOP_CONFIG_STORECREDITCARDINFO' => 'Kreditkarten-Informationen speichern',
-    // END deprecated
 
     'SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE' => 'Zeige Meldung über mögliche internationale Liefergebühren',
     'SHOP_CONFIG_SHOWTSCODMESSAGE' => 'Zeige Meldung über mögliche Nachnahmegebühren',
@@ -1310,9 +1285,6 @@ $aLang = [
     'TOOLTIPS_NEWMWST' => 'Neuen MwSt. Satz anlegen',
     'TOOLTIPS_NEWDELIVERY' => 'Neue Versandkostenregel anlegen',
     'TOOLTIPS_NEWDELIVERYSET' => 'Neue Versandart anlegen',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'TOOLTIPS_NEWNEWS' => 'Neue Nachricht anlegen',
-    // END deprecated
     'TOOLTIPS_NEWVOUCHER' => 'Neue Gutscheinserie anlegen',
     'TOOLTIPS_NEWCATTREE' => 'Kategoriebaum neu indizieren',
     'TOOLTIPS_NEWLINK' => 'Neuen Link anlegen',
@@ -1366,9 +1338,6 @@ $aLang = [
     'USER_REMARK_REMARK' => '[Bem.]',
     'USER_REMARK_ORDER' => '[Best.]',
     'USER_REMARK_USER' => '[Reg.]',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'USER_REMARK_NEWS' => '[News]',
-    // END deprecated
     'USERGROUP_LIST_MENUITEM' => 'Benutzer verwalten',
     'USERGROUP_LIST_MENUSUBITEM' => 'Benutzergruppen',
     'USERGROUP_MAIN_MEMBERINGROUP' => 'Mitglieder der Benutzergruppe',
@@ -1445,10 +1414,6 @@ $aLang = [
     'SHOP_PERF_LOADCATTREE' => 'Kategorien laden und Kategorienavigation anzeigen',
     'SHOP_PERF_LOADCURRENCY' => 'Währungen anzeigen',
     'SHOP_PERF_LOADLANGUAGES' => 'Sprachen anzeigen',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'SHOP_PERF_LOADNEWS' => 'Nachrichten anzeigen',
-    'SHOP_PERF_LOADNEWSONLYSTART' => 'Nachrichten nur auf der Startseite anzeigen',
-    // END deprecated
     'SHOP_PERF_LOADVARIANTS' => 'Varianten in Artikellisten laden (z. B. Suchergebnisse, Kategorieansichten). Diese Einstellung verbraucht viel Speicher und kann zu Problemen auf schwachen Servern führen.',
     'SHOP_PERF_LOADMANUFACTURERTREE' => 'Herstellerliste laden und anzeigen',
     'SHOP_PERF_NEWESTARTICLES' => 'Liste der neusten Artikel (Frisch eingetroffen!)',
@@ -1512,9 +1477,6 @@ $aLang = [
     'mxlist' => 'Benutzerliste',
     'mxmanageprod' => 'Artikel verwalten',
     'mxmainmenu' => 'Stammdaten',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'mxnews' => 'Nachrichten',
-    // END deprecated
     'mxorders' => 'Bestellungen verwalten',
     'mxpaymeth' => 'Zahlungsarten',
     'mxpricealarm' => 'Wunschpreis',
@@ -1591,10 +1553,6 @@ $aLang = [
     'tbcldiscount_users' => 'Benutzer',
     //languages
     'tbcllanguage_main' => 'Stamm',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'tbclnews_main' => 'Stamm',
-    'tbclnews_text' => 'Text',
-    // END deprecated
     //  order_list',
     'tbclorder_overview' => 'Übersicht',
     'tbclorder_main' => 'Stamm',
@@ -1658,9 +1616,6 @@ $aLang = [
     'tbcldeliveryset_mall' => 'Mall',
     'tbcldiscount_mall' => 'Mall',
     'tbclmanufacturer_mall' => 'Mall',
-    // @deprecated 6.5.6 "News" feature will be removed completely
-    'tbclnews_mall' => 'Mall',
-    // END deprecated
     'tbclvendor_mall' => 'Mall',
     'tbclselectlist_mall' => 'Mall',
     'tbclvoucherserie_mall' => 'Mall',
@@ -1914,15 +1869,15 @@ $aLang = [
 
 
     'OXDIAG_HOME' => 'OXID Diagnose',
-    'OXDIAG_ABOUT' => 'Dieses Modul sammelt technische Informationen &uuml;ber Ihren Shop und den Server.
-                                            Diese Informationen k&ouml;nnen vor einem Update, einer Modulinstallation oder zu Diagnosezwecken interessant sein.',
+    'OXDIAG_ABOUT' => 'Dieses Modul sammelt technische Informationen über Ihren Shop und den Server.
+                                            Diese Informationen können vor einem Update, einer Modulinstallation oder zu Diagnosezwecken interessant sein.',
     'OXDIAG_DOWNLOADLOG' => 'Bericht herunterladen',
 
     //initial form
     'OXDIAG_COLLECT_MODULES' => 'Module ermitteln',
     'OXDIAG_COLLECT_HEALTH' => 'Systemgesundheit abfragen',
     'OXDIAG_COLLECT_PHP' => 'PHP-Konfiguration (Auswahl) abfragen',
-    'OXDIAG_COLLECT_SERVER' => 'Serverinformationen abfragen (sofern m&ouml;glich)',
+    'OXDIAG_COLLECT_SERVER' => 'Serverinformationen abfragen (sofern möglich)',
     'OXDIAG_STORE_ANALYSIS' => 'Auswertung speichern',
     'OXDIAG_COLLECT_START' => 'Analyse starten!',
 
@@ -1955,7 +1910,7 @@ $aLang = [
     'OXDIAG_PHPINFO_OFF' => 'Aus',
 
     //server
-    'OXDIAG_SRVINF_NOTALL' => 'Es k&ouml;nnen nicht alle Werte abgefragt werden, weil der <i>exec</i>-Befehl auf dem Server nicht verf&uuml;gbar ist.',
+    'OXDIAG_SRVINF_NOTALL' => 'Es können nicht alle Werte abgefragt werden, weil der <i>exec</i>-Befehl auf dem Server nicht verfügbar ist.',
     'OXDIAG_SRVINF_NOTE' => 'Bemerkung: Diese Informationen beziehen sich auf den aktuellen Runtime-Frontend-Server. Sollten Sie mehr als einen Frontend-Server in Betrieb haben, können Sie deren Informationen durch direkten Zugriff auf die entsprechenden Server abrufen.',
     'OXDIAG_SERVERINFO_NOT_DETECTED' => 'nicht erkannt',
     'OXDIAG_SERVERINFO_COMPONENT' => 'Komponente',
