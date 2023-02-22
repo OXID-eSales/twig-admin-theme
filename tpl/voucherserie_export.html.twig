@@ -9,7 +9,7 @@
     <tr>
         <td class="edittext" colspan="2">
             {{ translate({ ident: "VOUCHERSERIE_EXPORTDONE" }) }}
-            <b><a href="{{ oView.getDownloadUrl() }}" target="_blank">{{ translate({ ident: "VOUCHERSERIE_EXPORTDOWNLOAD" }) }}</a></b><br>
+            <b><a href="{{ oView.getDownloadUrl()|raw }}" target="_blank">{{ translate({ ident: "VOUCHERSERIE_EXPORTDOWNLOAD" }) }}</a></b><br>
         </td>
     </tr>
     {% endif %}
