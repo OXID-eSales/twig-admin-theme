@@ -49,18 +49,18 @@ function _groupExp(el) {
                     <dl>
                         <dt>
                             {% if var_type == 'bool' %}
-                                <input type=hidden name=confbools[{{ theme_var }}] value=false>
-                                <input type=checkbox name=confbools[{{ theme_var }}] value=true  {% if (confbools[theme_var]) %}checked{% endif %} {{ readonly }}>
+                                <input type="hidden" name="confbools[{{ theme_var }}]" value="false">
+                                <input type="checkbox" name="confbools[{{ theme_var }}]" value="true" {% if (confbools[theme_var]) %}checked{% endif %} {{ readonly }}>
                             {% elseif var_type == 'str' %}
-                                <input type=text  class="txt" style="width: 250px;" name=confstrs[{{ theme_var }}] value="{{ confstrs[theme_var] }}" {{ readonly }}>
+                                <input type="text" class="txt" style="width: 250px;" name="confstrs[{{ theme_var }}]" value="{{ confstrs[theme_var]|raw }}" {{ readonly }}>
                             {% elseif var_type == 'num' %}
-                                <input type=text  class="txt" style="width: 50px;" name=confnum[{{ module_var }}] value="{{ confnum[module_var] }}" {{ readonly }}>
+                                <input type="text" class="txt" style="width: 50px;" name="confnum[{{ module_var }}]" value="{{ confnum[module_var] }}" {{ readonly }}>
                             {% elseif var_type == 'arr' %}
-                                <textarea class="txtfield" name=confarrs[{{ theme_var }}] {{ readonly }}>{{ confarrs[theme_var] }}</textarea>
+                                <textarea class="txtfield" name="confarrs[{{ theme_var }}]" {{ readonly }}>{{ confarrs[theme_var]|raw }}</textarea>
                             {% elseif var_type == 'aarr' %}
-                                <textarea class="txtfield" style="width: 430px;" name=confaarrs[{{ theme_var }}] wrap="off" {{ readonly }}>{{ confaarrs[theme_var]|raw }}</textarea>
+                                <textarea class="txtfield" style="width: 430px;" name="confaarrs[{{ theme_var }}]" wrap="off" {{ readonly }}>{{ confaarrs[theme_var]|raw }}</textarea>
                             {% elseif var_type == 'select' %}
-                                <select class="select" name=confselects[{{ theme_var }}] {{ readonly }}>
+                                <select class="select" name="confselects[{{ theme_var }}]" {{ readonly }}>
                                     {% for _field in var_constraints[theme_var] %}
                                         <option value="{{ _field|escape }}"  {% if (confselects[theme_var] == _field) %}selected{% endif %}>{{ translate({ ident: "SHOP_THEME_" ~ theme_var ~ "_" ~ _field }) }}</option>
                                     {% endfor %}
