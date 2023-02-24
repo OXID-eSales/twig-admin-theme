@@ -43,7 +43,7 @@
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWARTICLE" }) }}</a> |</li>
                     {% endif %}
                     {% if bottom_buttons.article_preview and oxid != -1 %}
-                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.preview" href="{% if edit %}{{ edit.getStdLink() }}{% else %}{{ oViewConf.getBaseDir() }}?cl=details&anid={{ oxid }}{% endif %}&amp;preview={{ oView.getPreviewId() }}" target="new">{{ translate({ ident: "TOOLTIPS_ARTICLEREVIEW" }) }}</a> |</li>
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.preview" href="{% if edit %}{{ edit.getStdLink()|raw }}{% else %}{{ oViewConf.getBaseDir()|raw }}?cl=details&anid={{ oxid }}{% endif %}&amp;preview={{ oView.getPreviewId() }}" target="new">{{ translate({ ident: "TOOLTIPS_ARTICLEREVIEW" }) }}</a> |</li>
                     {% endif %}
                     {# attribute #}
                     {% if bottom_buttons.attribute_new %}
