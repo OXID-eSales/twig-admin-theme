@@ -1,4 +1,4 @@
-{% include "headitem.html.twig" with {box: "none ", meta_refresh_sec: refresh, meta_refresh_url: oViewConf.getSelfLink()|raw|cat("&cl=" ~ sClassDo ~ "&iStart=" ~ iStart ~ "&fnc=run")} %}
+{% include "headitem.html.twig" with {box: "none ", meta_refresh_sec: refresh, meta_refresh_url: oViewConf.getSelfLink()|cat("&cl=" ~ sClassDo ~ "&iStart=" ~ iStart ~ "&fnc=run")} %}
 {% set blShowStatus = true %}
 
 <table cellspacing="2" cellpadding="0" width="100%">

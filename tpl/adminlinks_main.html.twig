@@ -51,7 +51,7 @@
                      {{ translate({ ident: "GENERAL_URL" }) }}&nbsp;
                     </td>
                     <td class="edittext">
-                    <input type="text" class="editinput" size="30" maxlength="{{ edit.oxlinks__oxurl.fldmax_length }}" name="editval[oxlinks__oxurl]" value="{{ edit.oxlinks__oxurl.value }}" {{ readonly }}>
+                    <input type="text" class="editinput" size="30" maxlength="{{ edit.oxlinks__oxurl.fldmax_length }}" name="editval[oxlinks__oxurl]" value="{{ edit.oxlinks__oxurl.value|raw }}" {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_URL"), 'sHelpText': help_text("HELP_GENERAL_URL")} %}
                     </td>
                   </tr>

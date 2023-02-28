@@ -155,8 +155,8 @@ function DeletePic(sField)
             <td width="180" valign="top" style="padding: 0 25px 0 25px; border-left: 1px solid #ddd;">
             {% if (not (edit.oxactions__oxpic.value=="nopic.jpg" or edit.oxactions__oxpic.value=="")) %}
                 <div style="padding-bottm: 10px;">
-                    <a href="{{ edit.getBannerPictureUrl() }}" target="_blank">
-                        <img src="{{ edit.getBannerPictureUrl() }}" width="120px;" border="0">
+                    <a href="{{ edit.getBannerPictureUrl()|raw }}" target="_blank">
+                        <img src="{{ edit.getBannerPictureUrl()|raw }}" width="120px;" border="0">
                     </a>
                     <div style="width: 120px; color: #666; padding-top: 5px; border-top: 1px solid #ccc; text-align: center;">
                         Banner picture
@@ -221,12 +221,12 @@ function DeletePic(sField)
                                     <b>{{ translate({ ident: "PROMOTIONS_BANNER_LINK" }) }}:</b>
                                 </td>
                                 <td class="text">
-                                    <input type="text" class="editinput" size="43" name="editval[oxactions__oxlink]" value="{{ edit.oxactions__oxlink.value }}" {{ readonly }}>
+                                    <input type="text" class="editinput" size="43" name="editval[oxactions__oxlink]" value="{{ edit.oxactions__oxlink.value|raw }}" {{ readonly }}>
                                 </td>
                                 <td nowrap="nowrap">
                                     {% if edit.oxactions__oxlink.value %}
                                         <div style="display: inline-block;">
-                                            <a href="{{ edit.getBannerLink() }}" class="zoomText" target="_blank"><span class="ico"></span><span style="float: left;>">{{ translate({ ident: "ARTICLE_PICTURES_PREVIEW" }) }}</span></a>
+                                            <a href="{{ edit.getBannerLink()|raw }}" class="zoomText" target="_blank"><span class="ico"></span><span style="float: left;>">{{ translate({ ident: "ARTICLE_PICTURES_PREVIEW" }) }}</span></a>
                                         </div>
                                     {% endif %}
                                 </td>
@@ -278,7 +278,7 @@ function DeletePic(sField)
 
     {% if sHelpURL %}
     {# HELP #}
-    <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.help" href="{{ sHelpURL }}/{{ oViewConf.getActiveClassName()|lower }}.html" OnClick="window.open('{{ sHelpURL }}/{{ oViewConf.getActiveClassName()|lower }}.html','OXID_Help','width=800,height=600,resizable=no,scrollbars=yes');return false;">{{ translate({ ident: "TOOLTIPS_OPENHELP" }) }}</a></li>
+    <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.help" href="{{ sHelpURL|raw }}/{{ oViewConf.getActiveClassName()|lower }}.html" OnClick="window.open('{{ sHelpURL|raw }}/{{ oViewConf.getActiveClassName()|lower }}.html','OXID_Help','width=800,height=600,resizable=no,scrollbars=yes');return false;">{{ translate({ ident: "TOOLTIPS_OPENHELP" }) }}</a></li>
     {% endif %}
   </ul>
 {% endapply %}

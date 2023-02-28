@@ -195,7 +195,7 @@ function editThis(sID)
 
             <tr class="conftext{{ smarty_cycle() }}">
              <td>
-              <input type=text class="confinput" style="width:270px;" name="aStaticUrl[oxseo__oxstdurl]" id="oxseo__oxstdurl" value="{% if oActItem.oxseo__oxstdurl %}{{ oActItem.oxseo__oxstdurl.value }}{% endif %}" {{ readonly }}>
+              <input type=text class="confinput" style="width:270px;" name="aStaticUrl[oxseo__oxstdurl]" id="oxseo__oxstdurl" value="{% if oActItem.oxseo__oxstdurl %}{{ oActItem.oxseo__oxstdurl.value|raw }}{% endif %}" {{ readonly }}>
               {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_SEO_STDURL"), 'sHelpText': help_text("HELP_SHOP_SEO_STDURL")} %}
              </td>
              <td>
@@ -206,7 +206,7 @@ function editThis(sID)
             {% for lang, olang in languages %}
             <tr class="conftext{{ smarty_cycle() }}">
              <td>
-              <input type=text class="confinput" style="width:270px;" name="aStaticUrl[oxseo__oxseourl][{{ lang }}]" value="{{ aSeoUrls[lang][1] }}" {{ readonly }}>
+              <input type=text class="confinput" style="width:270px;" name="aStaticUrl[oxseo__oxseourl][{{ lang }}]" value="{{ aSeoUrls[lang][1]|raw }}" {{ readonly }}>
              </td>
              <td>
               {{ olang.name }}

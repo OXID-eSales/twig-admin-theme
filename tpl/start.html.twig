@@ -2,7 +2,7 @@
 <html style="border-top: 2px solid {% if oViewConf.getEdition()|lower == 'ee' %}#006ab4{% else %}#c02124{% endif %}; overflow: hidden; height: 100%;">
 <head>
     <title>{{ translate({ ident: "GENERAL_ADMIN_TITLE" }) }}</title>
-    <link rel="shortcut icon" href="{{ oViewConf.getImageUrl() }}favicon.ico">
+    <link rel="shortcut icon" href="{{ oViewConf.getImageUrl()|raw }}favicon.ico">
 </head>
 <script type="text/javascript">
 <!--//
@@ -72,7 +72,7 @@ function loadEditFrame(sUrl)
 }
 //-->
 </script>
-<script type="text/javascript" src="{{ oViewConf.getResourceUrl() }}oxid.js"></script>
+<script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}oxid.js"></script>
 </html>
 
 <frameset cols="200,*" border="0">

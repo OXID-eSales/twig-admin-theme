@@ -304,10 +304,10 @@ function processUnitInput( oSelect, sInputId )
                         {% set oddclass = "2" %}
                     {% endif %}
                         <td class=listitem{{ oddclass }}>
-                        &nbsp;<a href="{{ oMediaUrl.getLink() }}" target="_blank">&raquo;&raquo;</a>&nbsp;
+                        &nbsp;<a href="{{ oMediaUrl.getLink()|raw }}" target="_blank">&raquo;&raquo;</a>&nbsp;
                         </td>
                         <td class=listitem{{ oddclass }}>
-                        &nbsp;<a href="{{ oViewConf.getSelfLink()|raw }}&cl=article_extend&amp;mediaid={{ oMediaUrl.oxmediaurls__oxid.value }}&amp;fnc=deletemedia&amp;oxid={{ oxid }}&amp;editlanguage={{ editlanguage }}" onClick='return confirm("{{ translate({ ident: "GENERAL_YOUWANTTODELETE" }) }}")'><img src="{{ oViewConf.getImageUrl() }}/delete_button.gif" border=0></a>&nbsp;
+                        &nbsp;<a href="{{ oViewConf.getSelfLink()|raw }}&cl=article_extend&amp;mediaid={{ oMediaUrl.oxmediaurls__oxid.value }}&amp;fnc=deletemedia&amp;oxid={{ oxid }}&amp;editlanguage={{ editlanguage }}" onClick='return confirm("{{ translate({ ident: "GENERAL_YOUWANTTODELETE" }) }}")'><img src="{{ oViewConf.getImageUrl()|raw }}/delete_button.gif" border=0></a>&nbsp;
                         </td>
                         <td class="listitem{{ oddclass }}" width=250>
                         <input style="width:100%" class="edittext" type="text" name="aMediaUrls[{{ oMediaUrl.oxmediaurls__oxid.value }}][oxmediaurls__oxdesc]" value="{{ oMediaUrl.oxmediaurls__oxdesc.value }}" {{ readonly }}>

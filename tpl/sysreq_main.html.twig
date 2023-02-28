@@ -13,7 +13,7 @@
         {% for sModule, iModuleState in aModules %}
             <ul>
                 {% set class = oView.getModuleClass(iModuleState) %}
-                <li id="{{ sModule }}" class="{{ class }}"><a href={{ oView.getReqInfoUrl(sModule) }} target="_blank">{{ translate({ ident: "SYSREQ_"|cat(sModule)|upper }) }}</a></li>
+                <li id="{{ sModule }}" class="{{ class }}"><a href={{ oView.getReqInfoUrl(sModule)|raw }} target="_blank">{{ translate({ ident: "SYSREQ_"|cat(sModule)|upper }) }}</a></li>
             </ul>
         {% endfor %}
     </li>

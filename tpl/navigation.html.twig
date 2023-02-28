@@ -2,8 +2,8 @@
 <html id="nav">
 <head>
     <title>{{ translate({ ident: "NAVIGATION_TITLE" }) }}</title>
-    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl() }}nav.css">
-    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl() }}colors_{{ oViewConf.getEdition()|lower }}.css">
+    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl()|raw }}nav.css">
+    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl()|raw }}colors_{{ oViewConf.getEdition()|lower }}.css">
     <meta http-equiv="Content-Type" content="text/html; charset={{ charset }}">
     <script type="text/javascript">
         {% if loadbasefrm %}
@@ -11,17 +11,17 @@
         window.onload = function ()
         {
             if ( '{{ listview }}' != '' ) {
-                top.basefrm.list.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl={{ listview }}&oxid={{ oViewConf.getActiveShopId() }}&actedit={{ actedit }}";
-                top.basefrm.edit.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl={{ editview }}&oxid={{ oViewConf.getActiveShopId() }}";
+                top.basefrm.list.location = "{{ oViewConf.getSelfLink()|raw }}&cl={{ listview }}&oxid={{ oViewConf.getActiveShopId() }}&actedit={{ actedit }}";
+                top.basefrm.edit.location = "{{ oViewConf.getSelfLink()|raw }}&cl={{ editview }}&oxid={{ oViewConf.getActiveShopId() }}";
             } else if ( top.basefrm ) {
-                top.basefrm.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl=navigation&item=home.html.twig";
+                top.basefrm.location = "{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=home.html.twig";
             }
         }
         {% endif %}
     </script>
 </head>
 <body>
-    <div id="shopLogo"><img src="{{ oViewConf.getImageUrl('logo.svg') }}" /></div>
+    <div id="shopLogo"><img src="{{ oViewConf.getImageUrl('logo.svg')|raw }}" /></div>
     <table>
     <tr><td class="main">
     {% include "include/navigation_shopselect.html.twig" %}
@@ -45,9 +45,9 @@
                     {% set sm = 0 %}
                     <li class="{% if menuitem.getAttribute('active') %}exp{% set sNavExpId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}" id="nav-{{ mh }}-{{ mn }}">
                         {% if menuitem.getAttribute('url') %}
-                            <a href="{{ menuitem.getAttribute('url') }}" onclick="_navAct(this);" class="rc" target="{% if menuitem.getAttribute('target') %}{{ menuitem.getAttribute('target') }}{% else %}basefrm{% endif %}"><b>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}</b></a>
+                            <a href="{{ menuitem.getAttribute('url')|raw }}" onclick="_navAct(this);" class="rc" target="{% if menuitem.getAttribute('target') %}{{ menuitem.getAttribute('target') }}{% else %}basefrm{% endif %}"><b>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}</b></a>
                         {% elseif menuitem.getAttribute('expand') == 'none' %}
-                            <a href="{{ menuitem.getAttribute('link') }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}</b></a>
+                            <a href="{{ menuitem.getAttribute('link')|raw }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}</b></a>
                         {% else %}
                             <a href="#" onclick="_navExp(this);return false;" class="rc"><b>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}</b></a>
                         {% endif %}
@@ -90,7 +90,7 @@
                             {% if submenuitem.nodeType == "XML_ELEMENT_NODE" %}
                                 {% set sm = sm+1 %}
                                 <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}" class="">
-                                    <a href="{{ submenuitem.getAttribute('link') }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}</b></a>
+                                    <a href="{{ submenuitem.getAttribute('link')|raw }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}</b></a>
                                 </li>
                             {% endif %}
                         {% endfor %}
@@ -114,7 +114,7 @@
                             {% if submenuitem.nodeType == "XML_ELEMENT_NODE" %}
                                 {% set sm = sm+1 %}
                                 <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}" class="">
-                                    <a href="{{ submenuitem.getAttribute('link') }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}</b></a>
+                                    <a href="{{ submenuitem.getAttribute('link')|raw }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}</b></a>
                                 </li>
                             {% endif %}
                         {% endfor %}

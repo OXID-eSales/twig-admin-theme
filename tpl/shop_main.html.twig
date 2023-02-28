@@ -188,7 +188,7 @@ window.onload = function ()
                     {{ translate({ ident: "GENERAL_URL" }) }}
                 </td>
                 <td class="edittext">
-                <input type="text" class="editinput" size="35" maxlength="{{ edit.oxshops__oxurl.fldmax_length }}" name="editval[oxshops__oxurl]" value="{{ edit.oxshops__oxurl.value }}" {{ readonly }}>
+                <input type="text" class="editinput" size="35" maxlength="{{ edit.oxshops__oxurl.fldmax_length }}" name="editval[oxshops__oxurl]" value="{{ edit.oxshops__oxurl.value|raw }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_URL"), 'sHelpText': help_text("HELP_GENERAL_URL")} %}
                 </td>
             </tr>

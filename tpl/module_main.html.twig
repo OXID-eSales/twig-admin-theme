@@ -19,9 +19,9 @@
         <tr>
             <td width="245" valign="top">
                 {% if oModule.getInfo('thumbnail') %}
-                    <img src="{{ oViewConf.getModuleUrl(oModule.getId(), oModule.getInfo('thumbnail')) }}" hspace="20" vspace="10"></td>
+                    <img src="{{ oViewConf.getModuleUrl(oModule.getId(), oModule.getInfo('thumbnail'))|raw }}" hspace="20" vspace="10"></td>
                 {% else %}
-                    <img src="{{ oViewConf.getResourceUrl() }}bg/module.png" hspace="20" vspace="10">
+                    <img src="{{ oViewConf.getResourceUrl()|raw }}bg/module.png" hspace="20" vspace="10">
                 {% endif %}
             </td>
             <td width="" valign="top">
@@ -48,7 +48,7 @@
                     <dt>{{ translate({ ident: "GENERAL_URL" }) }}</dt>
                     <dd>
                         {% if oModule.getInfo('url') %}
-                            <a href="{{ oModule.getInfo('url') }}" target="_blank">{{ oModule.getInfo('url') }}</a>
+                            <a href="{{ oModule.getInfo('url')|raw }}" target="_blank">{{ oModule.getInfo('url') }}</a>
                         {% else %}
                             -
                         {% endif %}

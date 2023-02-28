@@ -128,7 +128,7 @@ function DeletePic( sField )
         </table>
     </td>
     <td width="35">
-    <img src="{{ oViewConf.getImageUrl() }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
+    <img src="{{ oViewConf.getImageUrl()|raw }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
     </td>
     <!-- Anfang rechte Seite -->
     <td valign="top" class="edittext" align="left" width="50%">
@@ -136,7 +136,7 @@ function DeletePic( sField )
             {% if oxid != "-1" %}
                 {% if edit.oxwrapping__oxpic.value %}
                     {{ translate({ ident: "WRAPPING_MAIN_PICTURE" }) }} <br>
-                    <img src="{{ edit.getPictureUrl() }}" border="0" hspace="0" vspace="0">
+                    <img src="{{ edit.getPictureUrl()|raw }}" border="0" hspace="0" vspace="0">
                 {% endif %}
             {% endif %}
         {% endblock %}

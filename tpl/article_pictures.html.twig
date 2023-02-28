@@ -66,10 +66,10 @@ function editThis(sID)
         <td class="picPreviewCol" valign="top">
             {% set sThumbUrl = edit.getThumbnailUrl() %}
 
-            <div class="picPreview">{% if sThumbUrl %}<img src="{{ sThumbUrl }}">{% endif %}</div>
+            <div class="picPreview">{% if sThumbUrl %}<img src="{{ sThumbUrl|raw }}">{% endif %}</div>
             <div class="picDescr">{{ translate({ ident: "GENERAL_THUMB" }) }}</div>
             <br>
-            <div class="picPreview" width="100%" align="center"><img src="{{ edit.getIconUrl() }}"></div>
+            <div class="picPreview" width="100%" align="center"><img src="{{ edit.getIconUrl()|raw }}"></div>
             <div class="picDescr">{{ translate({ ident: "GENERAL_ICON" }) }}</div>
         </td>
 
@@ -132,7 +132,7 @@ function editThis(sID)
 
                         {% if blPicUplodaded and not readonly %}
                             {% set sPicUrl = edit.getPictureUrl(iIndex) %}
-                            <a href="{{ sPicUrl }}" class="zoomText" target="_blank"><span class="ico"></span><span class="float: left;>">{{ translate({ ident: "ARTICLE_PICTURES_PREVIEW" }) }}</span></a>
+                            <a href="{{ sPicUrl|raw }}" class="zoomText" target="_blank"><span class="ico"></span><span class="float: left;>">{{ translate({ ident: "ARTICLE_PICTURES_PREVIEW" }) }}</span></a>
                         {% endif %}
                     </td>
                   </tr>

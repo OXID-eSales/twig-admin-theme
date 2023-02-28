@@ -14,14 +14,14 @@
       {{ edit.oxcategories__oxtitle.value }} {{ translate({ ident: "GENERAL_THUMB" }) }}
       {% if edit.oxcategories__oxthumb.value %}
         :<br><br>
-        <img src="{{ edit.getThumbUrl() }}" border="0" hspace="0" vspace="0">
+        <img src="{{ edit.getThumbUrl()|raw }}" border="0" hspace="0" vspace="0">
       {% endif %}
     </td>
     <td valign="top" class="edittext">
       {{ edit.oxcategories__oxtitle.value }} {{ translate({ ident: "GENERAL_ICON" }) }}
       {% if edit.oxcategories__oxicon.value %}
         :<br><br>
-        <img src="{{ edit.getIconUrl() }}" border="0" hspace="0" vspace="0">
+        <img src="{{ edit.getIconUrl()|raw }}" border="0" hspace="0" vspace="0">
       {% endif %}
     </td>
 </tr>

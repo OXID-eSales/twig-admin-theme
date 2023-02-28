@@ -104,7 +104,7 @@
                 {{ translate({ ident: "CATEGORY_MAIN_EXTLINK" }) }}
             </td>
             <td class="edittext" colspan="2">
-                <input type="text" class="editinput" size="42" maxlength="{{ edit.oxcategories__oxextlink.fldmax_length }}" name="editval[oxcategories__oxextlink]" value="{{ edit.oxcategories__oxextlink.value }}" {{ readonly }}>
+                <input type="text" class="editinput" size="42" maxlength="{{ edit.oxcategories__oxextlink.fldmax_length }}" name="editval[oxcategories__oxextlink]" value="{{ edit.oxcategories__oxextlink.value|raw }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_CATEGORY_MAIN_EXTLINK"), 'sHelpText': help_text("HELP_CATEGORY_MAIN_EXTLINK")} %}
             </td>
         </tr>

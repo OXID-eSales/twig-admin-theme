@@ -4,9 +4,9 @@
     <title>{{ translate({ ident: "LOGIN_TITLE" }) }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={{ charset }}">
     <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
-    <link rel="shortcut icon" href="{{ oViewConf.getImageUrl() }}favicon.ico">
-    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl() }}login.css">
-    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl() }}colors_{{ oViewConf.getEdition()|lower }}.css">
+    <link rel="shortcut icon" href="{{ oViewConf.getImageUrl()|raw }}favicon.ico">
+    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl()|raw }}login.css">
+    <link rel="stylesheet" href="{{ oViewConf.getResourceUrl()|raw }}colors_{{ oViewConf.getEdition()|lower }}.css">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
 
 <div class="admin-login-box">
 
-    <div id="shopLogo"><img src="{{ oViewConf.getImageUrl('logo_dark.svg') }}" /></div>
+    <div id="shopLogo"><img src="{{ oViewConf.getImageUrl('logo_dark.svg')|raw }}" /></div>
 
     <form action="{{ oViewConf.getSelfLink()|raw }}" target="_top" method="post" name="login" id="login">
 

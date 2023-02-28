@@ -196,7 +196,7 @@
                             </td>
                             <td class="edittext">
                                 <input type="text" size="28" class="edittext" style="font-size: 7pt;"
-                                       value="{{ link }}" {{ readonly }}>
+                                       value="{{ link|raw }}" {{ readonly }}>
                                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_LINK"), 'sHelpText': help_text("HELP_GENERAL_LINK")} %}
                             </td>
                         </tr>

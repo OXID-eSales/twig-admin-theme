@@ -181,7 +181,7 @@ function ThisDate( sID)
                                 <input type="text" class="editinput" size="25" maxlength="{{ edit.oxorder__oxtrackcode.fldmax_length }}" name="editval[oxorder__oxtrackcode]" value="{{ edit.oxorder__oxtrackcode.value }}" {{ readonly }}>
                                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ORDER_MAIN_TRACKCODE"), 'sHelpText': help_text("HELP_ORDER_MAIN_TRACKCODE")} %}
                                 {% if edit.oxorder__oxtrackcode.value and edit.getShipmentTrackingUrl() %}
-                                    <a href="{{ edit.getShipmentTrackingUrl() }}" target="_blank">{{ translate({ ident: "ORDER_MAIN_TRACKCODE_LINK" }) }}</a>
+                                    <a href="{{ edit.getShipmentTrackingUrl()|raw }}" target="_blank">{{ translate({ ident: "ORDER_MAIN_TRACKCODE_LINK" }) }}</a>
                                 {% endif %}
                                 </td>
                             </tr>

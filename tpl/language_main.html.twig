@@ -84,7 +84,7 @@ window.onload = function ()
                 {{ translate({ ident: "LANGUAGE_BASEURL" }) }}
                 </td>
                 <td class="edittext">
-                <input type="text" class="editinput" size="40" maxlength="255" name="editval[baseurl]" value="{{ edit.baseurl }}" {{ readonly }}>
+                <input type="text" class="editinput" size="40" maxlength="255" name="editval[baseurl]" value="{{ edit.baseurl|raw }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_LANGUAGE_BASEURL"), 'sHelpText': help_text("HELP_LANGUAGE_BASEURL")} %}
                 </td>
             </tr>
@@ -93,7 +93,7 @@ window.onload = function ()
                 {{ translate({ ident: "LANGUAGE_BASESSLURL" }) }}
                 </td>
                 <td class="edittext">
-                <input type="text" class="editinput" size="40" maxlength="255" name="editval[basesslurl]" value="{{ edit.basesslurl }}" {{ readonly }}>
+                <input type="text" class="editinput" size="40" maxlength="255" name="editval[basesslurl]" value="{{ edit.basesslurl|raw }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_LANGUAGE_BASESSLURL"), 'sHelpText': help_text("HELP_LANGUAGE_BASESSLURL")} %}
                 </td>
             </tr>

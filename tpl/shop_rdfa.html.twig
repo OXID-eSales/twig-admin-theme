@@ -189,7 +189,7 @@ function _groupExp(el) {
                 </dd>
                 <div class="spacer"></div>
                 <dt>
-                    <input type="text" class="editinput" size="35" maxlength="128" value="{{ edit.oxshops__oxurl.value }}" style="color: #777777;" readonly>
+                    <input type="text" class="editinput" size="35" maxlength="128" value="{{ edit.oxshops__oxurl.value|raw }}" style="color: #777777;" readonly>
                 </dt>
                 <dd>
                     {{ translate({ ident: "GENERAL_URL" }) }}
@@ -199,7 +199,7 @@ function _groupExp(el) {
             <dl>
                 <div>{{ translate({ ident: "SHOP_RDFA_DATA_EXTENDED" }) }}</div>
                 <dt>
-                    <input type=text class="txt" name=confstrs[sRDFaLogoUrl] value="{{ confstrs.sRDFaLogoUrl }}" {{ readonly }}>
+                    <input type=text class="txt" name=confstrs[sRDFaLogoUrl] value="{{ confstrs.sRDFaLogoUrl|raw }}" {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_RDFA_LOGO_URL"), 'sHelpText': help_text("HELP_SHOP_RDFA_LOGO_URL")} %}
                 </dt>
                 <dd>

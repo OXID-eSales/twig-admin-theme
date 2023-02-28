@@ -11,7 +11,7 @@
 {% block admin_theme_main_form %}
 <table cellspacing="10" width="98%">
     <tr>
-        <td width="20%" valign="top"><img src="{{ oViewConf.getBaseDir() }}/out/{{ oTheme.getInfo('id') }}/{{ oTheme.getInfo('thumbnail') }}" hspace="20" vspace="10"></td>
+        <td width="20%" valign="top"><img src="{{ oViewConf.getBaseDir()|raw }}/out/{{ oTheme.getInfo('id') }}/{{ oTheme.getInfo('thumbnail') }}" hspace="20" vspace="10"></td>
         <td width="50%" valign="top">
             <h1 style="color:#000;font-size:25px;">{{ oTheme.getInfo('title') }}</h1>
             <p>{{ oTheme.getInfo('description') }}</p>
@@ -34,7 +34,7 @@
         </td>
         {% if not oTheme.getInfo('active') %}
             <td width="1%">
-                <img src="{{ oViewConf.getImageUrl() }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
+                <img src="{{ oViewConf.getImageUrl()|raw }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
             </td>
             <td width="19%" valign="top">
                 {% set _sError = oTheme.checkForActivationErrors() %}

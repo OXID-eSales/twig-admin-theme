@@ -55,7 +55,7 @@ window.onload = function ()
                             </select>
                             <input class="listedit" type="submit" name="submitit" value="{{ translate({ ident: "GENERAL_SEARCH" }) }}">
                         </div>
-                        <input class="listedit" type="text" size="20" maxlength="128" name="where[oxlinks][oxurl]" value="{{ where.oxlinks.oxurl }}">
+                        <input class="listedit" type="text" size="20" maxlength="128" name="where[oxlinks][oxurl]" value="{{ where.oxlinks.oxurl|raw }}">
                     </div>
                 </div>
             </td>
