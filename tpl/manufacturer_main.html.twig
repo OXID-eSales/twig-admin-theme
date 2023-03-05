@@ -75,25 +75,6 @@ window.onload = function ()
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_SHORTDESC"), 'sHelpText': help_text("HELP_GENERAL_SHORTDESC")} %}
                 </td>
             </tr>
-
-            <tr>
-                <td class="edittext">
-                {{ translate({ ident: "GENERAL_ICON" }) }}
-                </td>
-                <td class="edittext">
-                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxicon.fldmax_length }}" name="editval[oxmanufacturers__oxicon]" value="{{ edit.oxmanufacturers__oxicon.value }}" {{ readonly }}>
-                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ICON"), 'sHelpText': help_text("HELP_GENERAL_ICON")} %}
-                </td>
-            </tr>
-            <tr>
-                <td class="edittext">
-                {{ translate({ ident: "MANUFACTURER_MAIN_ICONUPLOAD" }) }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }}):<br>
-                </td>
-                <td class="edittext">
-                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon]" type="file" {{ readonly }}>
-                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_MAIN_ICONUPLOAD"), 'sHelpText': help_text("HELP_MANUFACTURER_MAIN_ICONUPLOAD")} %}
-                </td>
-            </tr>
             <tr>
                 <td class="edittext">
                     {{ translate({ ident: "GENERAL_SORT" }) }}

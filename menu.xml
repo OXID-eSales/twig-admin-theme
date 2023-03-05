@@ -25,6 +25,7 @@
             <SUBMENU id="mxmanufacturer" cl="manufacturer" list="manufacturer_list">
                 <TAB id="tbclmanufacturer_main" cl="manufacturer_main" />
                 <TAB id="tbclmanufacturer_seo" cl="manufacturer_seo" />
+                <TAB id="tbclmanufacturer_picture" cl="manufacturer_picture" />
                 <BTN id="manufacturer_new" />
                 <BTN id="manufacturer_resetnrofarticles" />
             </SUBMENU>
