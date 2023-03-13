@@ -390,7 +390,7 @@ $aLang = [
     'HELP_CATEGORY_SEO_DESCRIPTION' => 'This description is integrated in the HTML sourcecode of the category page (META description). This text is often displayed in result pages of search engines. A suitable description can be entered here. If it\'s left blank, the description is generated automatically.',
 
     'HELP_CATEGORY_SEO_SHOWSUFFIX' => 'With this setting you can specify if the title suffix is shown in the browser window title when the category page is opened. The title suffix can be set in <span class="navipath_or_inputname">Master Settings -> Core Settings -> SEO -> Title Suffix</span>.',
-    'HELP_CONTENT_MAIN_SNIPPET' => 'If you select <span class="navipath_or_inputname">Snippet</span> you can include this CMS page within other CMS pages by its ident: <span class="userinput_or_code">[{ oxcontent ident=ident_of_the_cms_page }]</span>',
+    'HELP_CONTENT_MAIN_SNIPPET' => 'If you select <span class="navipath_or_inputname">Snippet</span> you can include this CMS page within other CMS pages by its ident: <span class="userinput_or_code">{% include_content "ident_of_the_cms_page" %}</span>',
 
     'HELP_CONTENT_MAIN_MAINMENU' => 'If you select <span class="navipath_or_inputname">Upper Menu</span>, a link to this CMS page is shown in the upper menu (At Terms and About Us).',
 

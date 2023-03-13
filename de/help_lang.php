@@ -393,7 +393,7 @@ $aLang = [
 
     'HELP_CATEGORY_SEO_DESCRIPTION' => 'Dieser Beschreibungstext wird in den HTML-Quelltext (Meta Description) eingebunden. Dieser Text wird von vielen Suchmaschinen bei den Suchergebnissen angezeigt. Hier können Sie eine passende Beschreibung für die Kategorie eingeben. Wenn Sie nichts eingeben, wird die Beschreibung automatisch erzeugt.',
 
-    'HELP_CONTENT_MAIN_SNIPPET' => 'Wenn Sie <span class="navipath_or_inputname">Snippet</span> auswählen, können Sie die CMS-Seite in anderen Seiten mit Hilfe des Idents einbinden: <span class="userinput_or_code">[{ oxcontent ident=Ident_der_CMS_Seite }]</span>',
+    'HELP_CONTENT_MAIN_SNIPPET' => 'Wenn Sie <span class="navipath_or_inputname">Snippet</span> auswählen, können Sie die CMS-Seite in anderen Seiten mit Hilfe des Idents einbinden: <span class="userinput_or_code">{% include_content "Ident_der_CMS_Seite" %}</span>',
 
     'HELP_CONTENT_MAIN_MAINMENU' => 'Wenn Sie <span class="navipath_or_inputname">Hauptmenü</span> auswählen, wird in der oberen Menüleiste ein Link zu der CMS-Seite angezeigt (bei AGB und Impressum).',
 
