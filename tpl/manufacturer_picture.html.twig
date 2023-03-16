@@ -8,16 +8,42 @@
         {% endif %}
     }
 
-    function DeletePic(fieldName)
-    {
+    function DeletePic(fieldName) {
         var oForm = document.getElementById("myedit");
-        oForm.fnc.value="deletePicture";
-        oForm.masterPictureField.value=fieldName;
+        oForm.fnc.value = "deletePicture";
+        oForm.masterPictureField.value = fieldName;
 
         oForm.submit();
     }
+
     //-->
 </script>
+
+<style>
+    .flex-container {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0 0 0 2rem;
+        gap: 1rem;
+    }
+
+    .figure-img {
+        line-height: 1;
+        width: 100%;
+        height: auto;
+        max-width: fit-content;
+    }
+
+    .figure {
+        margin: 0 0 1.5rem;
+        width: 48%;
+    }
+
+    .figure-caption {
+        font-size: 1.3em;
+        margin-bottom: .25rem;
+    }
+</style>
 
 {% if readonly %}
     {% set readonly = "readonly disabled" %}
@@ -51,38 +77,149 @@
 
     <table border="0" width="98%">
         <tr>
-            <td valign="top" class="edittext">
-
+            <td valign="top" class="edittext" style="width: 50%;">
                 <table cellspacing="0" cellpadding="0" border="0">
+                    <colgroup>
+                        <col width="18%">
+                        <col width="22%">
+                        <col width="60%">
+                    </colgroup>
                     {% block admin_manufacturer_picture_form %}
                         <tr>
-                            <td class="edittext" style="width: 5%;">
+                            <td class="edittext">
                                 {{ translate({ ident: "GENERAL_ICON" }) }}
                             </td>
-                            <td class="edittext" style="width: 15%;">
-                                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxicon.fldmax_length }}" name="editval[oxmanufacturers__oxicon]" value="{{ edit.oxmanufacturers__oxicon.value }}" {{ readonly }}>
+                            <td class="edittext">
+                                <label>
+                                    <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxicon.fldmax_length }}" name="editval[oxmanufacturers__oxicon]" value="{{ edit.oxmanufacturers__oxicon.value }}" {{ readonly }}>
+                                </label>
                                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ICON"), 'sHelpText': help_text("HELP_GENERAL_ICON")} %}
                             </td>
-                            <td class="edittext" style="width: 10%;">
+                            <td class="edittext" style="text-align: right">
                                 {% if (not (edit.oxmanufacturers__oxicon.value=="nopic.jpg" or edit.oxmanufacturers__oxicon.value=="" or edit.oxmanufacturers__oxicon.value=="nopic_ico.jpg")) %}
-                                    <a href="Javascript:DeletePic('oxicon');" class="delete left" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+                                    <a href="Javascript:DeletePic('oxicon');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                                 {% endif %}
-                                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon]" type="file" size="26" {{ readonly }}><br>
+                                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon]" type="file" size="26" {{ readonly }}>
                                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
                             </td>
-                            <td class="edittext" style="width: 70%; vertical-align: top">
-                                <img src="{{ edit.getIconUrl() }}" alt="{{ edit.oxmanufacturers__oxicon.value }}">
+                        </tr>
+
+                        <tr>
+                            <td class="edittext">
+                                {{ translate({ ident: "MANUFACTURER_PICTURE_ICON_ALT" }) }}
+                            </td>
+                            <td class="edittext">
+                                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxicon_alt.fldmax_length }}" name="editval[oxmanufacturers__oxicon_alt]" value="{{ edit.oxmanufacturers__oxicon_alt.value }}" {{ readonly }}>
+                                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_PICTURE_ICON_ALT"), 'sHelpText': help_text("HELP_MANUFACTURER_PICTURE_ICON_ALT")} %}
+                            </td>
+                            <td class="edittext" style="text-align: right">
+                                {% if (not (edit.oxmanufacturers__oxicon_alt.value=="nopic.jpg" or edit.oxmanufacturers__oxicon_alt.value=="" or edit.oxmanufacturers__oxicon_alt.value=="nopic_ico.jpg")) %}
+                                    <a href="Javascript:DeletePic('oxicon_alt');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+                                {% endif %}
+                                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon_alt]" type="file" size="26" {{ readonly }}>
+                                ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="edittext">
+                                {{ translate({ ident: "MANUFACTURER_PICTURE_PICTURE" }) }}
+                            </td>
+                            <td class="edittext">
+                                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxpicture.fldmax_length }}" name="editval[oxmanufacturers__oxpicture]" value="{{ edit.oxmanufacturers__oxpicture.value }}" {{ readonly }}>
+                                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_PICTURE_PICTURE"), 'sHelpText': help_text("HELP_MANUFACTURER_PICTURE_PICTURE")} %}
+                            </td>
+                            <td class="edittext" style="text-align: right">
+                                {% if (not (edit.oxmanufacturers__oxpicture.value=="nopic.jpg" or edit.oxmanufacturers__oxpicture.value=="" or edit.oxmanufacturers__oxpicture.value=="nopic_ico.jpg")) %}
+                                    <a href="Javascript:DeletePic('oxpicture');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+                                {% endif %}
+                                <input class="editinput" name="myfile[MPIC@oxmanufacturers__oxpicture]" type="file" size="26" {{ readonly }}>
+                                ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="edittext">
+                                {{ translate({ ident: "MANUFACTURER_PICTURE_THUMBNAIL" }) }}
+                            </td>
+                            <td class="edittext">
+                                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxthumbnail.fldmax_length }}" name="editval[oxmanufacturers__oxthumbnail]" value="{{ edit.oxmanufacturers__oxthumbnail.value }}" {{ readonly }}>
+                                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_PICTURE_THUMBNAIL"), 'sHelpText': help_text("HELP_MANUFACTURER_PICTURE_THUMBNAIL")} %}
+                            </td>
+                            <td class="edittext" style="text-align: right">
+                                {% if (not (edit.oxmanufacturers__oxthumbnail.value=="nopic.jpg" or edit.oxmanufacturers__oxthumbnail.value=="" or edit.oxmanufacturers__oxthumbnail.value=="nopic_ico.jpg")) %}
+                                    <a href="Javascript:DeletePic('oxthumbnail');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+                                {% endif %}
+                                <input class="editinput" name="myfile[MTHU@oxmanufacturers__oxthumbnail]" type="file" size="26" {{ readonly }}>
+                                ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="edittext">
+                                {{ translate({ ident: "MANUFACTURER_PICTURE_PROMOTION_ICON" }) }}
+                            </td>
+                            <td class="edittext">
+                                <input type="text" class="editinput" size="25" maxlength="{{ edit.oxmanufacturers__oxpromotion_icon.fldmax_length }}" name="editval[oxmanufacturers__oxpromotion_icon]" value="{{ edit.oxmanufacturers__oxpromotion_icon.value }}" {{ readonly }}>
+                                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_MANUFACTURER_PICTURE_PROMOTION_ICON"), 'sHelpText': help_text("HELP_MANUFACTURER_PICTURE_PROMOTION_ICON")} %}
+                            </td>
+                            <td class="edittext" style="text-align: right">
+                                {% if (not (edit.oxmanufacturers__oxpromotion_icon.value=="nopic.jpg" or edit.oxmanufacturers__oxpromotion_icon.value=="" or edit.oxmanufacturers__oxpromotion_icon.value=="nopic_ico.jpg")) %}
+                                    <a href="Javascript:DeletePic('oxpromotion_icon');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+                                {% endif %}
+                                <input class="editinput" name="myfile[MPICO@oxmanufacturers__oxpromotion_icon]" type="file" size="26" {{ readonly }}>
+                                ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
                             </td>
                         </tr>
                     {% endblock %}
 
                     <tr>
-                        <td class="edittext" colspan="3" style="text-align: center;">
-                            <input type="submit" class="edittext" id="oLockButton" name="saveArticle" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'" {{ readonly }} {% if not edit.oxmanufacturers__oxtitle.value and not oxparentid %}disabled{% endif %} {{ readonly }}><br>
+                        <td class="edittext" colspan="3" style="text-align: center; padding: 2rem 0;">
+                            <input type="submit" class="edittext" id="oLockButton" name="saveArticle" value="{{ translate({ ident: "GENERAL_SAVE" }) }}"
+                                   onClick="Javascript:document.myedit.fnc.value='save'" {{ readonly }} {% if not edit.oxmanufacturers__oxtitle.value and not oxparentid %}disabled{% endif %} {{ readonly }}>
+                            <br>
                         </td>
                     </tr>
 
                 </table>
+            </td>
+            <td valign="top" style="width: 50%;">
+                <div class="flex-container">
+                    {% if (not (edit.oxmanufacturers__oxicon.value=="nopic.jpg" or edit.oxmanufacturers__oxicon.value=="" or edit.oxmanufacturers__oxicon.value=="nopic_ico.jpg")) %}
+                        <figure class="figure">
+                            <figcaption class="figure-caption">{{ translate({ ident: "GENERAL_ICON" }) }}</figcaption>
+                            <img src="{{ edit.getIconUrl() }}" alt="{{ edit.oxmanufacturers__oxicon.value }}" class="figure-img img-fluid">
+                        </figure>
+                    {% endif %}
+
+                    {% if (not (edit.oxmanufacturers__oxicon_alt.value=="nopic.jpg" or edit.oxmanufacturers__oxicon_alt.value=="" or edit.oxmanufacturers__oxicon_alt.value=="nopic_ico.jpg")) %}
+                        <figure class="figure">
+                            <figcaption class="figure-caption">{{ translate({ ident: "MANUFACTURER_PICTURE_ICON_ALT" }) }}</figcaption>
+                            <img src="{{ edit.getIconAltUrl() }}" alt="{{ edit.oxmanufacturers__oxicon_alt.value }}" class="figure-img img-fluid">
+                        </figure>
+                    {% endif %}
+
+                    {% if (not (edit.oxmanufacturers__oxpicture.value=="nopic.jpg" or edit.oxmanufacturers__oxpicture.value=="" or edit.oxmanufacturers__oxpicture.value=="nopic_ico.jpg")) %}
+                        <figure class="figure">
+                            <figcaption class="figure-caption">{{ translate({ ident: "MANUFACTURER_PICTURE_PICTURE" }) }}</figcaption>
+                            <img src="{{ edit.getPictureUrl() }}" alt="{{ edit.oxmanufacturers__oxpicture.value }}" class="figure-img img-fluid">
+                        </figure>
+                    {% endif %}
+
+                    {% if (not (edit.oxmanufacturers__oxthumbnail.value=="nopic.jpg" or edit.oxmanufacturers__oxthumbnail.value=="" or edit.oxmanufacturers__oxthumbnail.value=="nopic_ico.jpg")) %}
+                        <figure class="figure">
+                            <figcaption class="figure-caption">{{ translate({ ident: "MANUFACTURER_PICTURE_THUMBNAIL" }) }}</figcaption>
+                            <img src="{{ edit.getThumbnailUrl() }}" alt="{{ edit.oxmanufacturers__oxthumbnail.value }}" class="figure-img img-fluid">
+                        </figure>
+                    {% endif %}
+
+                    {% if (not (edit.oxmanufacturers__oxpromotion_icon.value=="nopic.jpg" or edit.oxmanufacturers__oxpromotion_icon.value=="" or edit.oxmanufacturers__oxpromotion_icon.value=="nopic_ico.jpg")) %}
+                        <figure class="figure">
+                            <figcaption class="figure-caption">{{ translate({ ident: "MANUFACTURER_PICTURE_PROMOTION_ICON" }) }}</figcaption>
+                            <img src="{{ edit.getPromotionIconUrl() }}" alt="{{ edit.oxmanufacturers__oxpromotion_icon.value }}" class="figure-img img-fluid">
+                        </figure>
+                    {% endif %}
+                </div>
             </td>
         </tr>
     </table>
