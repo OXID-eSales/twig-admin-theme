@@ -7,6 +7,15 @@
         top.oxid.admin.updateList('{{ oxid }}');
         {% endif %}
     }
+
+    function DeletePic(fieldName)
+    {
+        var oForm = document.getElementById("myedit");
+        oForm.fnc.value="deletePicture";
+        oForm.masterPictureField.value=fieldName;
+
+        oForm.submit();
+    }
     //-->
 </script>
 
@@ -34,6 +43,7 @@
     <input type="hidden" name="oxparentid" value="{{ oxparentid }}">
     <input type="hidden" name="editval[oxmanufacturers__oxid]" value="{{ oxid }}">
     <input type="hidden" name="language" value="{{ actlang }}">
+    <input type="hidden" name="masterPictureField" value="">
 
     {% if oViewConf.isAltImageServerConfigured() %}
         <div class="warning">{{ translate({ ident: "ALTERNATIVE_IMAGE_SERVER_NOTE" }) }} {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE"), 'sHelpText': help_text("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE")} %}</div>
