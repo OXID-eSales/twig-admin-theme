@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.1.0] - Unreleased
 
+### Fixed
+- Error during Generic Export
+
 ### Added
 - Manufacturer sort field
 
