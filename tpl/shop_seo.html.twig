@@ -175,9 +175,9 @@ function editThis(sID)
              <td valign="top" class="nowrap">
                <select class="confinput" style="width:270px;" name=aStaticUrl[oxseo__oxobjectid] {{ readonly }} onchange="document.myedit.submit();">
                  <option value="-1">{{ translate({ ident: "SHOP_SEO_NEWSTATICURL" }) }}</option>
+                 {% set oActItem = null %}
                  {% for oItem in aStaticUrls %}
-
-                   {% if sActSeoObject and sActSeoObject != ' - 1' and oItem.oxseo__oxobjectid.value == sActSeoObject %}
+                   {% if sActSeoObject and sActSeoObject != '-1' and oItem.oxseo__oxobjectid.value == sActSeoObject %}
                      {% set oActItem = oItem %}
                    {% endif %}
 
@@ -206,7 +206,7 @@ function editThis(sID)
             {% for lang, olang in languages %}
             <tr class="conftext{{ smarty_cycle() }}">
              <td>
-              <input type=text class="confinput" style="width:270px;" name="aStaticUrl[oxseo__oxseourl][{{ lang }}]" value="{{ aSeoUrls['lang'][1] }}" {{ readonly }}>
+              <input type=text class="confinput" style="width:270px;" name="aStaticUrl[oxseo__oxseourl][{{ lang }}]" value="{{ aSeoUrls[lang][1] }}" {{ readonly }}>
              </td>
              <td>
               {{ olang.name }}
