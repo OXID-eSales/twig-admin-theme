@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 - Deprecated language constants
 
+### Fixed
+- No static SEO URLs were shown for languages after selection
+
 ## [2.0.1] - 2022-11-23
 
 ### Fixed
