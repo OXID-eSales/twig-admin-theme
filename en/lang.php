@@ -5,11 +5,6 @@
  * See LICENSE file for license details.
  */
 
-/*
- * Capitalisation in this document:
- * First letter is always capitalized
- * All nouns are capitalized
- */
 $sLangName = 'English';
 
 // -------------------------------
@@ -659,15 +654,10 @@ $aLang = [
     'DISCOUNT_USERS_ALLUSERSINGROUP' => 'All Users',
     'DISCOUNT_USERS_SETGROUPS' => 'Assigned User Groups',
     'DISCOUNT_USERS_SETUSER' => 'Assigned Users',
-    'DYN_ECONDA_ACTIVE' => 'Activate Econda Webcontrolling?',
-    'DYN_ECONDA_ATTENTION' => 'Please note: ',
-    'DYN_ECONDA_COPY_FILE' => 'You have to copy the file "emos2.js" which you receive from Econda into the directory %s',
 
     'DYNBASE_ADDCATTOCAMPAIGN' => 'Add category to campaign parameter',
     'DYNBASE_DO_SUCCESS' => 'Success! Your export file can be downloaded <a href="%s" target="_blank">here</a>',
     'DYNBASE_DO_LINK' => 'The Partner can also pick-up this file himself - please note following Link: ',
-    'DYNSCREEN_TITLE' => 'marketing',
-    'DYNSCREEN_LIST_SERVICE' => 'Service Area',
     'EDITOR_PLAINTEXT_HINT' => '<b>Note:</b> If you need to preserve text line breaks (e.g. plaintext e-mails), please use tab "html CODE" instead of "Design".',
     'ALTERNATIVE_IMAGE_SERVER_NOTE' => '<b>Note:</b> Alternative image server configuration detected, files will not be uploaded to remote location. Please take care about synchronization manually.',
     'EXCEPTION_USER_USEREXISTS' => 'This user allready exists!',
@@ -749,11 +739,14 @@ $aLang = [
     'LANGUAGE_EMPTYLANGUAGENAME_ERROR' => 'Please enter language name!',
     'LANGUAGE_ABBREVIATION_INVALID_ERROR' => 'Language abbreviation invalid! Permitted characters are a-z, A-Z, 0-9 and the underscore.',
     'SETUP_DIRNOTDELETED_WARNING' => 'Please delete directory: Setup!',
-    'UPDATEAPP_DIRNOTDELETED_WARNING' => 'Please delete directory: updateApp!',
     'SETUP_CONFIGPERMISSIONS_WARNING' => 'Due to security reasons put your config.inc.php file to read-only mode!',
     'LOGIN_TITLE' => 'OXID eShop Login',
+    // @deprecated 6.10.0
     'LOGIN_ERROR' => 'Error! Incorrect username and/or password!',
     'LOGIN_NO_COOKIE_SUPPORT' => 'Error! Your browser does not support cookies!',
+    // END deprecated
+    'ERROR_MESSAGE_USER_NOVALIDLOGIN'                => 'Error! Incorrect username and/or password!',
+    'ERROR_MESSAGE_COOKIE_NOCOOKIE'                  => 'Error! Your browser does not support cookies!',
     'LOGIN_LANGUAGE' => 'Language',
     'LOGIN_PROFILE' => 'Profile',
     'LOGIN_START' => 'Start OXID eShop Admin',
@@ -1088,7 +1081,6 @@ $aLang = [
     'SHOP_CONFIG_STOCKWARNINGLIMIT' => 'Stock Level at which Users are informed that only a few Products remain in Stock',
     'SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE' => 'Use default "out-of-stock" Message',
     'SHOP_CONFIG_STOCKONDEFAULTMESSAGE' => 'Use default "in-stock" Message',
-
     'SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE' => 'Display a message about possible international delivery fees',
     'SHOP_CONFIG_SHOWTSCODMESSAGE' => 'Display a message about possible "cash on delivery" payment method fees',
     'SHOP_CONFIG_TIMEFORMAT' => 'Time Format in eShop Admin',
@@ -1115,7 +1107,7 @@ $aLang = [
     'SHOP_CONFIG_DOWNLOADS_PATH' => 'Path to files for downloadable products',
     'SHOP_CONFIG_CONFIRMCOOKIE' => 'Customers have to confirm the usage of cookies',
     'SHOP_CONFIG_DEBIT_OLD_BANK_INFORMATION_NOT_ALLOWED' => 'Use IBAN/BIC only',
-    'SHOP_CONFIG_PARCELSERVICE' => 'Shipping provider tracking URL',
+    'SHOP_CONFIG_PARCELSERVICE' => 'Standard shipping provider tracking URL',
     'SHOP_CONFIG_ERROR_INVALID_VALUE' => 'Provided configuration value: %s is not valid.',
     'SHOP_CONFIG_LOADREVIEWS' => 'Activate user reviews and star ratings',
     'SHOP_CONFIG_INCLUDE_PRODUCT_REVIEW_LINKS_IN_ORDER_EMAIL' => 'Include a link  to product reviews in order e-mail',
@@ -1434,8 +1426,6 @@ $aLang = [
     'SHOP_PERF_USETIMECHECKINARTLOAD' => 'Check "Active From/To" when loading Products',
     'SHOP_PERF_DISBASKETSAVING' => 'Don\'t save Shopping Carts of registered Users',
     'SHOP_PERF_HIDELEFTCOLUMN' => 'Hide left column',
-    'DYNSCREEN_LOCAL_TITLE' => 'e-commerce Services',
-    'DYNSCREEN_LOCAL_TEXT' => 'Some general info about e-commerce services ...',
     'GENIMPORT_MENUITEM' => 'Service',
     'GENIMPORT_MENUSUBITEM' => 'Generic Import',
     'GENIMPORT_STEP_1_TITLE' => 'Uploading CSV file',
@@ -1509,7 +1499,6 @@ $aLang = [
     'mxmanufacturer' => 'Brands/Manufacturers',
     'mxvouchers' => 'Coupon Series',
     'mxwrapping' => 'Gift Wrapping',
-    'mxdynscreenlocal' => 'Services info',
     'mxoxexchange' => 'OXID eXchange',
     'mxnewsletter' => 'Newsletter',
     'mxorderovw' => 'Order Summary',
@@ -1815,7 +1804,6 @@ $aLang = [
 
     'SHOP_PERF_SEO_CACHE' => 'Enable SEO cache',
     'SHOP_PERF_SYSREQ_CHECK' => 'Enable system health messages at the start page',
-    'INFO_MODULES_MOVED_TO_EXTENSIONS' => 'Themes and modules handling moved to new menu "Extensions"',
     'EXCEPTION_THEME_SHOULD_BE_ONLY_IN_DATABASE' => 'Theme should not be defined in config.inc.php',
     'EMAIL_PRICEALARM_CUSTOMER_PRICEALARMIN' => 'Wished Price in ',
     'EMAIL_PRICEALARM_CUSTOMER_HY' => 'Hallo,',
@@ -1847,7 +1835,6 @@ $aLang = [
     'OXDIAG_LIST_MENUSUBITEM' => 'Diagnostics tool',
 
     'OXDIAG_MAIN_TITLE' => 'Diagnostics of your OXID eShop',
-    'OXDIAG_VERSIONCHECKER' => 'Version checker',
     'OXDIAG_INTROINFORMATION_CONTACT_US' => 'You can contact us using',
     'OXDIAG_INTROINFORMATION_ONLINE_CONTACT_FORM' => 'Online Contact Form',
 
@@ -1857,35 +1844,15 @@ $aLang = [
     'OXDIAG_RESULT' => 'Diagnostics check result',
     'OXDIAG_DOWNLOAD_FILE' => 'Click here to download the result file',
     'OXDIAG_ERRORMESSAGETEMPLATE' => 'These error(s) occured',
-    'OXDIAG_VERSION' => 'Version',
-    'OXDIAG_EDITION' => 'Edition',
-    'OXDIAG_REVISION' => 'Revision',
-    'OXDIAG_SUMMARY' => 'Summary',
-    'OXDIAG_HINTS' => 'Hints',
-    'OXDIAG_OK' => 'OK',
-    'OXDIAG_MODIFIED' => 'Modified',
-    'OXDIAG_VERSION_MISMATCH' => 'Version mismatch',
-    'OXDIAG_UNKNOWN' => 'Unknown',
-    'OXDIAG_NUMBER_OF_INVESTIGATED_FILES' => 'Number of investigated files in total',
-    'OXDIAG_SHOP_DOES_NOT_FIT' => 'This OXID eShop does not fit 100%',
-    'OXDIAG_SHOP_ORIGINAL' => 'This OXID eShop was not modified and is fully original',
-
-    'OXDIAG_MODIFIEDHINTS1' => 'OXID eShop has sophisticated possibility to extend it by modules without changing shipped files. It\'s not recommended and not needed to change shop files. See also our <a href="http://blog.oxid-esales.com/2009/02/how-extend-oxid-eshop-with-modules-part-1/" target=_blank>tutorials</a>.',
-    'OXDIAG_MODIFIEDHINTS2' => 'Since OXID eShop 4.2.0 it\'s possible to use <a href="https://oxidforge.org/en/oxid-eshop-version-4-2-0.html#New_Features" target=_blank>your own templates without changing shipped ones</a>.',
-    'OXDIAG_VERSIONMISMATCHHINTS' => 'Apparently one or more updates went wrong. See details link for more information about more details for each file. A left over file which is not any longer included in OXID eShop could also be a <u>possible</u> reason for version mismatch. Find information about update in our <a href="http://www.oxid-esales.com/en/support-services/documentation-and-help/oxid-eshop/installation/oxid-eshop-update-installation" target=_blank>Documentation and help</a>.',
-
 
     'OXDIAG_HOME' => 'OXID Diagnostics',
     'OXDIAG_ABOUT' => 'This Diagnostics tool collects technical information about your shop and server. This information might be useful before updating, installing modules or on diagnostics.',
-    'OXDIAG_DOWNLOADLOG' => 'Download report',
 
     //initial form
     'OXDIAG_COLLECT_MODULES' => 'Fetch modules',
     'OXDIAG_COLLECT_HEALTH' => 'Poll system health status',
     'OXDIAG_COLLECT_PHP' => 'Poll PHP configuration (selected parameters)',
     'OXDIAG_COLLECT_SERVER' => 'Poll system information (if possible)',
-    'OXDIAG_STORE_ANALYSIS' => 'Store results',
-    'OXDIAG_COLLECT_START' => 'Start analysis!',
 
     //index
     'OXDIAG_GOTO' => 'Go to',
@@ -1894,9 +1861,7 @@ $aLang = [
     'OXDIAG_HEALTH' => 'System health',
     'OXDIAG_PHPINFO' => 'PHP information',
     'OXDIAG_SERVERINFO' => 'Server information',
-    'OXDIAG_RESTART' => 'Start new analysis',
 
-    'OXDIAG_DISCL' => 'The analysis below the line has been stored in a report file.',
     'OXDIAG_HEALTH_OK' => 'OK',
     'OXDIAG_HEALTH_MIN' => 'MIN',
     'OXDIAG_HEALTH_FAIL' => 'FAIL',
@@ -1921,9 +1886,6 @@ $aLang = [
     'OXDIAG_SERVERINFO_NOT_DETECTED' => 'not detected',
     'OXDIAG_SERVERINFO_COMPONENT' => 'Component',
     'SUBJECT_UNABLE_TO_SEND_VIA_CURL' => 'Information cannot be sent to OXID server via CURL',
-
-    //final note
-    'OXDIAG_FINALNOTE' => 'End of analysis.',
 
     'OLC_ERROR_SERIAL_NOT_VALID' => 'License key check failed. Try again or contact support if this occurs permanently.',
     'OLC_ERROR_RESPONSE_NOT_VALID' => 'Error: service unavailable, try again later... If this persists, please check that your shop can make outgoing connections.',

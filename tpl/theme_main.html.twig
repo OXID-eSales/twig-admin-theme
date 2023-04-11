@@ -28,7 +28,7 @@
             {% endif %}
             <hr>
             <p style="color:#aaa;">
-            <b>{{ translate({ ident: "THEME_AUTHOR" }) }}</b> {{ oTheme.getInfo('author') }}<br><br>
+            <b>{{ translate({ ident: "THEME_AUTHOR" }) }}</b> {{ oTheme.getInfo('author')|default(' - ')|raw() }} <br><br>
             {{ translate({ ident: "THEME_VERSION" }) }} {{ oTheme.getInfo('version') }}
             </p>
         </td>

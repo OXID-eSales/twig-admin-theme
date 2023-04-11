@@ -34,7 +34,7 @@
                     <dd>{{ oModule.getInfo('version')|default(' - ') }}</dd>
 
                     <dt>{{ translate({ ident: "MODULE_AUTHOR" }) }}</dt>
-                    <dd>{{ oModule.getInfo('author')|raw|default(' - ') }}</dd>
+                    <dd>{{ oModule.getInfo('author')|default(' - ')|raw() }}</dd>
 
                     <dt>{{ translate({ ident: "GENERAL_EMAIL" }) }}</dt>
                     <dd>

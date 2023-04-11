@@ -22,71 +22,47 @@
  */
 $aLang = [
     'charset' => 'UTF-8',
-
     'HELP_SHOP_SYSTEM_OTHERCOUNTRYORDER' => 'Diese Einstellung beeinflusst das Verhalten des OXID eShops, wenn für ein Land, in das Benutzer bestellen wollen, keine Versandkosten definiert sind:<br>' .
         '<ul><li>Wenn die Einstellung aktiv ist, erhalten diese Benutzer im Bestellprozess eine Meldung: Die Versandkosten werden ihnen nachträglich mitgeteilt, wenn Sie damit einverstanden ist. Sie können mit der Bestellung fortfahren.</li>' .
         '<li>Wenn die Einstellung ausgeschaltet ist, können Benutzer aus Ländern, für die keine Versandkosten definiert sind, nicht bestellen.</li></ul>',
-
     'HELP_SHOP_SYSTEM_DISABLENAVBARS' => 'Wenn Sie diese Einstellung aktivieren, werden die meisten Navigationselemente im Bestellprozess ausgeblendet. Dadurch werden die Benutzer beim Bestellen nicht unnötig abgelenkt.',
-
     'HELP_SHOP_SYSTEM_DEFAULTIMAGEQUALITY' => 'Empfehlenswerte Einstellungen sind ca. 40-80:<br>' .
         '<ul><li>Unterhalb von ca. 40 werden deutliche Kompressionsartefakte sichtbar, und die Bilder wirken unscharf.</li>' .
         '<li>Oberhalb von ca. 80 kann man kaum eine Verbesserung der Bildqualität feststellen, während die Dateigröße enorm zunimmt.</li></ul><br>' .
         'Die Standardeinstellung ist 75.',
-
     'HELP_SHOP_SYSTEM_CONVERT_IMAGES_TO_WEBP' => 'Empfohlen: Aktivieren Sie die WebP-Konvertierung, damit die Seiten Ihres OXID eShops schneller geladen werden.<br>' .
         'Prüfen Sie jedoch, ob die Qualität Ihrer Bilder durch die im Vergleich mit dem JPG-Format stärkere Kompression beeinträchtigt wird. Deaktivieren Sie die WebP-Konvertierung gegebenenfalls wieder.',
-
     'HELP_SHOP_SYSTEM_SHOWVARIANTREVIEWS' => 'Diese Einstellung beeinflusst das Verhalten, wenn Varianten bewertet werden: Wenn die Einstellung aktiv ist, dann werden die Bewertungen der Varianten auch beim Vater-Artikel angezeigt.',
-
     'HELP_SHOP_SYSTEM_VARIANTSSELECTION' => 'Im eShop gibt es oft Listen, in denen Sie Artikel zuordnen können, z. B. wenn Sie Artikel zu Rabatten zuordnen. Wenn die Einstellung aktiv ist, werden in diesen Listen auch  Varianten angezeigt.',
-
     'HELP_SHOP_SYSTEM_VARIANTPARENTBUYABLE' => 'Hier können Sie einstellen, ob der Vater-Artikel gekauft werden kann:' .
         '<ul><li>Wenn die Einstellung aktiv ist, kann auch der Vater-Artikel gekauft werden.</li>' .
         '<li>Wenn die Einstellung nicht aktiv ist, können nur die Varianten gekauft werden.</li></ul>',
-
     'HELP_SHOP_SYSTEM_VARIANTINHERITAMOUNTPRICE' => 'Diese Einstellung beeinflusst das Verhalten des eShops, wenn beim Vater-Artikel Staffelpreise eingerichtet sind: Wenn die Einstellung aktiv ist, werden die Staffelpreise auch bei den Varianten verwendet.',
-
     'HELP_SHOP_SYSTEM_ISERVERTIMESHIFT' => 'Es kann sein, dass sich der Server in einer anderen Zeitzone befindet. Mit dieser Einstellung können Sie die Zeitverschiebung korrigieren: Geben Sie die Anzahl der Stunden, die zur Serverzeit addiert/abgezogen werden sollen ein, z. B. <kdb>+2</kdb> oder <kdb>-2</kdb>',
-
     'HELP_SHOP_SYSTEM_INLINEIMGEMAIL' => 'Wenn die Einstellung aktiv ist, werden die Bilder, die in E-Mails verwendet werden, zusammen mit der E-Mail versendet. Wenn die Einstellung nicht aktiv ist, lädt das E-Mail Programm die Bilder herunter, wenn Benutzer die E-Mail öffnen.',
-
     'HELP_SHOP_SYSTEM_UTILMODULE' => 'Bitte tragen Sie Ihre .php-Datei ein, mit der beim Shopstart eShop Funktionen überschrieben werden sollen.',
-
     'HELP_SHOP_CACHE_ENABLED' => 'Wenn Dynamic content caching aktiv ist, werden zusätzliche Inhalte gecached und dadurch die Performance Ihres eShops weiter gesteigert. Deaktivieren Sie die Einstellung, solange Ihr eShop noch nicht Produktiv eingesetzt und angepasst wird.',
-
     'HELP_SHOP_CACHE_LIFETIME' => 'Hier können Sie einstellen, wie viele Sekunden die gecachten Inhalte maximal gespeichert werden, bevor sie erneut berechnet werden. Die Standardeinstellung sind 36000 Sekunden.',
-
     'HELP_SHOP_CACHE_CLASSES' => 'Hier stellen Sie ein, welche View-Klassen gecached werden.<br> Ändern Sie diese Einstellung nur, wenn Sie mit den Caching-Mechanismen gut vertraut sind!',
-
     'HELP_SHOP_CACHE_REVERSE_PROXY_ENABLED' => 'Aktiviert das Caching mit einem HTTP Reverse Proxy. Hinweis: Nicht zusammen mit "Dynamic Content Caching" verwenden, da das die Performance beeinträchtigen könnte.',
-
     'HELP_SHOP_CACHE_LAYOUT_CACHE_AGE' => 'Setzt die Lebenszeit des Seiten-Layouts in Sekunden. Wird als Header-Wert "Age" über den HTTP-Header gesendet.',
-
-
     'HELP_SHOP_CONFIG_ORDEROPTINEMAIL' => 'Wenn Double-Opt-In aktiviert ist, erhalten die Benutzer eine E-Mail mit einem Bestätigungs-Link, wenn sie sich für den Newsletter registrieren. Erst, wenn sie diesen Link besuchen, sind sie für den Newsletter angemeldet.<br>' .
         'Double-Opt-In schützt vor Anmeldungen, die nicht gewollt sind. Ohne Double-Opt-In können beliebige E-Mail Adressen für den Newsletter angemeldet werden. Dies wird z. B. auch von Spam-Robotern gemacht. Durch Double-Opt-In kann der Besitzer der E-Mail Adresse bestätigen, dass er den Newsletter wirklich empfangen will.',
-
     'HELP_SHOP_CONFIG_BIDIRECTCROSS' => 'Durch Crossselling können zu einem Artikel passende Artikel angeboten werden. Crossselling-Artikel werden im eShop bei <span class="filename_filepath_or_italic">Kennen Sie schon?</span> angezeigt.<br>' .
         'Wenn z.B. einem Auto als Crossselling-Artikel Winterreifen zugeordnet sind, werden beim Auto die Winterreifen angezeigt. Wenn Bidirektionales Crossselling aktiviert ist, funktioniert Crossselling in beide Richtungen: bei den Winterreifen wird das Auto angezeigt.',
-
     'HELP_SHOP_CONFIG_STOCKONDEFAULTMESSAGE' => 'Bei jedem Artikel können Sie einrichten, welche Meldung den Benutzern angezeigt wird, wenn der Artikel auf Lager ist. ' .
         'Wenn diese Einstellung aktiv ist, wird den Benutzern auch dann eine Meldung angezeigt, wenn bei einem Artikel keine eigene Meldung hinterlegt ist. Es wird die Standardmeldung <span class="filename_filepath_or_italic">sofort lieferbar</span> verwendet.',
-
     'HELP_SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE' => 'Bei jedem Artikel können Sie einrichten, welche Meldung den Benutzern angezeigt wird, wenn der Artikel nicht auf Lager ist. ' .
         'Wenn diese Einstellung aktiv ist, wird den Benutzern auch dann eine Meldung angezeigt, wenn bei einem Artikel keine eigene Meldung hinterlegt ist. Es wird die Standardmeldung <span class="filename_filepath_or_italic">Dieser Artikel ist nicht auf Lager und muss erst nachbestellt werden</span> verwendet.',
-
     'HELP_SHOP_CONFIG_OVERRIDEZEROABCPRICES' => 'Sie können für bestimmte Benutzer spezielle Preise einrichten. Dadurch können Sie bei jedem Artikel A, B, und C-Preise eingeben. Wenn Benutzer z. B. in der Benutzergruppe Preis A sind, werden ihnen die A-Preise anstatt dem normalen Artikelpreis angezeigt.<br>' .
         'Wenn die Einstellung aktiv ist, wird diesen Benutzern der normale Artikelpreis angezeigt, wenn für den Artikel kein A, B oder C-Preis vorhanden ist.<br>' .
         'Sie sollten diese Einstellung aktivieren, wenn Sie A,B und C-Preise verwenden: Ansonsten wird den bestimmten Benutzern ein Preis von 0,00 angezeigt, wenn kein A,B oder C-Preis hinterlegt ist.',
-
     'HELP_SHOP_CONFIG_SEARCHFIELDS' => 'Hier können Sie die Datenbankfelder der Artikel eingeben, in denen gesucht wird. Geben Sie pro Zeile nur ein Datenbankfeld ein.<br>' .
         'Die am häufigsten benötigten Einträge sind:' .
         '<ul><li>oxtitle = Titel (Name) der Artikel</li>' .
         '<li>oxshortdesc = Kurzbeschreibung der Artikel</li>' .
         '<li>oxsearchkeys = Suchwörter, die bei den Artikeln eingetragen sind</li>' .
         '<li>oxartnum = Artikelnummern</li>',
-
     'HELP_SHOP_CONFIG_SORTFIELDS' => 'Hier können Sie die Datenbankfelder der Artikel eingeben, nach denen Artikellisten sortiert werden können. Geben Sie pro Zeile nur ein Datenbankfeld ein.<br>' .
         'Die am häufigsten benötigten Einträge sind:' .
         '<ul><li>oxtitle = Titel (Name) der Artikel</li>' .
@@ -95,7 +71,6 @@ $aLang = [
         '<li>oxartnum = Artikelnummern</li>' .
         '<li>oxrating = Die Bewertung der Artikel</li>' .
         '<li>oxstock = Lagerbestand der Artikel</li></ul>',
-
     'HELP_SHOP_CONFIG_MUSTFILLFIELDS' => 'Hier können Sie eingeben, welche Felder von Benutzern ausgefüllt werden müssen, wenn Sie sich registrieren. Sie müssen die entsprechenden Datenbankfelder angeben. Geben Sie pro Zeile nur ein Datenbankfeld ein.<br>' .
         'Die am häufigsten benötigten Einträge für die Benutzerdaten sind:' .
         '<ul><li>oxuser__oxfname = Vorname</li>' .
@@ -115,11 +90,9 @@ $aLang = [
         '<li>oxaddress__oxcity = Stadt</li>' .
         '<li>oxaddress__oxcountryid = Land</li>' .
         '<li>oxaddress__oxfon = Telefonnummer</li></ul>',
-
     'HELP_SHOP_CONFIG_USENEGATIVESTOCK' => 'Mit <span class="navipath_or_inputname">Negative Lagerbestände erlauben</span> können Sie einstellen, welcher Lagerbestand berechnet wird, wenn ein Artikel ausverkauft ist:<br>' .
         '<ul><li>Wenn die Einstellung aktiv ist, werden negative Lagerbestände berechnet, wenn weitere Exemplare bestellt werden.</li>' .
         '<li>Wenn die Einstellung nicht aktiv ist, fällt der Lagerbestand eines Artikels nie unter 0. Auch dann nicht, wenn der Artikel bereits ausverkauft ist und noch weitere Exemplare bestellt werden.</li></ul>',
-
     'HELP_SHOP_CONFIG_SETORDELETECURRENCY' => 'Hier können Sie Währungen hinzufügen oder entfernen. Jede Zeile enthält Währungsparameter, die durch das Symbol @ getrennt werden.<br /><br />' .
         '<ul>' .
         '<li>Währungsabkürzung laut ISO 4217 (z.B. EUR)</li>' .
@@ -130,7 +103,6 @@ $aLang = [
         '<li>Anzahl der Nachkommastellen</li>' .
         '<li>optionaler Parameter "Front". Falls angegeben, wird die Währungsabkürzung vor dem Preis angezeigt.</li>' .
         '</ul>',
-
     'HELP_SHOP_CONFIG_NEWARTBYINSERT' => 'Auf der Startseite Ihres eShops werden die unter <span class="filename_filepath_or_italic">Frisch eingetroffen!</span> die neusten Artikel in Ihrem eShop angezeigt. Sie können die Artikel, die hier angezeigt werden, manuell einstellen oder automatisch berechnen lassen. Mit dieser Einstellung wählen Sie, wie die neusten Artikel berechnet werden sollen: Nach dem Datum, an dem die Artikel erstellt wurden, oder nach dem Datum der letzten Änderung im Administrationsbereich/der letzten Bestellung im Shop.',
     'HELP_SHOP_CONFIG_SEND_TECHNICAL_INFORMATION_TO_OXID' => 'Es werden keine geschäftsrelevanten Daten oder Kundeninformationen übermittelt. '
         . 'Die gesammelten Daten sind ausschließlich technologische Informationen. '
@@ -140,80 +112,51 @@ $aLang = [
         . '  <li>durchschnittliche Anzahl installierter Erweiterungen pro OXID eShop</li>'
         . '  <li>die meist verbreiteten Erweiterungen für den OXID eShop</li>'
         . '</ul>',
-
     'HELP_SHOP_CONFIG_DELETERATINGLOGS' => 'Wenn Benutzer einen Artikel bewerten, können Sie den Artikel nicht erneut bewerten. Hier können Sie einstellen, dass die Benutzer nach einer bestimmten Anzahl von Tagen den Artikel erneut bewerten können.',
-
     'HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK' => 'Die Online USt-ID Prüfung wird immer ausgeführt, wenn ein Kunde aus dem Ausland (aber innerhalb der EU) eine Umsatzsteuer-ID beim bestellen angibt. Wenn die UST-ID gültig ist, wird für die Bestellung keine Umsatzsteuer berechnet.<br>' .
         'Wenn die Prüfung ausgeschaltet ist, wird immer die für das entsprechende Land eingestelle Umsatzsteuer berechnet.',
-
     'HELP_SHOP_CONFIG_ALTVATIDCHECKINTERFACEWSDL' => 'Hier können Sie eine alternative URL für die Online UST-ID Prüfung eingeben.',
-
     'HELP_SHOP_CONFIG_PSLOGIN' => 'Transformiert Ihren Shop in einen Shop mit beschränktem Zugriff. Auf diese Weise erzeugen ' .
         'Sie Private Sales Communities mit geschlossenen Nutzergruppen.',
-
     'HELP_SHOP_CONFIG_BASKETEXCLUDE' => 'Ermöglicht es, Produkte aus ausschließlich einer Wurzelkategorie in den Warenkorb zu legen. ' .
         'Beim Wechsel der Wurzelkategorie wird der Konsument gezwungen den Warenkorb zu erwerben oder ihn zu verwerfen.',
-
     'HELP_SHOP_CONFIG_BASKETRESERVATION' => 'Ist diese Option aktiviert, laufen Warenkörbe nach einer von Ihnen definierbaren Zeit ab.  <br><br>' .
         'Darüber hinaus schaltet diese Option die Produktreservierung ein, mit der die Lagerbestände der Produkte zunächst reserviert ' .
         'und erst bei Auflösung des Warenkorbs endgültig reduziert wird. Produkte aus abgelaufenen Warenkörben ' .
         'werden dem Lagerbestand wieder zugeschlagen.<br><br>' .
         'Für Produkte aus gekauften Warenkörben wird der Lagerbestand endgültig reduziert.',
-
-
     'HELP_SHOP_CONFIG_BASKETRESERVATIONTIMEOUT' => 'Nach der eingestellten Anzahl von Sekunden ohne Änderung am Warenkorb, wird der Warenkorb automatisch geleert ' .
         'und die darin enthaltenen Produkte dem Lagerbestand wieder zugeführt.',
-
     'HELP_SHOP_CONFIG_INVITATION' => 'Mit Einladungen können Ihre Kunden weitere Freunde einladen sich zu registrieren und Bonuspunkte zu sammeln. ' .
         'Die Anzahl der gesammelten Bonuspunkte wird im jeweiligen Benutzerprofil gespeichert. Sie als Shopbetreiber können diese ' .
         'Bonuspunkte dann je nach Ihrem Geschäftskonzept einsetzen.',
-
     'HELP_SHOP_CONFIG_POINTSFORINVITATION' => 'Anzahl Bonuspunkte, die der Einladende erhält, wenn ein Eingeladener sich aufgrund der Einladung registriert.',
-
     'HELP_SHOP_CONFIG_POINTSFORREGISTRATION' => 'Anzahl Bonuspunkte, die der Eingeladene erhält, der sich aufgrund der Einladung registriert.',
-
-
     'HELP_SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE' => 'Im 4. Schritt des Bestellprozesses wird die CMS-Seite "oxtsinternationalfees" ergänzend angezeigt.',
-
     'HELP_SHOP_CONFIG_SHOWTSCODMESSAGE' => 'Im 4. Schritt des Bestellprozesses wird die CMS-Seite "oxtscodmessage" ergänzend angezeigt.',
-
     'HELP_SHOP_MALL_MALLMODE' => 'Hier stellen Sie ein, was auf der Startseite dieses eShops angezeigt werden soll: ' .
         '<ul><li><span class="navipath_or_inputname">Shop-Auswahlseite</span>: Eine Seite wird angezeigt, auf der Kunden zwischen den verschiedenen Shops wählen können.</li>' .
         '<li><span class="navipath_or_inputname">Hauptshop anzeigen</span>: Die normale Startseite des Hauptshops wird angezeigt.</li></ul>',
-
     'HELP_SHOP_MALL_PRICEADDITION' => 'Sie haben die Möglichkeit, auf alle Artikelpreise einen Aufschlag zu berechnen: Geben Sie den entsprechenden Aufschlag ein und wählen Sie in der Auswahlliste aus, ob er prozentual (<span class="userinput_or_code">%</span>) oder absolut (<span class="userinput_or_code">abs</span>) berechnet werden soll.',
-
-
     'HELP_SHOP_CONFIG_DOWNLOADS' => 'Shop mit Download-Artikeln. Aktivieren Sie hier, dass Artikel bestellt und heruntergeladen werden können.',
-
     'HELP_SHOP_CONFIG_DOWNLOADS_PATH' => 'Pfad, in dem Dateien für Download-Artikel gespeichert werden.',
-
     'HELP_SHOP_CONFIG_MAX_DOWNLOADS_COUNT' => 'Geben Sie hier an, wie oft Benutzer nach einer Bestellung den Link zum Download verwenden können. Das ist die Standardeinstellung für alle Artikel.' .
         'Sie können diesen Wert für jede Datei des Artikels unter Artikel verwalten -> Artikel -> Downloads ändern.',
-
     'HELP_SHOP_CONFIG_LINK_EXPIRATION_TIME_UNREGISTERED' => 'Geben Sie hier an, wie oft Benutzer, die ohne Registrierung bestellt haben, den Link zum Download verwenden können. Das ist die Standardeinstellung für alle Artikel.' .
         'Sie können diesen Wert für jede Datei des Artikels unter Artikel verwalten -> Artikel -> Downloads ändern.',
-
     'HELP_SHOP_CONFIG_LINK_EXPIRATION_TIME' => 'Geben Sie die Zeit in Stunden an, die der Downloadlink nach der Bestellung gültig ist. Das ist die Standardeinstellung für alle Artikel.' .
         'Sie können diesen Wert für jede Datei des Artikels unter Artikel verwalten -> Artikel -> Downloads ändern.',
-
     'HELP_SHOP_CONFIG_DOWNLOAD_EXPIRATION_TIME' => 'Geben Sie die Zeit in Stunden an, die der Downloadlink nach dem ersten Download gültig ist. Das ist die Standardeinstellung für alle Artikel.' .
         'Sie können diesen Wert für jede Datei des Artikels unter Artikel verwalten -> Artikel -> Downloads ändern.',
-
     'HELP_SHOP_CONFIG_PARCELSERVICE' => 'Bitte tragen Sie die Tracking-URL Ihres Versanddienstleisters ein. Diese wird genutzt wird wenn unter Versandarten keine Tracking URL gesetzt ist. <i>##ID##</i> ist ein Platzhalter, welcher durch die jeweilige Sendungsnummer ersetzt wird.',
-
     'HELP_DELIVERYSET_MAIN_TRACKINGURL' => 'Bitte tragen Sie die Tracking-URL Ihres Versanddienstleisters ein. <i>##ID##</i> ist ein Platzhalter, welcher durch die jeweilige Sendungsnummer ersetzt wird.',
-
     'HELP_SHOP_CONFIG_LOADREVIEWS' => 'Benutzer können Artikel bewerten und Sterne-Ratings abgeben. Wenn die Einstellung aktiv ist, werden die bereits abgegebenen Bewertungen und Sterne-Ratings beim Artikel angezeigt. ' .
         'Diese Einstellung kann die Performance des Shops beeinflussen.',
-
     'HELP_SHOP_CONFIG_INCLUDE_PRODUCT_REVIEW_LINKS_IN_ORDER_EMAIL' => 'Bitte prüfen Sie, ob dies nach dem jeweils anwendbaren Recht konform ist. Diese Einstellung wird nur angewendet, wenn "Bewertungen und Sterne-Ratings" aktiviert ist.',
-
     'HELP_SHOP_PERF_NEWESTARTICLES' => 'In Ihrem eShop wird eine Liste mit den neusten Artikeln (Frisch eingetroffen!) angezeigt. Hier können Sie einstellen, wie die Liste generiert wird:' .
         '<ul><li><span class="userinput_or_code">ausgeschaltet</span>: Die Liste wird nicht angezeigt.</li>' .
         '<li><span class="userinput_or_code">manuell</span>: Sie können unter <span class="navipath_or_inputname">Kundeninformationen -> Aktionen verwalten</span> in der Aktion <span class="navipath_or_inputname">Frisch eingetroffen</span> einstellen, welche Artikel in der Liste angezeigt werden.</li>' .
         '<li><span class="userinput_or_code">automatisch</span>: Die Liste der neusten Artikel wird automatisch berechnet.</li></ul>',
-
     'HELP_SHOP_PERF_TOPSELLER' => 'In Ihrem eShop wird eine Liste mit den meistverkauften Artikeln (Top of the Shop) angezeigt. Hier können Sie einstellen, wie die Liste generiert wird:' .
         '<ul><li><span class="userinput_or_code">ausgeschaltet</span>: Die Liste wird nicht angezeigt.</li>' .
         '<li><span class="userinput_or_code">manuell</span>: Sie können unter <span class="navipath_or_inputname">Kundeninformationen -> Aktionen verwalten</span> in der Aktion <span class="navipath_or_inputname">Topseller</span> einstellen, welche Artikel in der Liste angezeigt werden.</li>' .
@@ -571,12 +514,9 @@ $aLang = [
     'HELP_SHOP_CONFIG_ADDITIONAL_SERVICE_VAT_CALCULATION_PROPORTIONAL' => 'Für die Berechnung wird der prozentuale Anteil der Artikel im Warenkorb mit gleichem MwSt.-Satz berücksichtigt.',
     'HELP_SHOP_CONFIG_VIEWNETPRICE' => 'Im Shop werden Artikelpreise als Nettopreise angezeigt.',
     'HELP_SHOP_CONFIG_ENTERNETPRICE' => 'Im Administrationsbereich müssen Artikelpreise als Nettopreise eingegeben werden.',
-
     'HELP_REVERSE_PROXY_GET_FRONTEND' => 'Überprüft, ob der Reverse Proxy für das Frontend verfügbar ist. Geprüft wird der Header der Startseite des Shops.<br>Der Test kann fehlschlagen, wenn verschiedene Domänen oder Protokolle (http/https) für den Administrationsbereich und den eigentlichen Shop verwendet werden.',
     'HELP_REVERSE_PROXY_GET_BACKEND' => 'Der Administrationsbereich wird ohne Reverse Proxy angezeigt. Varnish Header konnte nicht empfangen werden.',
-
     'HELP_SHOP_CONFIG_DEBIT_OLD_BANK_INFORMATION_NOT_ALLOWED' => 'Im Bestellprozess können nur IBAN und BIC angegeben werden. Die Eingabe von Kontonummer und BLZ ist nur möglich, wenn das Kontrollkästchen nicht aktiviert ist.',
     'HELP_SHOP_CONFIG_ENABLE_INTANGIBLE_PRODUCTS_AGREEMENT' => 'Ist diese Option aktiviert, müssen Benutzer die AGB für immaterielle oder Downloadartikel im vierten Bestellschritt bestätigen. Bitte aktivieren Sie diese Option auch für die spezifischen Produkte!',
-
     'HELP_SHOP_CONFIG_FIELDS_CONTACTFORM' => 'Hier können Sie die Felder des Kontaktformulars festlegen, welche vom Benutzer unbedingt auszufüllen sind.',
 ];
