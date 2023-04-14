@@ -1807,7 +1807,6 @@ $aLang = [
 
     'SHOP_PERF_SEO_CACHE' => 'SEO Cache aktivieren',
     'SHOP_PERF_SYSREQ_CHECK' => 'Meldungen der Systemgesundheitsprüfung auf der Startseite aktivieren',
-    'INFO_MODULES_MOVED_TO_EXTENSIONS' => 'Die Einstellungen für Themes und Module finden Sie im neuen Menü "Erweiterungen"',
     'EXCEPTION_THEME_SHOULD_BE_ONLY_IN_DATABASE' => 'Theme darf nicht in config.inc.php definiert sein',
     'EMAIL_PRICEALARM_CUSTOMER_PRICEALARMIN' => 'Wunschpreis im ',
     'EMAIL_PRICEALARM_CUSTOMER_HY' => 'Hallo,',
@@ -1852,15 +1851,12 @@ $aLang = [
     'OXDIAG_HOME' => 'OXID Diagnose',
     'OXDIAG_ABOUT' => 'Dieses Modul sammelt technische Informationen über Ihren Shop und den Server.
                                             Diese Informationen können vor einem Update, einer Modulinstallation oder zu Diagnosezwecken interessant sein.',
-    'OXDIAG_DOWNLOADLOG' => 'Bericht herunterladen',
 
     //initial form
     'OXDIAG_COLLECT_MODULES' => 'Module ermitteln',
     'OXDIAG_COLLECT_HEALTH' => 'Systemgesundheit abfragen',
     'OXDIAG_COLLECT_PHP' => 'PHP-Konfiguration (Auswahl) abfragen',
     'OXDIAG_COLLECT_SERVER' => 'Serverinformationen abfragen (sofern möglich)',
-    'OXDIAG_STORE_ANALYSIS' => 'Auswertung speichern',
-    'OXDIAG_COLLECT_START' => 'Analyse starten!',
 
     //index
     'OXDIAG_GOTO' => 'Gehe zu',
@@ -1869,9 +1865,7 @@ $aLang = [
     'OXDIAG_HEALTH' => 'Systemgesundheit',
     'OXDIAG_PHPINFO' => 'PHP-Informationen',
     'OXDIAG_SERVERINFO' => 'Serverinformationen',
-    'OXDIAG_RESTART' => 'Neue Analyse',
 
-    'OXDIAG_DISCL' => 'Die Informationen unterhalb der Linie wurden in einem Bericht gespeichert.',
     'OXDIAG_HEALTH_OK' => 'OK',
     'OXDIAG_HEALTH_MIN' => 'MiN',
     'OXDIAG_HEALTH_FAIL' => 'N OK',
@@ -1896,9 +1890,6 @@ $aLang = [
     'OXDIAG_SERVERINFO_NOT_DETECTED' => 'nicht erkannt',
     'OXDIAG_SERVERINFO_COMPONENT' => 'Komponente',
     'SUBJECT_UNABLE_TO_SEND_VIA_CURL' => 'Informationen können nicht via CURL an den OXID Server gesendet werden',
-
-    //final note
-    'OXDIAG_FINALNOTE' => 'Ende der Auswertung',
 
     'OLC_ERROR_SERIAL_NOT_VALID' => 'Lizenzschlüsselabgleich fehlgeschlagen. Bitte versuchen Sie es später noch einmal oder kontaktieren Sie den Support, falls dieses Problem weiterhin bestehen sollte.',
     'OLC_ERROR_RESPONSE_NOT_VALID' => 'Fehler: Dienst nicht verfügbar. Bitte versuchen Sie es später noch einmal. Falls das Problem weiterhin bestehen sollte, überprüfen Sie bitte, dass Ihr Shop ausgehende Verbindungen aufbauen kann.',

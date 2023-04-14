@@ -658,7 +658,6 @@ $aLang = [
     'DYNBASE_ADDCATTOCAMPAIGN' => 'Add category to campaign parameter',
     'DYNBASE_DO_SUCCESS' => 'Success! Your export file can be downloaded <a href="%s" target="_blank">here</a>',
     'DYNBASE_DO_LINK' => 'The Partner can also pick-up this file himself - please note following Link: ',
-    'EDITOR_PLAINTEXT_HINT' => '<b>Note:</b> If you need to preserve text line breaks (e.g. plaintext e-mails), please use tab "html CODE" instead of "Design".',
     'ALTERNATIVE_IMAGE_SERVER_NOTE' => '<b>Note:</b> Alternative image server configuration detected, files will not be uploaded to remote location. Please take care about synchronization manually.',
     'EXCEPTION_USER_USEREXISTS' => 'This user allready exists!',
     'EXCEPTION_CONNECTION_NODB' => 'No connection to database!',
