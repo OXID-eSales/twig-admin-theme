@@ -1,4 +1,4 @@
 {% if linenr == 0 %}
 {% if sCustomHeader %}{{ sCustomHeader }}<br>{% endif %}
 {% endif %}
-{{ article.oxarticles__oxartnum.value|enclose("encl") }}{{ spr }}{{ article.oxarticles__oxtitle.value|striptags|enclose("encl") }}{{ spr }}{{ article.oxcategories__oxtitle.value|striptags|enclose("encl") }}{{ spr }}{{ article.oxarticles__oxshortdesc.value|striptags|enclose("encl") }}{{ spr }}{{ article.longDescription|striptags|enclose("encl")|raw }}{{ spr }}{{ article.pic1 }}{{ spr }}{{ article.oxarticles__oxtprice.value }}{{ spr }}{{ article.getFPrice() }}{{ spr }}{{ article.valid }}{{ spr }}{{ article.getLink()|raw }}
+{{ article.oxarticles__oxartnum.value|enclose("encl") }}{{ spr }}{{ article.oxarticles__oxtitle.value|striptags|enclose("encl") }}{{ spr }}{{ article.oxcategories__oxtitle.value|striptags|enclose("encl") }}{{ spr }}{{ article.oxarticles__oxshortdesc.value|striptags|enclose("encl") }}{{ spr }}{{ article.longDescription|striptags|enclose("encl")|raw }}{{ spr }}{{ article.pic1 }}{{ spr }}{{ article.oxarticles__oxtprice.value }}{{ spr }}{{ article.getFPrice() }}{{ spr }}{{ article.valid }}{{ spr }}{{ article.getLink()|replace({"&amp;": "&"})|raw }}

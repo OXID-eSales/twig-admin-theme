@@ -33,7 +33,7 @@
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.new" href="#" onClick="Javascript:top.oxid.admin.editThis( -1 );return false" target="edit">{{ translate({ ident: "TOOLTIPS_NEWCATEGORY" }) }}</a> |</li>
                     {% endif %}
                     {% if bottom_buttons.category_refresh %}
-                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.refresh" href="#" onClick="Javascript:var agree=confirm('{{ translate({ ident: "BOTTOMNAVIITEM_ATTENTION" }) }}');if (agree){top.oxid.admin.editThis( -1 );popupWin=window.open('{{ oViewConf.getSelfLink()|raw }}&cl=category_update', 'remote', 'scrollbars=yes,width=500,height=400')}" target="edit">{{ translate({ ident: "TOOLTIPS_NEWCATTREE" }) }}</a> |</li>
+                        <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.refresh" href="#" onClick="Javascript:var agree=confirm('{{ translate({ ident: "BOTTOMNAVIITEM_ATTENTION" }) }}');if (agree){top.oxid.admin.editThis( -1 );popupWin=window.open('{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl=category_update', 'remote', 'scrollbars=yes,width=500,height=400')}" target="edit">{{ translate({ ident: "TOOLTIPS_NEWCATTREE" }) }}</a> |</li>
                     {% endif %}
                     {% if bottom_buttons.category_resetnrofarticles %}
                         <li><a {% if not firstitem %}class="firstitem"{% set firstitem = "1" %}{% endif %} id="btn.resetnrofarticles" href="#" onClick="Javascript:document.myedit.fnc.value='resetNrOfCatArticles';document.myedit.submit();" target="edit">{{ translate({ ident: "TOOLTIPS_RESETNROFARTICLESINCAT" }) }}</a> |</li>

@@ -11,10 +11,10 @@
         window.onload = function ()
         {
             if ( '{{ listview }}' != '' ) {
-                top.basefrm.list.location = "{{ oViewConf.getSelfLink()|raw }}&cl={{ listview }}&oxid={{ oViewConf.getActiveShopId() }}&actedit={{ actedit }}";
-                top.basefrm.edit.location = "{{ oViewConf.getSelfLink()|raw }}&cl={{ editview }}&oxid={{ oViewConf.getActiveShopId() }}";
+                top.basefrm.list.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl={{ listview }}&oxid={{ oViewConf.getActiveShopId() }}&actedit={{ actedit }}";
+                top.basefrm.edit.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl={{ editview }}&oxid={{ oViewConf.getActiveShopId() }}";
             } else if ( top.basefrm ) {
-                top.basefrm.location = "{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=home.html.twig";
+                top.basefrm.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl=navigation&item=home.html.twig";
             }
         }
         {% endif %}
