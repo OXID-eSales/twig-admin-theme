@@ -180,7 +180,7 @@
                 <TAB id="tbcltools_main" cl="tools_main" disableForDemoShop="1" />
             </SUBMENU>
             <SUBMENU id="mxgenexp" cl="genexport" />
-            <SUBMENU id="mxgenimp" cl="genimport"></SUBMENU>
+            <SUBMENU id="mxgenimp" cl="genimport"/>
         </MAINMENU>
     </OXMENU>
 </OX>
