@@ -30,7 +30,7 @@ composer require oxid-esales/twig-component-ee
 
 **Note:**
 
-The Twig theme for admin will be registered during the installation. If you are having some issues, that the wrong Admin 
+The Twig theme for admin will be registered during the installation. If you are having some issues, that the wrong Admin
 theme is loaded, please check if the `oxid_esales.theme.admin.name` parameter is set correctly:
 ```yaml
 parameters:
