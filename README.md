@@ -1,6 +1,6 @@
 # Twig admin theme
 
-Admin theme based on the twig engine.
+Admin theme based on the Twig engine.
 
 ## Branch Compatibility
 
@@ -10,37 +10,32 @@ Admin theme based on the twig engine.
 ## Installation
 
 **Run the following command to install theme:**
-
 ```bash
 composer require oxid-esales/twig-admin-theme
 ```
 
-**(Only for PE) Install OXID eSales PE twig component:**
+**(Only for PE) Install OXID eSales PE Twig component:**
 
 If you are using Professional Edition, please install Twig component for OXID eShop Professional Edition:
-
 ```bash
 composer require oxid-esales/twig-component-pe
 ```
 
-**(Only for EE) Install OXID eSales EE twig component:**
+**(Only for EE) Install OXID eSales EE Twig component:**
 
 If you are using Enterprise Edition, please install Twig component for OXID eShop Enterprise Edition:
-
 ```bash
 composer require oxid-esales/twig-component-ee
 ```
 
 **Note:**
 
-The twig theme for admin will be registered during the installation. If you are having some issues, that the wrong Admin 
+The Twig theme for admin will be registered during the installation. If you are having some issues, that the wrong Admin 
 theme is loaded, please check if the `oxid_esales.theme.admin.name` parameter is set correctly:
-
-.. code:: yaml
-
-    parameters:
-      oxid_esales.theme.admin.name: 'admin_twig'
-
+```yaml
+parameters:
+  oxid_esales.theme.admin.name: 'admin_twig'
+```
 
 ## License
 

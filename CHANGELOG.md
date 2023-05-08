@@ -1,13 +1,10 @@
-# Change Log for OXID twig admin theme
+# Change Log for OXID Twig admin theme
 
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.1.0] - Unreleased
-
-### Fixed
-- Error during Generic Export
+## [v2.1.0] - 2023-05-08
 
 ### Added
 - Manufacturer sort field
@@ -16,15 +13,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Deprecated language constants
 
 ### Fixed
-- No static SEO URLs were shown for languages after selection
+- Error during Generic Export
+- No static SEO URLs shown for languages after selection
 
-## [2.0.1] - 2022-11-23
+## [v2.0.1] - 2022-11-23
 
 ### Fixed
 - Wrong characters shown in module class sort list
 - Do not escape the module description and author
 
-## [2.0.0] - 2022-10-28
+## [v2.0.0] - 2022-10-28
 
 ### Added
 - Functionality to export newsletter recipients
@@ -73,12 +71,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - `tbclnewsletter_selection`
 - block `admin_shop_rdfa_submiturl` in `tpl/shop_rdfa.html.twig`
 
-## [1.1.1] - Unreleased
+## [v1.1.1] - Unreleased
 
 ### Fixed
 - Admin navigation frame access with top.navigation is broken for chrome. 
 
-## [1.1.0] - 2022-09-08
+## [v1.1.0] - 2022-09-08
 
 ### Renamed
 - Changed price alert to wished price
@@ -115,9 +113,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fix wrongly converted {% hasrights %} tags
 - Port changes from main admin theme
 
-## [1.0.0] - 2019-11-21
+## [v1.0.0] - 2019-11-21
 
-[2.0.1]: https://github.com/OXID-eSales/twig-admin-theme/compare/v2.0.0...v2.0.1
-[2.0.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.1.0...v2.0.0
-[1.1.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/OXID-eSales/twig-admin-theme/releases/tag/v1.0.0
+[v2.1.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v2.0.1...v2.1.0
+[v2.0.1]: https://github.com/OXID-eSales/twig-admin-theme/compare/v2.0.0...v2.0.1
+[v2.0.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.1.0...v2.0.0
+[v1.1.0]: https://github.com/OXID-eSales/twig-admin-theme/compare/v1.0.0...v1.1.0
+[v1.0.0]: https://github.com/OXID-eSales/twig-admin-theme/releases/tag/v1.0.0
