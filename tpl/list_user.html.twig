@@ -17,17 +17,17 @@ function editThis( sID)
     {% set shMen = 1 %}
 
     {% for menuholder in menustructure %}
-      {% if shMen and menuholder.nodeType == "XML_ELEMENT_NODE" and menuholder.childNodes.length %}
+      {% if shMen and menuholder.nodeType == constant("XML_ELEMENT_NODE") and menuholder.childNodes.length %}
 
         {% set shMen = 0 %}
         {% set mn = 1 %}
 
         {% for menuitem in menuholder.childNodes %}
-          {% if menuitem.nodeType == "XML_ELEMENT_NODE" and menuitem.childNodes.length %}
+          {% if menuitem.nodeType == constant("XML_ELEMENT_NODE") and menuitem.childNodes.length %}
             {% if menuitem.getAttribute('id') == 'mxuadmin' %}
 
               {% for submenuitem in menuitem.childNodes %}
-                {% if submenuitem.nodeType == "XML_ELEMENT_NODE" and submenuitem.getAttribute('cl') == 'admin_user' %}
+                {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") and submenuitem.getAttribute('cl') == 'admin_user' %}
 
                     if ( top && top.document.getElementById('navigation') && top.document.getElementById('navigation').contentWindow.adminnav ) {
                         var _sbli = top.document.getElementById('navigation').contentWindow.adminnav.document.getElementById( 'nav-1-{{ mn }}-1' );

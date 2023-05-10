@@ -87,7 +87,7 @@
 
                     <ul>
                         {% for submenuitem in menuhistory %}
-                            {% if submenuitem.nodeType == "XML_ELEMENT_NODE" %}
+                            {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
                                 {% set sm = sm+1 %}
                                 <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}" class="">
                                     <a href="{{ submenuitem.getAttribute('link')|raw }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}</b></a>
@@ -111,7 +111,7 @@
                     <a class="ed" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;item=favorites.html.twig" target="basefrm" >{{ translate({ ident: "NAVIGATION_FAVORITES_EDIT", noerror: true }) }}</a>
                     <ul>
                         {% for submenuitem in menufavorites %}
-                            {% if submenuitem.nodeType == "XML_ELEMENT_NODE" %}
+                            {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
                                 {% set sm = sm+1 %}
                                 <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}" class="">
                                     <a href="{{ submenuitem.getAttribute('link')|raw }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}</b></a>
