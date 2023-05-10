@@ -25,8 +25,6 @@ function editThis(sID)
     {% set readonly = "" %}
 {% endif %}
 
-{% set _clear_ = smarty_cycle(["", "2"]) %}
-
 <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
     {{ oViewConf.getHiddenSid()|raw }}
     <input type="hidden" name="oxid" value="{{ oxid }}">
@@ -102,7 +100,7 @@ function editThis(sID)
           </td>
         </tr>
 
-        <tr class="conftext{{ smarty_cycle() }}">
+        <tr class="conftext">
          <td valign="top">
            <select class="saveinnewlanginput" name=confstrs[iDefSeoLang] {{ readonly }}>
              {% for lang, olang in languages %}
@@ -115,7 +113,7 @@ function editThis(sID)
          </td>
         </tr>
         {% block admin_shop_seo_form %}
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <input type="hidden" name="confbools[blSEOLowerCaseUrls]" value="false">
                 <input type="checkbox" name="confbools[blSEOLowerCaseUrls]" value="true" {% if (confbools.blSEOLowerCaseUrls) %}checked{% endif %} {{ readonly }}>
@@ -125,7 +123,7 @@ function editThis(sID)
                {{ translate({ ident: "SHOP_SEO_LOWERCASEURLS" }) }}
              </td>
             </tr>
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top" nowrap>
                 <input type=text class="confinput" style="width:270px;" name=confstrs[sSEOSeparator] value="{{ confstrs.sSEOSeparator }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_SEO_IDSSEPARATOR"), 'sHelpText': help_text("HELP_SHOP_SEO_IDSSEPARATOR")} %}
@@ -135,7 +133,7 @@ function editThis(sID)
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <input type=text class="confinput" style="width:270px;" name=confstrs[sSEOuprefix] value="{{ confstrs.sSEOuprefix }}" {{ readonly }}>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_SEO_SAFESEOPREF"), 'sHelpText': help_text("HELP_SHOP_SEO_SAFESEOPREF")} %}
@@ -145,7 +143,7 @@ function editThis(sID)
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <textarea class="confinput" style="width: 270px; height: 72px;" name=confarrs[aSEOReservedWords] {{ readonly }}>{{ confarrs.aSEOReservedWords }}</textarea>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_SEO_RESERVEDWORDS"), 'sHelpText': help_text("HELP_SHOP_SEO_RESERVEDWORDS")} %}
@@ -155,7 +153,7 @@ function editThis(sID)
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <textarea class="confinput" style="width: 270px; height: 72px;" name=confarrs[aSkipTags] {{ readonly }}>{{ confarrs.aSkipTags }}</textarea><BR>
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_SEO_SKIPTAGS"), 'sHelpText': help_text("HELP_SHOP_SEO_SKIPTAGS")} %}
@@ -171,7 +169,7 @@ function editThis(sID)
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top" class="nowrap">
                <select class="confinput" style="width:270px;" name=aStaticUrl[oxseo__oxobjectid] {{ readonly }} onchange="document.myedit.submit();">
                  <option value="-1">{{ translate({ ident: "SHOP_SEO_NEWSTATICURL" }) }}</option>
@@ -193,7 +191,7 @@ function editThis(sID)
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td>
               <input type=text class="confinput" style="width:270px;" name="aStaticUrl[oxseo__oxstdurl]" id="oxseo__oxstdurl" value="{% if oActItem.oxseo__oxstdurl %}{{ oActItem.oxseo__oxstdurl.value|raw }}{% endif %}" {{ readonly }}>
               {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_SEO_STDURL"), 'sHelpText': help_text("HELP_SHOP_SEO_STDURL")} %}
@@ -204,7 +202,7 @@ function editThis(sID)
             </tr>
 
             {% for lang, olang in languages %}
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td>
               <input type=text class="confinput" style="width:270px;" name="aStaticUrl[oxseo__oxseourl][{{ lang }}]" value="{{ aSeoUrls[lang][1]|raw }}" {{ readonly }}>
              </td>
