@@ -55,8 +55,6 @@ function editThis(sID)
     {% set readonly = "" %}
 {% endif %}
 
-{% set _clear_ = smarty_cycle(["", "2"]) %}
-
 <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
     {{ oViewConf.getHiddenSid()|raw }}
     <input type="hidden" name="oxid" value="{{ oxid }}">
