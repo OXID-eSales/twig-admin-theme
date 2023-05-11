@@ -8,12 +8,11 @@
     <script type="text/javascript">
         {% if loadbasefrm %}
         //reloading main frame
-        window.onload = function ()
-        {
-            if ( '{{ listview }}' != '' ) {
+        window.onload = function () {
+            if ('{{ listview }}' != '') {
                 top.basefrm.list.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl={{ listview }}&oxid={{ oViewConf.getActiveShopId() }}&actedit={{ actedit }}";
                 top.basefrm.edit.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl={{ editview }}&oxid={{ oViewConf.getActiveShopId() }}";
-            } else if ( top.basefrm ) {
+            } else if (top.basefrm) {
                 top.basefrm.location = "{{ oViewConf.getSelfLink()|replace({"&amp;": "&"})|raw }}&cl=navigation&item=home.html.twig";
             }
         }
@@ -21,175 +20,267 @@
     </script>
 </head>
 <body>
-    <div id="shopLogo"><img src="{{ oViewConf.getImageUrl('logo.svg')|raw }}" /></div>
-    <table>
-    <tr><td class="main">
-    {% include "include/navigation_shopselect.html.twig" %}
-    {% block admin_navigation_menustructure %}
-        {% set mh = 0 %}
-        {% for menuholder in menustructure %}
-        {% if menuholder.nodeType == constant("XML_ELEMENT_NODE") and menuholder.childNodes.length %}
-            {% set mh = mh+1 %}
-            {% set mn = 0 %}
-            <h2>
-                {% if menuholder.getAttribute('url') %}<a href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;fnc=exturl&amp;url={{ menuholder.getAttribute('url')|escape('url') }}" target="basefrm" >{% endif %}
-                {{ translate({ ident: menuholder.getAttribute('name')|default(menuholder.getAttribute('id')), noerror: true }) }}
-                {% if menuholder.getAttribute('url') %}</a>{% endif %}
-            </h2>
-            <ul>
-            {% apply spaceless %}
-                {% for menuitem in menuholder.childNodes %}
-                {% set actClass = menuitem.childNodes.length %}
-                {% if menuitem.nodeType == constant("XML_ELEMENT_NODE") %}
-                    {% set mn = mn+1 %}
-                    {% set sm = 0 %}
-                    <li class="{% if menuitem.getAttribute('active') %}exp{% set sNavExpId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}" id="nav-{{ mh }}-{{ mn }}">
-                        {% if menuitem.getAttribute('url') %}
-                            <a href="{{ menuitem.getAttribute('url')|raw }}" onclick="_navAct(this);" class="rc" target="{% if menuitem.getAttribute('target') %}{{ menuitem.getAttribute('target') }}{% else %}basefrm{% endif %}"><b>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}</b></a>
-                        {% elseif menuitem.getAttribute('expand') == 'none' %}
-                            <a href="{{ menuitem.getAttribute('link')|raw }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}</b></a>
-                        {% else %}
-                            <a href="#" onclick="_navExp(this);return false;" class="rc"><b>{{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}</b></a>
-                        {% endif %}
-                        {% if menuitem.childNodes.length %}
+<div id="shopLogo">
+    <img src="{{ oViewConf.getImageUrl('logo.svg')|raw }}"/>
+</div>
+<table>
+    <tr>
+        <td class="main">
+            {% include "include/navigation_shopselect.html.twig" %}
+            {% block admin_navigation_menustructure %}
+                {% set mh = 0 %}
+                {% for menuholder in menustructure %}
+                    {% if menuholder.nodeType == constant("XML_ELEMENT_NODE") and menuholder.childNodes.length %}
+                        {% set mh = mh+1 %}
+                        {% set mn = 0 %}
+                        <h2>
+                            {% if menuholder.getAttribute('url') %}
+                            <a href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;fnc=exturl&amp;url={{ menuholder.getAttribute('url')|escape('url') }}"
+                                    target="basefrm">
+                            {% endif %}
+                                {{ translate({ ident: menuholder.getAttribute('name')|default(menuholder.getAttribute('id')), noerror: true }) }}
+                            {% if menuholder.getAttribute('url') %}
+                            </a>
+                            {% endif %}
+                        </h2>
                         <ul>
-                            {% for submenuitem in menuitem.childNodes %}
-                            {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
-                                {% set sm = sm+1 %}
-                                {% if submenuitem.getAttribute('linkicon') %} {% set linkicon = submenuitem.getAttribute('linkicon') %}{% endif %}
-                                <li class="{% if submenuitem.getAttribute('active') %}act{% set sNavActId = "nav-`$mh`-`$mn`-`$sm`" %}{% endif %}" id="nav-{{ mh }}-{{ mn }}-{{ sm }}" name="nav_{{ submenuitem.getAttribute('cl') }}" rel="nav-{{ mh }}-{{ mn }}">
-                                    <a href="{% if submenuitem.getAttribute('url') %}{{ submenuitem.getAttribute('url')|raw }}{% else %}{{ submenuitem.getAttribute('link')|raw }}{% endif %}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{% if linkicon %}<span class="{{ linkicon }}">{% endif %}{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}{% if linkicon %}</span>{% endif %}</b></a>
-                                </li>
-                                {% set linkicon = '' %}
-                            {% endif %}
-                            {% endfor %}
+                            {% apply spaceless %}
+                                {% for menuitem in menuholder.childNodes %}
+                                    {% set actClass = menuitem.childNodes.length %}
+                                    {% if menuitem.nodeType == constant("XML_ELEMENT_NODE") %}
+                                        {% set mn = mn+1 %}
+                                        {% set sm = 0 %}
+                                        <li class="{% if menuitem.getAttribute('active') %}exp{% set sNavExpId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}"
+                                            id="nav-{{ mh }}-{{ mn }}">
+                                            {% if menuitem.getAttribute('url') %}
+                                                <a href="{{ menuitem.getAttribute('url')|raw }}"
+                                                   onclick="_navAct(this);"
+                                                   class="rc"
+                                                   target="{% if menuitem.getAttribute('target') %}{{ menuitem.getAttribute('target') }}{% else %}basefrm{% endif %}">
+                                                    <b>
+                                                        {{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}
+                                                    </b>
+                                                </a>
+                                            {% elseif menuitem.getAttribute('expand') == 'none' %}
+                                                <a href="{{ menuitem.getAttribute('link')|raw }}"
+                                                   onclick="_navAct(this);"
+                                                   target="basefrm"
+                                                   class="rc">
+                                                    <b>
+                                                        {{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}
+                                                    </b>
+                                                </a>
+                                            {% else %}
+                                                <a href="#"
+                                                   onclick="_navExp(this);return false;"
+                                                   class="rc">
+                                                    <b>
+                                                        {{ translate({ ident: menuitem.getAttribute('name')|default(menuitem.getAttribute('id')), noerror: true }) }}
+                                                    </b>
+                                                </a>
+                                            {% endif %}
+                                            {% if menuitem.childNodes.length %}
+                                                <ul>
+                                                    {% for submenuitem in menuitem.childNodes %}
+                                                        {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
+                                                            {% set sm = sm+1 %}
+                                                            {% if submenuitem.getAttribute('linkicon') %} {% set linkicon = submenuitem.getAttribute('linkicon') %}{% endif %}
+                                                            <li class="{% if submenuitem.getAttribute('active') %}act{% set sNavActId = "nav-`$mh`-`$mn`-`$sm`" %}{% endif %}"
+                                                                id="nav-{{ mh }}-{{ mn }}-{{ sm }}"
+                                                                name="nav_{{ submenuitem.getAttribute('cl') }}"
+                                                                rel="nav-{{ mh }}-{{ mn }}">
+                                                                <a href="{% if submenuitem.getAttribute('url') %}{{ submenuitem.getAttribute('url')|raw }}{% else %}{{ submenuitem.getAttribute('link')|raw }}{% endif %}"
+                                                                   onclick="_navAct(this);"
+                                                                   target="basefrm"
+                                                                   class="rc">
+                                                                    <b>
+                                                                        {% if linkicon %}
+                                                                        <span class="{{ linkicon }}">
+                                                                        {% endif %}
+                                                                            {{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}
+                                                                        {% if linkicon %}
+                                                                        </span>
+                                                                        {% endif %}
+                                                                    </b>
+                                                                </a>
+                                                            </li>
+                                                            {% set linkicon = '' %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endapply %}
                         </ul>
-                        {% endif %}
-                    </li>
-                {% endif %}
+                    {% endif %}
                 {% endfor %}
-              {% endapply %}
+            {% endblock %}
+        </td>
+    </tr>
+    <tr>
+        <td class="extra">
+
+            <ul>
+                {% block admin_navigation_history %}
+                    {% apply spaceless %}
+                        {% set mh = mh+1 %}
+                        {% set mn = 1 %}
+                        {% set sm = 0 %}
+                        <li id="nav-{{ mh }}-{{ mn }}"
+                            class="{% if blOpenHistory %}exp{% set sHistoryId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}">
+                            <a class="rc"
+                               name="_hist"
+                               href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=navigation.html.twig&openHistory=1&{{ 'now'|date('U') }}#_hist">
+                                <b>
+                                    {{ translate({ ident: "NAVIGATION_HISTORY", noerror: true }) }}
+                                </b>
+                            </a>
+                            <ul>
+                                {% for submenuitem in menuhistory %}
+                                    {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
+                                        {% set sm = sm+1 %}
+                                        <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}"
+                                            class="">
+                                            <a href="{{ submenuitem.getAttribute('link')|raw }}"
+                                               onclick="_navAct(this);"
+                                               target="basefrm"
+                                               class="rc">
+                                                <b>
+                                                    {{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}
+                                                </b>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endapply %}
+                {% endblock %}
             </ul>
-        {% endif %}
-        {% endfor %}
+
+            <ul>
+                {% block admin_navigation_favorites %}
+                    {% apply spaceless %}
+                        {% set mh = mh+1 %}
+                        {% set mn = 1 %}
+                        {% set sm = 0 %}
+                        <li id="nav-{{ mh }}-{{ mn }}">
+                            <a class="rc"
+                               onclick="_navExp(this);return false;"
+                               href="#">
+                                <b>
+                                    {{ translate({ ident: "NAVIGATION_FAVORITES", noerror: true }) }}
+                                </b>
+                            </a>
+                            <a class="ed"
+                               href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;item=favorites.html.twig"
+                               target="basefrm">
+                                {{ translate({ ident: "NAVIGATION_FAVORITES_EDIT", noerror: true }) }}
+                            </a>
+                            <ul>
+                                {% for submenuitem in menufavorites %}
+                                    {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
+                                        {% set sm = sm+1 %}
+                                        <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}"
+                                            class="">
+                                            <a href="{{ submenuitem.getAttribute('link')|raw }}"
+                                               onclick="_navAct(this);"
+                                               target="basefrm"
+                                               class="rc">
+                                                <b>
+                                                    {{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}
+                                                </b>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endapply %}
+                {% endblock %}
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    {% block admin_navigation_scripts %}
+    <!--
+    var _expid = {% if blOpenHistory %}'{{ sHistoryId }}'
+    {% elseif sNavExpId %}'{{ sNavExpId }}'
+    {% else %}0{% endif %};
+
+    function _navExp(el) {
+        var _cur = el.parentNode,
+            _exp = document.getElementById(_expid);
+        _cur.className = "exp";
+        if (_expid != 0) {
+            _exp.className = "";
+        }
+        if (_expid == _cur.id) {
+            _expid = 0;
+        } else {
+            _expid = _cur.id;
+        }
+    }
+
+    var _actid = {% if sNavActId %}'{{ sNavActId }}'
+    {% else %}0{% endif %};
+
+    function _navAct(el) {
+        var _cur = el.parentNode,
+            _act = document.getElementById(_actid);
+        _cur.className = "act";
+        if (_actid != 0 && _actid != _cur.id) {
+            _act.className = "";
+        }
+        _actid = _cur.id;
+    }
+
+    function _navExtExpAct(mnid, sbid) {
+        var _mnli = document.getElementById(mnid);
+        var _sbli = document.getElementById(sbid);
+        if (_mnli && _sbli) {
+            var _mna = _mnli.getElementsByTagName("a");
+            var _sba = _sbli.getElementsByTagName("a");
+            if (_mna.length && _sba.length) {
+                _navExp(_mna[0]);
+                _navAct(_sba[0]);
+            }
+        }
+    }
+
+    function _navExtExp(mnid) {
+        var _mnli = document.getElementById(mnid);
+        if (_mnli) {
+            var _mna = _mnli.getElementsByTagName("a");
+            if (_mna.length) {
+                _navExp(_mna[0]);
+            }
+        }
+    }
+
+    function _navExtExpActByName(sbid) {
+        var sbid = "nav_" + sbid;
+        var _sbli = document.getElementsByName(sbid)[0];
+        if (_sbli) {
+            var mnid = _sbli.getAttribute("rel");
+            var _mnli = document.getElementById(mnid);
+            if (_mnli) {
+                var _mna = _mnli.getElementsByTagName("a");
+                var _sba = _sbli.getElementsByTagName("a");
+                if (_mna.length && _sba.length) {
+                    _navExp(_mna[0]);
+                    _navAct(_sba[0]);
+                }
+            }
+        }
+    }
+
+    //-->
     {% endblock %}
-    </td></tr>
-    <tr><td class="extra">
-
-    <ul>
-        {% block admin_navigation_history %}
-            {% apply spaceless %}
-                {% set mh = mh+1 %}
-                {% set mn = 1 %}
-                {% set sm = 0 %}
-                <li id="nav-{{ mh }}-{{ mn }}" class="{% if blOpenHistory %}exp{% set sHistoryId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}">
-                    <a class="rc" name="_hist" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=navigation.html.twig&openHistory=1&{{ 'now'|date('U') }}#_hist"><b>{{ translate({ ident: "NAVIGATION_HISTORY", noerror: true }) }}</b></a>
-
-                    <ul>
-                        {% for submenuitem in menuhistory %}
-                            {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
-                                {% set sm = sm+1 %}
-                                <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}" class="">
-                                    <a href="{{ submenuitem.getAttribute('link')|raw }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}</b></a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% endapply %}
-        {% endblock %}
-    </ul>
-
-    <ul>
-        {% block admin_navigation_favorites %}
-            {% apply spaceless %}
-                {% set mh = mh+1 %}
-                {% set mn = 1 %}
-                {% set sm = 0 %}
-                <li id="nav-{{ mh }}-{{ mn }}">
-                    <a class="rc" onclick="_navExp(this);return false;" href="#" ><b>{{ translate({ ident: "NAVIGATION_FAVORITES", noerror: true }) }}</b></a>
-                    <a class="ed" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;item=favorites.html.twig" target="basefrm" >{{ translate({ ident: "NAVIGATION_FAVORITES_EDIT", noerror: true }) }}</a>
-                    <ul>
-                        {% for submenuitem in menufavorites %}
-                            {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
-                                {% set sm = sm+1 %}
-                                <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}" class="">
-                                    <a href="{{ submenuitem.getAttribute('link')|raw }}" onclick="_navAct(this);" target="basefrm" class="rc"><b>{{ translate({ ident: submenuitem.getAttribute('name')|default(submenuitem.getAttribute('id')), noerror: true }) }}</b></a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% endapply %}
-        {% endblock %}
-    </ul>
-
-    </td></tr>
-    </table>
-
-    <script type="text/javascript">
-        {% block admin_navigation_scripts %}
-            <!--
-            var _expid = {% if blOpenHistory %}'{{ sHistoryId }}'{% elseif sNavExpId %}'{{ sNavExpId }}'{% else %}0{% endif %};
-            function _navExp(el){
-                var _cur = el.parentNode,
-                    _exp = document.getElementById(_expid);
-                _cur.className = "exp";
-                if(_expid != 0){ _exp.className = "";}
-                if(_expid == _cur.id){ _expid = 0;}else{_expid = _cur.id;}
-            }
-
-            var _actid = {% if sNavActId %}'{{ sNavActId }}'{% else %}0{% endif %};
-            function _navAct(el){
-                 var _cur = el.parentNode,
-                     _act = document.getElementById(_actid);
-                _cur.className = "act";
-                if(_actid != 0 && _actid != _cur.id){ _act.className = "";}
-                _actid = _cur.id;
-            }
-
-            function _navExtExpAct(mnid,sbid){
-                var _mnli = document.getElementById(mnid);
-                var _sbli = document.getElementById(sbid);
-                if(_mnli && _sbli) {
-                    var _mna = _mnli.getElementsByTagName("a");
-                    var _sba = _sbli.getElementsByTagName("a");
-                    if(_mna.length && _sba.length) {
-                        _navExp(_mna[0]);
-                        _navAct(_sba[0]);
-                    }
-                }
-            }
-
-            function _navExtExp(mnid){
-                var _mnli = document.getElementById(mnid);
-                if(_mnli) {
-                    var _mna = _mnli.getElementsByTagName("a");
-                    if(_mna.length) {
-                        _navExp(_mna[0]);
-                    }
-                }
-            }
-
-            function _navExtExpActByName(sbid){
-                var sbid = "nav_" + sbid;
-                var _sbli = document.getElementsByName(sbid)[0];
-                if(_sbli) {
-                    var mnid = _sbli.getAttribute("rel");
-                    var _mnli = document.getElementById(mnid);
-                    if(_mnli){
-                        var _mna = _mnli.getElementsByTagName("a");
-                        var _sba = _sbli.getElementsByTagName("a");
-                        if(_mna.length && _sba.length) {
-                            _navExp(_mna[0]);
-                            _navAct(_sba[0]);
-                        }
-                    }
-                }
-            }
-
-            //-->
-        {% endblock %}
-    </script>
+</script>
 </body>
 </html>
