@@ -22,7 +22,7 @@
     <input type="hidden" name="oxid" value="{{ oxid }}">
     <input type="hidden" name="editval[category__oxid]" value="{{ oxid }}">
     {% block admin_category_order_sort_categories %}
-        {% hasrights { "right": "smarty.const.RIGHT_VIEW", "object": "edit", "readonly": "readonly", } %}
+        {% hasrights { right: constant("RIGHT_VIEW"), object: edit, readonly: readonly } %}
             {% if oxid != "-1" and not edit.isDerived() %}
                 <input type="button" value="{{ translate({ ident: "CATEGORY_ORDER_SORTCATEGORIES" }) }}" class="edittext" onclick="JavaScript:showDialog('&cl=category_order&aoc=1&oxid={{ oxid }}');">
             {% endif %}
