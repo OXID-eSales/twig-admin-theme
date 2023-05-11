@@ -1,3 +1,10 @@
+{% set submenuIndex = 0 %}
+{% set mainMenu = "nav-1" %}
+{% set historyMenu = "nav-2" %}
+{% set favoritesMenu = "nav-3" %}
+{% set historyMenuHeader = historyMenu ~ "-1" %}
+{% set favoritesMenuHeader = favoritesMenu ~ "-1" %}
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html id="nav">
 <head>
@@ -28,11 +35,9 @@
         <td class="main">
             {% include "include/navigation_shopselect.html.twig" %}
             {% block admin_navigation_menustructure %}
-                {% set mh = 0 %}
                 {% for menuholder in menustructure %}
                     {% if menuholder.nodeType == constant("XML_ELEMENT_NODE") and menuholder.childNodes.length %}
-                        {% set mh = mh+1 %}
-                        {% set mn = 0 %}
+                        {% set menuIndex = 0 %}
                         <h2>
                             {% if menuholder.getAttribute('url') %}
                             <a href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;fnc=exturl&amp;url={{ menuholder.getAttribute('url')|escape('url') }}"
@@ -48,10 +53,10 @@
                                 {% for menuitem in menuholder.childNodes %}
                                     {% set actClass = menuitem.childNodes.length %}
                                     {% if menuitem.nodeType == constant("XML_ELEMENT_NODE") %}
-                                        {% set mn = mn+1 %}
-                                        {% set sm = 0 %}
-                                        <li class="{% if menuitem.getAttribute('active') %}exp{% set sNavExpId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}"
-                                            id="nav-{{ mh }}-{{ mn }}">
+                                        {% set menuIndex = menuIndex + 1 %}
+                                        {% set submenuIndex = 0 %}
+                                        <li class="{% if menuitem.getAttribute('active') %}exp{% endif %}"
+                                            id="{{ mainMenu }}-{{ menuIndex }}">
                                             {% if menuitem.getAttribute('url') %}
                                                 <a href="{{ menuitem.getAttribute('url')|raw }}"
                                                    onclick="_navAct(this);"
@@ -83,12 +88,12 @@
                                                 <ul>
                                                     {% for submenuitem in menuitem.childNodes %}
                                                         {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
-                                                            {% set sm = sm+1 %}
+                                                            {% set submenuIndex = submenuIndex + 1 %}
                                                             {% if submenuitem.getAttribute('linkicon') %} {% set linkicon = submenuitem.getAttribute('linkicon') %}{% endif %}
-                                                            <li class="{% if submenuitem.getAttribute('active') %}act{% set sNavActId = "nav-`$mh`-`$mn`-`$sm`" %}{% endif %}"
-                                                                id="nav-{{ mh }}-{{ mn }}-{{ sm }}"
+                                                            <li class="{% if submenuitem.getAttribute('active') %}act{% endif %}"
+                                                                id="{{ mainMenu }}-{{ menuIndex }}-{{ submenuIndex }}"
                                                                 name="nav_{{ submenuitem.getAttribute('cl') }}"
-                                                                rel="nav-{{ mh }}-{{ mn }}">
+                                                                rel="{{ mainMenu }}-{{ menuIndex }}">
                                                                 <a href="{% if submenuitem.getAttribute('url') %}{{ submenuitem.getAttribute('url')|raw }}{% else %}{{ submenuitem.getAttribute('link')|raw }}{% endif %}"
                                                                    onclick="_navAct(this);"
                                                                    target="basefrm"
@@ -119,17 +124,15 @@
             {% endblock %}
         </td>
     </tr>
+
     <tr>
         <td class="extra">
 
             <ul>
                 {% block admin_navigation_history %}
                     {% apply spaceless %}
-                        {% set mh = mh+1 %}
-                        {% set mn = 1 %}
-                        {% set sm = 0 %}
-                        <li id="nav-{{ mh }}-{{ mn }}"
-                            class="{% if blOpenHistory %}exp{% set sHistoryId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}">
+                        <li id="{{ historyMenuHeader }}"
+                            class="{% if blOpenHistory %}exp{% endif %}">
                             <a class="rc"
                                name="_hist"
                                href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=navigation.html.twig&openHistory=1&{{ 'now'|date('U') }}#_hist">
@@ -140,8 +143,8 @@
                             <ul>
                                 {% for submenuitem in menuhistory %}
                                     {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
-                                        {% set sm = sm+1 %}
-                                        <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}"
+                                        {% set submenuIndex = submenuIndex + 1 %}
+                                        <li id="{{ historyMenuHeader }}-{{ submenuIndex }}"
                                             class="">
                                             <a href="{{ submenuitem.getAttribute('link')|raw }}"
                                                onclick="_navAct(this);"
@@ -163,10 +166,7 @@
             <ul>
                 {% block admin_navigation_favorites %}
                     {% apply spaceless %}
-                        {% set mh = mh+1 %}
-                        {% set mn = 1 %}
-                        {% set sm = 0 %}
-                        <li id="nav-{{ mh }}-{{ mn }}">
+                        <li id="{{ favoritesMenuHeader }}">
                             <a class="rc"
                                onclick="_navExp(this);return false;"
                                href="#">
@@ -182,8 +182,8 @@
                             <ul>
                                 {% for submenuitem in menufavorites %}
                                     {% if submenuitem.nodeType == constant("XML_ELEMENT_NODE") %}
-                                        {% set sm = sm+1 %}
-                                        <li id="nav-{{ mh }}-{{ mn }}-{{ sm }}"
+                                        {% set submenuIndex = submenuIndex + 1 %}
+                                        <li id="{{ favoritesMenuHeader }}-{{ submenuIndex }}"
                                             class="">
                                             <a href="{{ submenuitem.getAttribute('link')|raw }}"
                                                onclick="_navAct(this);"
@@ -208,9 +208,7 @@
 <script type="text/javascript">
     {% block admin_navigation_scripts %}
     <!--
-    var _expid = {% if blOpenHistory %}'{{ sHistoryId }}'
-    {% elseif sNavExpId %}'{{ sNavExpId }}'
-    {% else %}0{% endif %};
+    var _expid = '{{ historyMenuHeader ?: 0 }}';
 
     function _navExp(el) {
         var _cur = el.parentNode,
@@ -226,15 +224,12 @@
         }
     }
 
-    var _actid = {% if sNavActId %}'{{ sNavActId }}'
-    {% else %}0{% endif %};
-
+    var _actid = 0;
     function _navAct(el) {
-        var _cur = el.parentNode,
-            _act = document.getElementById(_actid);
+        var _cur = el.parentNode;
         _cur.className = "act";
         if (_actid != 0 && _actid != _cur.id) {
-            _act.className = "";
+            document.getElementById(_actid).className = "";
         }
         _actid = _cur.id;
     }
