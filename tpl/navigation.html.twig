@@ -83,7 +83,7 @@
                 {% set mn = 1 %}
                 {% set sm = 0 %}
                 <li id="nav-{{ mh }}-{{ mn }}" class="{% if blOpenHistory %}exp{% set sHistoryId = "nav-" ~ mh ~ "-" ~ mn %}{% endif %}">
-                    <a class="rc" name="_hist" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=navigation.html.twig&openHistory=1&{{ smarty.now }}#_hist"><b>{{ translate({ ident: "NAVIGATION_HISTORY", noerror: true }) }}</b></a>
+                    <a class="rc" name="_hist" href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&item=navigation.html.twig&openHistory=1&{{ 'now'|date('U') }}#_hist"><b>{{ translate({ ident: "NAVIGATION_HISTORY", noerror: true }) }}</b></a>
 
                     <ul>
                         {% for submenuitem in menuhistory %}
