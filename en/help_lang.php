@@ -166,6 +166,7 @@ $aLang = [
 
     'HELP_SHOP_CONFIG_BASKETRESERVATIONTIMEOUT' => 'After this timeout the reserved products are returned to stock and customer\'s cart is cleared.',
 
+    // @deprecated will be removed in v8.0.
     'HELP_SHOP_CONFIG_INVITATION' => 'Invitation is used for inviting your ' .
         'friends to website and getting credit points for inviting.',
 
@@ -176,6 +177,7 @@ $aLang = [
     'HELP_SHOP_CONFIG_POINTSFORREGISTRATION' => 'The amount of credit points user gets who invited somebody to shop. ' .
         'User gets credit points only if invited user registers into shop. Aquired ' .
         'credit points are stored in user record and can be used by shop owner for any purpose.',
+    // endDeprecated
 
     'HELP_SHOP_CONFIG_SHOWTSINTERNATIONALFEESMESSAGE' => 'In the 4th step of the checkout process the CMS page "oxtsinternationalfees" is additionally displayed.',
 

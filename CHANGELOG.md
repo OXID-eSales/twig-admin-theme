@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Remove usages of smarty_cycle() from templates
 
+### Deprecated
+- Private Sales Invite:
+  - Language constants:
+    - `HELP_SHOP_CONFIG_INVITATION`
+    - `HELP_SHOP_CONFIG_POINTSFORINVITATION`
+    - `HELP_SHOP_CONFIG_POINTSFORREGISTRATION`
+    - `SHOP_CONFIG_DISABLE`
+    - `SHOP_CONFIG_ENABLE`
+    - `SHOP_CONFIG_INVITATION`
+    - `SHOP_CONFIG_POINTSFORINVITATION`
+    - `SHOP_CONFIG_POINTSFORREGISTRATION`
+
 ## [v2.1.0] - 2023-05-08
 
 ### Added

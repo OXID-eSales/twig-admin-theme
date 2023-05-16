@@ -1095,14 +1095,16 @@ $aLang = [
     'SHOP_CONFIG_DISABLEONLINEVATIDCHECK' => 'Online UST-ID Prüfung deaktivieren',
     'SHOP_CONFIG_ALTVATIDCHECKINTERFACEWSDL' => 'Alternative URL für die Online UST-ID Prüfung',
     'SHOP_CONFIG_PSLOGIN' => 'Private Sales Login',
+    // @deprecated since v7.0.0 (2023-05-16).
     'SHOP_CONFIG_DISABLE' => 'Deaktiviert',
     'SHOP_CONFIG_ENABLE' => 'Aktiviert',
-    'SHOP_CONFIG_BASKETEXCLUDE' => 'Warenkorb leeren',
-    'SHOP_CONFIG_BASKETRESERVATION' => 'Warenkorb läuft ab',
-    'SHOP_CONFIG_BASKETRESERVATIONTIMEOUT' => 'Sekunden bis Warenkorb abläuft',
     'SHOP_CONFIG_INVITATION' => 'Einladung',
     'SHOP_CONFIG_POINTSFORINVITATION' => 'Bonuspunkte für neu geworbene Kunden',
     'SHOP_CONFIG_POINTSFORREGISTRATION' => 'Bonuspunkte für den Eingeladenen für die Registrierung',
+    // END deprecated
+    'SHOP_CONFIG_BASKETEXCLUDE' => 'Warenkorb leeren',
+    'SHOP_CONFIG_BASKETRESERVATION' => 'Warenkorb läuft ab',
+    'SHOP_CONFIG_BASKETRESERVATIONTIMEOUT' => 'Sekunden bis Warenkorb abläuft',
     'SHOP_CONFIG_CONFIRMCOOKIE' => 'Kunden müssen der Verwendung von Cookies zustimmen',
     'SHOP_CONFIG_DOWNLOADS' => 'Download-Artikel erlauben',
     'SHOP_CONFIG_DOWNLOADS_PATH' => 'Pfad zu den Dateien für Download-Artikel',
@@ -1688,7 +1690,9 @@ $aLang = [
     'SHOP_OPTIONS_GROUP_OTHER_SETTINGS' => 'Weitere Einstellungen',
     'SHOP_OPTIONS_GROUP_VARIANTS' => 'Varianten',
     'SHOP_OPTIONS_GROUP_PRIVATESALES' => 'Private Sales',
+    // @deprecated will be removed in v8.0.
     'SHOP_OPTIONS_GROUP_INVITATIONS' => 'Einladungen',
+    // END deprecated
     'SHOP_OPTIONS_GROUP_SHOP_DOWNLOADABLEARTICLES' => 'Download-Artikel',
     'SHOP_OPTIONS_BANK_INFORMATION' => 'Bankinformationen (SEPA)',
     'SHOP_OPTIONS_GROUP_ACCOUNT_SETTINGS' => 'Kontoeinstellungen',

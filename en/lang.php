@@ -1094,14 +1094,16 @@ $aLang = [
     'SHOP_CONFIG_DISABLEONLINEVATIDCHECK' => 'Disable online VAT ID check',
     'SHOP_CONFIG_ALTVATIDCHECKINTERFACEWSDL' => 'Alternative URL for online VAT ID check',
     'SHOP_CONFIG_PSLOGIN' => 'Private Sales Login',
+    // @deprecated will be removed in v8.0.
     'SHOP_CONFIG_DISABLE' => 'Disable',
     'SHOP_CONFIG_ENABLE' => 'Enable',
-    'SHOP_CONFIG_BASKETEXCLUDE' => 'Cart exclusion',
-    'SHOP_CONFIG_BASKETRESERVATION' => 'Cart expiration',
-    'SHOP_CONFIG_BASKETRESERVATIONTIMEOUT' => 'Seconds cart expiration timeout',
     'SHOP_CONFIG_INVITATION' => 'Invitation',
     'SHOP_CONFIG_POINTSFORINVITATION' => 'Credit points for inviting user',
     'SHOP_CONFIG_POINTSFORREGISTRATION' => 'Credit points for user registering after invitation',
+    // END deprecated
+    'SHOP_CONFIG_BASKETEXCLUDE' => 'Cart exclusion',
+    'SHOP_CONFIG_BASKETRESERVATION' => 'Cart expiration',
+    'SHOP_CONFIG_BASKETRESERVATIONTIMEOUT' => 'Seconds cart expiration timeout',
     'SHOP_CONFIG_DOWNLOADS' => 'Enable downloadable products',
     'SHOP_CONFIG_DOWNLOADS_PATH' => 'Path to files for downloadable products',
     'SHOP_CONFIG_CONFIRMCOOKIE' => 'Customers have to confirm the usage of cookies',
@@ -1685,7 +1687,9 @@ $aLang = [
     'SHOP_OPTIONS_GROUP_OTHER_SETTINGS' => 'Other settings',
     'SHOP_OPTIONS_GROUP_VARIANTS' => 'Variants',
     'SHOP_OPTIONS_GROUP_PRIVATESALES' => 'Private Sales',
+    // @deprecated will be removed in v8.0.
     'SHOP_OPTIONS_GROUP_INVITATIONS' => 'Invitations',
+    // END deprecated
     'SHOP_OPTIONS_GROUP_SHOP_DOWNLOADABLEARTICLES' => 'Downloadable products',
     'SHOP_OPTIONS_BANK_INFORMATION' => 'Bank account information (SEPA)',
     'SHOP_OPTIONS_GROUP_ACCOUNT_SETTINGS' => 'Account settings',
