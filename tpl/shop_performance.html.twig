@@ -25,8 +25,6 @@ function editThis( sID )
     {% set readonly = "" %}
 {% endif %}
 
-{% set _clear_ = smarty_cycle(["", "2"]) %}
-
 <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
     {{ oViewConf.getHiddenSid()|raw }}
     <input type="hidden" name="oxid" value="{{ oxid }}">
@@ -47,7 +45,7 @@ function editThis( sID )
     {% include "include/update_views_notice.html.twig" %}
     <table border=0>
         {% block admin_shop_performance_form %}
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <input type=hidden name=confbools[blCheckTemplates] value=false>
                 <input type=checkbox name=confbools[blCheckTemplates] value=true  {% if (confbools.blCheckTemplates) %}checked{% endif %} {{ readonly }}>
@@ -58,7 +56,7 @@ function editThis( sID )
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <input type=hidden name=confbools[blLoadVariants] value=false>
                 <input type=checkbox name=confbools[blLoadVariants] value=true  {% if (confbools.blLoadVariants) %}checked{% endif %} {{ readonly }}>
@@ -69,7 +67,7 @@ function editThis( sID )
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <input type=hidden name=confbools[blUseTimeCheck] value=false>
                 <input type=checkbox name=confbools[blUseTimeCheck] value=true  {% if (confbools.blUseTimeCheck) %}checked{% endif %} {{ readonly }}>
@@ -80,7 +78,7 @@ function editThis( sID )
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top" class="nowrap">
                <select class="confinput" name=confstrs[iTop5Mode] {{ readonly }}>
                  <option value="0" {% if confstrs.iTop5Mode == 0 %}SELECTED{% endif %}>{{ translate({ ident: "GENERAL_OFF" }) }}</option>
@@ -94,7 +92,7 @@ function editThis( sID )
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                <select class="confinput" name=confstrs[iNewestArticlesMode] {{ readonly }}>
                  <option value="0" {% if confstrs.iNewestArticlesMode == 0 %}SELECTED{% endif %}>{{ translate({ ident: "GENERAL_OFF" }) }}</option>
@@ -108,7 +106,7 @@ function editThis( sID )
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <input type=hidden name=confbools[blDontShowEmptyCategories] value=false>
                 <input type=checkbox class="confinput" name=confbools[blDontShowEmptyCategories] value=true  {% if (confbools.blDontShowEmptyCategories) %}checked{% endif %} {{ readonly }}>
@@ -119,7 +117,7 @@ function editThis( sID )
              </td>
             </tr>
 
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
              <td valign="top">
                 <input type=hidden name=confbools[blClearCacheOnLogout] value=false>
                 <input type=checkbox class="confinput" name=confbools[blClearCacheOnLogout] value=true  {% if (confbools.blClearCacheOnLogout) %}checked{% endif %} {{ readonly }}>
@@ -129,7 +127,7 @@ function editThis( sID )
                {{ translate({ ident: "SHOP_PERF_CLEARCACHEONLOGOUT" }) }}
              </td>
             </tr>
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
          		<td valign="top">
             		<input type="hidden" name="confbools[blEnableSeoCache]" value="false">
             		<input type="checkbox" class="confinput" name="confbools[blEnableSeoCache]" value="true"  {% if (confbools.blEnableSeoCache) %}checked{% endif %} {{ readonly }}>
@@ -139,7 +137,7 @@ function editThis( sID )
            		{{ translate({ ident: "SHOP_PERF_SEO_CACHE" }) }}
          	</td>
         	</tr>
-            <tr class="conftext{{ smarty_cycle() }}">
+            <tr class="conftext">
                 <td valign="top">
                     <input type="hidden" name="confbools[blCheckSysReq]" value="false">
                     <input type="checkbox" class="confinput" name="confbools[blCheckSysReq]" value="true"  {% if (confbools.blCheckSysReq) %}checked{% endif %} {{ readonly }}>

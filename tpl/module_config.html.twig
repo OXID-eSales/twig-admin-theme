@@ -38,8 +38,6 @@ function _groupExp(el) {
 
 {% block admin_module_config_form %}
 
-{% set _clear_ = smarty_cycle(["", "2"]) %}
-
     {% for var_group, var_list in var_grouping %}
         {% block admin_module_config_group %}
         <div class="groupExp">
@@ -50,7 +48,7 @@ function _groupExp(el) {
                     <dl>
                         <dt>
                             {% block admin_module_config_var_types %}
-                            
+
                             {% if var_type == 'bool' %}
                                 {% block admin_module_config_var_type_bool %}
                                 <input type=hidden name="confbools[{{ module_var }}]" value=false>
@@ -85,7 +83,7 @@ function _groupExp(el) {
                                 <input class="password_input" type="password" style="width: 250px;" name="confpassword[{{ module_var }}]" data-empty="{% if confpassword[module_var] %}false{% else %}true{% endif %}" data-errorMessage="{{ translate({ ident: "MODULE_PASSWORDS_DO_NOT_MATCH" }) }}" {{ readonly }} title="{{ translate({ ident: "MODULE_REPEAT_PASSWORD" }) }}">
                                 {% endblock %}
                             {% endif %}
-                            
+
                             {% endblock %}
                             {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_MODULE_" ~ module_var), 'sHelpText': help_text("HELP_SHOP_MODULE_" ~ module_var)} %}
                         </dt>

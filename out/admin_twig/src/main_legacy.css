@@ -92,8 +92,8 @@ a.pause:hover{background-position:-15px center;}
 .box td.listitem3 {background-color:#fff;color:#7a7a7a;border-right:1px solid #fff;}
 .box td.listitem3 a{color:#7a7a7a;}
 
-tr.conftext  td {background-color:#fafafa;}
-tr.conftext2 td {background-color:#f0f0f0;}
+tr.conftext:nth-child(odd)  td {background-color:#fafafa;}
+tr.conftext:nth-child(even) td {background-color:#f0f0f0;}
 
 .messagebox {color: #000;padding: 3px;background: #ffe;border: solid gray 1px;margin:1px 0;}
 .messagebox p.message {color: #000;}
