@@ -60,24 +60,25 @@ window.onload = function ()
     {% endblock %}
 </tr>
 {% for listitem in mylist %}
-<tr id="row.{% set defaultCounter = ( defaultCounter | default(0) ) + 1 %}">
-    {% block admin_theme_list_item %}
-        {% set zebra = smarty_cycle(["listitem", "listitem2"]) %}
-        {% if listitem.getInfo('id') == oxid %}
-            {% set zebra = "listitem4" %}
-        {% endif %}
-        <td valign="top" class="{{ zebra }}{% if listitem.getInfo('active') %} active{% endif %}" height="15">
-            <div class="listitemfloating">
-                <a href="Javascript:top.oxid.admin.editThis('{{ listitem.getInfo('id') }}');">&nbsp;</a></div></td>
-            </div>
-        </td>
-        <td valign="top" class="{{ zebra }}" height="15">
-            <div class="listitemfloating">
-                <a href="Javascript:top.oxid.admin.editThis('{{ listitem.getInfo('id') }}');">{{ listitem.getInfo('title') }}</a>
-            </div>
-        </td>
-    {% endblock %}
-</tr>
+    {% set counter = ( counter | default(0) ) + 1 %}
+    <tr id="row.{% set defaultCounter = ( defaultCounter | default(0) ) + 1 %}">
+        {% block admin_theme_list_item %}
+            {% set zebra = cycle(["listitem", "listitem2"], counter) %}
+            {% if listitem.getInfo('id') == oxid %}
+                {% set zebra = "listitem4" %}
+            {% endif %}
+            <td valign="top" class="{{ zebra }}{% if listitem.getInfo('active') %} active{% endif %}" height="15">
+                <div class="listitemfloating">
+                    <a href="Javascript:top.oxid.admin.editThis('{{ listitem.getInfo('id') }}');">&nbsp;</a></div></td>
+                </div>
+            </td>
+            <td valign="top" class="{{ zebra }}" height="15">
+                <div class="listitemfloating">
+                    <a href="Javascript:top.oxid.admin.editThis('{{ listitem.getInfo('id') }}');">{{ listitem.getInfo('title') }}</a>
+                </div>
+            </td>
+        {% endblock %}
+    </tr>
 {% endfor %}
 {% include "pagenavisnippet.html.twig" with {colspan: "5"} %}
 </table>
@@ -97,4 +98,3 @@ if (parent.parent)
 </script>
 </body>
 </html>
-

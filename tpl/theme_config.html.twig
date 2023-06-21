@@ -36,8 +36,6 @@ function _groupExp(el) {
 <input type="hidden" name="oxid" value="{{ oTheme.getInfo('id') }}">
 <input type="hidden" name="editval[oxshops__oxid]" value="{{ oxid }}">
 
-{% set _clear_ = smarty_cycle(["", "2"]) %}
-
     <b>{{ oTheme.getInfo('title') }}</b><br><br>
 
     {% for var_group, var_list in var_grouping %}
