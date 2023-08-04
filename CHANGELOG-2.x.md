@@ -13,6 +13,7 @@
 
 ### Removed
 - Private Sales Invite functionality is outdated.
+- Smarty template engine support.
 
 ## v2.1.0 - 2023-05-08
 

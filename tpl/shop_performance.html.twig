@@ -341,17 +341,6 @@ function editThis( sID )
                   {{ translate({ ident: "SHOP_PERF_LOADLANGUAGES" }) }}
                  </td>
                 </tr>
-
-                <tr>
-                 <td valign="top" class="conftext">
-                    <input type=hidden name=confbools[bl_perfParseLongDescinSmarty] value=false>
-                    <input type=checkbox name=confbools[bl_perfParseLongDescinSmarty] value=true  {% if (confbools.bl_perfParseLongDescinSmarty) %}checked{% endif %} {{ readonly }}>
-                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_PERF_PARSELONGDESCINSMARTY"), 'sHelpText': help_text("HELP_SHOP_PERF_PARSELONGDESCINSMARTY")} %}
-                 </td>
-                 <td valign="top" class="conftext" width="100%">
-                  {{ translate({ ident: "SHOP_PERF_PARSELONGDESCINSMARTY" }) }}
-                 </td>
-                </tr>
                 <tr>
                  <td valign="top" class="conftext">
                     <input type=hidden name=confbools[bl_perfCalcVatOnlyForBasketOrder] value=false>
@@ -369,7 +358,7 @@ function editThis( sID )
     </table>
     </fieldset>
         <br>
-         <input type="submit" class="confinput" name="save" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'"" {{ readonly }}>
+         <input type="submit" class="confinput" name="save" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'" {{ readonly }}>
 </form>
 
 {% include "bottomnaviitem.html.twig" %}
