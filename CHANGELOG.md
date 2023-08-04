@@ -5,7 +5,7 @@
 ### Changed
 - Remove usages of smarty_cycle() from templates
 
-### Deprecated
+### Removed
 - Private Sales Invite functionality is outdated.
 
 ## v2.1.0 - 2023-05-08
