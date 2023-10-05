@@ -121,7 +121,7 @@ function editThis(sID)
 
                     </td>
                     <td class="edittext">
-                        <input class="editinput" name="myfile[M{{ iIndex }}@oxarticles__oxpic{{ iIndex }}]" type="file">
+                        <input class="editinput" name="myfile[M{{ iIndex }}@oxarticles__oxpic{{ iIndex }}]" type="file" accept="image/*">
                     </td>
                     <td nowrap="nowrap">
                         {% if blPicUplodaded and not readonly %}
@@ -171,7 +171,7 @@ function editThis(sID)
                         {% endif %}
                     </td>
                     <td class="edittext">
-                        <input class="editinput" name="myfile[TH@oxarticles__oxthumb]" type="file">
+                        <input class="editinput" name="myfile[TH@oxarticles__oxthumb]" type="file" accept="image/*">
                     </td>
                     <td nowrap="nowrap">
                         {% if blThumbUplodaded and not readonly %}
@@ -195,7 +195,7 @@ function editThis(sID)
                         {% endif %}
                     </td>
                     <td class="edittext">
-                        <input class="editinput" name="myfile[ICO@oxarticles__oxicon]" type="file">
+                        <input class="editinput" name="myfile[ICO@oxarticles__oxicon]" type="file" accept="image/*">
                     </td>
                     <td nowrap="nowrap">
                         {% if blIcoUplodaded and not readonly %}

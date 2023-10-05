@@ -63,7 +63,7 @@
                 {% if (not (edit.oxcategories__oxthumb.value=="nopic.jpg" or edit.oxcategories__oxthumb.value=="" or edit.oxcategories__oxthumb.value=="nopic_ico.jpg")) %}
                     <a href="Javascript:DeletePic('oxthumb');" class="delete left" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                 {% endif %}
-                <input class="editinput" name="myfile[TC@oxcategories__oxthumb]" type="file"  size="26" {{ readonly }}>
+                <input class="editinput" name="myfile[TC@oxcategories__oxthumb]" type="file"  size="26" {{ readonly }} accept="image/*">
                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
             </td>
         </tr>
@@ -79,7 +79,7 @@
                 {% if (not (edit.oxcategories__oxicon.value=="nopic.jpg" or edit.oxcategories__oxicon.value=="" or edit.oxcategories__oxicon.value=="nopic_ico.jpg")) %}
                     <a href="Javascript:DeletePic('oxicon');" class="delete left" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                 {% endif %}
-                <input class="editinput" name="myfile[CICO@oxcategories__oxicon]" type="file" size="26" >
+                <input class="editinput" name="myfile[CICO@oxcategories__oxicon]" type="file" size="26" accept="image/*">
                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
             </td>
         </tr>
@@ -95,7 +95,7 @@
                 {% if (not (edit.oxcategories__oxpromoicon.value=="nopic.jpg" or edit.oxcategories__oxpromoicon.value=="" or edit.oxcategories__oxpromoicon.value=="nopic_ico.jpg"))  %}
                     <a href="Javascript:DeletePic('oxpromoicon');" class="delete left" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                 {% endif %}
-                <input class="editinput" name="myfile[PICO@oxcategories__oxpromoicon]" type="file" size="26" >
+                <input class="editinput" name="myfile[PICO@oxcategories__oxpromoicon]" type="file" size="26" accept="image/*">
                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
             </td>
         </tr>

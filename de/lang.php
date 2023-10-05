@@ -691,6 +691,7 @@ $aLang = [
     'ERROR_MESSAGE_SYSTEMCOMPONENT_CLASSNOTFOUND' => 'Class "%s" nicht gefunden',
     'EXCEPTION_SYSTEMCOMPONENT_CLASSNOTFOUND' => 'Class "%s" nicht gefunden!',
     'ERROR_MESSAGE_SYSTEMCOMPONENT_FUNCTIONNOTFOUND' => 'Function "%s" nicht gefunden',
+    'ERROR_MESSAGE_WRONG_IMAGE_FILE_TYPE' => 'Inkompatibles Dateiformat! Laden Sie beispielsweise eine jpg-, png- oder svg-Datei hoch.',
     'THEME_AUTHOR' => 'Autor',
     'THEME_VERSION' => 'Version',
     'THEME_ACTIVATE' => 'Aktivieren',
