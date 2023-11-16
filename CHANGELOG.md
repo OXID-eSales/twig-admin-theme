@@ -1,6 +1,6 @@
 # Change Log for OXID Twig admin theme
 
-## v2.2.0 - unreleased
+## v2.2.0 - 2023-11-16
 
 ### Changed
 - Remove usages of smarty_cycle() from templates
