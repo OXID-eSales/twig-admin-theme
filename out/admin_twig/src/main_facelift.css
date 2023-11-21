@@ -86,7 +86,18 @@ a {
 }
 
 #liste td.active, .box td.active {
-    background: url(bg/facelift/ico_active_facelift.png) no-repeat center center
+    background: url(bg/facelift/ico_active_facelift.png) no-repeat center center;
+    background-size: contain;
+}
+
+#liste td.temp-active, .box td.temp-active {
+    background: url(bg/facelift/ico_temp_active_facelift.png) no-repeat center center;
+    background-size: contain;
+}
+
+#liste td.temp-inactive, .box td.temp-inactive {
+    background: url(bg/facelift/ico_temp_inactive_facelift.png) no-repeat center center;
+    background-size: contain;
 }
 
 a.delete, a.unasign {
