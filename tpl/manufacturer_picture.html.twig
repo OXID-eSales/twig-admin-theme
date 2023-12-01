@@ -99,7 +99,7 @@
                                 {% if (not (edit.oxmanufacturers__oxicon.value=="nopic.jpg" or edit.oxmanufacturers__oxicon.value=="" or edit.oxmanufacturers__oxicon.value=="nopic_ico.jpg")) %}
                                     <a href="Javascript:DeletePic('oxicon');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                                 {% endif %}
-                                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon]" type="file" size="26" {{ readonly }}>
+                                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon]" type="file" size="26" {{ readonly }} accept="image/*">
                                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
                             </td>
                         </tr>
@@ -116,7 +116,7 @@
                                 {% if (not (edit.oxmanufacturers__oxicon_alt.value=="nopic.jpg" or edit.oxmanufacturers__oxicon_alt.value=="" or edit.oxmanufacturers__oxicon_alt.value=="nopic_ico.jpg")) %}
                                     <a href="Javascript:DeletePic('oxicon_alt');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                                 {% endif %}
-                                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon_alt]" type="file" size="26" {{ readonly }}>
+                                <input class="editinput" name="myfile[MICO@oxmanufacturers__oxicon_alt]" type="file" size="26" {{ readonly }} accept="image/*">
                                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
                             </td>
                         </tr>
@@ -133,7 +133,7 @@
                                 {% if (not (edit.oxmanufacturers__oxpicture.value=="nopic.jpg" or edit.oxmanufacturers__oxpicture.value=="" or edit.oxmanufacturers__oxpicture.value=="nopic_ico.jpg")) %}
                                     <a href="Javascript:DeletePic('oxpicture');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                                 {% endif %}
-                                <input class="editinput" name="myfile[MPIC@oxmanufacturers__oxpicture]" type="file" size="26" {{ readonly }}>
+                                <input class="editinput" name="myfile[MPIC@oxmanufacturers__oxpicture]" type="file" size="26" {{ readonly }} accept="image/*">
                                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
                             </td>
                         </tr>
@@ -150,7 +150,7 @@
                                 {% if (not (edit.oxmanufacturers__oxthumbnail.value=="nopic.jpg" or edit.oxmanufacturers__oxthumbnail.value=="" or edit.oxmanufacturers__oxthumbnail.value=="nopic_ico.jpg")) %}
                                     <a href="Javascript:DeletePic('oxthumbnail');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                                 {% endif %}
-                                <input class="editinput" name="myfile[MTHU@oxmanufacturers__oxthumbnail]" type="file" size="26" {{ readonly }}>
+                                <input class="editinput" name="myfile[MTHU@oxmanufacturers__oxthumbnail]" type="file" size="26" {{ readonly }} accept="image/*">
                                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
                             </td>
                         </tr>
@@ -167,7 +167,7 @@
                                 {% if (not (edit.oxmanufacturers__oxpromotion_icon.value=="nopic.jpg" or edit.oxmanufacturers__oxpromotion_icon.value=="" or edit.oxmanufacturers__oxpromotion_icon.value=="nopic_ico.jpg")) %}
                                     <a href="Javascript:DeletePic('oxpromotion_icon');" class="delete" style="float: none; display: inline-block" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
                                 {% endif %}
-                                <input class="editinput" name="myfile[MPICO@oxmanufacturers__oxpromotion_icon]" type="file" size="26" {{ readonly }}>
+                                <input class="editinput" name="myfile[MPICO@oxmanufacturers__oxpromotion_icon]" type="file" size="26" {{ readonly }} accept="image/*">
                                 ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
                             </td>
                         </tr>

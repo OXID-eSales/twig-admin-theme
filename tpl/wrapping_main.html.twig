@@ -104,7 +104,7 @@ function DeletePic( sField )
                 {{ translate({ ident: "WRAPPING_MAIN_PICUPLOAD" }) }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" }) }} {{ sMaxFormattedFileSize }}, {{ translate({ ident: "GENERAL_MAX_PICTURE_DIMENSIONS" }) }})
                 </td>
                 <td class="edittext" colspan="2">
-                <input class="editinput" name="myfile[WP@oxwrapping__oxpic]" size="26" type="file" {{ readonly }}>
+                <input class="editinput" name="myfile[WP@oxwrapping__oxpic]" size="26" type="file" {{ readonly }} accept="image/*">
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_WRAPPING_MAIN_PICUPLOAD"), 'sHelpText': help_text("HELP_WRAPPING_MAIN_PICUPLOAD")} %}
                 </td>
             </tr>
