@@ -145,7 +145,14 @@
                             {% set listclass = "listitem4" %}
                         {% endif %}
                         <td valign="top"
-                            class="{{ listclass }}{% if listitem.showActiveCheckInAdminPanel %} active{% endif %}"
+                            class="{{ listclass }}
+                            {% if listitem.showActiveCheckInAdminPanel %}
+                                active
+                            {% elseif listitem.hasActiveTimeRange and listitem.isActiveNow %}
+                                temp-active
+                            {% elseif listitem.hasActiveTimeRange and not listitem.isActiveNow %}
+                                temp-inactive
+                            {% endif %}"
                             height="15">
                             <div class="listitemfloating">&nbsp</a></div>
                         </td>
@@ -195,4 +202,3 @@
 </script>
 </body>
 </html>
-

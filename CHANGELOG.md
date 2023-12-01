@@ -4,6 +4,7 @@
 
 ### Changed
 - Remove usages of smarty_cycle() from templates
+- New Icons for time activated products
 
 ### Removed
 - Private Sales Invite functionality is outdated.
