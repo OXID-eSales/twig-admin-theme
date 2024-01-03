@@ -114,13 +114,31 @@ function editThis( sID )
 
                   <tr>
                     <td class="edittext wrap">
+                      {{ translate({ ident: "ARTICLE_STOCK_REMINDAMAOUNT" }) }}
+                    </td>
+                    <td class="edittext">
+                      <input type="text" class="editinput" size="20" maxlength="{{ edit.oxarticles__oxremindamount.fldmax_length }}" name="editval[oxarticles__oxremindamount]" value="{{ edit.oxarticles__oxremindamount.value }}" {{ readonly }}>
+                      {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_STOCK_REMINDAMAOUNT"), 'sHelpText': help_text("HELP_ARTICLE_STOCK_REMINDAMAOUNT")} %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="edittext wrap">
                       {{ translate({ ident: "ARTICLE_STOCK_REMINDACTIV" }) }}
                     </td>
                     <td class="edittext">
-                      <input type="checkbox" class="editinput" name="editval[oxarticles__oxremindactive]" value='{% if edit.oxarticles__oxremindactive.value %}{{ edit.oxarticles__oxremindactive.value }}{% else %}1{% endif %}' {% if edit.oxarticles__oxremindactive.value %}checked{% endif %} {{ readonly }} {% if oxparentid %}readonly disabled{% endif %}>
+                      <input type=hidden name=editval[oxarticles__oxremindactive] value=0>
+                      <input type=checkbox name=editval[oxarticles__oxremindactive] value=1  {% if edit.oxarticles__oxremindactive.value %}checked{% endif %} {{ readonly }}>
                       {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_STOCK_REMINDACTIV"), 'sHelpText': help_text("HELP_ARTICLE_STOCK_REMINDACTIV")} %}
-                      <input type="text" class="editinput" size="20" maxlength="{{ edit.oxarticles__oxremindamount.fldmax_length }}" name="editval[oxarticles__oxremindamount]" value="{{ edit.oxarticles__oxremindamount.value }}" {{ readonly }}>
-                      {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_STOCK_REMINDAMAOUNT"), 'sHelpText': help_text("HELP_ARTICLE_STOCK_REMINDAMAOUNT")} %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="edittext wrap">
+                      {{ translate({ ident: "ARTICLE_STOCK_LOW" }) }}
+                    </td>
+                    <td class="edittext">
+                      <input type=hidden name=editval[oxarticles__oxlowstockactive] value=0>
+                      <input type=checkbox name=editval[oxarticles__oxlowstockactive] value=1  {% if edit.oxarticles__oxlowstockactive.value %}checked{% endif %} {{ readonly }}>
+                      {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_STOCK_LOWSTOCKACTIVE"), 'sHelpText': help_text("HELP_ARTICLE_STOCK_LOWSTOCKACTIVE")} %}
                     </td>
                   </tr>
                   <tr>
@@ -148,6 +166,16 @@ function editThis( sID )
                           <td class="edittext">
                             <input type="text" class="editinput" size="40" maxlength="{{ edit.oxarticles__oxstocktext.fldmax_length }}" name="editval[oxarticles__oxstocktext]" value="{{ edit.oxarticles__oxstocktext.value }}" {{ readonly }}>
                             {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_STOCK_STOCKTEXT"), 'sHelpText': help_text("HELP_ARTICLE_STOCK_STOCKTEXT")} %}
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="edittext">
+                            {{ translate({ ident: "ARTICLE_STOCK_LOWSTOCKTEXT" }) }}
+                          </td>
+                          <td class="edittext">
+                            <input type="text" class="editinput" size="40" maxlength="{{ edit.oxarticles__oxlowstocktext.fldmax_length }}" name="editval[oxarticles__oxlowstocktext]" value="{{ edit.oxarticles__oxlowstocktext.value }}">
+                            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_STOCK_LOWSTOCKTEXT"), 'sHelpText': help_text("HELP_ARTICLE_STOCK_LOWSTOCKTEXT")} %}
                           </td>
                         </tr>
                         <tr>
