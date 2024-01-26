@@ -1,5 +1,10 @@
 # Change Log for OXID Twig admin theme
 
+## v2.3.0 - Unreleased
+
+### Changed
+- jQuery and jQueryUI were updated to the current versions
+
 ## v2.2.0 - 2023-11-16
 
 ### Changed
@@ -48,24 +53,3 @@
 - News feature
 - Management of Newsletter emails templates and language constants
 - block `admin_shop_rdfa_submiturl` in `tpl/shop_rdfa.html.twig`
-
-## v1.1.1 - Unreleased
-
-### Fixed
-- Admin navigation frame access with top.navigation is broken for chrome. 
-
-## v1.1.0 - 2022-09-08
-
-### Renamed
-- Changed price alert to wished price
-
-### Deprecated
-- Language Constants `SHOP_CONFIG_STORECREDITCARDINFO`, `HELP_SHOP_CONFIG_ATTENTION`, `TOOLTIPS_NEWNEWS`, `NAVIGATION_NEWVERSIONAVAILABLE`
-- Management of Newsletter emails language constants
-
-### Fixed
-- Fix textareas with arrays display and saving bug [PR-2](https://github.com/OXID-eSales/twig-admin-theme/pull/2)
-- Fix wrongly converted {% hasrights %} tags
-- Port changes from main admin theme
-
-## v1.0.0 - 2019-11-21
