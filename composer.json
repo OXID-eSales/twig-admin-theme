@@ -21,7 +21,7 @@
             "assets-directory": "out/admin_twig",
             "blacklist-filter": [
                 ".gitignore",
-                "CHANGELOG.md",
+                "CHANGELOG-2.x.md",
                 "composer.json"
             ],
             "target-directory": "admin_twig"
