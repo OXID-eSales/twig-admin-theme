@@ -2,11 +2,6 @@
 
 Admin theme based on the Twig engine.
 
-## Branch Compatibility
-
-* b-7.0.x branch is compatible with OXID eShop b-7.0.x
-* b-6.5.x branch is compatible with OXID eShop b-6.5.x
-
 ## Installation
 
 **Run the following command to install theme:**

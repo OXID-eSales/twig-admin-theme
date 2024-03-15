@@ -1,6 +1,6 @@
 # Change Log for OXID Twig admin theme
 
-## v2.3.0 - Unreleased
+## v2.3.0 - 2024-03-11
 
 ### Changed
 - jQuery and jQueryUI were updated to the current versions
