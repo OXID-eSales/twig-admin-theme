@@ -1,5 +1,10 @@
 # Change Log for OXID Twig admin theme
 
+## v2.3.1 - Unreleased
+
+### Fixed
+- Fix German translation of Parent theme not found case error [#0006195](https://bugs.oxid-esales.com/view.php?id=6195) [PR-7](https://github.com/OXID-eSales/twig-admin-theme/pull/7)
+
 ## v2.3.0 - 2024-03-11
 
 ### Changed
