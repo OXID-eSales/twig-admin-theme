@@ -1,9 +1,17 @@
 # Change Log for OXID Twig admin theme
 
-## v2.3.1 - Unreleased
+## v2.5.0 - Unreleased
+
+## v2.4.0 - 2024-03-18
 
 ### Fixed
 - Fix German translation of Parent theme not found case error [#0006195](https://bugs.oxid-esales.com/view.php?id=6195) [PR-7](https://github.com/OXID-eSales/twig-admin-theme/pull/7)
+
+### Changed
+- New Icons for time activated products
+
+### Deprecated
+- Private Sales Invite functionality is outdated.
 
 ## v2.3.0 - 2024-03-11
 
@@ -14,11 +22,6 @@
 
 ### Changed
 - Remove usages of smarty_cycle() from templates
-- New Icons for time activated products
-
-### Removed
-- Private Sales Invite functionality is outdated.
-- Smarty template engine support.
 
 ## v2.1.0 - 2023-05-08
 
