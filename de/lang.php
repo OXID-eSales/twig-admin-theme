@@ -283,7 +283,7 @@ $aLang = [
     'GENERAL_SEO_NOCAT' => '(keine Kategorie zugeordnet)',   // product seo tab, article ha no category assigned
 
     'GENERAL_SEO_URL' => 'SEO URL',
-    'GENERAL_SEO_OXKEYWORDS' => 'Stichworte für Meta-Tags',
+    'GENERAL_SEO_OXKEYWORDS' => 'META Keywords',
     'GENERAL_SEO_OXDESCRIPTION' => 'Beschreibungstext für Meta-Tags',
     'GENERAL_SEO_SHOWSUFFIX' => 'Titel Suffix in Kategorie anzeigen',
     'GENERAL_SHORTDESC' => 'Kurzbeschreibung',
