@@ -177,18 +177,6 @@ function editThis(sID)
 
             <dl>
                 <dt>
-                    <input type=hidden name=confbools[blStockLowDefaultMessage] value=false>
-                    <input type=checkbox name=confbools[blStockLowDefaultMessage] value=true  {% if (confbools.blStockLowDefaultMessage) %}checked{% endif %} {{ readonly }}>
-                    {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_STOCKLOWDEFAULTMESSAGE"), 'sHelpText': help_text("HELP_SHOP_CONFIG_STOCKLOWDEFAULTMESSAGE")} %}
-                </dt>
-                <dd>
-                    {{ translate({ ident: "SHOP_CONFIG_STOCKLOWDEFAULTMESSAGE" }) }}
-                </dd>
-                <div class="spacer"></div>
-            </dl>
-
-            <dl>
-                <dt>
                     <input type=hidden name=confbools[blStockOffDefaultMessage] value=false>
                     <input type=checkbox name=confbools[blStockOffDefaultMessage] value=true  {% if (confbools.blStockOffDefaultMessage) %}checked{% endif %} {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE"), 'sHelpText': help_text("HELP_SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE")} %}

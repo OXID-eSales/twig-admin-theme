@@ -54,9 +54,6 @@ $aLang = [
         'Wenn diese Einstellung aktiv ist, wird den Benutzern auch dann eine Meldung angezeigt, wenn bei einem Artikel keine eigene Meldung hinterlegt ist. Es wird die Standardmeldung <span class="filename_filepath_or_italic">sofort lieferbar</span> verwendet.',
     'HELP_SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE' => 'Bei jedem Artikel können Sie einrichten, welche Meldung den Benutzern angezeigt wird, wenn der Artikel nicht auf Lager ist. ' .
         'Wenn diese Einstellung aktiv ist, wird den Benutzern auch dann eine Meldung angezeigt, wenn bei einem Artikel keine eigene Meldung hinterlegt ist. Es wird die Standardmeldung <span class="filename_filepath_or_italic">Dieser Artikel ist nicht auf Lager und muss erst nachbestellt werden</span> verwendet.',
-    'HELP_SHOP_CONFIG_STOCKLOWDEFAULTMESSAGE' => 'Aktivieren Sie diese Option, um eine standardisierte Benachrichtigung zu senden, wenn der Bestand eines Artikels niedrig ist.<br>' .
-        'Hintergrund: Für jeden Artikel können Sie eine spezifische Warnmeldung festlegen. Haben Sie keine spezifische Meldung definiert, wird automatisch die Standardmeldung \'Dieser Artikel ist nur noch in geringer Anzahl vorhanden\' angezeigt.<br>' .
-        'Dadurch wird gewährleistet, dass Benutzer auch dann informiert werden, wenn Sie für bestimmte Artikel keine spezifischen Warnmeldungen eingerichtet haben.',
     'HELP_SHOP_CONFIG_OVERRIDEZEROABCPRICES' => 'Sie können für bestimmte Benutzer spezielle Preise einrichten. Dadurch können Sie bei jedem Artikel A, B, und C-Preise eingeben. Wenn Benutzer z. B. in der Benutzergruppe Preis A sind, werden ihnen die A-Preise anstatt dem normalen Artikelpreis angezeigt.<br>' .
         'Wenn die Einstellung aktiv ist, wird diesen Benutzern der normale Artikelpreis angezeigt, wenn für den Artikel kein A, B oder C-Preis vorhanden ist.<br>' .
         'Sie sollten diese Einstellung aktivieren, wenn Sie A,B und C-Preise verwenden: Ansonsten wird den bestimmten Benutzern ein Preis von 0,00 angezeigt, wenn kein A,B oder C-Preis hinterlegt ist.',
@@ -268,9 +265,7 @@ $aLang = [
     'HELP_ARTICLE_PICTURES_ZOOM1' => 'Zoom-Bilder sind extra große Artikelbilder, Die in der Detailansicht eines Artikels verlinkt werden. <br>' .
         'Zoom-Bilder können Sie bei <span class="navipath_or_inputname">Zoom X hochladen</span> hochladen. Bei <span class="navipath_or_inputname">Zoom X</span> wird nach dem Hochladen der Dateiname des Zoom-Bildes angezeigt, wenn noch kein Zoom-Bild hochgeladen wurde, wird <span class="userinput_or_code">nopic.jpg</span> angezeigt.',
 
-    'HELP_ARTICLE_STOCK_REMINDACTIV' => 'Um eine E-Mail-Benachrichtigung zu senden, dass der Artikel einen geringen Lagerbestand hat, aktivieren Sie das Kontrollkästchen.<br>' .
-        'Die verwendete E-Mail-Adresse ist diejenige, die Sie unter Stammdaten | Grundeinstellungen | Stamm im Feld  im Feld \'E-Mail-Adresse für Infos\' festgelegt haben.<br>' .
-        'Die E-Mail-Benachrichtigung wird gesendet, wenn der Schwellenwert unterschritten wird, den Sie im Eingabefeld Schwellenwert für geringen Lagerbestand oder unter Stammdaten | Grundeinstellungen | Einstell. | Lager im Eingabefeld Lagerbestand, ab dem den Benutzern angezeigt wird, dass nur noch wenige Artikel auf Lager sind festgelegt haben.',
+    'HELP_ARTICLE_STOCK_REMINDACTIV' => 'Einstellung wird vom Vater-Artikel an die Varianten vererbt und gilt für den gesamten Artikel.',
 
     'HELP_ARTICLE_STOCK_STOCKFLAG' => 'Hier können Sie einstellen, wie sich der eShop verhält, wenn der Artikel ausverkauft ist:<br>' .
         '<ul><li>Standard: Der Artikel kann auch dann bestellt werden, wenn er ausverkauft ist.</li>' .
@@ -278,11 +273,7 @@ $aLang = [
         '<li>Wenn Ausverkauft offline: Der Artikel wird nicht angezeigt, wenn er ausverkauft ist.</li>' .
         '<li>Wenn Ausverkauft nicht bestellbar: Der Artikel wird angezeigt, wenn er ausverkauft ist, aber er kann nicht bestellt werden.</li></ul>',
 
-    'HELP_ARTICLE_STOCK_REMINDAMAOUNT' => 'Legen Sie den Schwellenwert für geringen Lagerbestand fest.<br>' .
-        'Fällt der Lagerbestand unter diesen Wert, hat der Artikel die Markierung “geringer Lagerbestand”.<br>' .
-        'Sie können im Eingabefeld Info bei geringem Lagerbestand die Meldung festlegen, die angezeigt wird, wenn der Artikel diese Markierung hat.<br>' .
-        'Damit der Schwellenwert wirksam und die Meldung angezeigt wird, stellen Sie sicher, dass das Kontrollkästchen Benutzerdefinierten Schwellenwert für geringen Lagerbestand anwenden aktiviert ist.<br>' .
-        'Wenn Sie keinen Wert eingeben, greift der Wert, den Sie unter Stammdaten | Grundeinstellungen | Einstell. | Lager im Feld Lagerbestand, ab dem den Benutzern angezeigt wird, dass nur noch wenige Artikel auf Lager sind festgelegt haben.',
+    'HELP_ARTICLE_STOCK_REMINDAMAOUNT' => 'Hier können Sie einrichten, dass Ihnen eine E-Mail gesendet wird, sobald der der Lagerbestand unter den hier eingegebenen Wert sinkt. Dadurch werden Sie rechtzeitig informiert, wenn der Artikel fast ausverkauft ist. Setzen Sie hierzu das Häkchen und geben Sie den Bestand ein, ab dem Sie informiert werden wollen.',
 
     'HELP_ARTICLE_STOCK_DELIVERY' => 'Hier können Sie eingeben, ab wann ein Artikel wieder lieferbar ist, wenn er ausverkauft ist. Das Format ist Jahr-Monat-Tag, z. B. 2008-10-21.',
 
@@ -298,14 +289,10 @@ $aLang = [
 
     'HELP_ARTICLE_STOCK_NOSTOCKTEXT' => 'Hier können Sie eine Meldung eingeben, die beim Artikel angezeigt wird, falls der Artikel ausverkauft ist.',
 
-    'HELP_ARTICLE_STOCK_LOWSTOCKTEXT' => 'Geben Sie eine Meldung ein, die beim Artikel angezeigt wird, wenn der Artikel einen niedrigen Lagerbestand hat.<br>' .
-        'Wenn Sie keine Meldung festlegen, greifen Ihre Einstellungen, die Sie unter Stammdaten | Grundeinstellungen | Einstell. | Lager gemacht haben.',
-
-    'HELP_ARTICLE_STOCK_LOWSTOCKACTIVE' => 'To apply the threshold you set in the Low Stock Threshold field, check the checkbox.',
-
     'HELP_ARTICLE_STOCK_AMOUNTPRICE_AMOUNTFROM' => 'Mit <span class="navipath_or_inputname">Menge von/bis</span> stellen Sie ein, für welchen Mengenbereich der Staffelpreis gültig ist.',
 
     'HELP_ARTICLE_STOCK_AMOUNTPRICE_PRICE' => 'Bei <span class="navipath_or_inputname">Preis </span>können Sie den Preis für die eingegebene Menge einstellen. Sie haben die Möglichkeit, den Preis absolut einzugeben oder prozentualen Rabatt einzurichten.',
+
 
     'HELP_ARTICLE_VARIANT_VARNAME' => 'Bei <span class="navipath_or_inputname">Name der Auswahl</span> können Sie einstellen, wie die Auswahl zwischen den verschiedenen Varianten heißen soll, z. B. <span class="userinput_or_code">Farbe</span> oder <span class="userinput_or_code">Größe</span>.',
 
