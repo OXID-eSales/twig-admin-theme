@@ -77,10 +77,6 @@ $aLang = [
     'HELP_SHOP_CONFIG_STOCKOFFDEFAULTMESSAGE' => 'For each product you can set up a message if the product is not in stock.<br>' .
         'If this setting is active, a message is shown if no specific message for for a product is entered. The default message <span class="filename_filepath_or_italic">This item is not in stock and must be back-ordered</span> is shown.',
 
-    'HELP_SHOP_CONFIG_STOCKLOWDEFAULTMESSAGE' => 'Activate this option to display a standardized notification when an item\'s stock is low.<br>' .
-        'Background: For each item, you can set a specific warning message. If you haven\'t defined a specific message, the default message \'This item is only available in limited quantities\' will be automatically displayed.<br>' .
-        'This ensures that users are informed even if you haven\'t set up specific warning messages for certain items.',
-
     'HELP_SHOP_CONFIG_OVERRIDEZEROABCPRICES' => 'You can set up special prices for specific users: For each product you can enter A, B and C prices. If users are in the user group <span class="filename_filepath_or_italic">Price A</span>, the A price is shown to them instead of the normal price.<br>' .
         'If this setting is checked, the normal product price is used if no A, B or C price is available.<br>' .
         'You should activate this setting if you are using A, B and C prices: Otherwise 0,00 is displayed to the according users if no A, B or C price is set.',
@@ -333,9 +329,7 @@ $aLang = [
     'HELP_ARTICLE_PICTURES_ZOOM1' => 'Zoom pictures are extra large pictures which can be opened from the detail view of a product. <br>' .
         'You can upload zoom pictures in <span class="navipath_or_inputname">Zoom X upload</span>. After uploading, the filename is shown in <span class="navipath_or_inputname">Zoom X</span>. If no zoom picture is uploaded yet, <span class="userinput_or_code">nopic.jpg</span> is displayed.',
 
-    'HELP_ARTICLE_STOCK_REMINDACTIV' => 'To send an e-mail notification that the article is in low stock, activate the checkbox.<br>' .
-        'Verify the following: The e-mail address used is the one you have defined under *Master Settings | Core Settings| Main in the Info e-mail Address field.<br>' .
-        'The email notification is sent when the threshold value is exceeded, which you have set in the \'Low stock threshold\' input field or under Master Settings | Core Settings | Settings | Stock, in the Stock level at which users are informed that only a few products remain in stock input field.',
+    'HELP_ARTICLE_STOCK_REMINDACTIV' => 'Setting is inherited from Parent product to Variants and applies to the entire product.',
 
     'HELP_ARTICLE_STOCK_STOCKFLAG' => 'At <span class="navipath_or_inputname">Delivery status</span> you can select from 4 settings:' .
         '<ul><li><span class="userinput_or_code">Standard</span>: The product can then also be ordered if it is sold out.</li>' .
@@ -345,11 +339,7 @@ $aLang = [
 
     'HELP_ARTICLE_IS_DOWNLOADABLE' => 'Files of this product can be downloaded.',
 
-    'HELP_ARTICLE_STOCK_REMINDAMAOUNT' => 'Set the threshold for low stock.<br>' .
-        'When the stock level falls below this value, the item will be marked as \'low stock\'.<br>' .
-        'In the \'Info for low stock\' input field, you can specify the message that will be displayed when the item has this marking.<br>' .
-        'To make the threshold effective and display the message, make sure to check the Apply Custom Low Stock Threshold checkbox.<br>' .
-        'If you do not enter a value, the system will default to the value you have set under *Master Settings | Core Settings | Settings | Stock in the field Stock level at which users are informed that only a few products remain in stock.',
+    'HELP_ARTICLE_STOCK_REMINDAMAOUNT' => 'With <span class="navipath_or_inputname">Send e-mail if stock falls below value</span> you can specify that an e-mail will be sent as soon as the stock level falls below the value entered. Select the check box and then enter the level at which you want to be notified.',
 
     'HELP_ARTICLE_STOCK_DELIVERY' => 'Here you can enter the date when the product will be available again if it is sold out. The format is year-month-day, e. g. 2009-02-16.',
 
@@ -364,11 +354,6 @@ $aLang = [
     'HELP_ARTICLE_STOCK_STOCKTEXT' => 'Here you can enter a message which is shown if the product is in stock.',
 
     'HELP_ARTICLE_STOCK_NOSTOCKTEXT' => 'Here you can enter a message which is shown if the product is out of stock.',
-
-    'HELP_ARTICLE_STOCK_LOWSTOCKTEXT' => 'Enter a message that will be displayed for the item when it has low stock.<br>' .
-        'If you do not set a message, your settings configured under Master Settings | Basic Settings | Core Settings | Settings | Stock will apply.',
-
-    'HELP_ARTICLE_STOCK_LOWSTOCKACTIVE' => 'Um den Schwellenwert anzuwenden, den Sie im Feld Schwellenwert für geringen Lagerbestand festgelegt haben, aktivieren Sie das Kontrollkästchen.',
 
     'HELP_ARTICLE_STOCK_AMOUNTPRICE_AMOUNTFROM' => 'In <span class="navipath_or_inputname">Quantity From/To/bis</span> you can set which quantity range the scale price is valid for.',
 
