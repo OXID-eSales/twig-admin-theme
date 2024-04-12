@@ -174,7 +174,7 @@ function editThis( sID )
                             {{ translate({ ident: "ARTICLE_STOCK_LOWSTOCKTEXT" }) }}
                           </td>
                           <td class="edittext">
-                            <input type="text" class="editinput" size="40" maxlength="{{ edit.oxarticles__oxlowstocktext.fldmax_length }}" name="editval[oxarticles__oxlowstocktext]" value="{{ edit.oxarticles__oxlowstocktext.value }}">
+                            <input type="text" class="editinput" size="40" name="editval[oxarticles__oxlowstocktext]" value="{{ edit.oxarticles__oxlowstocktext.value }}">
                             {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ARTICLE_STOCK_LOWSTOCKTEXT"), 'sHelpText': help_text("HELP_ARTICLE_STOCK_LOWSTOCKTEXT")} %}
                           </td>
                         </tr>
