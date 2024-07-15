@@ -83,7 +83,7 @@ window.onload = function ()
         {% if listitem.getId() == oxid %}
             {% set listclass = "listitem4" %}
         {% endif %}
-        <td valign="top" class="{{ listclass }}{% if listitem.oxwrapping__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</a></div></td>
+        <td valign="top" class="{{ listclass }}{% if listitem.oxwrapping__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</div></td>
         <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxwrapping__oxid.value }}');" class="{{ listclass }}">{% if listitem.oxwrapping__oxtype.value == "WRAP" %}{{ translate({ ident: "WRAPPING_LIST_PRESENTPACKUNG" }) }}{% elseif listitem.oxwrapping__oxtype.value == "CARD" %}{{ translate({ ident: "GENERAL_CARD" }) }}{% endif %}</a></div></td>
         <td valign="top" class="{{ listclass }}"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxwrapping__oxid.value }}');" class="{{ listclass }}">{% if not listitem.oxwrapping__oxname.value %}-{{ translate({ ident: "GENERAL_NONAME" }) }}-{% else %}{{ listitem.oxwrapping__oxname.value }}{% endif %}</a></div></td>
         <td valign="top" class="{{ listclass }}"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxwrapping__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxwrapping__oxpic.value }}</a></div></td>

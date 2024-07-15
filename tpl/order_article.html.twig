@@ -81,14 +81,14 @@ function StornoThisArticle( sID)
     <input type="hidden" name="cl" value="order_article">
 </form>
 
+<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+{{ oViewConf.getHiddenSid()|raw }}
+<input type="hidden" name="cur" value="{{ oCurr.id }}">
+<input type="hidden" name="cl" value="order_article">
+<input type="hidden" name="oxid" value="{{ oxid }}">
+<input type="hidden" name="fnc" value="updateOrder">
 
 <table cellspacing="0" cellpadding="0" border="0" width="98%">
-<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
-    {{ oViewConf.getHiddenSid()|raw }}
-    <input type="hidden" name="cur" value="{{ oCurr.id }}">
-    <input type="hidden" name="cl" value="order_article">
-    <input type="hidden" name="oxid" value="{{ oxid }}">
-    <input type="hidden" name="fnc" value="updateOrder">
 <tr>
     {% block admin_order_article_header %}
         <td class="listheader first">{{ translate({ ident: "GENERAL_SUM" }) }}</td>

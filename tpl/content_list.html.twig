@@ -86,7 +86,7 @@ window.onload = function ()
             {% if listitem.getId() == oxid %}
                 {% set listclass = "listitem4" %}
             {% endif %}
-            <td valign="top" class="{{ listclass }}{% if listitem.oxcontents__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</a></div></td>
+            <td valign="top" class="{{ listclass }}{% if listitem.oxcontents__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</div></td>
             <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcontents__oxid.value }}');" class="{{ listclass }}">{% if listitem.oxcontents__oxtitle.value %}{{ listitem.oxcontents__oxtitle.value }}{% else %}---{% endif %}</a></div></td>
             <td valign="top" class="{{ listclass }}"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxcontents__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxcontents__oxloadid.value }}</a></div></td>
             <td class="{{ listclass }}">

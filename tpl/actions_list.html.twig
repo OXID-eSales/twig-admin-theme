@@ -88,7 +88,7 @@ window.onload = function ()
     {% endif %}
 
     {% block admin_actions_list_item %}
-    <td valign="top" class="{{ listclass }}{% if listitem.oxactions__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</a></div></td>
+    <td valign="top" class="{{ listclass }}{% if listitem.oxactions__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</div></td>
     <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxactions__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxactions__oxtitle.value }}</a></div></td>
     <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxactions__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxactions__oxactivefrom.value }}</a></div></td>
     <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating">
