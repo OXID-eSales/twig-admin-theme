@@ -48,7 +48,7 @@
                     {{ translate({ ident: "TOOLS_MAIN_SQLDUMB" })|raw }} ({{ translate({ ident: "GENERAL_MAX_FILE_UPLOAD" })|raw }} {{ sMaxFormattedFileSize }})&nbsp;&nbsp;&nbsp;
                 </td>
                 <td class="edittext"><br>
-                    <input type="file" style="width: 370" class="edittext" name="myfile[SQL1@usqlfile]" {{ readonly }}>
+                    <input type="file" style="width: 370px" class="edittext" name="myfile[SQL1@usqlfile]" {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_TOOLS_MAIN_SQLDUMB"), 'sHelpText': help_text("HELP_TOOLS_MAIN_SQLDUMB")} %}
                 </td>
             </tr>
