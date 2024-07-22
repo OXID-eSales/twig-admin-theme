@@ -568,4 +568,6 @@ $aLang = [
     'HELP_SHOP_CONFIG_ENABLE_INTANGIBLE_PRODUCTS_AGREEMENT' => 'If this option is activated, users have to confirm terms and conditions for intangible or downloadable products in the fourth step of the check-out process. Please make sure this option is enabled for the specific item as well!',
 
     'HELP_SHOP_CONFIG_FIELDS_CONTACTFORM' => 'Here you can define the contact form fields a user necessarily has to fill.',
+
+    'HELP_ROLES_FEMAIN_UIEXAMPLE' => 'TOBASKET&tobasket;basket<br />COMPARE&details;tocomparelist',
 ];
