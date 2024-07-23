@@ -74,11 +74,14 @@ window.onload = function ()
             </div></div>
         </td>
         <td valign="top" class="listfilter" colspan="2" nowrap>
-            <div class="r1"><div class="b1">
-            <div class="find"><input class="listedit" type="submit" name="submitit" value="{{ translate({ ident: "GENERAL_SEARCH" }) }}"></div>
-            <input class="listedit" type="text" size="5" maxlength="128" name="where[oxuser][oxcustnr]" value="{{ where.oxuser.oxcustnr }}">
+            <div class="r1">
+                <div class="b1">
+                    <div class="find">
+                        <input class="listedit" type="submit" name="submitit" value="{{ translate({ ident: "GENERAL_SEARCH" }) }}">
+                    </div>
+                    <input class="listedit" type="text" size="5" maxlength="128" name="where[oxuser][oxcustnr]" value="{{ where.oxuser.oxcustnr }}">
+                </div>
             </div>
-            </div></div>
         </td>
     {% endblock %}
 </tr>
@@ -110,7 +113,7 @@ window.onload = function ()
         {% if listitem.getId() == oxid %}
             {% set listclass = "listitem4" %}
         {% endif %}
-        <td valign="top" class="{{ listclass }}{% if listitem.oxuser__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</a></div></td>
+        <td valign="top" class="{{ listclass }}{% if listitem.oxuser__oxactive.value == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</div></td>
         <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxuser__oxid.value }}');" class="{{ listclass }}">{% if not listitem.oxuser__oxlname.value %}-kein Name-{% else %}{{ listitem.oxuser__oxlname.value }}{% endif %} {{ listitem.oxuser__oxfname.value }}</a></div></td>
         <td valign="top" class="{{ listclass }}"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxuser__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxuser__oxusername.value|truncate(21, "...", true) }}</a></div></td>
         <td valign="top" class="{{ listclass }}"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxuser__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxuser__oxstreet.value }}</a></div></td>

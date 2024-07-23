@@ -1,9 +1,12 @@
 # Change Log for OXID Twig admin theme
 
-## v2.5.0 - unreleased
+## v2.5.0  - Unreleased
 
 ### Added
 - Ability to define a custom low stock message for individual products
+
+### Fixed
+- Fix malformed html structure, inline css/js [#0006471](https://bugs.oxid-esales.com/view.php?id=6471)
 
 ## v2.4.0 - 2024-03-18
 

@@ -461,7 +461,7 @@ function editThis(sID)
             <a href="#" onclick="_groupExp(this);return false;" class="rc"><b>{{ translate({ ident: "SHOP_OPTIONS_GROUP_VAT" }) }}</b></a>
             <dl>
                 <dt>
-                    <input type=text class="txt" style="width:70" name=confnum[dDefaultVAT] value="{{ confnum.dDefaultVAT }}" {{ readonly }}>
+                    <input type=text class="txt" style="width:70px" name=confnum[dDefaultVAT] value="{{ confnum.dDefaultVAT }}" {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_DEFAULTVAT"), 'sHelpText': help_text("HELP_SHOP_CONFIG_DEFAULTVAT")} %}
                 </dt>
                 <dd>
@@ -712,7 +712,7 @@ function editThis(sID)
 
             <dl {% if not confstrs.blPsBasketReservationEnabled %}class="rowhide"{% endif %} id="basketreservedtime">
                 <dt>
-                    <input type=text class="txt" style="width:70" name=confstrs[iPsBasketReservationTimeout] value="{% if confstrs.iPsBasketReservationTimeout %}{{ confstrs.iPsBasketReservationTimeout }}{% else %}1200{% endif %}" {{ readonly }}>
+                    <input type=text class="txt" style="width:70px" name=confstrs[iPsBasketReservationTimeout] value="{% if confstrs.iPsBasketReservationTimeout %}{{ confstrs.iPsBasketReservationTimeout }}{% else %}1200{% endif %}" {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_BASKETRESERVATIONTIMEOUT"), 'sHelpText': help_text("HELP_SHOP_CONFIG_BASKETRESERVATIONTIMEOUT")} %}
                 </dt>
                 <dd>

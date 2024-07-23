@@ -93,7 +93,7 @@ window.onload = function ()
         {% if listitem.oxvoucherseries__oxid.value == oxid %}
             {% set listclass = "listitem4" %}
         {% endif %}
-       	<td valign="top" class="{{ listclass }}{% if listitem.getVoucherStatusByDatetime() == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</a></div></td>
+       	<td valign="top" class="{{ listclass }}{% if listitem.getVoucherStatusByDatetime() == 1 %} active{% endif %}" height="15"><div class="listitemfloating">&nbsp</div></td>
         <td valign="top" class="{{ listclass }}" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxvoucherseries__oxid.value }}');" class="{{ listclass }}">{% if not listitem.oxvoucherseries__oxserienr.value %}-{{ translate({ ident: "GENERAL_NONAME" }) }}-{% else %}{{ listitem.oxvoucherseries__oxserienr.value }}{% endif %}</a></div></td>
         <td valign="top" class="{{ listclass }}"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxvoucherseries__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxvoucherseries__oxdiscount.value }}{% if listitem.oxvoucherseries__oxdiscounttype.value == "percent" %} %{% endif %}</a></div></td>
         <td valign="top" class="{{ listclass }}"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('{{ listitem.oxvoucherseries__oxid.value }}');" class="{{ listclass }}">{{ listitem.oxvoucherseries__oxbegindate.value }}</a></div></td>

@@ -139,7 +139,7 @@ window.onload = function ()
             <td class="edittext"><br><br>
             </td>
             <td class="edittext"><br><br>
-            <input type="submit" class="edittext" id="oLockButton" name="saveArticle" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'"" {{ readonly }} {% if not edit.oxcountry__oxtitle.value and not oxparentid %}disabled{% endif %}><br>
+            <input type="submit" class="edittext" id="oLockButton" name="saveArticle" value="{{ translate({ ident: "GENERAL_SAVE" }) }}" onClick="Javascript:document.myedit.fnc.value='save'" {{ readonly }} {% if not edit.oxcountry__oxtitle.value and not oxparentid %}disabled{% endif %}><br>
             </td>
         </tr>
 
@@ -150,7 +150,7 @@ window.onload = function ()
     <td valign="top" class="edittext" align="left" width="55%">
         {% block admin_country_main_description %}
             {{ translate({ ident: "COUNTRY_MAIN_OPDESCRIPTION" }) }}<br>
-            <textarea class="editinput" style="width:250;height:100;" wrap="VIRTUAL" name="editval[oxcountry__oxlongdesc]" {{ readonly }}>{{ edit.oxcountry__oxlongdesc.value }}</textarea>
+            <textarea class="editinput" style="width:250px;height:100px;" wrap="VIRTUAL" name="editval[oxcountry__oxlongdesc]" {{ readonly }}>{{ edit.oxcountry__oxlongdesc.value }}</textarea>
         {% endblock %}
     </td>
     <!-- Ende rechte Seite -->

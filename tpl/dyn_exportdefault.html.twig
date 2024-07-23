@@ -21,12 +21,10 @@
     <input type="hidden" name="cl" value="">
 </form>
 
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" target="dynexport_do" method="post">
 <table cellspacing="0" cellpadding="0" border="0" width="98%">
-
     <tr>
         <td valign="top" class="edittext">
-            <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" target="dynexport_do"
-                  method="post">
                 <table cellspacing="0" cellpadding="0" border="0">
                     {{ oViewConf.getHiddenSid()|raw }}
                     <input type="hidden" name="cl" value="{{ sClassDo }}">
@@ -41,8 +39,8 @@
                                 {% for oCat in cattree %}
                                     <option value="{{ oCat.getId() }}">{{ oCat.oxcategories__oxtitle.value }}</option>
                                 {% endfor %}
+                            </select>
                         </td>
-                        </select>
                         {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_CATEGORYSELECT"), 'sHelpText': help_text("HELP_GENERAL_CATEGORYSELECT")} %}
                     </tr>
                     <tr>
@@ -161,7 +159,6 @@
                     </td>
                 </tr>
             </table>
-            </form>
             <!--
         Bitte Land f&uuml;r Versandkosten w&auml;hlen : <br>
         <select name="country" class="editinput" style="width: 210px;" {{ readonly }}>
@@ -173,6 +170,7 @@
 
     </tr>
 </table>
+</form>
 
 {% include "bottomnaviitem.html.twig" %}
 
