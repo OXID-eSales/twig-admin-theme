@@ -1,4 +1,4 @@
-w{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: "list"} %}
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate, box: "list"} %}
 {% set where = oView.getListFilter() %}
 
 {% if readonly %}
