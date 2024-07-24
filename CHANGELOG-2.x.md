@@ -9,6 +9,7 @@
 
 ### Fixed
 - Fix German translation of Parent theme not found case error [#0006195](https://bugs.oxid-esales.com/view.php?id=6195) [PR-7](https://github.com/OXID-eSales/twig-admin-theme/pull/7)
+- Fix Shop role template usage example
 
 ### Changed
 - New Icons for time activated products

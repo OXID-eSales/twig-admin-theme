@@ -904,7 +904,7 @@ $aLang = [
     'ROLES_FEMAIN_UIHEADER' => 'Ident (parameters)',
     'ROLES_FEMAIN_UIHEADERRIGHT' => 'A',
     'ROLES_FEMAIN_UIEXAMPLE' => 'Beispiel: <i>IDENT[&class1;class2;function1;function2...]</i>',
-    'ROLES_FEMAIN_UITPLEXAMPLE' => 'In Template: <i>[{ oxhasrights ident=\'IDENT\' }] ... [{ /oxhasrights }]</i>',
+    'ROLES_FEMAIN_UITPLEXAMPLE' => 'In Template: <i>{% hasrights { ident: "IDENT" } %} ... {% endhasrights %}</i>',
     'ROLES_FEMAIN_UIINFO' => 'Rechte: (A)usführen',
     'ROLES_FEMAIN_ACTIVE' => 'Aktiv',
     'ROLES_BEMAIN_TITLE' => 'Titel',
