@@ -4,12 +4,12 @@
 
 ### Fixed
 - Fix malformed html structure, inline css/js [#0006471](https://bugs.oxid-esales.com/view.php?id=6471)
+- Fix shop role template usage example
 
 ## v2.4.0 - 2024-03-18
 
 ### Fixed
 - Fix German translation of Parent theme not found case error [#0006195](https://bugs.oxid-esales.com/view.php?id=6195) [PR-7](https://github.com/OXID-eSales/twig-admin-theme/pull/7)
-- Fix Shop role template usage example
 
 ### Changed
 - New Icons for time activated products
