@@ -8,12 +8,10 @@
 
 ### Removed
 - PHP v8.1 support
+- Unused logos
 
 ### Changed
 - New shop logo
-
-### Removed
-- Unused logos
 
 ## v2.4.0 - 2024-03-18
 
