@@ -1,10 +1,19 @@
 # Change Log for OXID Twig admin theme
 
-## v2.5.0  - Unreleased
+## v2.5.0 - Unreleased
 
 ### Fixed
 - Fix malformed html structure, inline css/js [#0006471](https://bugs.oxid-esales.com/view.php?id=6471)
 - Fix shop role template usage example
+
+### Removed
+- PHP v8.1 support
+
+### Changed
+- New shop logo
+
+### Removed
+- Unused logos
 
 ## v2.4.0 - 2024-03-18
 
