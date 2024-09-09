@@ -12,6 +12,7 @@
 
 ### Changed
 - New shop logo
+- Updated the `newsletter_recipients` form to include the new warning message and link to documentation.
 
 ## v2.4.0 - 2024-03-18
 

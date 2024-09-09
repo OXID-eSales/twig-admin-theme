@@ -17,7 +17,11 @@
         <tr>
             <td class="edittext">
             </td>
-            <td class="edittext"><br>
+            <td class="edittext">
+                <div class="messagebox">
+                    <strong>Notice:</strong>
+                    <p class="warning">{{ translate({ ident: "tbclnewsletter_warning" }) }}</p>
+                </div>
                 <input type="submit" class="edittext" name="export" id="newsletter_recipients"
                        value="{{ translate({ ident: "tbclnewsletter_recipients" }) }}"
                 onClick="Javascript:document.export_recipients.fnc.value='export'" {{ readonly }}>

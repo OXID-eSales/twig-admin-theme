@@ -1612,6 +1612,7 @@ $aLang = [
     'tbclmanufacturer_seo' => 'SEO',
     'tbclorder_iPayment' => 'IPayment',
     'tbclnewsletter_recipients' => 'Benutzer exportieren',
+    'tbclnewsletter_warning' => 'Die angezeigte Benutzerliste kann unvollständig sein, weil die Anzahl der Empfänger zu groß ist, um sie vollständig anzuzeigen.<br>Ausführliche Informationen zu den einzelnen Benutzerfeldern finden Sie in der <a href="https://docs.oxid-esales.com/eshop/en/latest/operation/newsletters/newsletters.html" target="_blank">Dokumentation</a>.',
     'tbcl_main' => 'Stamm',
     'tbcladminlinks_mall' => 'Mall',
     'tbcldelivery_mall' => 'Mall',
