@@ -1508,6 +1508,7 @@ $aLang = [
     /* tabs */
     'tbclorder_iPayment' => 'IPayment',
     'tbclnewsletter_recipients' => 'Export users',
+    'tbclnewsletter_warning' => 'The list of user shown may be incomplete because the number of recipients is too large to display in full.<br>For detailed information about each user field, please refer to the <a href="https://docs.oxid-esales.com/eshop/en/latest/operation/newsletters/newsletters.html" target="_blank">documentation</a>',
     'tbcl_main' => 'Main',
     'tbcladminlinks_mall' => 'Mall',
     'tbcldelivery_mall' => 'Mall',
