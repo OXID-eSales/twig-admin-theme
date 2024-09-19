@@ -20,7 +20,9 @@
             <td class="edittext">
                 <div class="messagebox">
                     <strong>Notice:</strong>
-                    <p class="warning">{{ translate({ ident: "tbclnewsletter_warning" }) }}</p>
+                    <p class="warning">
+                        {{ translate({ ident: 'tbclnewsletter_warning' })|replace({ '%link%': translate({ ident: 'tbclnewsletter_documentation_link' }) })|raw }}
+                    </p>
                 </div>
                 <input type="submit" class="edittext" name="export" id="newsletter_recipients"
                        value="{{ translate({ ident: "tbclnewsletter_recipients" }) }}"
