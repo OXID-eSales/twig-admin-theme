@@ -5,6 +5,7 @@
 ### Fixed
 - Fix malformed html structure, inline css/js [#0006471](https://bugs.oxid-esales.com/view.php?id=6471)
 - Fix shop role template usage example
+- Improve english translation for COUNTRY_MAIN_OXVATSTATUS_1 [#0007659](https://bugs.oxid-esales.com/view.php?id=7659) [PR-8](https://github.com/OXID-eSales/twig-admin-theme/pull/8)
 
 ### Removed
 - PHP v8.1 support
