@@ -1453,7 +1453,7 @@ $aLang = [
     'GENIMPORT_FIELDSENCLOSEDBY' => 'Zeichen, mit dem CSV-Daten eingefasst sind',
 
     'GENEXPORT_MENUITEM' => 'Service',
-    'GENEXPORT_MENUSUBITEM' => 'Gener. Export',
+    'GENEXPORT_MENUSUBITEM' => 'Produktexport',
 
     /* menu*/
     'dyn_menu' => 'Servicebereich',
@@ -1470,7 +1470,7 @@ $aLang = [
     'mxcountries' => 'Länder',
     'mxdiscount' => 'Rabatte',
     'mxdisplayorders' => 'Bestellungen',
-    'mxgenexp' => 'Gener. Export',
+    'mxgenexp' => 'Produktexport',
     'mxgenimp' => 'Gener. Import',
     'mxlanguages' => 'Sprachen',
     'mxlist' => 'Benutzerliste',
