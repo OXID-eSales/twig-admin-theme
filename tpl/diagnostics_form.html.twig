@@ -35,7 +35,7 @@
     <tr>
         <td valign="top">
 
-            {% if not empty(sErrorMessage) %}
+            {% if sErrorMessage is not empty %}
                 <p><span style="color: red"><b>{{ translate({ ident: "OXDIAG_ERRORMESSAGETEMPLATE" }) }}</b></span></p>
                 <span style="color: red">{{ sErrorMessage }}</span>
             {% elseif not oView.getParam('runAnalysis') %}
@@ -81,7 +81,7 @@
 
 
 
-{% if not empty(sResult) %}
+{% if sResult is not empty %}
 <h1>{{ translate({ ident: "OXDIAG_RESULT_SUCCESSFUL" }) }}</h1>
 <h2><strong><a class="underlined" href="{{ oViewConf.getSelfLink()|raw }}&amp;cl=diagnostics_main&amp;fnc=downloadResultFile">{{ translate({ ident: "OXDIAG_DOWNLOAD_FILE" }) }}</a></strong>.</h2>
 
