@@ -1,6 +1,6 @@
 # Change Log for OXID Twig admin theme
 
-## v2.5.0 - Unreleased
+## v2.5.0 - 2024-10-14
 
 ### Fixed
 - Fix malformed html structure, inline css/js [#0006471](https://bugs.oxid-esales.com/view.php?id=6471)
