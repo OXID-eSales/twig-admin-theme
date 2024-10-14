@@ -15,7 +15,7 @@
         "php": ">=8.2",
         "oxid-esales/twig-component": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "extra": {
         "oxideshop": {
             "assets-directory": "out/admin_twig",
