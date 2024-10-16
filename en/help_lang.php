@@ -145,7 +145,7 @@ $aLang = [
     'HELP_SHOP_CONFIG_DELETERATINGLOGS' => 'If users rate a product, they cannot rate the product again. Here you can set after how many days users are allowed to rate a product again. Leave empty to disable - products can be rated only once per user.',
 
     'HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK' => 'The online VAT ID check is executed if a customer from a foreign country inside the EU enters a VAT ID when ordering. If the VAT ID is valid, no VAT is calculated for this order.<br>' .
-        'If the check is disabled, the normal VAT for the according country is always calculated.',
+        'If the check is disabled, the VAT ID will be assumed as valid if country code is matching. With enabled online check, checkout is only possible with valid VAT ID (as long as the service is available).',
 
     'HELP_SHOP_CONFIG_ALTVATIDCHECKINTERFACEWSDL' => 'Here you can enter an alternative URL for the online VAT ID check.',
 
