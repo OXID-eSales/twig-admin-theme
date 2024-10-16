@@ -116,8 +116,8 @@ $aLang = [
         . '  <li>die meist verbreiteten Erweiterungen für den OXID eShop</li>'
         . '</ul>',
     'HELP_SHOP_CONFIG_DELETERATINGLOGS' => 'Wenn Benutzer einen Artikel bewerten, können Sie den Artikel nicht erneut bewerten. Hier können Sie einstellen, dass die Benutzer nach einer bestimmten Anzahl von Tagen den Artikel erneut bewerten können.',
-    'HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK' => 'Die Online USt-ID Prüfung wird immer ausgeführt, wenn ein Kunde aus dem Ausland (aber innerhalb der EU) eine Umsatzsteuer-ID beim bestellen angibt. Wenn die UST-ID gültig ist, wird für die Bestellung keine Umsatzsteuer berechnet.<br>' .
-        'Wenn die Prüfung ausgeschaltet ist, wird immer die für das entsprechende Land eingestelle Umsatzsteuer berechnet.',
+    'HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK' => 'Die Online USt-ID Prüfung wird immer ausgeführt, wenn ein Kunde aus dem Ausland (aber innerhalb der EU) eine Umsatzsteuer-ID beim Bestellen angibt. Wenn die UST-ID gültig ist, wird für die Bestellung keine Umsatzsteuer berechnet.<br>' .
+        'Wenn die Prüfung ausgeschaltet ist, wird die eingegebene VAT ID als gültig angesehen, solange der Länderprefix korrekt ist. Ist der Online-Check eingeschaltet, ist ein Checkout (bei verfügbarem Service) nur mit gültiger VAT ID möglich.',
     'HELP_SHOP_CONFIG_ALTVATIDCHECKINTERFACEWSDL' => 'Hier können Sie eine alternative URL für die Online UST-ID Prüfung eingeben.',
     'HELP_SHOP_CONFIG_PSLOGIN' => 'Transformiert Ihren Shop in einen Shop mit beschränktem Zugriff. Auf diese Weise erzeugen ' .
         'Sie Private Sales Communities mit geschlossenen Nutzergruppen.',
