@@ -294,7 +294,7 @@ $aLang = [
 
     'HELP_ARTICLE_EXTEND_BLFIXEDPRICE' => 'Wished price can be turned off for this product.',
 
-    'HELP_ARTICLE_EXTEND_SKIPDISCOUNTS' => 'If <span class="navipath_or_inputname">Skip all negative discounts</span> is active, negative allowances will not be calculated for this product. These include discounts and vouchers.',
+    'HELP_ARTICLE_EXTEND_SKIPDISCOUNTS' => 'If <span class="navipath_or_inputname">Skip all discounts</span> is active, negative allowances will not be calculated for this product. These include discounts and vouchers.',
 
     'HELP_ARTICLE_EXTEND_TEMPLATE' => 'The detail view of a product can be displayed with a different template. For doing so, enter path and name of the template to be used.',
 
@@ -382,7 +382,7 @@ $aLang = [
 
     'HELP_CATEGORY_MAIN_PROMOTION_ICON' => 'With <span class="navipath_or_inputname">promotion icon</span> and <span class="navipath_or_inputname">upload icon</span> you can upload a category picture for promotion on start page. For displaying category promotion see <span class="navipath_or_inputname">Master Settings -> Customer Info -> Top offer in categories</span>',
 
-    'HELP_CATEGORY_MAIN_SKIPDISCOUNTS' => '<li>If <span class="navipath_or_inputname">Skip all negative discounts</span> is active, negative allowances will not be calculated for any products in this category.',
+    'HELP_CATEGORY_MAIN_SKIPDISCOUNTS' => '<li>If <span class="navipath_or_inputname">Skip all discounts</span> is active, negative allowances will not be calculated for any products in this category.',
 
 
     'HELP_CATEGORY_SEO_FIXED' => 'You can let the eShop recalculate the SEO URLs. A category page gets a new SEO URL if e. g. the title of the category has changed. The setting <span class="navipath_or_inputname">Fixed URL</span> prevents this: If it is active, the old SEO URL is kept and no new SEO URL is calculated.',
