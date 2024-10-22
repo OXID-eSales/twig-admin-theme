@@ -5,6 +5,9 @@
 ### Fixed
 - Improve help text for HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK [#0006328](https://bugs.oxid-esales.com/view.php?id=6328)
 
+### Changed
+- Improve translation for HELP_ARTICLE_EXTEND_SKIPDISCOUNTS [#0004535](https://bugs.oxid-esales.com/view.php?id=4535)
+
 ## v2.5.0 - 2024-10-14
 
 ### Fixed
