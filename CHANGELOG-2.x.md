@@ -7,6 +7,7 @@
 
 ### Changed
 - Replace the use of method empty() to empty expression
+- Improve translation for HELP_ARTICLE_EXTEND_SKIPDISCOUNTS [#0004535](https://bugs.oxid-esales.com/view.php?id=4535)
 
 ## v2.5.0 - 2024-10-14
 
