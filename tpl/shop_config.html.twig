@@ -863,11 +863,11 @@ function editThis(sID)
                 <div class="spacer"></div>
             </dl>
 
-            {% if oView.informationSendingToOxidConfigurable() %}
             <dl>
                 <dt>
                     <input type=hidden name="confbools[blSendTechnicalInformationToOxid]" value="false">
-                    <input type=checkbox name="confbools[blSendTechnicalInformationToOxid]" value="true"  {% if (confbools.blSendTechnicalInformationToOxid) %}checked{% endif %} {{ readonly }}>
+                    <input type=checkbox name="confbools[blSendTechnicalInformationToOxid]" value="true"
+                           {% if (confbools.blSendTechnicalInformationToOxid) %}checked{% endif %} {{ readonly }}>
                     {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_CONFIG_SEND_TECHNICAL_INFORMATION_TO_OXID"), 'sHelpText': help_text("HELP_SHOP_CONFIG_SEND_TECHNICAL_INFORMATION_TO_OXID")} %}
                 </dt>
                 <dd>
@@ -875,7 +875,6 @@ function editThis(sID)
                 </dd>
                 <div class="spacer"></div>
             </dl>
-            {% endif %}
 
             <dl>
                 <dt>

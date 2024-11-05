@@ -676,7 +676,7 @@ $aLang = [
     'EXCEPTION_FILEUPLOADERROR_6' => 'Missing a temporary folder', // message is taken from php docu
     'EXCEPTION_FILEUPLOADERROR_7' => 'Failed to write file to disk', // message is taken from php docu
     'EXCEPTION_FILEUPLOADERROR_8' => 'File upload stopped by extension', // message is taken from php docu
-    'EXCEPTION_NOTALLOWEDTYPE' => 'Not allowed file type (please, edit config.inc.php to allow this type of file)',
+    'EXCEPTION_NOTALLOWEDTYPE' => 'Not allowed file type (please, adjust the configuration to allow this type of file)',
     'EXCEPTION_NODESCRIPTIONADDED' => 'Please enter description',
     'EXCEPTION_NOMEDIAADDED' => 'Please enter existing media URL or upload the file',
     'EXCEPTION_COULDNOTWRITETOFILE' => 'Could not write to file',
@@ -742,7 +742,6 @@ $aLang = [
     'LANGUAGE_EMPTYLANGUAGENAME_ERROR' => 'Please enter language name!',
     'LANGUAGE_ABBREVIATION_INVALID_ERROR' => 'Language abbreviation invalid! Permitted characters are a-z, A-Z, 0-9 and the underscore.',
     'SETUP_DIRNOTDELETED_WARNING' => 'Please delete directory: Setup!',
-    'SETUP_CONFIGPERMISSIONS_WARNING' => 'Due to security reasons put your config.inc.php file to read-only mode!',
     'LOGIN_TITLE' => 'OXID eShop Login',
     // @deprecated 6.10.0
     'LOGIN_ERROR' => 'Error! Incorrect username and/or password!',
@@ -1805,7 +1804,6 @@ $aLang = [
 
     'SHOP_PERF_SEO_CACHE' => 'Enable SEO cache',
     'SHOP_PERF_SYSREQ_CHECK' => 'Enable system health messages at the start page',
-    'EXCEPTION_THEME_SHOULD_BE_ONLY_IN_DATABASE' => 'Theme should not be defined in config.inc.php',
     'EMAIL_PRICEALARM_CUSTOMER_PRICEALARMIN' => 'Wished Price in ',
     'EMAIL_PRICEALARM_CUSTOMER_HY' => 'Hallo,',
     'EMAIL_PRICEALARM_CUSTOMER_HAVEPRICEALARM' => 'we have a Wished Price in',

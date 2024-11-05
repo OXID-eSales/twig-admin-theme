@@ -677,7 +677,7 @@ $aLang = [
     'EXCEPTION_FILEUPLOADERROR_6' => 'Temporärer Ordner nicht verfügbar', // message is taken from php docu
     'EXCEPTION_FILEUPLOADERROR_7' => 'Schreibfehler', // message is taken from php docu
     'EXCEPTION_FILEUPLOADERROR_8' => 'Ungültige Dateiendung', // message is taken from php docu
-    'EXCEPTION_NOTALLOWEDTYPE' => 'Verbotener Dateityp. Bitte config.inc.php anpassen, um diesen Dateityp zu erlauben.',
+    'EXCEPTION_NOTALLOWEDTYPE' => 'Verbotener Dateityp. Bitte passen Sie die Konfiguration an, um diesen Dateityp zu erlauben.',
     'EXCEPTION_NODESCRIPTIONADDED' => 'Bitte Beschreibung angeben',
     'EXCEPTION_NOMEDIAADDED' => 'Bitte Medien URL angeben',
     'EXCEPTION_COULDNOTWRITETOFILE' => 'Kann die Datei nicht schreiben',
@@ -743,7 +743,6 @@ $aLang = [
     'LANGUAGE_EMPTYLANGUAGENAME_ERROR' => 'Bitte geben Sie den Namen der Sprache ein!',
     'LANGUAGE_ABBREVIATION_INVALID_ERROR' => 'Sprachkürzel nicht zulässig! Erlaubte Zeichen sind a-z, A-Z, 0-9 und der Unterstrich.',
     'SETUP_DIRNOTDELETED_WARNING' => 'Bitte löschen Sie das Setup-Verzeichnis',
-    'SETUP_CONFIGPERMISSIONS_WARNING' => 'WICHTIG: Aus Sicherheitsgründen setzen Sie Ihre config.inc.php Datei auf read-only-Modus!',
     'LOGIN_TITLE' => 'OXID eShop Login',
     // @deprecated 6.10.0
     'LOGIN_ERROR' => 'Fehler! Falscher Benutzername und/oder Passwort.',
@@ -1809,7 +1808,6 @@ $aLang = [
 
     'SHOP_PERF_SEO_CACHE' => 'SEO Cache aktivieren',
     'SHOP_PERF_SYSREQ_CHECK' => 'Meldungen der Systemgesundheitsprüfung auf der Startseite aktivieren',
-    'EXCEPTION_THEME_SHOULD_BE_ONLY_IN_DATABASE' => 'Theme darf nicht in config.inc.php definiert sein',
     'EMAIL_PRICEALARM_CUSTOMER_PRICEALARMIN' => 'Wunschpreis im ',
     'EMAIL_PRICEALARM_CUSTOMER_HY' => 'Hallo,',
     'EMAIL_PRICEALARM_CUSTOMER_HAVEPRICEALARM' => 'wir haben einen Wunschpreis im',
