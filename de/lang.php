@@ -790,6 +790,7 @@ $aLang = [
     'ORDER_ARTICLE_PARAMS' => 'Parameter',
     'ORDER_ARTICLE_STORNO' => 'Bestellung wurde storniert',
     'ORDER_ARTICLE_UPDATE_STOCK' => 'Aktualisieren',
+    'ERROR_MESSAGE_ARTICLE_ARTICLE_NOT_BUYABLE' => 'Artikel ist nicht kaufbar',
     'ORDER_DOWNLOADS_FILE' => 'Herunterladbare Datei',
     'ORDER_DOWNLOADS_FIRSTDOWNLOAD' => 'Erster Download',
     'ORDER_DOWNLOADS_LASTDOWNLOAD' => 'Letzter Download',

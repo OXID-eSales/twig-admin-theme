@@ -4,6 +4,7 @@
 
 ### Fixed
 - Improve help text for HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK [#0006328](https://bugs.oxid-esales.com/view.php?id=6328)
+- Import missing translation from frontend [#0006806](https://bugs.oxid-esales.com/view.php?id=6806)
 
 ### Changed
 - Replace the use of method empty() to empty expression
