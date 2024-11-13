@@ -40,24 +40,8 @@ dl dd ul {padding:3px 0 0 0;}
 dl dd ul a {color:#535353}
 
 /* Lists */
-#liste {padding: 5px 0 32px;}
-#liste td.listfilter {background: #f0f0f0 url(bg/filter_bg.gif) -1px 0 no-repeat;padding:0 0 0 5px;white-space:nowrap;}
-#liste td.listfilter input, #liste td.listfilter  select{font-size: 11px;}
-#liste td.listfilter .r1{background: #f0f0f0 url(bg/filter_bg.gif) top right no-repeat;padding:0 5px 0 0;}
-#liste td.listfilter .b1{background: #f0f0f0;padding:5px 0 2px;border-top: 1px solid #c8c8c8;height: 25px;}
-#liste td.listfilter.first{background-position: 0 0;}
 #liste td.listfilter .find{float:right;}
 #liste td.listfilter .find input{border:0;color:transparent;background: #f0f0f0 url(bg/ico_find.gif) center center no-repeat;width:20px;height:20px;padding-left:20px;cursor: pointer;cursor: hand;}
-
-#liste td.listheader {background-color: #f0f0f0;border:1px solid #c8c8c8;padding:0 5px 2px;border-top:none;border-left:none;color:#000;font-weight: bold;white-space:nowrap;}
-#liste td.listheader.first{border-left:1px solid #c8c8c8;}
-#liste td.listitem {background-color:#fafafa;border-right:1px solid #fff;}
-#liste td.listitem2 {background-color:#f0f0f0;border-right:1px solid #fff;}
-#liste td.listitem3 {background-color:#fff;color:#7a7a7a;border-right:1px solid #fff;}
-#liste td.listitem3 a{color:#7a7a7a;}
-#liste tr.listitem td.listitemfloating{overflow: hidden;}
-
-#liste td.active {background-image:url(bg/ico_active.gif); min-width:17px;background-position: center center ;background-repeat: no-repeat;}
 
 a.delete, a.unasign  {width: 15px;height: 15px;display:block;float:right;background:transparent url(bg/ico_delete.gif) 0 center no-repeat;margin:0 1px;line-height: 1px;}
 a.delete:hover, a.unasign:hover{background-position:-15px center;}
@@ -80,18 +64,6 @@ a.pause:hover{background-position:-15px center;}
 #liste td a.listitemgreen {color:#090;}
 #liste td a.listitemred   {color:#a00;}
 
-#liste td.pagination  {background: #f0f0f0 url(bg/pagination_bg.gif) bottom left no-repeat;padding:0 0 0 5px;border-top: 1px solid #c8c8c8;margin-top:1px;}
-#liste td.pagination  .r1{background: #f0f0f0 url(bg/pagination_bg.gif) bottom right no-repeat;padding:0 5px 0 0;}
-#liste td.pagination  .b1{background: #f0f0f0;padding:2px 5px;border-bottom: 1px solid #c8c8c8;height: 25px;}
-#liste td.pagination  input {text-align: center;}
-
-.box td.listheader {background-color: #f0f0f0;border:1px solid #c8c8c8;padding:2px 5px;border-left:none;color:#000;font-weight: bold;}
-.box td.listheader.first{border-left:1px solid #c8c8c8;}
-.box td.listitem {background-color:#fafafa;border-right:1px solid #fff;}
-.box td.listitem2 {background-color:#f0f0f0;border-right:1px solid #fff;}
-.box td.listitem3 {background-color:#fff;color:#7a7a7a;border-right:1px solid #fff;}
-.box td.listitem3 a{color:#7a7a7a;}
-
 tr.conftext:nth-child(odd)  td {background-color:#fafafa;}
 tr.conftext:nth-child(even) td {background-color:#f0f0f0;}
 
@@ -101,17 +73,6 @@ tr.conftext:nth-child(even) td {background-color:#f0f0f0;}
 
 /* Tabs */
 .tabs {position:fixed;bottom:0px;border-collapse: collapse;}
-.tabs .tab {border-bottom:1px solid #7a7a7a;position:relative;background-color: #f0f0f0;}
-.tabs .tab .b1 {color:#787878;border-left:1px solid #7a7a7a;border-top:1px solid #7a7a7a;padding:5px 15px;}
-.tabs .tab .b1 a{color:#787878;}
-.tabs .first{background-image:url(bg/tab_bg.gif);background-position:top left;background-repeat: no-repeat;padding-left:5px;}
-.tabs .first .b1{padding-left:10px;border-left:none;}
-.tabs .last .r1{background: transparent url(bg/tab_bg.gif) top right no-repeat;padding-right:5px;}
-.tabs .last .r1 .b1{padding-right:10px;}
-.tabs .active {background-color: #fff;color:#000;border-bottom: none;}
-.tabs .active .b1{padding-bottom:6px;}
-.tabs .active .b1 a {color:#000;}
-.tabs .disabled .b1 a {color:#fff;}
 
 .error {color:#F00000;font-weight: bold;}
 .errorbox {color:#F00000;font-weight: bold;padding: 3px 9px;background: #ffe;border: solid gray 1px;margin:1px 0 15px 0;}
@@ -197,33 +158,6 @@ td.edittext {white-space: nowrap; padding: 1px 0px 1px 5px; line-height: 110%;}
 .picPreview {margin-bottom: 5px}
 .picDescr { text-align: center; color: #666; padding-top: 5px; border-top: 1px solid #eee;}
 .notActive { color: #666;}
-
-
-
-
-table.moduleBlockErrorsTable {
-    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    padding: 0;
-    margin: 0 0 10px;
-    border : 1px solid #b8b8b8;
-    border-collapse: collapse;
-}
-
-table.moduleBlockErrorsTable td {
-    border: 0;
-    height: 14px;
-    padding: 2px 10px;
-    margin: 0;
-    border-right  : 1px dotted #b8b8b8;
-    border-bottom : 1px solid #b8b8b8;
-}
-
-table.moduleBlockErrorsTable thead td {
-    font-weight: 900;
-    border-right  : 1px solid #b8b8b8;
-    border-bottom : 2px solid #b8b8b8;
-}
 
 a.themetitle {font-weight: 900; color: #777; padding-left:5px; text-decoration: underline}
 a.themetitle:hover {color: #000;}
