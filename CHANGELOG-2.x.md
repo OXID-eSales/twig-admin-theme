@@ -13,6 +13,7 @@
 
 ### Removed
 - Translations used for browser-based shop setup and `config.inc.php` management
+- Removed unused css and images from `out/admin_twig/img` folder
 
 ## v2.5.0 - 2024-10-14
 
