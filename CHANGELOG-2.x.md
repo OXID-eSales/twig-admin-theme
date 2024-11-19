@@ -5,6 +5,7 @@
 ### Fixed
 - Improve help text for HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK [#0006328](https://bugs.oxid-esales.com/view.php?id=6328)
 - Import missing translation from frontend [#0006806](https://bugs.oxid-esales.com/view.php?id=6806)
+- Fix untranslated string in the newsletter admin area [PR-9](https://github.com/OXID-eSales/twig-admin-theme/pull/9)
 
 ### Changed
 - Replace the use of method empty() to empty expression
