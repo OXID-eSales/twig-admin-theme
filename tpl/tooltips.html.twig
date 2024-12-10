@@ -29,7 +29,7 @@ function popUp(evt,currElem)
     if((x + popUpWin.offsetWidth) > window.innerWidth) {
         x = offset.left - popUpWin.offsetWidth - 5;
     }
-    
+
     popUpWin.style.top = Math.max(2,y)+'px';
     popUpWin.style.left= Math.max(2,x)+'px';
     popUpWin.style.visibility = "visible";
@@ -63,10 +63,10 @@ function popDown(currElem)
 <span class="popUpStyle" id="mallcategory_new" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_NEWMALLCAT" }) }}</span>
 <span class="popUpStyle" id="article_new" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_NEWARTICLE" }) }}</span>
 <span class="popUpStyle" id="article_vat" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEVAT" }) }}</span>
-<span class="popUpStyle" id="article_vonbis" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_TIMEFORMAT" }) }}{{ "now"|date_format("%Y-%m-%d %H:%M:%S")|format_date("datetime", true) }}</span>
+<span class="popUpStyle" id="article_vonbis" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_TIMEFORMAT" }) }}{{ "now"|date("Y-m-d G:i:s")|format_date("datetime", true) }}</span>
 <span class="popUpStyle" id="article_preview" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEREVIEW" }) }}</span>
 <span class="popUpStyle" id="article_stock" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLESTOCK" }) }}</span>
-<span class="popUpStyle" id="article_delivery" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEDELIVERY" }) }}{{ "now"|date_format("%Y-%m-%d %H:%M:%S")|format_date("date", true) }}</span>
+<span class="popUpStyle" id="article_delivery" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEDELIVERY" }) }}{{ "now"|date("Y.m.d G:i:s")|format_date("date", true) }}</span>
 <span class="popUpStyle" id="article_template" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLETEMPLATE" }) }}</span>
 <span class="popUpStyle" id="article_urlimg" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEURLIMG" }) }}</span>
 <span class="popUpStyle" id="article_unit" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEUNITDESCRIPTION" }) }}</span>
@@ -103,10 +103,10 @@ function popDown(currElem)
 <span class="popUpStyle" id="mallcategory_new" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_NEWMALLCAT" }) }}</span>
 <span class="popUpStyle" id="article_new" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_NEWARTICLE" }) }}</span>
 <span class="popUpStyle" id="article_vat" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEVAT" }) }}</span>
-<span class="popUpStyle" id="article_vonbis" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_TIMEFORMAT" }) }}{{ "now"|date_format("%Y-%m-%d %H:%M:%S")|format_date("datetime", true) }}</span>
+<span class="popUpStyle" id="article_vonbis" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_TIMEFORMAT" }) }}{{ "now"|date("Y.m.d G:i:s")|format_date("datetime", true) }}</span>
 <span class="popUpStyle" id="article_preview" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEREVIEW" }) }}</span>
 <span class="popUpStyle" id="article_stock" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLESTOCK" }) }}</span>
-<span class="popUpStyle" id="article_delivery" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEDELIVERY" }) }}{{ "now"|date_format("%Y-%m-%d %H:%M:%S")|format_date("date", true) }}</span>
+<span class="popUpStyle" id="article_delivery" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEDELIVERY" }) }}{{ "now"|date("Y.m.d G:i:s")|format_date("date", true) }}</span>
 <span class="popUpStyle" id="article_template" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLETEMPLATE" }) }}</span>
 <span class="popUpStyle" id="article_urlimg" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEURLIMG" }) }}</span>
 <span class="popUpStyle" id="article_unit" style="position: absolute;visibility: hidden;top:0;left:0;">{{ translate({ ident: "TOOLTIPS_ARTICLEUNITDESCRIPTION" }) }}</span>
