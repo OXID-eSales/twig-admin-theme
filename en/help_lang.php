@@ -63,10 +63,6 @@ $aLang = [
 
     'HELP_SHOP_CACHE_REVERSE_PROXY_ENABLED' => 'Activates a caching HTTP Reverse Proxy. Note: Do not use "Dynamic Content Caching" at the same time, as it could slow down the performance.',
 
-    // @deprecated will be removed in next major version
-    'HELP_SHOP_CACHE_LAYOUT_CACHE_AGE' => 'Sets lifetime of page layout in seconds. This will be send via HTTP headers, specifying header value "Age".',
-    // END deprecated
-
     'HELP_SHOP_CONFIG_ORDEROPTINEMAIL' => 'If double-opt-in is active, users get an e-mail with a confirmation link when they register for the newsletter. Only if this confirmation link is used the user is registered for the newsletter.<br>' .
         'Double-opt-in protects users from unwanted registrations. Without double-opt-in, any e-mail address can be registered for the newsletter. With double-opt-in, the owner of the e-mail address has to confirm the registration.',
 
