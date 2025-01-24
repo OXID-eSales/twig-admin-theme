@@ -927,7 +927,9 @@ $aLang = [
     'SELECTLIST_MAIN_ADDFIELD_POS' => 'Sortierung',
     'SELECTLIST_MAIN_CHOSENITEMSLIST' => 'Alle Auswahllisten des Artikels',
     'SELECTLIST_MAIN_ITEMSWITHCHOSLIST' => 'Artikel mit dieser Ausw.liste',
+    // @deprecated will be removed in next major version
     'SHOP_CACHE_FLUSH' => 'Cache leeren',
+    // END deprecated
     'SHOP_CACHE_TITLE' => 'Dynamic Content Caching',
     'SHOP_CACHE_ENABLED' => 'Caching aktivieren',
     'SHOP_CACHE_LIFETIME' => 'Cache Lebensdauer (TTL)',
@@ -935,13 +937,16 @@ $aLang = [
     'SHOP_CACHE_MISS_STATS' => 'Cache Miss [count/ratio/percent]',
     'SHOP_CACHE_COUNT_STATS' => 'Cache Count [Valid/Expired/Total]',
     'SHOP_CACHE_SIZE_STATS' => 'Cache Size [Valid/Expired/Total]',
+    // @deprecated will be removed in next major version
     'SHOP_CACHE_BACKEND' => 'Ausgewählte Caching-Methode',
     'SHOP_CACHE_BACKEND_ZS_SHM' => 'Zend Data Cache Shared Memory Storage',
     'SHOP_CACHE_BACKEND_ZS_DISK' => 'Zend Data Cache Disk Storage',
     'SHOP_CACHE_BACKEND_OXID' => 'OXID eShop Disk Storage Cache',
+    // END deprecated
     'SHOP_CACHE_CLASSES' => 'Cachbare Klassen',
     'SHOP_CACHE_AVAILABLE_FOR_NON_PRODUCTIVE' => 'Nicht im Produktivmodus verfügbar',
     'SHOP_CACHE_CONTENT_CACHE_FLUSH' => 'Cache leeren',
+    // @deprecated will be removed in next major version
     'SHOP_CACHE_DEFAULT_BACKEND_ACTIVE' => 'Caching aktivieren',
     'SHOP_CACHE_DEFAULT_BACKEND_TTL' => 'Cache Lebensdauer (TTL)',
     'SHOP_CACHE_DEFAULT_BACKEND_CONNECTOR' => 'Cache Connector',
@@ -961,9 +966,12 @@ $aLang = [
     'SHOP_CACHE_LAYOUT_CACHE_AGE' => 'Cache Lebensdauer (TTL)',
     'SHOP_CACHE_GROUP_DEFAULT_BACKEND' => 'Default Cache Backend',
     'SHOP_CACHE_GROUP_REVERSE_PROXY' => 'Reverse Proxy',
+    // END deprecated
     'SHOP_CACHE_GROUP_CONTENT_CACHE' => 'Dynamic Content Caching',
+    // @deprecated will be removed in next major version
     'SHOP_CACHE_WARNING_CONTENTCACHE_ENABLED' => 'Wir empfehlen, "Dynamic Content Caching" und "Reverse Proxy" nicht gleichzeitig zu verwenden, da das die Performance beeinträchtigen könnte.',
     'SHOP_CACHE_ENABLE_CACHE' => 'Möchten Sie wirklich aktivieren?',
+    // END deprecated
     'SHOP_MALL_SHOPURL' => 'URL des Shops',
     'SHOP_MALL_SHOPSSLSHOPURL' => 'SSL-URL des Shops',
     'SHOP_MALL_NATIVEIMAGES' => 'Datenverzeichnis /out aus aktivem Shop laden',
