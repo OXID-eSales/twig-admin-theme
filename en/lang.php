@@ -928,21 +928,26 @@ $aLang = [
     'SELECTLIST_MAIN_ADDFIELD_POS' => 'Sorting',
     'SELECTLIST_MAIN_CHOSENITEMSLIST' => 'All Lists this Product uses',
     'SELECTLIST_MAIN_ITEMSWITHCHOSLIST' => 'Products using this List',
+    // @deprecated will be removed in next major version
     'SHOP_CACHE_FLUSH' => 'Flush cache',
+    // END deprecated
     'SHOP_CACHE_TITLE' => 'Dynamic Content Caching',
     'SHOP_CACHE_ENABLED' => 'Enable caching',
     'SHOP_CACHE_HIT_STATS' => 'Cache Hit [count/ratio/percent]',
     'SHOP_CACHE_MISS_STATS' => 'Cache Miss [count/ratio/percent]',
     'SHOP_CACHE_COUNT_STATS' => 'Cache Count [Valid/Expired/Total]',
     'SHOP_CACHE_SIZE_STATS' => 'Cache Size [Valid/Expired/Total]',
+    // @deprecated will be removed in next major version
     'SHOP_CACHE_BACKEND' => 'Selected cache backend',
     'SHOP_CACHE_BACKEND_ZS_SHM' => 'Zend Data Cache Shared Memory Storage',
     'SHOP_CACHE_BACKEND_ZS_DISK' => 'Zend Data Cache Disk Storage',
     'SHOP_CACHE_BACKEND_OXID' => 'OXID eShop Disk Storage Cache',
+    // END deprecated
     'SHOP_CACHE_LIFETIME' => 'Cache lifetime (TTL)',
     'SHOP_CACHE_CLASSES' => 'Cachable classes',
     'SHOP_CACHE_AVAILABLE_FOR_NON_PRODUCTIVE' => 'Available in non-productive mode only',
     'SHOP_CACHE_CONTENT_CACHE_FLUSH' => 'Flush cache',
+    // @deprecated will be removed in next major version
     'SHOP_CACHE_DEFAULT_BACKEND_ACTIVE' => 'Enable caching',
     'SHOP_CACHE_DEFAULT_BACKEND_TTL' => 'Cache lifetime (TTL)',
     'SHOP_CACHE_DEFAULT_BACKEND_CONNECTOR' => 'Cache connector',
@@ -962,9 +967,12 @@ $aLang = [
     'SHOP_CACHE_LAYOUT_CACHE_AGE' => 'Cache lifetime (TTL)',
     'SHOP_CACHE_GROUP_DEFAULT_BACKEND' => 'Default Cache Backend',
     'SHOP_CACHE_GROUP_REVERSE_PROXY' => 'Reverse Proxy',
+    // END deprecated
     'SHOP_CACHE_GROUP_CONTENT_CACHE' => 'Dynamic Content Caching',
+    // @deprecated will be removed in next major version
     'SHOP_CACHE_WARNING_CONTENTCACHE_ENABLED' => 'We recommend to not use "Dynamic Content Caching" and "Reverse Proxy" at the same time, as it could slow down the performance.',
     'SHOP_CACHE_ENABLE_CACHE' => 'Are you sure you want to enable it?',
+    // END deprecated
     'SHOP_MALL_SHOPURL' => 'Shop URL',
     'SHOP_MALL_SHOPSSLSHOPURL' => 'Shop SSL URL',
     'SHOP_MALL_NATIVEIMAGES' => 'Load /out directory from active shop',
