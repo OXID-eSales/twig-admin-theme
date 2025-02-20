@@ -380,7 +380,7 @@ $aLang = [
 
     'HELP_CATEGORY_MAIN_THUMB' => 'With <span class="navipath_or_inputname">Picture</span> and <span class="navipath_or_inputname">Upload Picture</span> you can upload a picture for this category. The picture is shown at top of the category is viewed. Select the picture in <span class="navipath_or_inputname">Upload Picture</span>. When clicking on <span class="navipath_or_inputname">Save</span>, the picture is uploaded. After uploading, the filename of the picture is shown in <span class="navipath_or_inputname">Picture</span>.',
 
-    'HELP_CATEGORY_MAIN_PROMOTION_ICON' => 'With <span class="navipath_or_inputname">promotion icon</span> and <span class="navipath_or_inputname">upload icon</span> you can upload a category picture for promotion on start page. For displaying category promotion see <span class="navipath_or_inputname">Master Settings -> Customer Info -> Top offer in categories</span>',
+    'HELP_CATEGORY_MAIN_PROMOTION_ICON' => 'With <span class="navipath_or_inputname">promotion icon</span> and <span class="navipath_or_inputname">upload icon</span> you can upload a category picture for promotion.',
 
     'HELP_CATEGORY_MAIN_SKIPDISCOUNTS' => '<li>If <span class="navipath_or_inputname">Skip all discounts</span> is active, negative allowances will not be calculated for any products in this category.',
 

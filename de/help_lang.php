@@ -331,7 +331,7 @@ $aLang = [
     'HELP_CATEGORY_MAIN_THUMB' => 'Bei <span class="navipath_or_inputname">Bild</span> und <span class="navipath_or_inputname">Bild hochladen</span> können Sie ein Bild für die Kategorie hochladen, dieses Bild wird dann in der Kategorienansicht oben angezeigt. <br>' .
         'Wählen Sie bei <span class="navipath_or_inputname">Bild hochladen</span> das entsprechende Bild aus. Wenn Sie auf Speichern klicken, wird das Bild hochgeladen. Nachdem das Bild hochgeladen ist, wird der Dateiname des Bildes in <span class="navipath_or_inputname">Bild</span> angezeigt.',
 
-    'HELP_CATEGORY_MAIN_PROMOTION_ICON' => 'Das Bild für die Startseite wird angezeigt, wenn diese Kategorie auf der Startseite beworben wird. Siehe auch <span class="navipath_or_inputname">Kundeninformationen -> Aktionen verwalten -> Kategorien-Topangebot</span>.',
+    'HELP_CATEGORY_MAIN_PROMOTION_ICON' => 'Mit dem <span class="navipath_or_inputname">Werbesymbol</span> und <span class="navipath_or_inputname">Upload-Symbol</span> können Sie ein Kategorie-Bild für Werbezwecke hochladen.',
 
     'HELP_CATEGORY_MAIN_SKIPDISCOUNTS' => 'Wenn <span class="navipath_or_inputname">Alle neg. Nachlässe ignorieren</span> aktiv ist, werden für alle Artikel in dieser Kategorie keine negativen Nachlässe berechnet.',
 
