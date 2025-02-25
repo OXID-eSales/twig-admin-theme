@@ -21,6 +21,7 @@ window.onload = function ()
 
 <div id="liste">
 
+<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
 <table cellspacing="0" cellpadding="0" border="0" width="100%">
     <colgroup>
         {% block admin_attribute_list_colgroup %}
@@ -28,7 +29,7 @@ window.onload = function ()
             <col width="2%">
         {% endblock %}
     </colgroup>
-<form name="search" id="search" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+
 {% include "_formparams.html.twig" with {cl: "attribute_list", lstrt: lstrt, actedit: actedit, oxid: oxid, fnc: "", language: actlang, editlanguage: actlang} %}
 <tr class="listitem">
     {% block admin_attribute_list_filter %}
@@ -80,6 +81,8 @@ window.onload = function ()
 {% endif %}
 {% endfor %}
 {% include "pagenavisnippet.html.twig" %}
+
+</table>
 </form>
 </table>
 </div>

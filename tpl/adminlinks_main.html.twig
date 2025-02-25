@@ -12,10 +12,9 @@
     <input type="hidden" name="cl" value="adminlinks_main">
     <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
 </form>
-
+<form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post" onSubmit="copyLongDesc( 'oxlinks__oxurldesc' );">
       <table cellspacing="0" cellpadding="0" border="0" width="98%">
         <colgroup><col width="20%"><col width="5%"><col width="75%"></colgroup>
-        <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post" onSubmit="copyLongDesc( 'oxlinks__oxurldesc' );">
         {{ oViewConf.getHiddenSid()|raw }}
         <input type="hidden" name="cl" value="adminlinks_main">
         <input type="hidden" name="fnc" value="">
@@ -80,9 +79,9 @@
               {% endblock %}
           </td>
         </tr>
-        </form>
-      </table>
 
+      </table>
+</form>
 {% include "bottomnaviitem.html.twig" %}
 
 {% include "bottomitem.html.twig" %}
