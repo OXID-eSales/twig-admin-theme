@@ -11,7 +11,8 @@
 ### Changed
 - Replace the use of method empty() to empty expression
 - Improve translation for HELP_ARTICLE_EXTEND_SKIPDISCOUNTS [#0004535](https://bugs.oxid-esales.com/view.php?id=4535)
-
+- jQueryUI updated to v1.14.1 version
+- 
 ### Deprecated
 - Translations related to cache backend
 
