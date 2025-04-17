@@ -1,6 +1,6 @@
 {% include "headitem.html.twig" with {title: "TOOLS_LIST_TITLE"|translate, box: "list"} %}
 
-<script type="text/javascript">
+<script>
 <!--
 window.onload = function ()
 {
@@ -71,7 +71,7 @@ window.onload = function ()
 
 {% include "pagetabsnippet.html.twig" with {noOXIDCheck: "true"} %}
 
-<script type="text/javascript">
+<script>
 if (parent.parent)
 {   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
     parent.parent.sMenuItem    = "{{ translate({ ident: "TOOLS_LIST_MENUITEM" }) }}";

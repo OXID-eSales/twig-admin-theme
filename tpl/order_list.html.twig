@@ -7,7 +7,7 @@
     {% set readonly = "" %}
 {% endif %}
 
-<script type="text/javascript">
+<script>
 <!--
 function StornoThisArticle( sID)
 {
@@ -153,7 +153,7 @@ window.onload = function ()
 
 {% include "pagetabsnippet.html.twig" %}
 
-<script type="text/javascript">
+<script>
 if (parent.parent)
 {   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
     parent.parent.sMenuItem    = "{{ translate({ ident: "ORDER_LIST_MENUITEM" }) }}";

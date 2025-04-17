@@ -10,7 +10,7 @@
 {% set viewListSize = oView.getViewListSize() %}
 {% set whereparam = whereparam|cat("viewListSize=")|cat(viewListSize) %}
 
-<script type="text/javascript">
+<script>
 <!--
 function editThis ( sID )
 {
@@ -159,7 +159,7 @@ function changeLanguage()
 
 </div>
 
-<script type="text/javascript">
+<script>
 if (parent.parent)
 {   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
     parent.parent.sMenuItem    = "{{ translate({ ident: "GENERAL_MENUITEM" }) }}";

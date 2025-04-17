@@ -61,8 +61,6 @@ $aLang = [
 
     'HELP_SHOP_CACHE_CLASSES' => 'Here you set which view classes are cached.<br> Only change this setting if you are familiar with the caching mechanisms!',
 
-    'HELP_SHOP_CACHE_REVERSE_PROXY_ENABLED' => 'Activates a caching HTTP Reverse Proxy. Note: Do not use "Dynamic Content Caching" at the same time, as it could slow down the performance.',
-
     'HELP_SHOP_CONFIG_ORDEROPTINEMAIL' => 'If double-opt-in is active, users get an e-mail with a confirmation link when they register for the newsletter. Only if this confirmation link is used the user is registered for the newsletter.<br>' .
         'Double-opt-in protects users from unwanted registrations. Without double-opt-in, any e-mail address can be registered for the newsletter. With double-opt-in, the owner of the e-mail address has to confirm the registration.',
 
@@ -206,8 +204,6 @@ $aLang = [
         '<li><span class="userinput_or_code">manual</span>: You can define the products in <span class="navipath_or_inputname">Customer Info -> Promotions -></span> in the promotion <span class="filename_filepath_or_italic">Top of the Shop</span>.</li>' .
         '<li><span class="userinput_or_code">automatic</span>: The products are calculated automatically.</li></ul>',
 
-    'HELP_SHOP_PERF_LOADFULLTREE' => 'If this setting is checked, the complete category tree is shown in the category navigation (all categories are expanded). This only works if the category navigation is not shown at top.',
-
     'HELP_SHOP_PERF_LOADACTION' => 'If this setting is checked, promotions like <span class="filename_filepath_or_italic">Just arrived!</span> and <span class="filename_filepath_or_italic">Top of the Shop</span> are loaded and shown.',
 
     'HELP_SHOP_PERF_USESELECTLISTPRICE' => 'In selection lists surcharges/discounts can be set up. If this setting is checked, the surcharges/discounts are loaded and applied. If unchecked, the surcharges/discounts aren\'t applied.',
@@ -217,8 +213,6 @@ $aLang = [
     'HELP_SHOP_PERF_LOADDELIVERY' => 'If you deactivate this setting, no shipping costs are calculated: The shipping costs are always 0.00 EUR.',
 
     'HELP_SHOP_PERF_LOADPRICE' => 'If you deactivate this setting, no product prices are calculated: No prices are shown.',
-
-    'HELP_SHOP_PERF_PARSELONGDESCINSMARTY' => 'If this setting is active, the descriptions of products and categories are parsed trough Smarty: You can use Smarty tags (e. g. for using variables) <br>',
 
     'HELP_SHOP_PERF_LOADSELECTLISTSINALIST' => 'Normally selection lists are only shown in the detail view of a product. If you activate this setting, the selection lists are also shown in product lists (e. g. search results, categories).',
 
@@ -246,8 +240,6 @@ $aLang = [
     'HELP_SHOP_SEO_STATICURLS' => 'For special pages (e. g. general terms and conditions) you can enter fixed SEO URLs. When selecting a static URL, the normal URL is shown in <span class="navipath_or_inputname">Standard URL</span>. In the input fields below you can define a SEO URL for each language.',
 
     'HELP_SHOP_MAIN_PRODUCTIVE' => 'Non-productive eShop mode is intended for eShop installation, configuration, template customization and module debugging phase. As soon as productive mode is turned <span class="warning_or_important_hint">ON</span>, the cache handling and the error reporting behavior is optimized for the live shop.<br><span class="warning_or_important_hint">Activate this setting when the eShop is launched.</span>',
-
-    'HELP_SHOP_MAIN_ACTIVE' => 'With <span class="navipath_or_inputname">Active</span> you can enable/disable the complete eShop. If the eShop is disabled, a message saying the eShop is temporary offline is displayed to the users. This can be useful for maintenance.',
 
     'HELP_SHOP_MAIN_INFOEMAIL' => 'All e-mails sent via the contact page are sent to this e-mail address.',
 
@@ -296,19 +288,9 @@ $aLang = [
 
     'HELP_ARTICLE_FILES_DOWNLOAD_EXPIRATION_TIME' => 'Specify the time in hours, the download link is valid after the first download. For this file you can overwrite the default setting, which was defined in Master Settings -> Core Setting -> Settings -> Downloads for all products.',
 
-    'HELP_ARTICLE_PICTURES_ICON' => 'Icons are the smallest pictures of a product. For example, they are used in the shopping cart.<br>' .
-        'Uploading custom icon will override icon, generated from the first product picture.<br>' .
-        'After uploading, the filename is shown in Icon. If no icon is uploaded yet, --- is displayed.',
-
-    'HELP_ARTICLE_PICTURES_THUMB' => 'Thumbnails are small product pictures. For example, they are used in product lists (categories, search results).<br>' .
-        'Uploading custom thumbnail will override the thumbnail generated from the first product picture.<br>' .
-        'After uploading, the filename is shown in Thumbnail. If no thumbnail is uploaded yet, ---- is displayed.',
-
-    'HELP_ARTICLE_PICTURES_PIC1' => 'Pictures are used in the detail view of a product. You can upload up to 7 pictures per product. After uploading, the filename is shown in the accordant input field. If no picture is uploaded yet, --- is displayed.<br>' .
-        'Pictures with a maximum of 2 MB or 1500 * 1500 pixel resolution can be uploaded. This restriction is to avoid problems with the PHP memory limit. After uploading, the main picture, zoom picture, thumbnail and icon will be generated automatically.',
-
-    'HELP_ARTICLE_PICTURES_ZOOM1' => 'Zoom pictures are extra large pictures which can be opened from the detail view of a product. <br>' .
-        'You can upload zoom pictures in <span class="navipath_or_inputname">Zoom X upload</span>. After uploading, the filename is shown in <span class="navipath_or_inputname">Zoom X</span>. If no zoom picture is uploaded yet, <span class="userinput_or_code">nopic.jpg</span> is displayed.',
+    'HELP_ARTICLE_PICTURES_ICON' => 'Icons are the smallest pictures of a product. For example, they are used in the shopping cart.',
+    'HELP_ARTICLE_PICTURES_THUMB' => 'Thumbnails are small product pictures. For example, they are used in product lists (categories, search results).',
+    'HELP_ARTICLE_PICTURES_PIC1' => 'Pictures are used in the detail view of a product.',
 
     'HELP_ARTICLE_STOCK_REMINDACTIV' => 'To send an e-mail notification that the article is in low stock, activate the checkbox.<br>' .
         'Verify the following: The e-mail address used is the one you have defined under *Master Settings | Core Settings| Main in the Info e-mail Address field.<br>' .
@@ -330,14 +312,6 @@ $aLang = [
 
     'HELP_ARTICLE_STOCK_DELIVERY' => 'Here you can enter the date when the product will be available again if it is sold out. The format is year-month-day, e. g. 2009-02-16.',
 
-    'HELP_ARTICLE_SEO_FIXED' => 'You can let the eShop recalculate the SEO URLs. A product page gets a new SEO URL if e. g. the title of the product has changed. The setting <span class="navipath_or_inputname">Fixed URL</span> prevents this: If it is active, the old SEO URL is kept and no new SEO URL is calculated.',
-
-    'HELP_ARTICLE_SEO_KEYWORDS' => 'These keywords are integrated in the HTML sourcecode of the product page (META keywords). This information is used by search engines. Suitable keywords for the product can be entered here. If it\'s left blank, the keywords are generated automatically.',
-
-    'HELP_ARTICLE_SEO_DESCRIPTION' => 'This description is integrated in the HTML sourcecode of the product page (META description). This text is often displayed in result pages of search engines. A suitable description can be entered here. If it\'s left blank, the description is generated automatically.',
-
-    'HELP_ARTICLE_SEO_ACTCAT' => 'You can define several SEO URLs for products: For certain categories and manufacturer pages. With <span class="navipath_or_inputname">Active Category/Vendor</span> you can select the SEO URL you want to edit.',
-
     'HELP_ARTICLE_STOCK_STOCKTEXT' => 'Here you can enter a message which is shown if the product is in stock.',
 
     'HELP_ARTICLE_STOCK_NOSTOCKTEXT' => 'Here you can enter a message which is shown if the product is out of stock.',
@@ -355,8 +329,6 @@ $aLang = [
     'HELP_ARTICLE_VARIANT_VARNAME' => '<span class="navipath_or_inputname">Name of Selection</span> defines how the selection of the variants is labeled , e.g. <span class="userinput_or_code">Color</span> or <span class="userinput_or_code">Size</span>.',
 
     'HELP_ATTRIBUTE_MAIN_DISPLAYINBASKET' => 'If checked, this attribute\'s value will be shown in cart and order overview below the product title.',
-
-    'HELP_CATEGORY_MAIN_HIDDEN' => 'With <span class="navipath_or_inputname">Hidden</span> <ou can define if this category is shown to users. If a category is hidden it is not shown to the users, even if it is active.',
 
     'HELP_CATEGORY_MAIN_PARENTID' => 'In <span class="navipath_or_inputname">Subcategory Of</span> you specify the point at which the category is to appear:<br>' .
         '<ul><li>If the category is not to be a subcategory of any other category, then select <span class="userinput_or_code">--</span> Off.</li>' .
@@ -376,14 +348,6 @@ $aLang = [
 
     'HELP_CATEGORY_MAIN_SKIPDISCOUNTS' => '<li>If <span class="navipath_or_inputname">Skip all discounts</span> is active, negative allowances will not be calculated for any products in this category.',
 
-
-    'HELP_CATEGORY_SEO_FIXED' => 'You can let the eShop recalculate the SEO URLs. A category page gets a new SEO URL if e. g. the title of the category has changed. The setting <span class="navipath_or_inputname">Fixed URL</span> prevents this: If it is active, the old SEO URL is kept and no new SEO URL is calculated.',
-
-    'HELP_CATEGORY_SEO_KEYWORDS' => 'These keywords are integrated in the HTML sourcecode of the category page (META keywords). This information is used by search engines. Suitable keywords for the category can be entered here. If it\'s left blank, the keywords are generated automatically.',
-
-    'HELP_CATEGORY_SEO_DESCRIPTION' => 'This description is integrated in the HTML sourcecode of the category page (META description). This text is often displayed in result pages of search engines. A suitable description can be entered here. If it\'s left blank, the description is generated automatically.',
-
-    'HELP_CATEGORY_SEO_SHOWSUFFIX' => 'With this setting you can specify if the title suffix is shown in the browser window title when the category page is opened. The title suffix can be set in <span class="navipath_or_inputname">Master Settings -> Core Settings -> SEO -> Title Suffix</span>.',
     'HELP_CONTENT_MAIN_SNIPPET' => 'If you select <span class="navipath_or_inputname">Snippet</span> you can include this CMS page within other CMS pages by its ident: <span class="userinput_or_code">{% include_content "ident_of_the_cms_page" %}</span>',
 
     'HELP_CONTENT_MAIN_MAINMENU' => 'If you select <span class="navipath_or_inputname">Upper Menu</span>, a link to this CMS page is shown in the upper menu (At Terms and About Us).',
@@ -391,12 +355,6 @@ $aLang = [
     'HELP_CONTENT_MAIN_CATEGORY' => 'If you select <span class="navipath_or_inputname">Category</span>, a link to this CMS page is shown in the category navigation below the other categories.',
 
     'HELP_CONTENT_MAIN_MANUAL' => 'If you select <span class="navipath_or_inputname">Manually</span>, a link is created which you can use to include this CMS page in other CMS pages. The link is shown below when you click on <span class="navipath_or_inputname">Save</span>',
-    'HELP_CONTENT_SEO_FIXED' => 'You can let the eShop recalculate the SEO URLs. A CMS page gets a new SEO URL if e. g. the title of the CMS page has changed. The setting <span class="navipath_or_inputname">Fixed URL</span> prevents this: If it is active, the old SEO URL is kept and no new SEO URL is calculated.',
-
-    'HELP_CONTENT_SEO_KEYWORDS' => 'These keywords are integrated in the HTML sourcecode of the CMS page (META keywords). This information is used by search engines. Suitable keywords for the CMS page can be entered here. If it\'s left blank, the keywords are generated automatically.',
-
-    'HELP_CONTENT_SEO_DESCRIPTION' => 'This description is integrated in the HTML sourcecode of the CMS page (META description). This text is often displayed in result pages of search engines. A suitable description can be entered here. If it\'s left blank, the description is generated automatically.',
-
 
     'HELP_DELIVERY_MAIN_COUNTRULES' => 'Under <span class="navipath_or_inputname">Calculation Rules</span> you can select how often the price is calculated:' .
         '<ul><li><span class="userinput_or_code">Once per cart</span>: Price is calculated once for the entire order.</li>' .
@@ -488,18 +446,6 @@ $aLang = [
 
     'HELP_USER_EXTEND_BONI' => 'Here you can enter a numerical value for the credit rating of the user. With the credit rating you can influence which payment methods are available to this user.',
 
-
-    'HELP_MANUFACTURER_MAIN_ICON' => 'With <span class="navipath_or_inputname">Icon</span> and <span class="navipath_or_inputname">Upload Icon</span> you can upload a picture for this manufacturer (e. g. the logo).In <span class="navipath_or_inputname">Upload Icon</span>, select the Picture you want to upload. When clicking on <span class="navipath_or_inputname">Save</span> the picture is uploaded. After uploading, the filename is shown in <span class="navipath_or_inputname">Icon</span>.',
-
-
-    'HELP_MANUFACTURER_SEO_FIXED' => 'You can let the eShop recalculate the SEO URLs. A manufacturer page gets a new SEO URL if e. g. the title of the manufacturer has changed. The setting <span class="navipath_or_inputname">Fixed URL</span> prevents this: If it is active, the old SEO URL is kept and no new SEO URL is calculated.',
-
-    'HELP_MANUFACTURER_SEO_KEYWORDS' => 'These keywords are integrated in the HTML sourcecode of the manufacturer page (META keywords). This information is used by search engines. Suitable keywords for the manufacturer can be entered here. If left blank, the keywords are generated automatically.',
-
-    'HELP_MANUFACTURER_SEO_DESCRIPTION' => 'This description is integrated in the HTML sourcecode of the manufacturer page (META description). This text is often displayed in result pages of search engines. A suitable description can be entered here. If left blank, the description is generated automatically.',
-
-    'HELP_MANUFACTURER_SEO_SHOWSUFFIX' => 'With this setting you can specify if the title suffix is shown in the browser window title when the manufacturer page is opened. The title suffix can be set in <span class="navipath_or_inputname">Master Settings -> Core Settings -> SEO -> Title Suffix</span>.',
-
     'HELP_MANUFACTURER_SORT' => 'You can use <span class="navipath_or_inputname">Sorting</span> to define the order in which manufacturers are displayed. The manufacturer with the biggest number is displayed first, and the manufacturer with the lowest number last.',
 
     'HELP_VOUCHERSERIE_MAIN_DISCOUNT' => 'In <span class="navipath_or_inputname">Discount</span>, you specify the magnitude of the discount. You can use the selection list after the entry field to specify whether the discount is to be applied as an absolute discount or as a percentage discount:' .
@@ -552,9 +498,6 @@ $aLang = [
     'HELP_SHOP_CONFIG_ADDITIONAL_SERVICE_VAT_CALCULATION_PROPORTIONAL' => 'The percentage of products in cart with the same VAT rate is used for calculating.',
     'HELP_SHOP_CONFIG_VIEWNETPRICE' => 'In frontend product prices are shown as net prices.',
     'HELP_SHOP_CONFIG_ENTERNETPRICE' => 'In admin area product prices must be entered as net prices.',
-
-    'HELP_REVERSE_PROXY_GET_FRONTEND' => 'Checks if Reverse Proxy is available for the frontend. Header of the shop\'s start page is verified.<br>The test could fail if different domains or protocols (http/https) are used for the admin panel and the store front.',
-    'HELP_REVERSE_PROXY_GET_BACKEND' => 'Admin area is displayed without Reverse Proxy. Varnish header could not be received.',
 
     'HELP_SHOP_CONFIG_DEBIT_OLD_BANK_INFORMATION_NOT_ALLOWED' => 'Only IBAN and BIC can be entered during the checkout. Bank account number and the bank code can only be entered if this check box is not activated.',
     'HELP_SHOP_CONFIG_ENABLE_INTANGIBLE_PRODUCTS_AGREEMENT' => 'If this option is activated, users have to confirm terms and conditions for intangible or downloadable products in the fourth step of the check-out process. Please make sure this option is enabled for the specific item as well!',

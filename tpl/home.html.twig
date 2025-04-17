@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     {% block admin_home_head %}
@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<script type="text/javascript">
+<script>
     parent.sShopTitle = "{{ actshop|addslashes|raw }}";
     parent.setTitle();
 </script>
@@ -84,7 +84,7 @@
     {% endfor %}
 {% endblock %}
 </table>
-<script type="text/javascript">
+<script>
     <!--
     function _homeExpAct(mnid,sbid){
         top.document.getElementById('navigation').contentWindow.adminnav._navExtExpAct(mnid,sbid);

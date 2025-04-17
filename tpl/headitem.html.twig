@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
   <title>{{ title }}</title>
@@ -15,11 +15,11 @@
   {% endblock %}
 
   {% block admin_headitem_incjs %}
-      <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}js/widgets/yui-polyfill.js"></script>
+      <script src="{{ oViewConf.getResourceUrl()|raw }}js/widgets/yui-polyfill.js"></script>
   {% endblock %}
 
   {% block admin_headitem_js %}
-      <script type="text/javascript">
+      <script>
       <!--
         // standard messages
         var sUnassignMessage = "{{ translate({ ident: 'GENERAL_YOUWANTTOUNASSIGN' }) }}";
@@ -52,7 +52,7 @@
 
         function cleanupLongDesc( sValue )
         {
-            if ( sValue == '<br>' || sValue == '<br />' ) {
+            if ( sValue === '<br>' || sValue === '<br />' ) {
                 return '';
             }
             return sValue;
@@ -74,10 +74,9 @@
             }
 
             if (textVal == null) {
-                var varName = 'editor_'+sIdent;
-                var varEl = document.getElementById(varName);
-                if (varEl != null) {
-                    textVal = cleanupLongDesc( varEl.value );
+                var element = document.getElementById('editor_' + sIdent);
+                if (element != null) {
+                    textVal = cleanupLongDesc( element.value );
                 }
             }
 

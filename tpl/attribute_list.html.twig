@@ -7,7 +7,7 @@
     {% set readonly = "" %}
 {% endif %}
 
-<script type="text/javascript">
+<script>
 	<!--
 	window.onload = function () {
 		top.reloadEditFrame();
@@ -100,7 +100,7 @@
 
 {% include "pagetabsnippet.html.twig" %}
 
-<script type="text/javascript">
+<script>
 	if (parent.parent) {
 		parent.parent.sShopTitle = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
 		parent.parent.sMenuItem = "{{ translate({ ident: "GENERAL_MENUITEM" }) }}";

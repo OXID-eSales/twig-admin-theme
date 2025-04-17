@@ -131,6 +131,7 @@ ul.req li.clear{clear:left;display:none;border:none;visibility:collapse;height:0
 .helpPanelText {display: none;}
 #helpTextContainer .yui-panel .bd {line-height: 120%;}
 .btnShowHelpPanel {background: url(bg/ico_help.gif) no-repeat; border:0 none; color:transparent; cursor:pointer; width:21px; height:19px;}
+#helpTextContainer .yui-panel-container {z-index: 9999;}
 
 td.edittext {white-space: nowrap; padding: 1px 0px 1px 5px; line-height: 110%;}
 .wrap {white-space: normal !important;}

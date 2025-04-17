@@ -7,7 +7,7 @@
     {% set readonly = "" %}
 {% endif %}
 
-<script type="text/javascript">
+<script>
 <!--
 window.onload = function ()
 {
@@ -97,7 +97,7 @@ window.onload = function ()
 {% include "pagetabsnippet.html.twig" %}
 
 
-<script type="text/javascript">
+<script>
 if (parent.parent)
 {   parent.parent.sShopTitle   = "{{ actshopobj.oxshops__oxname|addslashes|raw }}";
     parent.parent.sMenuItem    = "{{ translate({ ident: "USERGROUP_LIST_MENUITEM" }) }}";

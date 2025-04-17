@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+    <title id="deleteTitle">{{ title }}</title>
+    <!-- Bin lid (full width overlap) -->
+    <rect x="6" y="5" width="12" height="1" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+    <!-- Lid handle -->
+    <rect x="9.5" y="2" width="5" height="4" rx="2" stroke="currentColor"/>
+    <!-- Bin body -->
+    <rect x="7" y="6.5" width="10" height="10" stroke="currentColor" stroke-width="1.5"/>
+    <!-- 3 vertical ribs (kept within body) -->
+    <line x1="9.5" y1="9" x2="9.5" y2="15" stroke="currentColor" stroke-width="1"/>
+    <line x1="12" y1="9" x2="12" y2="15" stroke="currentColor" stroke-width="1"/>
+    <line x1="14.5" y1="9" x2="14.5" y2="15" stroke="currentColor" stroke-width="1"/>
+</svg>

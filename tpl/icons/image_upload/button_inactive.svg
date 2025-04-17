@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="product-media-icon" viewBox="0 0 24 24" role="img" aria-labelledby="toggleTitle">
+    <title id="inactiveTitle">{{ title }}</title>
+    <path d="M17,7A5,5 0 0,1 22,12A5,5 0 0,1 17,17H7A5,5 0 0,1 2,12A5,5 0 0,1 7,7H17M7,15A3,3 0 0,0 10,12A3,3 0 0,0 7,9A3,3 0 0,0 4,12A3,3 0 0,0 7,15Z"/>
+</svg>

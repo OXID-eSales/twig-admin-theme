@@ -4,7 +4,7 @@
     <title>{{ translate({ ident: "GENERAL_ADMIN_TITLE" }) }}</title>
     <link rel="shortcut icon" href="{{ oViewConf.getImageUrl()|raw }}favicon.ico">
 </head>
-<script type="text/javascript">
+<script>
 <!--//
 sInitValue = "[OXID Administrator]";
 sShopTitle = "";
@@ -72,7 +72,7 @@ function loadEditFrame(sUrl)
 }
 //-->
 </script>
-<script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}oxid.js"></script>
+<script src="{{ oViewConf.getResourceUrl()|raw }}oxid.js"></script>
 </html>
 
 <frameset cols="200,*" border="0">

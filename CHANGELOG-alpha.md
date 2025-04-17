@@ -9,6 +9,7 @@
 
 ### Changed
 - Replace date_format filter with Twig date filter
+- Product media management page has been redesigned
 
 ### Removed
-- Remove deprecated cache translations
+- Remove deprecated translations

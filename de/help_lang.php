@@ -44,7 +44,6 @@ $aLang = [
     'HELP_SHOP_CACHE_ENABLED' => 'Wenn Dynamic content caching aktiv ist, werden zusätzliche Inhalte gecached und dadurch die Performance Ihres eShops weiter gesteigert. Deaktivieren Sie die Einstellung, solange Ihr eShop noch nicht Produktiv eingesetzt und angepasst wird.',
     'HELP_SHOP_CACHE_LIFETIME' => 'Hier können Sie einstellen, wie viele Sekunden die gecachten Inhalte maximal gespeichert werden, bevor sie erneut berechnet werden. Die Standardeinstellung sind 36000 Sekunden.',
     'HELP_SHOP_CACHE_CLASSES' => 'Hier stellen Sie ein, welche View-Klassen gecached werden.<br> Ändern Sie diese Einstellung nur, wenn Sie mit den Caching-Mechanismen gut vertraut sind!',
-    'HELP_SHOP_CACHE_REVERSE_PROXY_ENABLED' => 'Aktiviert das Caching mit einem HTTP Reverse Proxy. Hinweis: Nicht zusammen mit "Dynamic Content Caching" verwenden, da das die Performance beeinträchtigen könnte.',
     'HELP_SHOP_CONFIG_ORDEROPTINEMAIL' => 'Wenn Double-Opt-In aktiviert ist, erhalten die Benutzer eine E-Mail mit einem Bestätigungs-Link, wenn sie sich für den Newsletter registrieren. Erst, wenn sie diesen Link besuchen, sind sie für den Newsletter angemeldet.<br>' .
         'Double-Opt-In schützt vor Anmeldungen, die nicht gewollt sind. Ohne Double-Opt-In können beliebige E-Mail Adressen für den Newsletter angemeldet werden. Dies wird z. B. auch von Spam-Robotern gemacht. Durch Double-Opt-In kann der Besitzer der E-Mail Adresse bestätigen, dass er den Newsletter wirklich empfangen will.',
     'HELP_SHOP_CONFIG_BIDIRECTCROSS' => 'Durch Crossselling können zu einem Artikel passende Artikel angeboten werden. Crossselling-Artikel werden im eShop bei <span class="filename_filepath_or_italic">Kennen Sie schon?</span> angezeigt.<br>' .
@@ -151,8 +150,6 @@ $aLang = [
         '<li><span class="userinput_or_code">manuell</span>: Sie können unter <span class="navipath_or_inputname">Kundeninformationen -> Aktionen verwalten</span> in der Aktion <span class="navipath_or_inputname">Topseller</span> einstellen, welche Artikel in der Liste angezeigt werden.</li>' .
         '<li><span class="userinput_or_code">automatisch</span>: Die Liste der meistverkauften Artikel wird automatisch berechnet.</li></ul>',
 
-    'HELP_SHOP_PERF_LOADFULLTREE' => 'Wenn die Einstellung aktiv ist, wird in der Kategoriennavigation der komplette Kategoriebaum angezeigt (Alle Kategorien sind \'ausgeklappt\'). Diese Einstellung funktioniert nur, wenn die Kategoriennavigation <span class="warning_or_important_hint">nicht</span> oben angezeigt wird.',
-
     'HELP_SHOP_PERF_LOADACTION' => 'Wenn die Einstellung aktiv ist, werden Aktionen wie <span class="filename_filepath_or_italic">Die Dauerbrenner</span>, <span class="filename_filepath_or_italic">Top of the Shop</span>, <span class="filename_filepath_or_italic">Frisch eingetroffen!</span> geladen und angezeigt.',
 
     'HELP_SHOP_PERF_USESELECTLISTPRICE' => 'In Auswahllisten können Sie Preis Auf/Abschläge einstellen. Wenn diese Einstellung aktiv ist, werden die Auf/Abschläge berechnet, ansonsten nicht.',
@@ -162,9 +159,6 @@ $aLang = [
     'HELP_SHOP_PERF_LOADDELIVERY' => 'Wenn Sie diese Einstellung ausschalten, berechnet der eShop keine Versandkosten: es werden immer 0,00 EUR als Versandkosten angegeben.',
 
     'HELP_SHOP_PERF_LOADPRICE' => 'Wenn Sie diese Einstellung ausschalten, werden die Artikelpreise nicht mehr berechnet und bei den Artikeln kein Preis mehr angezeigt.',
-
-    'HELP_SHOP_PERF_PARSELONGDESCINSMARTY' => 'Wenn die Einstellung aktiv ist, werden die Beschreibungstexte von Artikeln und Kategorien mit Smarty ausgeführt: Dann können Sie Smarty-Tags in die Beschreibungstexte einbinden (z. B. Variablen ausgeben). <br>' .
-        'Wenn die Einstellung nicht aktiv ist, werden die Beschreibungstexte so eingegeben, wie sie im Editor eingegeben werden.',
 
     'HELP_SHOP_PERF_LOADSELECTLISTSINALIST' => 'Normalerweise werden Auswahllisten nur in der Detailansicht eines Artikels angezeigt. Wenn Sie die Einstellung aktivieren, werden die Auswahllisten auch in Artikellisten (z. B. Suchergebnisse, Kategorieansichten) angezeigt.',
 
@@ -194,8 +188,6 @@ $aLang = [
     'HELP_SHOP_SEO_STATICURLS' => 'Für bestimmte Seiten (z. B. AGB\'s) im eShop können Sie feste suchmaschinenfreundliche URLs festlegen. Wenn Sie eine statische URL auswählen, wird in dem Feld <span class="navipath_or_inputname">Standard URL</span> die normale URL angezeigt. In den Eingabefeldern weiter unten können Sie für jede Sprache suchmaschinenfreundliche URLs eingeben.',
 
     'HELP_SHOP_MAIN_PRODUCTIVE' => 'Für Installation, Konfiguration, Anpassung der Templates und Modul-Debugging sollte der Shop nicht im Produktivmodus sein. Sobald der Produktivmodus aktiviert ist, wird das Cache Handling und das Error Reporting für den Livebetrieb des Shops optimiert.<br><span class="warning_or_important_hint">Aktivieren Sie diese Einstellung, bevor Ihr eShop öffentlich zugänglich gemacht wird.</span>',
-
-    'HELP_SHOP_MAIN_ACTIVE' => 'Mit <span class="navipath_or_inputname">Aktiv</span> können Sie Ihren kompletten eShop ein- und ausschalten. Wenn Ihr eShop ausgeschaltet ist, wird Ihren Kunden eine Meldung angezeigt, dass der eShop vorübergehend offline ist. Das kann für Wartungsarbeiten am eShop nützlich sein.',
 
     'HELP_SHOP_MAIN_INFOEMAIL' => 'An diese E-Mail-Adresse werden E-Mails gesendet, wenn Benutzer das Kontaktformular verwenden.',
 
@@ -245,19 +237,9 @@ $aLang = [
 
     'HELP_ARTICLE_FILES_NEW' => 'Geben Sie den Namen einer per FTP übertragenen Datei an oder laden Sie hier eine neue Datei hoch. Große Dateien sollten immer per FTP übertragen werden. Die Beschränkung der Dateigröße gilt nur für das Hochladen im Administrationsbereich. Sie hängt von den PHP-Einstellungen des Servers ab, die nur dort geändert werden können.',
 
-    'HELP_ARTICLE_PICTURES_ICON' => 'Icons sind die kleinsten Bilder eines Artikels, sie werden z. B. im Warenkorb verwendet. <br>' .
-        'Wenn Sie ein Icon manuell hochladen, wird das automatisch erzeugte Icon überschrieben.<br>' .
-        'Nach dem Upload wird der Dateiname des Bildes in Icon angezeigt. Solange noch kein Icon hochgeladen/automatisch generiert wurde, wird --- angezeigt.',
-
-    'HELP_ARTICLE_PICTURES_THUMB' => 'Thumbnails sind kleine Bilder eines Artikels, sie werden z. B. in der in Artikellisten verwendet. <br>' .
-        'Wenn Sie ein Thumbnail manuell hochladen, wird das automatisch erzeugte Thumbnail überschrieben.<br>' .
-        'Nach dem Upload wird der Dateiname des Bildes in Thumbnail angezeigt. Solange noch kein Thumbnail hochgeladen/automatisch generiert wurde, wird --- angezeigt.',
-
-    'HELP_ARTICLE_PICTURES_PIC1' => 'Artikelbilder werden in der Detailansicht eines Artikels verwendet. Sie können bis zu 7 Artikelbilder pro Artikel hochladen. Nach dem Hochladen wird der Dateiname im jeweiligen Eingabefeld angezeigt. Wenn noch kein Bild hochgeladen wurde, wird --- angezeigt. <br>' .
-        'Es können Bilder mit maximal 2 MB oder 1500*1500 Pixel Auflösung hochgeladen werden. Diese Einschränkung gilt, um Probleme mit dem PHP-Speicherlimit zu vermeiden. Danach wird aus diesem Bild automatisch das Artikelbild, Zoombild, Thumbnail und Icon generiert.',
-
-    'HELP_ARTICLE_PICTURES_ZOOM1' => 'Zoom-Bilder sind extra große Artikelbilder, Die in der Detailansicht eines Artikels verlinkt werden. <br>' .
-        'Zoom-Bilder können Sie bei <span class="navipath_or_inputname">Zoom X hochladen</span> hochladen. Bei <span class="navipath_or_inputname">Zoom X</span> wird nach dem Hochladen der Dateiname des Zoom-Bildes angezeigt, wenn noch kein Zoom-Bild hochgeladen wurde, wird <span class="userinput_or_code">nopic.jpg</span> angezeigt.',
+    'HELP_ARTICLE_PICTURES_ICON' => 'Icons sind die kleinsten Bilder eines Artikels, sie werden z. B. im Warenkorb verwendet.',
+    'HELP_ARTICLE_PICTURES_THUMB' => 'Thumbnails sind kleine Bilder eines Artikels, sie werden z. B. in der in Artikellisten verwendet.',
+    'HELP_ARTICLE_PICTURES_PIC1' => 'Artikelbilder werden in der Detailansicht eines Artikels verwendet.',
 
     'HELP_ARTICLE_STOCK_REMINDACTIV' => 'Um eine E-Mail-Benachrichtigung zu senden, dass der Artikel einen geringen Lagerbestand hat, aktivieren Sie das Kontrollkästchen.<br>' .
         'Die verwendete E-Mail-Adresse ist diejenige, die Sie unter Stammdaten | Grundeinstellungen | Stamm im Feld  im Feld \'E-Mail-Adresse für Infos\' festgelegt haben.<br>' .
@@ -277,14 +259,6 @@ $aLang = [
 
     'HELP_ARTICLE_STOCK_DELIVERY' => 'Hier können Sie eingeben, ab wann ein Artikel wieder lieferbar ist, wenn er ausverkauft ist. Das Format ist Jahr-Monat-Tag, z. B. 2008-10-21.',
 
-    'HELP_ARTICLE_SEO_FIXED' => 'Sie können die SEO URLs vom eShop neu berechnen lassen. Eine Artikelseite bekommt z. B. eine neue SEO URL, wenn Sie den Titel des Artikels ändern. Die Einstellung <span class="navipath_or_inputname">URL fixiert</span> unterbindet das: Wenn sie aktiv ist, wird die alte SEO URL beibehalten und keine neue SEO URL berechnet.',
-
-    'HELP_ARTICLE_SEO_KEYWORDS' => 'Diese Stichwörter werden in den HTML-Quelltext (Meta Keywords) eingebunden. Diese Information wird von Suchmaschinen ausgewertet. Hier können Sie passende Stichwörter zu dem Artikel eingeben. Wenn Sie nichts eingeben, werden die Stichwörter automatisch erzeugt.',
-
-    'HELP_ARTICLE_SEO_DESCRIPTION' => 'Dieser Beschreibungstext wird in den HTML-Quelltext (Meta Description) eingebunden. Dieser Text wird von vielen Suchmaschinen bei den Suchergebnissen angezeigt. Hier können Sie eine passende Beschreibung zu dem Artikel eingeben. Wenn Sie nichts eingeben, wird die Beschreibung automatisch erzeugt.',
-
-    'HELP_ARTICLE_SEO_ACTCAT' => 'Sie können für einen Artikel unterschiedliche SEO URLs festlegen: Für bestimmte Kategorien und für den Hersteller des Artikels. Mit <span class="navipath_or_inputname">Aktive Kategorie/Hersteller</span> können Sie wählen, welche SEO URL Sie anpassen möchten.',
-
     'HELP_ARTICLE_STOCK_STOCKTEXT' => 'Hier können Sie eine Meldung eingeben, die beim Artikel angezeigt wird, falls der Artikel auf Lager ist.',
 
     'HELP_ARTICLE_STOCK_NOSTOCKTEXT' => 'Hier können Sie eine Meldung eingeben, die beim Artikel angezeigt wird, falls der Artikel ausverkauft ist.',
@@ -303,8 +277,6 @@ $aLang = [
     'HELP_ARTICLE_IS_DOWNLOADABLE' => 'Dateien dieses Artikels können heruntergeladen werden.',
 
     'HELP_ATTRIBUTE_MAIN_DISPLAYINBASKET' => 'Wenn ausgewählt, wird der Wert dieses Attributs im Warenkorb und in der Bestellübersicht unter dem Artikeltitel angezeigt.',
-
-    'HELP_CATEGORY_MAIN_HIDDEN' => 'Mit <span class="navipath_or_inputname">Versteckt</span> können Sie einstellen, ob die Kategorie den Benutzern angezeigt werden soll. Wenn eine Kategorie versteckt ist, wird Sie den Benutzern nicht angezeigt, auch wenn die Kategorie aktiv ist.',
 
     'HELP_CATEGORY_MAIN_PARENTID' => 'Bei <span class="navipath_or_inputname">Unterkategorie von</span> stellen Sie ein, an welcher Stelle die Kategorie erscheinen soll:' .
         '<ul>' .
@@ -327,14 +299,6 @@ $aLang = [
 
     'HELP_CATEGORY_MAIN_SKIPDISCOUNTS' => 'Wenn <span class="navipath_or_inputname">Alle Nachlässe ignorieren</span> aktiv ist, werden für alle Artikel in dieser Kategorie keine negativen Nachlässe berechnet.',
 
-    'HELP_CATEGORY_SEO_FIXED' => 'Sie können die SEO URLs vom eShop neu berechnen lassen. Eine Kategorie bekommt z. B. eine neue SEO URL, wenn Sie den Titel der Kategorie ändern. Die Einstellung <span class="navipath_or_inputname">URL fixiert</span> unterbindet das: Wenn sie aktiv ist, wird die alte SEO URL beibehalten und keine neue SEO URL berechnet.',
-
-    'HELP_CATEGORY_SEO_SHOWSUFFIX' => 'Diese Einstellung bestimmt, ob das Suffix für den Fenstertitel angezeigt wird, wenn die Kategorieseite im eShop aufgerufen wird. Das Titel Suffix können Sie unter <span class="navipath_or_inputname">Stammdaten -> Grundeinstellungen -> SEO -> Titel Suffix</span> einstellen.',
-
-    'HELP_CATEGORY_SEO_KEYWORDS' => 'Diese Stichwörter werden in den HTML-Quelltext (Meta Keywords) eingebunden. Diese Information wird von Suchmaschinen ausgewertet. Hier können Sie passende Stichwörter zu der Kategorie eingeben. Wenn Sie nichts eingeben, werden die Stichwörter automatisch erzeugt.',
-
-    'HELP_CATEGORY_SEO_DESCRIPTION' => 'Dieser Beschreibungstext wird in den HTML-Quelltext (Meta Description) eingebunden. Dieser Text wird von vielen Suchmaschinen bei den Suchergebnissen angezeigt. Hier können Sie eine passende Beschreibung für die Kategorie eingeben. Wenn Sie nichts eingeben, wird die Beschreibung automatisch erzeugt.',
-
     'HELP_CONTENT_MAIN_SNIPPET' => 'Wenn Sie <span class="navipath_or_inputname">Snippet</span> auswählen, können Sie die CMS-Seite in anderen Seiten mit Hilfe des Idents einbinden: <span class="userinput_or_code">{% include_content "Ident_der_CMS_Seite" %}</span>',
 
     'HELP_CONTENT_MAIN_MAINMENU' => 'Wenn Sie <span class="navipath_or_inputname">Hauptmenü</span> auswählen, wird in der oberen Menüleiste ein Link zu der CMS-Seite angezeigt (bei AGB und Impressum).',
@@ -343,12 +307,6 @@ $aLang = [
 
     'HELP_CONTENT_MAIN_MANUAL' => 'Wenn Sie <span class="navipath_or_inputname">Manuell</span> auswählen, wird ein Link erzeugt, mit dem Sie die CMS-Seite in andere CMS-Seiten einbinden können. Der Link wird weiter unten angezeigt, wenn Sie auf Speichern klicken.',
 
-
-    'HELP_CONTENT_SEO_FIXED' => 'Sie können die SEO URLs vom eShop neu berechnen lassen. Eine CMS-Seite bekommt z. B. eine neue SEO URL, wenn Sie den Titel der CMS-Seite ändern. Die Einstellung <span class="navipath_or_inputname">URL fixiert</span> unterbindet das: Wenn sie aktiv ist, wird die alte SEO URL beibehalten und keine neue SEO URL berechnet.',
-
-    'HELP_CONTENT_SEO_KEYWORDS' => 'Diese Stichwörter werden in den HTML-Quelltext (Meta Keywords) eingebunden. Diese Information wird von Suchmaschinen ausgewertet. Hier können Sie passende Stichwörter zu der CMS-Seite eingeben. Wenn Sie nichts eingeben, werden die Stichwörter automatisch erzeugt.',
-
-    'HELP_CONTENT_SEO_DESCRIPTION' => 'Dieser Beschreibungstext wird in den HTML-Quelltext (Meta Description) eingebunden. Dieser Text wird von vielen Suchmaschinen bei den Suchergebnissen angezeigt. Hier können Sie eine passende Beschreibung für die CMS-Seite eingeben. Wenn Sie nichts eingeben, wird die Beschreibung automatisch erzeugt.',
     'HELP_DELIVERY_MAIN_COUNTRULES' => 'Mit dieser Einstellung können Sie auswählen, wie oft der Preis Auf-/Abschlag berechnet wird:<br>' .
         '<ul><li>Einmal pro Warenkorb: Der Preis wird einmal für die gesamte Bestellung berechnet.</li>' .
         '<li>Einmal pro unterschiedlichem Artikel: Der Preis wird für jeden unterschiedlichen Artikel im Warenkorb einmal berechnet. Wie oft ein Artikel bestellt wird, ist dabei egal.</li>' .
@@ -451,17 +409,6 @@ $aLang = [
 
     'HELP_USER_EXTEND_BONI' => 'Hier können Sie einen Zahlenwert für die Bonität des Benutzers eingeben. Mit der Bonität können Sie beeinflussen, welche Zahlungsarten dem Benutzer zur Verfügung stehen.',
 
-
-    'HELP_MANUFACTURER_MAIN_ICON' => 'Bei <span class="navipath_or_inputname">Icon</span> und <span class="navipath_or_inputname">Hersteller-Icon hochladen</span> können Sie ein Bild für den Hersteller hochladen (z. B. das Logo des Herstellers). Wählen Sie bei <span class="navipath_or_inputname">Hersteller-Icon hochladen</span> das Bild aus, das Sie hochladen möchten. Wenn Sie auf Speichern klicken, wird das Bild hochgeladen. Nachdem das Bild hochgeladen ist, wird der Dateiname des Bildes in <span class="navipath_or_inputname">Icon</span> angezeigt.',
-
-    'HELP_MANUFACTURER_SEO_FIXED' => 'Sie können die SEO URLs vom eShop neu berechnen lassen. Eine Herstellerseite bekommt z. B. eine neue SEO URL, wenn Sie den Titel des Herstellers ändern. Die Einstellung <span class="navipath_or_inputname">URL fixiert</span> unterbindet das: Wenn sie aktiv ist, wird die alte SEO URL beibehalten und keine neue SEO URL berechnet.',
-
-    'HELP_MANUFACTURER_SEO_SHOWSUFFIX' => 'Diese Einstellung bestimmt, ob das Suffix für den Fenstertitel angezeigt wird, wenn die Herstellerseite im eShop aufgerufen wird. Das Titel Suffix können Sie unter <span class="navipath_or_inputname">Stammdaten -> Grundeinstellungen -> SEO -> Titel Suffix</span> einstellen.',
-
-    'HELP_MANUFACTURER_SEO_KEYWORDS' => 'Diese Stichwörter werden in den HTML-Quelltext (Meta Keywords) eingebunden. Diese Information wird von Suchmaschinen ausgewertet. Hier können Sie passende Stichwörter zu dem Hersteller eingeben. Wenn Sie nichts eingeben, werden die Stichwörter automatisch erzeugt.',
-
-    'HELP_MANUFACTURER_SEO_DESCRIPTION' => 'Dieser Beschreibungstext wird in den HTML-Quelltext (Meta Description) eingebunden. Dieser Text wird von vielen Suchmaschinen bei den Suchergebnissen angezeigt. Hier können Sie eine passende Beschreibung für den Hersteller eingeben. Wenn Sie nichts eingeben, wird die Beschreibung automatisch erzeugt.',
-
     'HELP_MANUFACTURER_SORT' => 'Mit <span class="navipath_or_inputname">Sortierung</span> können Sie festlegen, in welcher Reihenfolge die Hersteller angezeigt werden. Der Hersteller mit der größten Zahl wird zuerst angezeigt, der Hersteller mit der kleinsten Zahl zuletzt.',
 
     'HELP_VOUCHERSERIE_MAIN_DISCOUNT' => 'Bei <span class="navipath_or_inputname">Rabatt</span> stellen Sie ein, wie hoch der Rabatt des Gutscheins sein soll. Mit der Auswahlliste hinter dem Eingabefeld können Sie auswählen, ob der Rabatt absolut oder prozentual sein soll:' .
@@ -513,8 +460,6 @@ $aLang = [
     'HELP_SHOP_CONFIG_ADDITIONAL_SERVICE_VAT_CALCULATION_PROPORTIONAL' => 'Für die Berechnung wird der prozentuale Anteil der Artikel im Warenkorb mit gleichem MwSt.-Satz berücksichtigt.',
     'HELP_SHOP_CONFIG_VIEWNETPRICE' => 'Im Shop werden Artikelpreise als Nettopreise angezeigt.',
     'HELP_SHOP_CONFIG_ENTERNETPRICE' => 'Im Administrationsbereich müssen Artikelpreise als Nettopreise eingegeben werden.',
-    'HELP_REVERSE_PROXY_GET_FRONTEND' => 'Überprüft, ob der Reverse Proxy für das Frontend verfügbar ist. Geprüft wird der Header der Startseite des Shops.<br>Der Test kann fehlschlagen, wenn verschiedene Domänen oder Protokolle (http/https) für den Administrationsbereich und den eigentlichen Shop verwendet werden.',
-    'HELP_REVERSE_PROXY_GET_BACKEND' => 'Der Administrationsbereich wird ohne Reverse Proxy angezeigt. Varnish Header konnte nicht empfangen werden.',
     'HELP_SHOP_CONFIG_DEBIT_OLD_BANK_INFORMATION_NOT_ALLOWED' => 'Im Bestellprozess können nur IBAN und BIC angegeben werden. Die Eingabe von Kontonummer und BLZ ist nur möglich, wenn das Kontrollkästchen nicht aktiviert ist.',
     'HELP_SHOP_CONFIG_ENABLE_INTANGIBLE_PRODUCTS_AGREEMENT' => 'Ist diese Option aktiviert, müssen Benutzer die AGB für immaterielle oder Downloadartikel im vierten Bestellschritt bestätigen. Bitte aktivieren Sie diese Option auch für die spezifischen Produkte!',
     'HELP_SHOP_CONFIG_FIELDS_CONTACTFORM' => 'Hier können Sie die Felder des Kontaktformulars festlegen, welche vom Benutzer unbedingt auszufüllen sind.',
