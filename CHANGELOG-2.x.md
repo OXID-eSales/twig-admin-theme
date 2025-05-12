@@ -7,6 +7,7 @@
 - Import missing translation from frontend [#0006806](https://bugs.oxid-esales.com/view.php?id=6806)
 - Fix untranslated string in the newsletter admin area [PR-9](https://github.com/OXID-eSales/twig-admin-theme/pull/9)
 - Saving of form in Order > Main tab [#0007757](https://bugs.oxid-esales.com/view.php?id=7757)
+- Fixed broken context help buttons caused by overwriting the $ variable. 
 
 ### Changed
 - Replace the use of method empty() to empty expression
