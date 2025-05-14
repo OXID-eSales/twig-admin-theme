@@ -1,6 +1,6 @@
 # Change Log for OXID Twig admin theme
 
-## v2.6.1 - Unreleased
+## v2.6.1 - 2025-05-14
 
 ### Fixed
 - Fixed broken context help buttons caused by overwriting the $ variable.
