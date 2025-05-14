@@ -1,6 +1,11 @@
 # Change Log for OXID Twig admin theme
 
-## v2.6.0 - Unreleased
+## v2.6.1 - 2025-05-14
+
+### Fixed
+- Fixed broken context help buttons caused by overwriting the $ variable.
+
+## v2.6.0 - 2025-04-09
 
 ### Fixed
 - Improve help text for HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK [#0006328](https://bugs.oxid-esales.com/view.php?id=6328)
