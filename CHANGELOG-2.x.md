@@ -2,6 +2,9 @@
 
 ## Undecided - unreleased
 
+### Added
+- Missing VAT number prefix input in country form
+
 ### Removed
 - Remove YUI library usage
 

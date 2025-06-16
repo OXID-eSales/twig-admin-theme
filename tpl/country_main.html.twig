@@ -110,6 +110,15 @@ window.onload = function ()
                 {% if blForeignCountry %}
                 <tr>
                     <td class="edittext">
+                        {{ translate({ ident: "COUNTRY_MAIN_OXVATINPREFIX" }) }}
+                    </td>
+                    <td class="edittext">
+                        <input type="text" class="editinput" size="5" maxlength="{{ edit.oxcountry__oxvatinprefix.fldmax_length }}" name="editval[oxcountry__oxvatinprefix]" value="{{ edit.oxcountry__oxvatinprefix.value }}" {{ readonly }}>
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_COUNTRY_MAIN_OXVATINPREFIX"), 'sHelpText': help_text("HELP_COUNTRY_MAIN_OXVATINPREFIX")} %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="edittext">
                     {{ translate({ ident: "COUNTRY_MAIN_OXVATSTATUS" }) }}
                     </td>
                     <td class="edittext">

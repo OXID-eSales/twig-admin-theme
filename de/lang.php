@@ -601,6 +601,7 @@ $aLang = [
     'COUNTRY_MAIN_ISOUNNUM' => 'ISO-UN-Nummer',
     'COUNTRY_MAIN_OPDESCRIPTION' => 'Optionale Beschreibung',
     'COUNTRY_MAIN_OXVATSTATUS' => 'MwSt. Behandlung',
+    'COUNTRY_MAIN_OXVATINPREFIX' => 'USt-IdNr.-Präfix',
     'COUNTRY_MAIN_OXVATSTATUS_0' => 'Mehrwertsteuerfrei',
     'COUNTRY_MAIN_OXVATSTATUS_1' => 'Mehrwertsteuerfrei falls Umsatzsteuer-Identnummer bekannt',
     'DELIVERY_ARTICLES_ALLCATEGORIES' => 'Alle Kategorien',
