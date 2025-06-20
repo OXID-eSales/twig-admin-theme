@@ -1,5 +1,10 @@
 # Change Log for OXID Twig admin theme
 
+## Undecided - unreleased
+
+### Removed
+- Remove YUI library usage
+
 ## v2.6.1 - 2025-05-14
 
 ### Fixed

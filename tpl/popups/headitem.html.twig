@@ -9,17 +9,9 @@
     <link rel="stylesheet" type="text/css" href="{{ oViewConf.getResourceUrl()|raw }}yui/build/base/base-min.css">
     <link rel="stylesheet" type="text/css" href="{{ oViewConf.getResourceUrl()|raw }}yui/build/assets/skins/sam/skin.css">
 
-    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/utilities/utilities.js"></script>
-    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/container/container-min.js"></script>
-    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/menu/menu-min.js"></script>
-    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/button/button-min.js"></script>
-    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/datasource/datasource-min.js"></script>
-    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/datatable/datatable-min.js"></script>
-    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/json/json-min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="{{ oViewConf.getResourceUrl()|raw }}aoc.css">
     <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ oViewConf.getResourceUrl()|raw }}aoc_ie8.css"><![endif]-->
-    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/oxid-aoc.js"></script>
+    <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}js/widgets/yui-polyfill.js"></script>
 
     {% if readonly %}
         {% set readonly = "readonly disabled" %}

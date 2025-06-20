@@ -15,9 +15,7 @@
   {% endblock %}
 
   {% block admin_headitem_incjs %}
-      <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/utilities/utilities.js"></script>
-      <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/build/container/container-min.js"></script>
-      <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}yui/oxid-help.js"></script>
+      <script type="text/javascript" src="{{ oViewConf.getResourceUrl()|raw }}js/widgets/yui-polyfill.js"></script>
   {% endblock %}
 
   {% block admin_headitem_js %}
