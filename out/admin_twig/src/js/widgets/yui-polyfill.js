@@ -503,9 +503,14 @@ window.YAHOO = {
 
                     input.name = key;
                     input.style.width = '95%';
+                    let filterTimeout;
                     input.addEventListener('input', () => {
-                        this.filters[key] = input.value;
-                        this.buildData();
+                        clearTimeout(filterTimeout);
+                        filterTimeout = setTimeout(() => {
+                            console.log('filter', input.value)
+                            this.filters[key] = input.value;
+                            this.buildData();
+                        }, 300);
                     });
 
                     inputHeadDiv.appendChild(input);
