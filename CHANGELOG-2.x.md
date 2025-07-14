@@ -8,6 +8,9 @@
 ### Removed
 - Remove YUI library usage
 
+### Fixed
+- Product attribute link "Create Attribute in new window" to be opened in same window [#0005798](https://bugs.oxid-esales.com/view.php?id=5798)
+
 ## v2.6.1 - 2025-05-14
 
 ### Fixed
