@@ -603,6 +603,7 @@ $aLang = [
     'COUNTRY_MAIN_ISOUNNUM' => 'ISO UN Number',
     'COUNTRY_MAIN_OPDESCRIPTION' => 'Optional Description',
     'COUNTRY_MAIN_OXVATSTATUS' => 'VAT handling',
+    'COUNTRY_MAIN_OXVATINPREFIX' => 'VAT Identification Number Prefix',
     'COUNTRY_MAIN_OXVATSTATUS_0' => 'Do not bill VAT',
     'COUNTRY_MAIN_OXVATSTATUS_1' => 'Do not bill VAT if VAT ID number provided',
     'DELIVERY_ARTICLES_ALLCATEGORIES' => 'All Categories',

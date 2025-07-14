@@ -204,17 +204,17 @@ window.YAHOO = {
                                 const td = document.createElement('td');
                                 td.classList.add('yui-dt-asc');
                                 td.dataset.key = key;
-                                td.dataset.value = value[key];
+                                td.dataset.value = value[key] ?? '';
                                 td.style.display = this.tableBaseData.find(item => item.key === key).visible ? '' : 'none';
 
                                 const div = document.createElement('div');
                                 div.classList.add('yui-dt-liner');
 
-                                console.log(this.identFields, key);
-
-                                div.innerText = value[key].length > 30 ? value[key].substr(0, 30) + '...' : value[key];
-                                if (value[key].length > 30) {
-                                    div.title = value[key];
+                                if (value[key]) {
+                                    div.innerText = value[key].length > 30 ? value[key].substr(0, 30) + '...' : value[key];
+                                    if (value[key].length > 30) {
+                                        div.title = value[key];
+                                    }
                                 }
 
                                 td.appendChild(div);
@@ -503,9 +503,14 @@ window.YAHOO = {
 
                     input.name = key;
                     input.style.width = '95%';
+                    let filterTimeout;
                     input.addEventListener('input', () => {
-                        this.filters[key] = input.value;
-                        this.buildData();
+                        clearTimeout(filterTimeout);
+                        filterTimeout = setTimeout(() => {
+                            console.log('filter', input.value)
+                            this.filters[key] = input.value;
+                            this.buildData();
+                        }, 300);
                     });
 
                     inputHeadDiv.appendChild(input);

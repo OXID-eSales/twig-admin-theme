@@ -528,4 +528,6 @@ $aLang = [
     'HELP_SHOP_CONFIG_FIELDS_CONTACTFORM' => 'Hier können Sie die Felder des Kontaktformulars festlegen, welche vom Benutzer unbedingt auszufüllen sind.',
 
     'HELP_ROLES_FEMAIN_UIEXAMPLE' => 'TOBASKET&tobasket;basket<br />COMPARE&details;tocomparelist',
+
+    'HELP_COUNTRY_MAIN_OXVATINPREFIX' => 'Geben Sie das länderspezifische Präfix für die Umsatzsteuer-Identifikationsnummer ein (z.B. "DE“ für Deutschland, "FR“ für Frankreich); ist es nicht gesetzt, können B2B-Kunden keine Bestellungen aus diesem Land aufgeben.'
 ];

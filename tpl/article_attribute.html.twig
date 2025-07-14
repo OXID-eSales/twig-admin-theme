@@ -48,7 +48,7 @@ function editThis( sID )
 
             {% if not edit.blForeignArticle %}
                 <br><br>
-                <a class="edittext" href="{{ oViewConf.getSelfLink()|raw }}&cl=attribute" target="_new"><b>{{ translate({ ident: "ARTICLE_ATTRIBUTE_OPENINNEWWINDOW" }) }}</b></a>
+                <a class="edittext" href="{{ oViewConf.getSelfLink()|raw }}&cl=attribute" target="_parent"><b>{{ translate({ ident: "ARTICLE_ATTRIBUTE_OPENINNEWWINDOW" }) }}</b></a>
             {% endif %}
 
         </td>

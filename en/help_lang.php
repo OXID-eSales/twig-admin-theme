@@ -570,4 +570,6 @@ $aLang = [
     'HELP_SHOP_CONFIG_FIELDS_CONTACTFORM' => 'Here you can define the contact form fields a user necessarily has to fill.',
 
     'HELP_ROLES_FEMAIN_UIEXAMPLE' => 'TOBASKET&tobasket;basket<br />COMPARE&details;tocomparelist',
+
+    'HELP_COUNTRY_MAIN_OXVATINPREFIX' => 'Enter the country-specific prefix used for VAT numbers (e.g. "DE" for Germany, "FR" for France); if not set, B2B customers will not be able to place orders from this country.'
 ];
