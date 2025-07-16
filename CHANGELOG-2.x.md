@@ -2,8 +2,8 @@
 
 ## Undecided - unreleased
 
-### Added
-- Missing VAT number prefix input in country form
+### Changed
+- Missing VAT number prefix input in country form [#0007205](https://bugs.oxid-esales.com/view.php?id=7205)
 
 ### Removed
 - Remove YUI library usage
