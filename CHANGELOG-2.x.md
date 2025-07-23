@@ -7,6 +7,7 @@
 
 ### Removed
 - Remove YUI library usage
+- Obsolete dynscreen_local.xml file
 
 ### Fixed
 - Product attribute link "Create Attribute in new window" to be opened in same window [#0005798](https://bugs.oxid-esales.com/view.php?id=5798)
