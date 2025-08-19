@@ -487,7 +487,7 @@ $aLang = [
 
     'HELP_VOUCHERSERIE_MAIN_VOUCHERNUM' => 'Hier können Sie eine Gutscheinnummer eingeben. Diese wird verwendet wenn, Sie neue Gutscheine anlegen. Wenn Sie mehrere Gutscheine anlegen, erhalten alle Gutscheine die gleiche Nummer.',
 
-    'HELP_VOUCHERSERIE_MAIN_CALCULATEONCE' => 'Wenn sie produkt- oder kategoriebezogene Gutscheine benutzen, deaktivieren Sie diese Option, damit der Gutschein für jedes Produkt einer Warenkorbposition berechnet wird. Aktivieren sie diese Option, wenn der Gutschein auf die gesamte Warenkorbposition angewendet werden soll.',
+    'HELP_VOUCHERSERIE_MAIN_CALCULATEONCE' => 'Wenn Sie Ihrem Gutschein Produkte zuordnen, aktivieren Sie diese Option, um den Gutschein nur auf den ersten betroffenen Artikel im Warenkorb anzuwenden. Deaktivieren Sie die Option, um den Gutschein auf alle betroffenen Artikel anzuwenden.',
 
     'HELP_WRAPPING_MAIN_PICTURE' => 'Bei <span class="navipath_or_inputname">Bild</span> und <span class="navipath_or_inputname">Bild hochladen</span> können Sie ein Bild für die Geschenkverpackung hochladen. Wählen Sie bei <span class="navipath_or_inputname">Bild hochladen</span> das Bild aus, das Sie hochladen möchten. Wenn Sie auf Speichern klicken, wird das Bild hochgeladen. Nachdem das Bild hochgeladen ist, wird der Dateiname des Bildes in <span class="navipath_or_inputname">Bild</span> angezeigt.',
 
