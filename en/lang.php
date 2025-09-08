@@ -1120,6 +1120,7 @@ $aLang = [
     'SHOP_CONFIG_DEBIT_OLD_BANK_INFORMATION_NOT_ALLOWED' => 'Use IBAN/BIC only',
     'SHOP_CONFIG_PARCELSERVICE' => 'Standard shipping provider tracking URL',
     'SHOP_CONFIG_ERROR_INVALID_VALUE' => 'Provided configuration value: %s is not valid.',
+    'SANITIZER_WILL_REMOVE_UNSAFE_ELEMENTS' => 'Content will be sanitized to remove unsafe elements. Please review the sanitized content.',
     'SHOP_CONFIG_LOADREVIEWS' => 'Activate user reviews and star ratings',
     'SHOP_CONFIG_INCLUDE_PRODUCT_REVIEW_LINKS_IN_ORDER_EMAIL' => 'Include a link  to product reviews in order e-mail',
 
