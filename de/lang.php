@@ -1339,7 +1339,7 @@ $aLang = [
     'VOUCHERSERIE_MAIN_AVAILABLE' => 'Verfügbar',
     'VOUCHERSERIE_MAIN_USED' => 'Benutzt',
     'VOUCHERSERIE_MAIN_DISCOUNT' => 'Rabatt',
-    'VOUCHERSERIE_MAIN_CALCULATEONCE' => 'Nur einmalig berechnen (gültig nur bei zugewiesenen Gutscheinen)',
+    'VOUCHERSERIE_MAIN_CALCULATEONCE' => 'Nur einmalig berechnen (gültig nur bei Produkt-spezifischen Gutscheinen)',
 
     'VOUCHERSERIE_MAIN_GENERATE' => 'Generieren',
     'VOUCHERSERIE_MAIN_EXPORT' => 'Export',

@@ -1338,7 +1338,7 @@ $aLang = [
     'VOUCHERSERIE_MAIN_AVAILABLE' => 'Available',
     'VOUCHERSERIE_MAIN_USED' => 'Used',
     'VOUCHERSERIE_MAIN_DISCOUNT' => 'Discount',
-    'VOUCHERSERIE_MAIN_CALCULATEONCE' => 'Calculate only once (valid only for product or category vouchers)',
+    'VOUCHERSERIE_MAIN_CALCULATEONCE' => 'Calculate only once (valid only for product specific coupons)',
 
     'VOUCHERSERIE_MAIN_GENERATE' => 'Generate',
     'VOUCHERSERIE_MAIN_EXPORT' => 'Export',

@@ -527,7 +527,7 @@ $aLang = [
 
     'HELP_VOUCHERSERIE_MAIN_VOUCHERNUM' => 'Here you can enter a coupon number. This number is used when creating new coupons if <span class="navipath_or_inputname">Random Numbers</span> is deactivated. All Coupons get the same coupon numberon.',
 
-    'HELP_VOUCHERSERIE_MAIN_CALCULATEONCE' => 'If you assign products or categories to your coupon, deactivate this option to calculate this coupon to each product per cart position. Activate if the coupon shall be valid only once per cart position.',
+    'HELP_VOUCHERSERIE_MAIN_CALCULATEONCE' => 'If you assign products to your coupon, activate this option to apply the coupon only to the first affected item in the shopping cart. Deactivate the option to apply the coupon to all affected items.',
 
     'HELP_WRAPPING_MAIN_PICTURE' => 'With <span class="navipath_or_inputname">Picture</span> and <span class="navipath_or_inputname">Upload Picture</span> you can upload a picture for the gift wrapping. In <span class="navipath_or_inputname">Upload Picture</span>, select the picture to upload. When clicking on <span class="navipath_or_inputname">Save</span>, the picture is uploaded. After uploading, the filename is shown in <span class="navipath_or_inputname">Picture</span>.',
 
