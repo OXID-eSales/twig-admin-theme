@@ -226,7 +226,7 @@ $aLang = [
     'HELP_ARTICLE_EXTEND_QUESTIONEMAIL' => 'Bei <span class="navipath_or_inputname">Alt. Anspr.partn.</span> können Sie eine E-Mail Adresse eingeben. Wenn die Benutzer eine Frage zu diesem Artikel absenden, wird Sie an diese E-Mail Adresse geschickt. Wenn keine E-Mail Adresse eingetragen ist, wird die Anfrage an die normale Info E-Mail Adresse geschickt.',
 
 
-    'HELP_ARTICLE_EXTEND_SKIPDISCOUNTS' => 'Wenn <span class="navipath_or_inputname">Alle neg. Nachlässe ignorieren</span> aktiviert ist, werden für diesen Artikel keine negativen Nachlässe berechnet. Das sind z. B. Rabatte und Gutscheine.',
+    'HELP_ARTICLE_EXTEND_SKIPDISCOUNTS' => 'Wenn <span class="navipath_or_inputname">Alle Nachlässe ignorieren</span> aktiviert ist, werden für diesen Artikel keine negativen Nachlässe berechnet. Das sind z. B. Rabatte und Gutscheine.',
 
     'HELP_ARTICLE_EXTEND_NONMATERIAL' => 'Einstellung wird vom Vater-Artikel an die Varianten vererbt und gilt für den gesamten Artikel.',
 
@@ -333,7 +333,7 @@ $aLang = [
 
     'HELP_CATEGORY_MAIN_PROMOTION_ICON' => 'Mit dem <span class="navipath_or_inputname">Werbesymbol</span> und <span class="navipath_or_inputname">Upload-Symbol</span> können Sie ein Kategorie-Bild für Werbezwecke hochladen.',
 
-    'HELP_CATEGORY_MAIN_SKIPDISCOUNTS' => 'Wenn <span class="navipath_or_inputname">Alle neg. Nachlässe ignorieren</span> aktiv ist, werden für alle Artikel in dieser Kategorie keine negativen Nachlässe berechnet.',
+    'HELP_CATEGORY_MAIN_SKIPDISCOUNTS' => 'Wenn <span class="navipath_or_inputname">Alle Nachlässe ignorieren</span> aktiv ist, werden für alle Artikel in dieser Kategorie keine negativen Nachlässe berechnet.',
 
     'HELP_CATEGORY_SEO_FIXED' => 'Sie können die SEO URLs vom eShop neu berechnen lassen. Eine Kategorie bekommt z. B. eine neue SEO URL, wenn Sie den Titel der Kategorie ändern. Die Einstellung <span class="navipath_or_inputname">URL fixiert</span> unterbindet das: Wenn sie aktiv ist, wird die alte SEO URL beibehalten und keine neue SEO URL berechnet.',
 
