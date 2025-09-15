@@ -8,6 +8,7 @@
 ### Removed
 - Remove YUI library usage
 - Obsolete dynscreen_local.xml file
+- "negative" from german translations of `SKIPDISCOUNTS` constants
 
 ### Fixed
 - Product attribute link "Create Attribute in new window" to be opened in same window [#0005798](https://bugs.oxid-esales.com/view.php?id=5798)
