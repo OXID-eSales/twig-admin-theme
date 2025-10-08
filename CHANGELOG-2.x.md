@@ -6,6 +6,7 @@
 - Missing VAT number prefix input in country form [#0007205](https://bugs.oxid-esales.com/view.php?id=7205)
 
 ### Removed
+- Remove opt-out for sending shop information
 - Remove YUI library usage
 - Obsolete dynscreen_local.xml file
 - "negative" from german translations of `SKIPDISCOUNTS` constants
