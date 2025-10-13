@@ -106,14 +106,6 @@ $aLang = [
         '<li>optionaler Parameter "Front". Falls angegeben, wird die Währungsabkürzung vor dem Preis angezeigt.</li>' .
         '</ul>',
     'HELP_SHOP_CONFIG_NEWARTBYINSERT' => 'Auf der Startseite Ihres eShops werden die unter <span class="filename_filepath_or_italic">Frisch eingetroffen!</span> die neusten Artikel in Ihrem eShop angezeigt. Sie können die Artikel, die hier angezeigt werden, manuell einstellen oder automatisch berechnen lassen. Mit dieser Einstellung wählen Sie, wie die neusten Artikel berechnet werden sollen: Nach dem Datum, an dem die Artikel erstellt wurden, oder nach dem Datum der letzten Änderung im Administrationsbereich/der letzten Bestellung im Shop.',
-    'HELP_SHOP_CONFIG_SEND_TECHNICAL_INFORMATION_TO_OXID' => 'Es werden keine geschäftsrelevanten Daten oder Kundeninformationen übermittelt. '
-        . 'Die gesammelten Daten sind ausschließlich technologische Informationen. '
-        . 'Um unsere Produktqualität zu verbessern, werden Informationen wie diese erhoben:'
-        . '<ul>'
-        . '  <li>Anzahl der installierten OXID eShop Community Editions weltweit</li>'
-        . '  <li>durchschnittliche Anzahl installierter Erweiterungen pro OXID eShop</li>'
-        . '  <li>die meist verbreiteten Erweiterungen für den OXID eShop</li>'
-        . '</ul>',
     'HELP_SHOP_CONFIG_DELETERATINGLOGS' => 'Wenn Benutzer einen Artikel bewerten, können Sie den Artikel nicht erneut bewerten. Hier können Sie einstellen, dass die Benutzer nach einer bestimmten Anzahl von Tagen den Artikel erneut bewerten können.',
     'HELP_SHOP_CONFIG_DISABLEONLINEVATIDCHECK' => 'Die Online USt-ID Prüfung wird immer ausgeführt, wenn ein Kunde aus dem Ausland (aber innerhalb der EU) eine Umsatzsteuer-ID beim Bestellen angibt. Wenn die UST-ID gültig ist, wird für die Bestellung keine Umsatzsteuer berechnet.<br>' .
         'Wenn die Prüfung ausgeschaltet ist, wird die eingegebene VAT ID als gültig angesehen, solange der Länderprefix korrekt ist. Ist der Online-Check eingeschaltet, ist ein Checkout (bei verfügbarem Service) nur mit gültiger VAT ID möglich.',

@@ -102,5 +102,12 @@
 
 <!-- Input help popup -->
 <div id="helpTextContainer" class="yui-skin-sam">
-    <div id="helpPanel"></div>
+    <div class="yui-panel-container show-scrollbars shadow" id="helpPanel_c" style="visibility: hidden; position: absolute;">
+        <div class="yui-module yui-overlay yui-panel" id="helpPanel" style="width: 370px; visibility: inherit;">
+            <button class="container-close" id="helpPanel_close" style="border: none;" type="button">Close</button>
+            <div class="hd" id="helpPanel_h" style="cursor: move;">&nbsp;</div>
+            <div class="bd"></div>
+        </div>
+        <div class="underlay"></div>
+    </div>
 </div>

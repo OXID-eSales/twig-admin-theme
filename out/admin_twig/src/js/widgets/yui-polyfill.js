@@ -724,6 +724,11 @@ window.YAHOO = {
         help: {
             showPanel (helpId) {
                 const makeDraggable = (dragEl, elToDrag = dragEl) => {
+                    if (dragEl.dataset.draggableAttached) {
+                        return; // Already draggable
+                    }
+                    dragEl.dataset.draggableAttached = "true";
+
                     let pos1 = 0;
                     let pos2 = 0;
                     let pos3 = 0;
@@ -773,65 +778,34 @@ window.YAHOO = {
                     dragEl.addEventListener('mousedown', dragMouseDown);
                 };
 
-                let panelContainer = document.getElementById('helpPanel_c');
-                const helpButton = $(`helpBtn_${helpId}`);
-
-                if (!panelContainer) {
-                    panelContainer = document.createElement('div');
-                    panelContainer.classList.add('yui-panel-container', 'show-scrollbars', 'shadow');
-                    panelContainer.id = 'helpPanel_c';
-                    panelContainer.style.visibility = 'hidden';
-
-                    let panel = document.getElementById('helpPanel');
-
-                    if (panel) {
-                        panel.remove();
+                const getOffset = (el) => {
+                    let top = 0;
+                    let left = 0;
+                    while (el) {
+                        top += el.offsetTop;
+                        left += el.offsetLeft;
+                        el = el.offsetParent;
                     }
-
-                    panel = document.createElement('div');
-                    panel.classList.add('yui-module', 'yui-overlay', 'yui-panel');
-                    panel.id = 'helpPanel';
-                    panel.style.width = '370px';
-                    panel.style.visibility = 'inherit';
-
-                    const closeButton = document.createElement('button');
-                    closeButton.classList.add('container-close');
-                    closeButton.innerText = 'Close';
-                    closeButton.style.border = 'none';
-                    closeButton.type = 'button';
-                    closeButton.addEventListener('click', () => {
-                        panelContainer.style.visibility = 'hidden';
-                    });
-
-                    const header = document.createElement('div');
-                    header.classList.add('hd');
-                    header.id = 'helpPanel_h';
-                    header.style.cursor = 'move';
-                    header.innerHTML = '&nbsp;';
-
-                    const body = document.createElement('div');
-                    body.classList.add('bd');
-                    body.innerHTML = $(`helpText_${helpId}`).innerHTML.trim();
-
-                    panel.appendChild(closeButton);
-                    panel.appendChild(header);
-                    panel.appendChild(body);
-
-                    const underlay = document.createElement('div');
-                    underlay.classList.add('underlay');
-
-                    panelContainer.appendChild(panel);
-                    panelContainer.appendChild(underlay);
-                    document.getElementById('helpTextContainer').appendChild(panelContainer);
-
-                    makeDraggable(header, panelContainer);
+                    return { top, left };
                 }
 
-                panelContainer.style.visibility = 'visible';
+                const header = document.getElementById('helpPanel_h');
+                const panelContainer = document.getElementById('helpPanel_c');
+                const closeButton = document.getElementById('helpPanel_close');
+                const body = document.getElementById('helpPanel').getElementsByClassName('bd')[0];
+                const helpButton = $(`helpBtn_${helpId}`);
 
-                panelContainer.style.position = 'absolute';
-                panelContainer.style.left = `${helpButton.getBoundingClientRect().left + helpButton.offsetWidth + 5}px`;
-                panelContainer.style.top = `${helpButton.getBoundingClientRect().top}px`;
+                makeDraggable(header, panelContainer);
+
+                closeButton.addEventListener('click', () => {
+                    panelContainer.style.visibility = 'hidden';
+                });
+
+                body.innerHTML = $(`helpText_${helpId}`).innerHTML.trim();
+
+                panelContainer.style.visibility = 'visible';
+                panelContainer.style.left = `${getOffset(helpButton).left + helpButton.offsetWidth + 5}px`;
+                panelContainer.style.top = `${getOffset(helpButton).top}px`;
             }
         }
     },
