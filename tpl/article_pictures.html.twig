@@ -1,7 +1,6 @@
 {% set isReadonly = readonly != "" %}
 {% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
 <link rel="stylesheet" href="{{ oViewConf.getResourceUrl()|raw }}product_media.css">
-
 <script>
     function editThis(sID) {
         var oTransfer = top.basefrm.edit.document.getElementById("transfer");
@@ -14,35 +13,21 @@
         oSearch.submit();
     }
 </script>
-
 {% if readonly %}
     {% set readonly = "readonly disabled" %}
 {% else %}
     {% set readonly = "" %}
 {% endif %}
-
-{% set thumbnail = null %}
-{% set icon = null %}
-{% for image in productImages %}
-    {% if image.isThumbnail %}
-        {% set thumbnail = image %}
-    {% endif %}
-    {% if image.isIcon %}
-        {% set icon = image %}
-    {% endif %}
-{% endfor %}
-
 <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
     {{ oViewConf.getHiddenSid()|raw }}
     <input type="hidden" name="oxid" value="{{ oxid }}">
     <input type="hidden" name="cl" value="article_pictures">
     <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
 </form>
-
 <form id="myedit"
       enctype="multipart/form-data"
       method="post"
-      action="{{ oViewConf.getAjaxUrl()|raw }}"
+      action="{{ oViewConf.getAjaxLink()|raw }}"
       data-readonly="{{ isReadonly ? 'true' : 'false' }}">
     {{ oViewConf.getHiddenSid()|raw }}
     <input type="hidden" name="container" value="article_pictures">
@@ -50,14 +35,12 @@
     <input type="hidden" name="productId" value="{{ oxid }}">
     <input type="hidden" name="oxparentid" value="{{ oxparentid }}">
     <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
-
     {% if oViewConf.isAltImageServerConfigured() %}
         <div class="warning">
             {{ "ALTERNATIVE_IMAGE_SERVER_NOTE"|translate }}
             {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE"), 'sHelpText': help_text("HELP_ALTERNATIVE_IMAGE_SERVER_NOTE")} %}
         </div>
     {% endif %}
-
     <div id="product-media-manager">
         <div class="header">
             <div>
@@ -78,12 +61,12 @@
             <div class="container">
                 <div class="featured-images">
                     <div id="thumb" class="container">
-                        <div class="card" data-type="thumbnail">
-                            {% if thumbnail is not null %}
-                                <img alt="" src="{{ thumbnail.url }}">
+                        <div class="card" data-type="thumbnail" data-id="{{ productImages.thumbnail is not null ? productImages.thumbnail.id : '' }}">
+                            {% if productImages.thumbnail is not null %}
+                                <img alt="" src="{{ productImages.thumbnail.url }}">
                             {% else %}
                                 {% include "icons/image_upload/no_image.svg"
-                                    with { title: "ARTICLE_PICTURS_MISSING"|translate } %}
+                                    with { title: "ARTICLE_PICTURES_MISSING"|translate } %}
                             {% endif %}
                             <div class="title">
                                 {{ "GENERAL_THUMB"|translate }}
@@ -92,12 +75,12 @@
                         </div>
                     </div>
                     <div id="icon" class="container">
-                        <div class="card" data-type="icon">
-                            {% if icon is not null %}
-                                <img alt="" src="{{ icon.url }}">
+                        <div class="card" data-type="icon" data-id="{{ productImages.icon is not null ? productImages.icon.id : '' }}">
+                            {% if productImages.icon is not null %}
+                                <img alt="" src="{{ productImages.icon.url }}">
                             {% else %}
                                 {% include "icons/image_upload/no_image.svg"
-                                    with { title: "ARTICLE_PICTURS_MISSING"|translate } %}
+                                    with { title: "ARTICLE_PICTURES_MISSING"|translate } %}
                             {% endif %}
                             <div class="title">
                                 {{ "ARTICLE_PICTURES_ICON"|translate }}
@@ -112,65 +95,63 @@
                            name="newUploadedFiles[]"
                            multiple
                            accept="image/png, image/jpeg, image/gif, image/webp"
-                           style="width: 0; height: 0; overflow: hidden;"
+                           class="visually-hidden-input"
+                           tabindex="-1"
+                           aria-hidden="true"
+                            {{ readonly }}>
+                    <input type="file"
+                           id="product-media-uploads-file-input-thumb"
+                           name="newUploadedFilesThumb"
+                           accept="image/png, image/jpeg, image/gif, image/webp"
+                           class="visually-hidden-input"
+                           tabindex="-1"
+                           aria-hidden="true"
+                            {{ readonly }}>
+                    <input type="file"
+                           id="product-media-uploads-file-input-icon"
+                           name="newUploadedFilesIcon"
+                           accept="image/png, image/jpeg, image/gif, image/webp"
+                           class="visually-hidden-input"
+                           tabindex="-1"
+                           aria-hidden="true"
                             {{ readonly }}>
                     <div class="error-message">
-                                <span class="close-message-button">
-                                    {% include "icons/image_upload/button_close_error.svg"
-                                        with { title: "ARTICLE_PICTURS_ERROR_CLOSE"|translate } %}
-                                </span>
+                        <span class="close-message-button">
+                            {% include "icons/image_upload/button_close_error.svg" with { title: "ARTICLE_PICTURES_ERROR_CLOSE"|translate } %}
+                        </span>
                     </div>
                     <div class="file-drop-area{% if readonly %} readonly{% endif %}">
                         {% include "icons/image_upload/dropzone.svg" %}
                         <p>{{ "ARTICLE_PICTURES_DRAG_DROP_IMAGES_HERE"|translate }}</p>
-                        <button type="button" class="file-upload-button" {{ readonly }}>
-                            {{ "ARTICLE_PICTURES_BROWSE_FILES"|translate }}
-                        </button>
+                        <button type="button" class="file-upload-button" {{ readonly }}>{{ "ARTICLE_PICTURES_BROWSE_FILES"|translate }}</button>
                     </div>
                     <div class="grid-wrapper">
                         <div class="grid">
-                            {% for image in productImages %}
-                                {#                            Image #}
-                                <div class="item"
-                                     data-id="{{ image.id }}"
-                                     data-url="{{ image.url }}"
-                                     data-status="${imgObj.status}"
-                                     data-active="{{ image.active ? 'true' : 'false' }}"
-                                     data-type="{{ image.type }}"
-                                     data-position="{{ image.position }}">
+                            {% for image in productImages.detailImages %}
+                                <div class="item" data-id="{{ image.id }}" data-url="{{ image.url }}" data-status="" data-active="{{ image.active ? 'true' : 'false' }}" data-position="{{ image.position }}">
                                     <img alt="" src="{{ image.url }}">
                                     <div class="overlay"></div>
                                     <div class="media-actions">
                                         <div class="button-row">
-                                            <button type="button"
-                                                    class="set-thumb{% if image.isThumbnail %} is-thumb{% endif %}">
-                                                {% include "icons/image_upload/button_use_as_thumbnail.svg"
-                                                    with { title: "ARTICLE_PICTURES_USE_AS_THUMBNAIL"|translate } %}
-                                            </button>
-                                            <button type="button"
-                                                    class="set-icon{% if image.isIcon %} is-icon{% endif %}">
-                                                {% include "icons/image_upload/button_use_as_icon.svg"
-                                                    with { title: "ARTICLE_PICTURES_USE_AS_ICON"|translate } %}
-                                            </button>
-                                        </div>
-                                        <div class="button-row">
-                                            <button type="button"
-                                                    class="toggle-active{{ image.active ? ' active' : ' inactive' }}">
-                                                {% if image.active %}
+                                            <button type="button" class="toggle-active{{ image.active ? ' active' : ' inactive' }}">
+                                                <span class="icon-active">
                                                     {% include "icons/image_upload/button_active.svg" with { title: "ARTICLE_PICTURES_ACTIVE"|translate } %}
-                                                {% else %}
+                                                </span>
+                                                <span class="icon-inactive">
                                                     {% include "icons/image_upload/button_inactive.svg" with { title: "ARTICLE_PICTURES_INACTIVE"|translate } %}
-                                                {% endif %}
+                                                </span>
                                             </button>
                                             <button type="button" class="delete-media">
-                                                {% include "icons/image_upload/button_delete.svg"
-                                                    with { title: "ARTICLE_PICTURES_DELETE"|translate } %}
+                                                {% include "icons/image_upload/button_delete.svg" with { title: "ARTICLE_PICTURES_DELETE"|translate } %}
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             {% endfor %}
                         </div>
+                        {% if productImages.detailImages is empty %}
+                            <div class="empty-placeholder"></div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -178,17 +159,14 @@
     </div>
 </form>
 </div>
-
 <div id="loader-animation">
     {% include "icons/image_upload/loader.svg" %}
 </div>
-
 <div id="lightbox"></div>
-
 {{ script({ include: "js/libs/jquery.min.js", priority:1, dynamic:__oxid_include_dynamic }) }}
 {{ script({ include: "js/libs/jquery-ui.min.js", priority:2, dynamic:__oxid_include_dynamic }) }}
 {{ script({ include: "js/widgets/product_media.js", priority:3, dynamic:__oxid_include_dynamic }) }}
-{{ script({ add:"$(function(){ $('#myedit').productMediaManager(); });", priority:10, dynamic:__oxid_include_dynamic }) }}
-
+{{ script({ add:"jQuery.noConflict();", priority:4, dynamic:__oxid_include_dynamic }) }}
+{{ script({ add:"jQuery(function(){ jQuery('#myedit').productMediaManager(); });", priority:10, dynamic:__oxid_include_dynamic }) }}
 {% include "bottomnaviitem.html.twig" %}
 {% include "bottomitem.html.twig" %}
