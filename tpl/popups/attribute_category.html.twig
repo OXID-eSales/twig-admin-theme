@@ -51,20 +51,20 @@
 
             YAHOO.oxid.orderBtn.hide = function()
             {
-                $D.setStyle(YAHOO.oxid.orderBtn.oUp  , 'visibility', 'hidden');
-                $D.setStyle(YAHOO.oxid.orderBtn.oDown, 'visibility', 'hidden');
+                $D.setStyle($('orderup'), 'visibility', 'hidden');
+                $D.setStyle($('orderdown'), 'visibility', 'hidden');
             };
 
             YAHOO.oxid.orderBtn.show = function()
             {
-                $D.setStyle(YAHOO.oxid.orderBtn.oUp  , 'visibility', 'visible');
-                $D.setStyle(YAHOO.oxid.orderBtn.oDown, 'visibility', 'visible');
+                $D.setStyle($('orderup'), 'visibility', 'visible');
+                $D.setStyle($('orderdown'), 'visibility', 'visible');
             };
 
             YAHOO.oxid.orderBtn.addOn = function(onUp,onDown)
             {
-                YAHOO.oxid.orderBtn.oUp.on("click", onUp);
-                YAHOO.oxid.orderBtn.oDown.on("click", onDown);
+                $E.addListener($('orderup'), "click", onUp);
+                $E.addListener($('orderdown'), "click", onDown);
             };
 
             if(autoHide){
@@ -80,7 +80,7 @@
         YAHOO.oxid.container2.subscribe( "dataReturnEvent", function( oParam ) {
             resetSortingContainer();
         })
-        //
+
         YAHOO.oxid.container2.subscribe( "rowSelectEvent", function( oParam )
         {
             var sOxid = oParam.record._oData._4;
@@ -102,7 +102,6 @@
                                                 '{{ oViewConf.getAjaxLink()|raw }}cmpid=container1&container=attribute_order&oxid='+sOxid,
                                                 { selectionMode:'single' }
                                                 )
-                //
                 YAHOO.oxid.container3._lastRecord = false;
                 YAHOO.oxid.container3.subscribe( "dataReturnEvent", function()
                 {
@@ -145,9 +144,6 @@
     $E.onDOMReady( initAoc );
     function resetSortingContainer()
     {
-        if ( YAHOO.oxid.container3.oContextMenu ) {
-            YAHOO.oxid.container3.oContextMenu.destroy();
-        }
         YAHOO.oxid.container3 = null;
         $('container3').innerHTML = '';
         YAHOO.oxid.orderBtn.hide();
@@ -173,8 +169,8 @@
             <td valign="top" id="container2"></td>
             <td valign="top" id="container3"></td>
             <td valign="middle" rowspan="2">
-            <input class="edittext" type="button" id="orderup" value="/\" style="visibility:hidden"><br><br>
-            <input class="edittext" type="button" id="orderdown" value="\/" style="visibility:hidden">
+            <input class="edittext" type="button" id="orderup" value="/\"><br><br>
+            <input class="edittext" type="button" id="orderdown" value="\/">
             </td>
         </tr>
         <tr>
