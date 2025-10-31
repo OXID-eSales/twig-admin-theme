@@ -1086,6 +1086,7 @@ $aLang = [
     'SHOP_CONFIG_DEBIT_OLD_BANK_INFORMATION_NOT_ALLOWED' => 'Ausschließlich IBAN/BIC verwenden',
     'SHOP_CONFIG_PARCELSERVICE'                               => 'Standard Tracking-URL des Versanddienstleisters',
     'SHOP_CONFIG_ERROR_INVALID_VALUE' => 'Der eingegebene Konfigurationswert %s ist ungültig.',
+    'SANITIZER_WILL_REMOVE_UNSAFE_ELEMENTS' => 'Der Inhalt wird bereinigt, um unsichere Elemente zu entfernen. Bitte überprüfen Sie den bereinigten Inhalt.',
     'SHOP_CONFIG_LOADREVIEWS' => 'Bewertungen und Sterne-Ratings aktivieren',
     'SHOP_CONFIG_INCLUDE_PRODUCT_REVIEW_LINKS_IN_ORDER_EMAIL' => 'Link zur Artikelbewertung in der E-Mail zur Bestellbestätigung mitsenden',
 

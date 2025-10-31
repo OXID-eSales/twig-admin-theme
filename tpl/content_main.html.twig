@@ -214,7 +214,13 @@
             </td>
             <td>&nbsp;</td>
             <!-- Anfang rechte Seite -->
-            <td valign="top" class="edittext" align="left">
+            <td class="edittext">
+                {% if activeSanitizer %}
+                    <div>
+                        {{ translate({ ident: "SANITIZER_WILL_REMOVE_UNSAFE_ELEMENTS" }) }}
+                    </div>
+                {% endif %}
+                <br>
                 {% block admin_content_main_editor %}
                     {% include "include/editor.html.twig" %}
                 {% endblock %}
