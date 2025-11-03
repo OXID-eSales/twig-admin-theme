@@ -46,9 +46,6 @@
 
         YAHOO.oxid.orderBtn = function(upId,downId,autoHide)
         {
-            YAHOO.oxid.orderBtn.oUp    = new YAHOO.widget.Button(upId);
-            YAHOO.oxid.orderBtn.oDown  = new YAHOO.widget.Button(downId);
-
             YAHOO.oxid.orderBtn.hide = function()
             {
                 $D.setStyle($('orderup'), 'visibility', 'hidden');
@@ -169,8 +166,8 @@
             <td valign="top" id="container2"></td>
             <td valign="top" id="container3"></td>
             <td valign="middle" rowspan="2">
-            <input class="edittext" type="button" id="orderup" value="/\"><br><br>
-            <input class="edittext" type="button" id="orderdown" value="\/">
+            <input class="edittext" type="button" id="orderup" value="/\" style="visibility:hidden"><br><br>
+            <input class="edittext" type="button" id="orderdown" value="\/" style="visibility:hidden">
             </td>
         </tr>
         <tr>
