@@ -5,6 +5,11 @@
 ### Added
 - New translation for the HTML Sanitizer warning
 
+## v3.0.1 - 2025-11-10
+
+### Fixed
+- Fixed popup window for assigning categories to attribute.
+
 ## v3.0.0 - 2025-10-13
 
 ### Changed
