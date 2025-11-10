@@ -1,6 +1,6 @@
 # Change Log for OXID Twig admin theme
 
-## v3.0.1 - unreleased
+## v3.0.1 - 2025-11-10
 
 ### Fixed
 - Fixed popup window for assigning categories to attribute.
