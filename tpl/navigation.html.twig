@@ -130,6 +130,7 @@
 
             <ul>
                 {% block admin_navigation_history %}
+                    {% set submenuIndex = 0 %}
                     {% apply spaceless %}
                         <li id="{{ historyMenuHeader }}"
                             class="{% if blOpenHistory %}exp{% endif %}">
@@ -166,6 +167,7 @@
             <ul>
                 {% block admin_navigation_favorites %}
                     {% apply spaceless %}
+                        {% set submenuIndex = 0 %}
                         <li id="{{ favoritesMenuHeader }}">
                             <a class="rc"
                                onclick="_navExp(this);return false;"
