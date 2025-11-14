@@ -5,6 +5,9 @@
 ### Added
 - New translation for the HTML Sanitizer warning
 
+### Fixed
+- Fixed menu item counter for vendor-specific menu sections [PR-10](https://github.com/OXID-eSales/twig-admin-theme/pull/10)
+
 ## v3.0.1 - 2025-11-10
 
 ### Fixed
