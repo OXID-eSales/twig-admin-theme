@@ -35,9 +35,9 @@
         <td class="main">
             {% include "include/navigation_shopselect.html.twig" %}
             {% block admin_navigation_menustructure %}
+                {% set menuIndex = 0 %}
                 {% for menuholder in menustructure %}
                     {% if menuholder.nodeType == constant("XML_ELEMENT_NODE") and menuholder.childNodes.length %}
-                        {% set menuIndex = 0 %}
                         <h2>
                             {% if menuholder.getAttribute('url') %}
                             <a href="{{ oViewConf.getSelfLink()|raw }}&cl=navigation&amp;fnc=exturl&amp;url={{ menuholder.getAttribute('url')|escape('url') }}"
@@ -130,6 +130,7 @@
 
             <ul>
                 {% block admin_navigation_history %}
+                    {% set submenuIndex = 0 %}
                     {% apply spaceless %}
                         <li id="{{ historyMenuHeader }}"
                             class="{% if blOpenHistory %}exp{% endif %}">
@@ -166,6 +167,7 @@
             <ul>
                 {% block admin_navigation_favorites %}
                     {% apply spaceless %}
+                        {% set submenuIndex = 0 %}
                         <li id="{{ favoritesMenuHeader }}">
                             <a class="rc"
                                onclick="_navExp(this);return false;"
