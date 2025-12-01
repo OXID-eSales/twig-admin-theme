@@ -128,7 +128,7 @@
                     <div class="grid-wrapper">
                         <div class="grid">
                             {% for image in productImages.detailImages %}
-                                <div class="item" data-id="{{ image.id }}" data-url="{{ image.url }}" data-status="" data-active="{{ image.active ? 'true' : 'false' }}" data-position="{{ image.position }}">
+                                <div class="item" data-id="{{ image.id }}" data-url="{{ image.zoomUrl }}" data-status="" data-active="{{ image.active ? 'true' : 'false' }}" data-position="{{ image.position }}">
                                     <img alt="" src="{{ image.url }}">
                                     <div class="overlay"></div>
                                     <div class="media-actions">
