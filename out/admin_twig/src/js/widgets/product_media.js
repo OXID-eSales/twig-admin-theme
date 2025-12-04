@@ -11,6 +11,7 @@
                 this.initImageActionButtons();
                 this.initImageSortingGrid();
             }
+            this.showStoredErrors();
         },
         locateDomElements() {
             this.$imageForm = $("#myedit");
@@ -188,11 +189,21 @@
             errors.forEach((msg) => $("<li>").text(msg).appendTo($ul));
             this.$errorMessages.append($ul).show();
         },
+        showStoredErrors() {
+            const stored = localStorage.getItem('productMediaErrors');
+            if (stored) {
+                localStorage.removeItem('productMediaErrors');
+                try {
+                    const errors = JSON.parse(stored);
+                    if (errors && errors.length) this.showError(errors);
+                } catch (_) {}
+            }
+        },
         async updateSorting() {
             const sortedIds = [];
             this.$imageGrid.find(".item").each((_, el) => sortedIds.push($(el).data("id")));
             const resp = await this.sendRequest(this.prepareFormDataObject("sortMedia", { sorting: JSON.stringify(sortedIds) }), { reloadOnSuccess: false });
-            const isError = resp === null || (resp && resp.error);
+            const isError = resp === null || (resp && resp.errors);
             if (isError) {
                 if (Array.isArray(this._prevOrder) && this._prevOrder.length) this.applyOrder(this._prevOrder);
                 return;
@@ -235,7 +246,7 @@
             const current = String($item.attr("data-active")) === "true";
             const next = !current;
             const resp = await this.sendRequest(this.prepareFormDataObject("toggleMediaActiveState", { productMediaId: fileId }), { reloadOnSuccess: false });
-            const isError = resp === null || (resp && resp.error);
+            const isError = resp === null || (resp && resp.errors);
             if (isError) return;
             $item.attr("data-active", next ? "true" : "false");
             const $btn = $item.find("button.toggle-active");
@@ -269,7 +280,10 @@
                     contentType: false
                 })
                     .done((data) => {
-                        if (reloadOnSuccess && !(data && data.error)) {
+                        if (reloadOnSuccess) {
+                            if (data && data.errors) {
+                                localStorage.setItem('productMediaErrors', JSON.stringify(data.errors));
+                            }
                             top.forceReloadingEditFrame();
                             top.reloadEditFrame();
                         }
@@ -278,7 +292,7 @@
                     .fail((xhr, __, errorThrown) => {
                         try {
                             const json = xhr.responseJSON;
-                            if (json && json.error) this.showError(json.error);
+                            if (json && json.errors) this.showError(json.errors);
                             else this.showError(errorThrown);
                         } catch (_) {
                             this.showError(errorThrown);
@@ -287,7 +301,7 @@
                     })
                     .always((data) => {
                         this.hideLoader();
-                        if (data && data.error) this.showError(data.error);
+                        if (!reloadOnSuccess && data && data.errors) this.showError(data.errors);
                     });
             });
         },
