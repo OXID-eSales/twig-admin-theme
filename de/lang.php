@@ -340,6 +340,7 @@ $aLang = [
     'ARTICLE_ATTRIBUTE_ASSIGNSELECTLIST' => 'Auswahllisten zuordnen',
     'ARTICLE_BUNDLE_ASSIGNARTICLE' => 'Artikel zuordnen',
     'ERR_MEDIA_MIME_BASETYPE_MISMATCH' => 'Der MIME‑Typ „%s“ entspricht nicht dem erforderlichen Basistyp „%s“.',
+    'ERR_MEDIA_MIME_GUESS_FAILED' => 'Ungültiger MIME‑Typ.',
     'ERR_MEDIA_MIME_GUESS_MISMATCH' => 'Der ermittelte MIME‑Typ „%s“ stimmt nicht mit dem vom Client angegebenen Typ „%s“ überein.',
     'ERR_MEDIA_SIZE_TOO_SMALL' => 'Die Dateigröße (%s) unterschreitet das zulässige Minimum (%s).',
     'ERR_MEDIA_SIZE_TOO_LARGE' => 'Die Dateigröße (%s) überschreitet das zulässige Maximum (%s).',
