@@ -238,7 +238,7 @@
         },
         async removeFile(id) {
             if (!window.confirm(top.oxid.admin.getDeleteMessage())) return;
-            await this.sendRequest(this.prepareFormDataObject("removeMedia", { productMediaId: id }), { reloadOnSuccess: true });
+            await this.sendRequest(this.prepareFormDataObject("removeMedia", { productMediaId: id, role: this._pendingRole }), { reloadOnSuccess: true });
         },
         async toggleActive(fileId) {
             const $item = this.getItemById(fileId);
