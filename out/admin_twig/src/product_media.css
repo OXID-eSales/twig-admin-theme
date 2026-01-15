@@ -375,6 +375,12 @@
     #product-media-manager .body .container {
         height: 600px;
     }
+    #product-media-manager .featured-images {
+        flex: 0 0 22%;
+        min-width: 220px;
+        max-width: 270px;
+        overflow-y: auto;
+    }
     #product-media-manager .featured-images,
     #product-media-manager .uploads {
         height: 100%;
