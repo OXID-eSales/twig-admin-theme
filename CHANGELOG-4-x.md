@@ -1,6 +1,7 @@
 # Change Log for OXID Twig admin theme
 
-## compilation-v8.0.0-alpha.2 - Unreleased
+## v8.0.0-alpha.2 - 2026-02-12
+*Compilation release*
 
 ### Changed
 - Product Pictures page layout with Unlimited image upload quota
