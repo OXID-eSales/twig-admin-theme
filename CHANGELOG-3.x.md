@@ -7,6 +7,7 @@
 
 ### Fixed
 - Fixed menu item counter for vendor-specific menu sections [PR-10](https://github.com/OXID-eSales/twig-admin-theme/pull/10)
+- Fixed wrong product picture counter showing 13 instead of 12 [PR-14](https://github.com/OXID-eSales/twig-admin-theme/pull/14)
 
 ## v3.0.1 - 2025-11-10
 
