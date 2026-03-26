@@ -1,0 +1,126 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+<link rel="stylesheet" href="{{ oViewConf.getResourceUrl()|raw }}locale.css">
+
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+
+{% set locales = locales|default([]) %}
+
+<template id="new-locale-template">
+    <tr class="new-locale-row">
+        <td class="col-code">
+            <input type="text" maxlength="10" data-name="code" placeholder="de_DE" aria-label="{{ "LOCALE_CODE"|translate }}">
+        </td>
+        <td>
+            <input type="text" maxlength="100" data-name="name" placeholder="{{ "LOCALE_NAME"|translate }}" aria-label="{{ "LOCALE_NAME"|translate }}">
+        </td>
+        <td>
+            <select data-name="fallback" aria-label="{{ "LOCALE_FALLBACK"|translate }}">
+                {% for locale in locales %}
+                    <option value="{{ locale.code }}">{{ locale.name }} ({{ locale.code }})</option>
+                {% endfor %}
+            </select>
+        </td>
+        <td class="col-active">
+            <label class="toggle">
+                <input type="checkbox" data-name="active" value="1" checked aria-label="{{ "LOCALE_ACTIVE"|translate }}">
+                <span class="toggle-slider"></span>
+            </label>
+        </td>
+        <td class="col-actions">
+            <a href="#" class="remove-icon" title="{{ "GENERAL_DELETE"|translate }}"></a>
+        </td>
+    </tr>
+</template>
+
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="oxidCopy" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="locales">
+    <input type="hidden" name="language" value="{{ actlang }}">
+</form>
+
+<form id="myedit" name="myedit" method="post" action="{{ oViewConf.getSelfLink()|raw }}">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="locales">
+    <input type="hidden" name="fnc" value="">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="localeCode" value="">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+
+    <div id="locale-manager">
+        <div class="header">
+            <span class="title">{{ "LOCALE_MANAGER_TITLE"|translate }}</span>
+            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_LOCALES"), 'sHelpText': help_text("HELP_LOCALES")} %}
+        </div>
+        <div class="body">
+            <table class="locale-table">
+                <thead>
+                    <tr>
+                        <th class="col-code">{{ "LOCALE_CODE"|translate }}</th>
+                        <th>{{ "LOCALE_NAME"|translate }}</th>
+                        <th>{{ "LOCALE_FALLBACK"|translate }}</th>
+                        <th class="col-active">{{ "LOCALE_ACTIVE"|translate }}</th>
+                        <th class="col-actions"></th>
+                    </tr>
+                </thead>
+                <tbody id="locale-tbody">
+                    <tr id="empty-state-row" {% if locales is not empty %}style="display: none"{% endif %}>
+                        <td colspan="5" class="empty-state">{{ "LOCALE_NO_LOCALES"|translate }}</td>
+                    </tr>
+                    {% for locale in locales %}
+                        <tr class="locale-row">
+                            <td class="col-code">
+                                <span class="locale-code">{{ locale.code }}</span>
+                            </td>
+                            <td>
+                                <input type="text" name="locales[{{ locale.code }}][name]" value="{{ locale.name }}" aria-label="{{ "LOCALE_NAME"|translate }}" {{ readonly }}>
+                            </td>
+                            <td>
+                                <select name="locales[{{ locale.code }}][fallback]" aria-label="{{ "LOCALE_FALLBACK"|translate }}" {{ readonly }}>
+                                    {% for option in locales %}
+                                        {% if option.code != locale.code or locales|length == 1 %}
+                                            <option value="{{ option.code }}" {% if locale.fallback == option.code %}selected{% endif %}>
+                                                {{ option.name }} ({{ option.code }})
+                                            </option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td class="col-active">
+                                <label class="toggle">
+                                    <input type="checkbox" name="locales[{{ locale.code }}][active]" value="1" {% if locale.active %}checked{% endif %} aria-label="{{ "LOCALE_ACTIVE"|translate }}" {{ readonly }}>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </td>
+                            <td class="col-actions">
+                                {% if not readonly %}
+                                    <a href="#" class="delete" data-locale-code="{{ locale.code }}" data-confirm="{{ "GENERAL_YOUWANTTODELETE"|translate }}" title="" {% include "help.html.twig" with {helpid: "item_delete"} %}></a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if not readonly %}
+                <div class="add-row">+ {{ "LOCALE_ADD"|translate }}</div>
+                <div class="actions-bar">
+                    <button type="submit" class="save-btn">
+                        {{ "GENERAL_SAVE"|translate }}
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+{{ script({ include: "js/libs/jquery.min.js", priority:1, dynamic:__oxid_include_dynamic }) }}
+{{ script({ include: "js/widgets/locale.js", priority:2, dynamic:__oxid_include_dynamic }) }}
+{{ script({ add:"jQuery.noConflict();", priority:3, dynamic:__oxid_include_dynamic }) }}
+
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}

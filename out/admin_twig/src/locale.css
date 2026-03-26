@@ -1,0 +1,242 @@
+#locale-manager {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+#locale-manager .header {
+    align-items: center;
+    background: #f4f6f8;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    gap: 6px;
+    padding: 10px 15px;
+}
+
+#locale-manager .header .title {
+    color: #34495e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#locale-manager .body {
+    padding: 15px;
+}
+
+#locale-manager .locale-table {
+    border: 1px solid #ececec;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#locale-manager .locale-table thead th {
+    background: #fafafa;
+    border-bottom: 1px solid #ececec;
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+#locale-manager .locale-table tbody td {
+    border-bottom: 1px solid #ececec;
+    font-size: 13px;
+    padding: 8px 12px;
+    vertical-align: middle;
+}
+
+#locale-manager .locale-row {
+    background: #fff;
+    transition: background-color 0.15s ease;
+}
+
+#locale-manager .locale-row:hover {
+    background: #f9f9f9;
+}
+
+#locale-manager .new-locale-row td {
+    background: #f4f6f8;
+    border-bottom: none;
+    border-top: 2px solid #e0e0e0;
+}
+
+#locale-manager .col-active {
+    text-align: center;
+    width: 40px;
+}
+
+#locale-manager .col-code {
+    width: 100px;
+}
+
+#locale-manager .col-actions {
+    text-align: right;
+    width: 20px;
+}
+
+#locale-manager .add-row {
+    border: 1px dashed #ccc;
+    border-radius: 3px;
+    color: #888;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 8px;
+    padding: 8px;
+    text-align: center;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+#locale-manager .add-row:hover {
+    background: #f4f6f8;
+    border-color: #3d5afe;
+    color: #3d5afe;
+}
+
+#locale-manager .remove-icon {
+    background: #ef4444;
+    border-radius: 50%;
+    color: #fff;
+    display: block;
+    float: right;
+    font-size: 0;
+    height: 15px;
+    line-height: 1px;
+    position: relative;
+    text-decoration: none;
+    width: 15px;
+}
+
+#locale-manager .remove-icon::before {
+    background: #fff;
+    border-radius: 1px;
+    content: "";
+    height: 1.5px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 7px;
+}
+
+#locale-manager .remove-icon:hover {
+    background: #dc2626;
+}
+
+#locale-manager .locale-code {
+    background: #e5e7eb;
+    border-radius: 3px;
+    color: #555;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    line-height: 1.4;
+    padding: 2px 6px;
+}
+
+#locale-manager .toggle {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+}
+
+#locale-manager .toggle input[type="checkbox"] {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+
+#locale-manager .toggle-slider {
+    background: #cfd6e4;
+    border-radius: 8px;
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    transition: background-color 0.2s ease;
+    width: 30px;
+    flex-shrink: 0;
+}
+
+#locale-manager .toggle-slider::after {
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    content: "";
+    height: 12px;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    transition: transform 0.2s ease;
+    width: 12px;
+}
+
+#locale-manager .toggle input:checked + .toggle-slider {
+    background: #10b981;
+}
+
+#locale-manager .toggle input:checked + .toggle-slider::after {
+    transform: translateX(14px);
+}
+
+#locale-manager .toggle input:disabled + .toggle-slider {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#locale-manager input[type="text"],
+#locale-manager select {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #34495e;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    height: auto;
+    padding: 5px 8px;
+    width: 100%;
+}
+
+#locale-manager input[type="text"]:focus,
+#locale-manager select:focus {
+    border-color: #3d5afe;
+    outline: none;
+}
+
+#locale-manager .actions-bar {
+    margin-top: 12px;
+}
+
+#locale-manager .save-btn {
+    background: #e5e7eb;
+    border: 1px solid #d1d5db;
+    border-radius: 3px;
+    color: #34495e;
+    cursor: pointer;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.4;
+    padding: 5px 14px;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+#locale-manager .save-btn:hover:not(:disabled) {
+    background: #d1d5db;
+    border-color: #c3c8d0;
+}
+
+#locale-manager .save-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#locale-manager .empty-state {
+    color: #aaa;
+    font-size: 13px;
+    padding: 24px;
+    text-align: center;
+}

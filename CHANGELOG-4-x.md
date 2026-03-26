@@ -4,7 +4,9 @@
 *Compilation release*
 
 ### Added
+- Locale management page
 - Alt attribute management for product images
+- Locale dropdown in language form
 
 ## v8.0.0-alpha.2 - 2026-02-12
 *Compilation release*
