@@ -8,6 +8,7 @@
 ### Fixed
 - Fixed menu item counter for vendor-specific menu sections [PR-10](https://github.com/OXID-eSales/twig-admin-theme/pull/10)
 - Fixed wrong product picture counter showing 13 instead of 12 [PR-14](https://github.com/OXID-eSales/twig-admin-theme/pull/14)
+- Improved discount quantity help text to clarify display behavior based on "From" value [#0007907](https://bugs.oxid-esales.com/view.php?id=7907) [PR-15](https://github.com/OXID-eSales/twig-admin-theme/pull/15)
 
 ## v3.0.1 - 2025-11-10
 
