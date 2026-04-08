@@ -1,6 +1,6 @@
 # Change Log for OXID Twig admin theme
 
-## v3.1.0 - unreleased
+## v3.1.0 - 2026-04-08
 
 ### Added
 - New translation for the HTML Sanitizer warning
