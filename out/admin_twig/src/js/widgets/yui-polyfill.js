@@ -205,12 +205,23 @@ window.YAHOO = {
                                 td.classList.add('yui-dt-asc');
                                 td.dataset.key = key;
                                 td.dataset.value = value[key] ?? '';
-                                td.style.display = this.tableBaseData.find(item => item.key === key).visible ? '' : 'none';
+                                const columnDef = this.tableBaseData.find(item => item.key === key);
+                                td.style.display = columnDef.visible ? '' : 'none';
 
                                 const div = document.createElement('div');
                                 div.classList.add('yui-dt-liner');
 
-                                if (value[key]) {
+                                if (typeof columnDef.formatter === 'function') {
+                                    columnDef.formatter(
+                                        div,
+                                        {
+                                            getData: (field) => field ? value[field] : value,
+                                            _oData: value
+                                        },
+                                        columnDef,
+                                        value[key]
+                                    );
+                                } else if (value[key]) {
                                     div.innerText = value[key].length > 30 ? value[key].substr(0, 30) + '...' : value[key];
                                     if (value[key].length > 30) {
                                         div.title = value[key];
