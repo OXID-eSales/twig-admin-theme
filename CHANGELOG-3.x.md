@@ -1,5 +1,10 @@
 # Change Log for OXID Twig admin theme
 
+## v3.2.0 - (unreleased)
+
+### Added
+- Support custom column formatters in AOC table widget
+
 ## v3.1.0 - 2026-04-08
 
 ### Added

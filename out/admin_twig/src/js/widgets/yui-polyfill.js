@@ -114,8 +114,6 @@ window.YAHOO = {
                                 }
                             });
 
-                            console.log(this.selectedRows);
-
                             this.elContainer.dispatchEvent(new CustomEvent('rowClickEvent', {
                                 detail: {
                                     el: tr
@@ -206,12 +204,12 @@ window.YAHOO = {
                                 td.dataset.key = key;
                                 td.dataset.value = value[key] ?? '';
                                 const columnDef = this.tableBaseData.find(item => item.key === key);
-                                td.style.display = columnDef.visible ? '' : 'none';
+                                td.style.display = (columnDef && columnDef.visible) ? '' : 'none';
 
                                 const div = document.createElement('div');
                                 div.classList.add('yui-dt-liner');
 
-                                if (typeof columnDef.formatter === 'function') {
+                                if (columnDef && typeof columnDef.formatter === 'function') {
                                     columnDef.formatter(
                                         div,
                                         {
@@ -401,8 +399,6 @@ window.YAHOO = {
 
                     const { containerId, data, url } = JSON.parse(e.dataTransfer.getData('text/plain'));
                     if (!e.target.closest(`#${containerId}`)) {
-                        console.log(data);
-
                         const sourceContainer = window.YAHOO.oxid[containerId];
                         const targetContainerId = background.id;
                         const targetContainer = window.YAHOO.oxid[targetContainerId];
@@ -518,7 +514,6 @@ window.YAHOO = {
                     input.addEventListener('input', () => {
                         clearTimeout(filterTimeout);
                         filterTimeout = setTimeout(() => {
-                            console.log('filter', input.value)
                             this.filters[key] = input.value;
                             this.buildData();
                         }, 300);
@@ -681,7 +676,6 @@ window.YAHOO = {
 
             subscribe (e, cb) {
                 this.elContainer.addEventListener(e, originalEvent => {
-                    console.log(originalEvent);
                     cb({
                         el: originalEvent.detail.el,
                         record: this.getRecord(originalEvent.detail.el.dataset.index)
