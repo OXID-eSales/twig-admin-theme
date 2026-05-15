@@ -114,8 +114,6 @@ window.YAHOO = {
                                 }
                             });
 
-                            console.log(this.selectedRows);
-
                             this.elContainer.dispatchEvent(new CustomEvent('rowClickEvent', {
                                 detail: {
                                     el: tr
@@ -205,12 +203,23 @@ window.YAHOO = {
                                 td.classList.add('yui-dt-asc');
                                 td.dataset.key = key;
                                 td.dataset.value = value[key] ?? '';
-                                td.style.display = this.tableBaseData.find(item => item.key === key).visible ? '' : 'none';
+                                const columnDef = this.tableBaseData.find(item => item.key === key);
+                                td.style.display = (columnDef && columnDef.visible) ? '' : 'none';
 
                                 const div = document.createElement('div');
                                 div.classList.add('yui-dt-liner');
 
-                                if (value[key]) {
+                                if (columnDef && typeof columnDef.formatter === 'function') {
+                                    columnDef.formatter(
+                                        div,
+                                        {
+                                            getData: (field) => field ? value[field] : value,
+                                            _oData: value
+                                        },
+                                        columnDef,
+                                        value[key]
+                                    );
+                                } else if (value[key]) {
                                     div.innerText = value[key].length > 30 ? value[key].substr(0, 30) + '...' : value[key];
                                     if (value[key].length > 30) {
                                         div.title = value[key];
@@ -390,8 +399,6 @@ window.YAHOO = {
 
                     const { containerId, data, url } = JSON.parse(e.dataTransfer.getData('text/plain'));
                     if (!e.target.closest(`#${containerId}`)) {
-                        console.log(data);
-
                         const sourceContainer = window.YAHOO.oxid[containerId];
                         const targetContainerId = background.id;
                         const targetContainer = window.YAHOO.oxid[targetContainerId];
@@ -507,7 +514,6 @@ window.YAHOO = {
                     input.addEventListener('input', () => {
                         clearTimeout(filterTimeout);
                         filterTimeout = setTimeout(() => {
-                            console.log('filter', input.value)
                             this.filters[key] = input.value;
                             this.buildData();
                         }, 300);
@@ -670,7 +676,6 @@ window.YAHOO = {
 
             subscribe (e, cb) {
                 this.elContainer.addEventListener(e, originalEvent => {
-                    console.log(originalEvent);
                     cb({
                         el: originalEvent.detail.el,
                         record: this.getRecord(originalEvent.detail.el.dataset.index)
