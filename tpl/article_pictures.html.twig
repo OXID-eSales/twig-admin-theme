@@ -141,8 +141,8 @@
                                                     {% include "icons/image_upload/button_inactive.svg" with { title: "ARTICLE_PICTURES_INACTIVE"|translate } %}
                                                 </span>
                                             </button>
-                                            <button type="button" class="delete-media">
-                                                {% include "icons/image_upload/button_delete.svg" with { title: "ARTICLE_PICTURES_DELETE"|translate } %}
+                                            <button type="button" class="delete-media" aria-label="{{ 'ARTICLE_PICTURES_DELETE'|translate }}">
+                                                {% include "icons/image_upload/button_delete.svg" %}
                                             </button>
                                         </div>
                                     </div>

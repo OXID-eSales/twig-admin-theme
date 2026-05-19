@@ -1,5 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-    <title id="deleteTitle">{{ title }}</title>
+<svg xmlns="http://www.w3.org/2000/svg" class="product-media-icon product-media-icon--outline" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
     <!-- Bin lid (full width overlap) -->
     <rect x="6" y="5" width="12" height="1" fill="currentColor" stroke="currentColor" stroke-width="1"/>
     <!-- Lid handle -->

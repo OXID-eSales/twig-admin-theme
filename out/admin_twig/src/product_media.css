@@ -37,6 +37,9 @@
     fill: currentColor;
     vertical-align: -0.125em;
 }
+.product-media-icon--outline {
+    fill: none;
+}
 #product-media-manager {
     border-radius: var(--product-media-radius);
     background: var(--product-media-color-bg-main);
