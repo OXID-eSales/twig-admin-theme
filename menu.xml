@@ -90,6 +90,7 @@
                 <TAB id="tbclarticle_crossselling" cl="article_crossselling"/>
                 <TAB id="tbclarticle_variant" cl="article_variant"/>
                 <TAB id="tbclarticle_pictures" cl="article_pictures" />
+                <TAB id="tbclarticle_imagealt" cl="article_image_alt" />
                 <TAB id="tbclarticle_files" cl="article_files" />
                 <TAB id="tbclarticle_review" cl="article_review"/>
                 <TAB id="tbclarticle_overview" cl="article_overview" />

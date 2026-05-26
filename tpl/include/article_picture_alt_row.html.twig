@@ -1,0 +1,57 @@
+{% if 'thumbnail' in image.roles %}
+    {% set roleLabel = "ARTICLE_PICTURES_THUMB"|translate %}
+{% elseif 'icon' in image.roles %}
+    {% set roleLabel = "ARTICLE_PICTURES_ICON"|translate %}
+{% else %}
+    {% set roleLabel = "ARTICLE_PICTURES_IMAGE"|translate ~ ' ' ~ (image.position + 1) %}
+{% endif %}
+{% set disabled = readonly is not empty ? 'disabled' : '' %}
+{% set rowId = image.productMediaId %}
+
+<tr class="picture-alt-row" data-row-id="{{ rowId }}">
+    <td class="col-image">
+        <img src="{{ image.url }}" alt="">
+    </td>
+    <td class="col-name">
+        <strong>{{ image.filename }}</strong>
+        <span class="type-badge">{{ roleLabel }}</span>
+    </td>
+    <td class="col-langs">
+        <div class="lang-badges">
+            {% for locale in locales %}
+                {% set abbr = locale.code|split('_')|first|upper %}
+                <span class="lang-badge{{ (image.altTexts[locale.code] ?? '') is not empty ? ' filled' : '' }}"
+                      data-locale-code="{{ locale.code }}"
+                      title="{{ locale.name }}">{{ abbr }}</span>
+            {% endfor %}
+        </div>
+    </td>
+</tr>
+<tr class="expand-row" id="expand-{{ rowId }}">
+    <td colspan="3">
+        <div class="locale-list">
+            {% for locale in locales %}
+                {% set abbr = locale.code|split('_')|first|upper %}
+                <div class="locale-field">
+                    <label for="alt-{{ rowId }}-{{ locale.code }}" title="{{ locale.name }}">{{ abbr }}</label>
+                    <input type="text"
+                           id="alt-{{ rowId }}-{{ locale.code }}"
+                           name="altTexts[{{ image.productMediaId }}][{{ locale.code }}]"
+                           data-locale-code="{{ locale.code }}"
+                           value="{{ image.altTexts[locale.code] ?? '' }}"
+                           placeholder="{{ locale.name }}"
+                           {{ readonly }}>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="picture-alt-actions">
+            <button type="submit"
+                    class="save-btn"
+                    name="productMediaId"
+                    value="{{ image.productMediaId }}"
+                    {{ disabled }}>
+                {{ "GENERAL_SAVE"|translate }}
+            </button>
+        </div>
+    </td>
+</tr>

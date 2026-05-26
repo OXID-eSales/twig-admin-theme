@@ -1,0 +1,67 @@
+{% include "headitem.html.twig" with {title: "GENERAL_ADMIN_TITLE"|translate} %}
+<link rel="stylesheet" href="{{ oViewConf.getResourceUrl()|raw }}picture_alt.css">
+{% if readonly %}
+    {% set readonly = "readonly disabled" %}
+{% else %}
+    {% set readonly = "" %}
+{% endif %}
+{% set images = allImages|default([]) %}
+{% set locales = availableLocales|default([]) %}
+<form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="cl" value="article_picture_alt">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+</form>
+<form id="myedit" method="post" action="{{ oViewConf.getSelfLink()|raw }}">
+    {{ oViewConf.getHiddenSid()|raw }}
+    <input type="hidden" name="cl" value="article_picture_alt">
+    <input type="hidden" name="fnc" value="save">
+    <input type="hidden" name="oxid" value="{{ oxid }}">
+    <input type="hidden" name="productId" value="{{ oxid }}">
+    <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
+    <div id="picture-alt-manager">
+        <div class="header">
+            <div>
+                <span class="title">{{ "PICTURE_ALT_TITLE"|translate }}</span>
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_PICTURE_ALT"), 'sHelpText': help_text("HELP_PICTURE_ALT")} %}
+            </div>
+            <div class="legend">
+                <span class="legend-item"><span class="legend-dot filled"></span> {{ "PICTURE_ALT_LEGEND_SAVED"|translate }}</span>
+                <span class="legend-item"><span class="legend-dot changed"></span> {{ "PICTURE_ALT_LEGEND_UNSAVED"|translate }}</span>
+                <span class="legend-item"><span class="legend-dot"></span> {{ "PICTURE_ALT_LEGEND_MISSING"|translate }}</span>
+            </div>
+        </div>
+        <div class="body">
+            <table class="picture-alt-table">
+                <thead>
+                    <tr>
+                        <th class="col-image-header">{{ "PICTURE_ALT_COL_IMAGE"|translate }}</th>
+                        <th>{{ "PICTURE_ALT_COL_NAME_TYPE"|translate }}</th>
+                        <th class="col-langs-header">{{ "PICTURE_ALT_COL_LANGUAGES"|translate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if images is empty %}
+                        <tr>
+                            <td colspan="3" class="empty-state">{{ "PICTURE_ALT_NO_IMAGES"|translate }}</td>
+                        </tr>
+                    {% elseif locales is empty %}
+                        <tr>
+                            <td colspan="3" class="empty-state">{{ "PICTURE_ALT_NO_LOCALES"|translate }}</td>
+                        </tr>
+                    {% else %}
+                        {% for image in images %}
+                            {% include "include/article_picture_alt_row.html.twig" %}
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+{{ script({ include: "js/libs/jquery.min.js", priority:1, dynamic:__oxid_include_dynamic }) }}
+{{ script({ include: "js/widgets/picture_alt.js", priority:2, dynamic:__oxid_include_dynamic }) }}
+{{ script({ add:"jQuery.noConflict();", priority:3, dynamic:__oxid_include_dynamic }) }}
+{% include "bottomnaviitem.html.twig" %}
+{% include "bottomitem.html.twig" %}
