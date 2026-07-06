@@ -720,7 +720,7 @@ window.YAHOO = {
                         }
 
                         getData () {
-                            return this;
+                            return this._oData;
                         }
                     };
                 }
@@ -896,8 +896,6 @@ window.YAHOO = {
             }
 
             set (attribute, value) {
-                console.log(attribute, value);
-
                 if (this.button) {
                     this.button.setAttribute(attribute, value);
                     if (attribute === 'disabled') {
