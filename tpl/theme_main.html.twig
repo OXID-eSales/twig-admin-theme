@@ -15,16 +15,15 @@
         <td width="50%" valign="top">
             <h1 style="color:#000;font-size:25px;">{{ oTheme.getInfo('title') }}</h1>
             <p>{{ oTheme.getInfo('description') }}</p>
-            {% if oTheme.getInfo('parentTheme') %}
+            {% if parentThemeId %}
                 <strong>{{ translate({ ident: "THEME_PARENT_THEME_TITLE" }) }}: </strong>
-                {% set _oParent = oTheme.getParent() %}
-                {% if _oParent %}
-                    <a class="themetitle" href="{{ oViewConf.getSelfLink()|raw }}&amp;cl=theme_main&amp;oxid={{ oTheme.getInfo('parentTheme') }}&amp;updatelist=1">{{ _oParent.getInfo('title') }}</a>
+                {% if parentThemeTitle is not empty %}
+                    <a class="themetitle" href="{{ oViewConf.getSelfLink()|raw }}&amp;cl=theme_main&amp;oxid={{ parentThemeId }}&amp;updatelist=1">{{ parentThemeTitle }}</a>
                 {% else %}
-                    <span class="error">{{ oTheme.getInfo('parentTheme') }}</span>
+                    <span class="error">{{ parentThemeId }}</span>
                 {% endif %}
                 <br>
-                <strong>{{ translate({ ident: "THEME_PARENT_VERSIONS" }) }}: </strong> {{ oTheme.getInfo('parentVersions')|join(', ') }}
+                <strong>{{ translate({ ident: "THEME_PARENT_VERSIONS" }) }}: </strong> {{ parentThemeVersions|join(', ') }}
             {% endif %}
             <hr>
             <p style="color:#aaa;">
@@ -37,8 +36,7 @@
                 <img src="{{ oViewConf.getImageUrl()|raw }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
             </td>
             <td width="19%" valign="top">
-                {% set _sError = oTheme.checkForActivationErrors() %}
-                {% if not _sError %}
+                {% if not themeActivationError %}
                     <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
                         <p>
                         {{ oViewConf.getHiddenSid()|raw }}
@@ -50,7 +48,7 @@
                         </p>
                     </form>
                 {% else %}
-                    <div class="error">{{ translate({ ident: _sError }) }}</div>
+                    <div class="error">{{ translate({ ident: themeActivationError }) }}</div>
                 {% endif %}
             </td>
         {% endif %}
