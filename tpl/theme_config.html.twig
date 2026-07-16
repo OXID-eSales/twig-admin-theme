@@ -21,7 +21,7 @@ function _groupExp(el) {
 
 <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
     {{ oViewConf.getHiddenSid()|raw }}
-    <input type="hidden" name="oxid" value="{{ oTheme.getInfo('id') }}">
+    <input type="hidden" name="oxid" value="{{ themeId }}">
     <input type="hidden" name="cl" value="theme_config">
     <input type="hidden" name="fnc" value="">
     <input type="hidden" name="actshop" value="{{ oViewConf.getActiveShopId() }}">
@@ -33,41 +33,40 @@ function _groupExp(el) {
 {{ oViewConf.getHiddenSid()|raw }}
 <input type="hidden" name="cl" value="theme_config">
 <input type="hidden" name="fnc" value="save">
-<input type="hidden" name="oxid" value="{{ oTheme.getInfo('id') }}">
-<input type="hidden" name="editval[oxshops__oxid]" value="{{ oxid }}">
+<input type="hidden" name="oxid" value="{{ themeId }}">
 
-    <b>{{ oTheme.getInfo('title') }}</b><br><br>
+    <b>{{ themeTitle }}</b><br><br>
 
-    {% for var_group, var_list in var_grouping %}
+    {% for groupName, settings in settingGroups %}
         <div class="groupExp">
             <div>
             {% block admin_theme_config_form %}
-                <a href="#" onclick="_groupExp(this);return false;" class="rc"><b>{{ translate({ ident: "SHOP_THEME_GROUP_" ~ var_group }) }}</b></a>
-                {% for theme_var, var_type in var_list %}
+                <a href="#" onclick="_groupExp(this);return false;" class="rc"><b>{{ translate({ ident: "SHOP_THEME_GROUP_" ~ groupName }) }}</b></a>
+                {% for setting in settings %}
                     <dl>
                         <dt>
-                            {% if var_type == 'bool' %}
-                                <input type="hidden" name="confbools[{{ theme_var }}]" value="false">
-                                <input type="checkbox" name="confbools[{{ theme_var }}]" value="true" {% if (confbools[theme_var]) %}checked{% endif %} {{ readonly }}>
-                            {% elseif var_type == 'str' %}
-                                <input type="text" class="txt" style="width: 250px;" name="confstrs[{{ theme_var }}]" value="{{ confstrs[theme_var]|raw }}" {{ readonly }}>
-                            {% elseif var_type == 'num' %}
-                                <input type="text" class="txt" style="width: 50px;" name="confnum[{{ module_var }}]" value="{{ confnum[module_var] }}" {{ readonly }}>
-                            {% elseif var_type == 'arr' %}
-                                <textarea class="txtfield" name="confarrs[{{ theme_var }}]" {{ readonly }}>{{ confarrs[theme_var]|raw }}</textarea>
-                            {% elseif var_type == 'aarr' %}
-                                <textarea class="txtfield" style="width: 430px;" name="confaarrs[{{ theme_var }}]" wrap="off" {{ readonly }}>{{ confaarrs[theme_var]|raw }}</textarea>
-                            {% elseif var_type == 'select' %}
-                                <select class="select" name="confselects[{{ theme_var }}]" {{ readonly }}>
-                                    {% for _field in var_constraints[theme_var] %}
-                                        <option value="{{ _field|escape }}"  {% if (confselects[theme_var] == _field) %}selected{% endif %}>{{ translate({ ident: "SHOP_THEME_" ~ theme_var ~ "_" ~ _field }) }}</option>
+                            {% if setting.type == 'bool' %}
+                                <input type="hidden" name="settings[{{ setting.name }}]" value="false">
+                                <input type="checkbox" name="settings[{{ setting.name }}]" value="true" {% if setting.value %}checked{% endif %} {{ readonly }}>
+                            {% elseif setting.type == 'str' %}
+                                <input type="text" class="txt" style="width: 250px;" name="settings[{{ setting.name }}]" value="{{ setting.value }}" {{ readonly }}>
+                            {% elseif setting.type == 'num' %}
+                                <input type="text" class="txt" style="width: 50px;" name="settings[{{ setting.name }}]" value="{{ setting.value }}" {{ readonly }}>
+                            {% elseif setting.type == 'arr' %}
+                                <textarea class="txtfield" name="settings[{{ setting.name }}]" {{ readonly }}>{{ setting.value }}</textarea>
+                            {% elseif setting.type == 'aarr' %}
+                                <textarea class="txtfield" style="width: 430px;" name="settings[{{ setting.name }}]" wrap="off" {{ readonly }}>{{ setting.value }}</textarea>
+                            {% elseif setting.type == 'select' %}
+                                <select class="select" name="settings[{{ setting.name }}]" {{ readonly }}>
+                                    {% for option in setting.options %}
+                                        <option value="{{ option }}" {% if setting.value == option %}selected{% endif %}>{{ translate({ ident: "SHOP_THEME_" ~ setting.name ~ "_" ~ option }) }}</option>
                                     {% endfor %}
                                 </select>
                             {% endif %}
-                            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_THEME_" ~ theme_var), 'sHelpText': help_text("HELP_SHOP_THEME_" ~ theme_var)} %}
+                            {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SHOP_THEME_" ~ setting.name), 'sHelpText': help_text("HELP_SHOP_THEME_" ~ setting.name)} %}
                         </dt>
                         <dd>
-                            {{ translate({ ident: "SHOP_THEME_" ~ theme_var }) }}
+                            {{ translate({ ident: "SHOP_THEME_" ~ setting.name }) }}
                         </dd>
                         <div class="spacer"></div>
                     </dl>
