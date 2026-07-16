@@ -709,12 +709,7 @@ $aLang = [
     'EXCEPTION_FILENOTFOUND' => 'Datei nicht gefunden (bitte oxideshop.log für Details prüfen)',
     'EXCEPTION_THEME_NOT_LOADED' => 'Theme kann nicht geladen werden',
     'EXCEPTION_MODULE_NOT_LOADED' => 'Modul kann nicht geladen werden',
-    // @deprecated
-    'EXCEPTION_PARENT_VERSION_UNSPECIFIED' => 'Eltern-Theme stellt keine Version(ierung) zur Verfügung',
-    'EXCEPTION_UNSPECIFIED_PARENT_VERSIONS' => 'Kompatible Versionsnummer des Eltern-Themes konnte nicht gefunden werden',
-    'EXCEPTION_PARENT_VERSION_MISMATCH' => 'Eltern-Theme Version ist nicht kompatibel',
-    'EXCEPTION_PARENT_THEME_NOT_FOUND' => 'Eltern-Theme wurde nicht gefunden',
-    // END deprecated
+    'EXCEPTION_THEME_INHERITANCE_INVALID' => 'Theme ist nicht kompatibel mit dem Eltern-Theme',
     'NO_PICTURES_CHANGES' => 'Keine Änderungen bei den Bildern',
     'EXCEPTION_SYSTEMCOMPONENT_TEMPLATENOTFOUND' => 'Template "%s" nicht gefunden',
     'EXCEPTION_DISABLED_DOWNLOADABLE_PRODUCTS' => 'Um dieses Feature im Shop verwenden zu können, muss die Option \'Download-Artikel erlauben\' in Stammdaten -> Grundeinstellungen -> Einstell. -> Download-Artikel aktiviert sein.',
@@ -727,6 +722,8 @@ $aLang = [
     'THEME_ACTIVATE' => 'Aktivieren',
     'THEME_PARENT_THEME_TITLE' => 'Eltern-Theme',
     'THEME_PARENT_VERSIONS' => 'Kompatible Eltern-Theme Version(en)',
+    'THEME_SETTING_ENVIRONMENT_OVERRIDDEN_HINT' => 'Dieser Wert wird durch die Environment-Konfiguration überschrieben und kann nur dort geändert werden.',
+    'THEME_SETTING_ENVIRONMENT_OVERRIDDEN_ERROR' => 'Die Einstellungen konnten nicht gespeichert werden, da sie durch die Environment-Konfiguration überschrieben werden.',
     'MODULE_ID' => 'Module-ID',
     'MODULE_PROBLEMATIC_FILES' => 'Problematische Dateien',
     'MODULE_AUTHOR' => 'Autor',

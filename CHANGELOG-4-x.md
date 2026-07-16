@@ -7,6 +7,17 @@
 - Locale management page
 - Alt attribute management for product images
 - Locale dropdown in language form
+- Hint for theme settings overridden by the environment configuration
+
+### Changed
+- Theme admin templates receive the theme data as separate variables instead of `oTheme`
+- Theme settings form posts `settings[<name>]` instead of the `conf*` parameters
+
+### Removed
+- Deprecated parent theme error translations
+
+### Fixed
+- Saving of number settings on the theme settings page
 
 ## v8.0.0-alpha.2 - 2026-02-12
 *Compilation release*

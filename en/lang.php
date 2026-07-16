@@ -694,12 +694,7 @@ $aLang = [
     'EXCEPTION_FILENOTFOUND' => 'File not found (see oxideshop.log for details)',
     'EXCEPTION_THEME_NOT_LOADED' => 'Theme could not be loaded',
     'EXCEPTION_MODULE_NOT_LOADED' => 'Module could not be loaded',
-    // @deprecated
-    'EXCEPTION_PARENT_VERSION_UNSPECIFIED' => 'Parent theme did not specify version',
-    'EXCEPTION_UNSPECIFIED_PARENT_VERSIONS' => 'Compatible parent theme version not specified',
-    'EXCEPTION_PARENT_VERSION_MISMATCH' => 'Parent theme version is not compatible',
-    'EXCEPTION_PARENT_THEME_NOT_FOUND' => 'Cannot find parent theme',
-    // END deprecated
+    'EXCEPTION_THEME_INHERITANCE_INVALID' => 'Theme is not compatible with its parent theme',
     'NO_PICTURES_CHANGES' => 'No pictures changes',
     'EXCEPTION_SYSTEMCOMPONENT_TEMPLATENOTFOUND' => 'Template "%s" not found',
     'EXCEPTION_DISABLED_DOWNLOADABLE_PRODUCTS' => 'To use this feature in frontend, you have to enable config option \'Enable downloadable products\' in Master Settings -> Core Settings -> Settings -> Downloadable products.',
@@ -712,6 +707,8 @@ $aLang = [
     'THEME_ACTIVATE' => 'Activate',
     'THEME_PARENT_THEME_TITLE' => 'Parent theme',
     'THEME_PARENT_VERSIONS' => 'Compatible parent theme versions',
+    'THEME_SETTING_ENVIRONMENT_OVERRIDDEN_HINT' => 'This value is overridden by the environment configuration and can only be changed there.',
+    'THEME_SETTING_ENVIRONMENT_OVERRIDDEN_ERROR' => 'The settings could not be saved because they are overridden by the environment configuration.',
     'MODULE_ID' => 'Module ID',
     'MODULE_PROBLEMATIC_FILES' => 'Problematic files',
     'MODULE_AUTHOR' => 'Author',
