@@ -8,6 +8,12 @@
 - Alt attribute management for product images
 - Locale dropdown in language form
 
+### Changed
+- Theme settings page reads `themeId` and `themeTitle` view data instead of the `oTheme` object
+
+### Fixed
+- Number inputs on the theme settings page posted under an undefined variable name
+
 ## v8.0.0-alpha.2 - 2026-02-12
 *Compilation release*
 
