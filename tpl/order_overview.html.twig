@@ -151,7 +151,7 @@
                 <input type="hidden" name="cl" value="order_overview">
                 <input type="hidden" name="fnc" value="changefolder">
                 <input type="hidden" name="oxid" value="{{ oxid }}">
-                <input type="hidden" name="folderclass" value="oxorder">
+                <input type="hidden" name="folderclass" value="OxidEsales\Eshop\Application\Model\Order">
                 {% block admin_order_overview_folder_form %}
                     {{ translate({ ident: "ORDER_OVERVIEW_INFOLDER" }) }}:&nbsp;
                     <select name="setfolder" class="folderselect" onChange="document.myedit.submit();" {{ readonly }}>
