@@ -7,6 +7,7 @@
 
 ### Fixed
 - Fixed field controls incorrectly enabled for unsaved and inherited selection lists [#0007837](https://bugs.oxid-esales.com/view.php?id=7837)
+- Escape the customer URL field value in the admin user form
 
 ## v3.1.0 - 2026-04-08
 
