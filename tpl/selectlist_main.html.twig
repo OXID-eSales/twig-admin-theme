@@ -49,6 +49,11 @@ function onSelect_aField(){
     {% set readonly = "" %}
 {% endif %}
 
+{% set addFieldDisabledAttributes = readonly %}
+{% if oxid == "-1" %}
+    {% set addFieldDisabledAttributes = "readonly disabled" %}
+{% endif %}
+
 <form name="transfer" id="transfer" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
     {{ oViewConf.getHiddenSid()|raw }}
     <input type="hidden" name="oxid" value="{{ oxid }}">
@@ -104,7 +109,7 @@ function onSelect_aField(){
                 {{ translate({ ident: "SELECTLIST_MAIN_FIELDS" }) }}
                 </td>
                 <td class="edittext">
-                <select name="aFields[]" id="aFields" size="12" multiple class="editinput" style="width: 150px;" onchange="javascript:onSelect_aField()">
+                <select {{ readonly }} name="aFields[]" id="aFields" size="12" multiple class="editinput" style="width: 150px;" onchange="javascript:onSelect_aField()">
                    {% for sField in edit.getFieldList() %}
                     <option value="{{ loop.index }}__@@{{ sField.name }}__@@{{ sField.price }}">{{ loop.index }} - {{ sField.name }}{% if sField.price %},{{ sField.price }}{% endif %}</option>
                     {% endfor %}
@@ -121,7 +126,7 @@ function onSelect_aField(){
                                 {{ translate({ ident: "SELECTLIST_MAIN_ADDFIELD_NAME" }) }}&nbsp;<span style="color:red;">*</span>
                             </td>
                             <td class="edittext" align="right">
-                                <input {{ readonly }} type="text" class="edittext" id="EditAddName" name="sAddField" value="" size="15" style="width: 100px;">
+                                <input {{ addFieldDisabledAttributes }} type="text" class="edittext" id="EditAddName" name="sAddField" value="" size="15" style="width: 100px;">
                                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SELECTLIST_MAIN_ADDFIELD_NAME"), 'sHelpText': help_text("HELP_SELECTLIST_MAIN_ADDFIELD_NAME")} %}
                             </td>
                         </tr>
@@ -131,8 +136,8 @@ function onSelect_aField(){
                                 {{ translate({ ident: "SELECTLIST_MAIN_ADDFIELD_PREIS" }) }} ({{ oActCur.sign }})
                             </td>
                             <td class="edittext" align="right">
-                                <input {{ readonly }} type="text" class="edittext" id="EditAddPrice" name="sAddFieldPriceMod" value="" size="10" style="width: 50px;">
-                                <select {{ readonly }} id="EditAddPriceUnit" name="sAddFieldPriceModUnit" class="editinput" style="width: 46px;">
+                                <input {{ addFieldDisabledAttributes }} type="text" class="edittext" id="EditAddPrice" name="sAddFieldPriceMod" value="" size="10" style="width: 50px;">
+                                <select {{ addFieldDisabledAttributes }} id="EditAddPriceUnit" name="sAddFieldPriceModUnit" class="editinput" style="width: 46px;">
                                     <option value="" >abs</option>
                                     <option value="%" >%</option>
                                 </select>
@@ -145,7 +150,7 @@ function onSelect_aField(){
                                 {{ translate({ ident: "SELECTLIST_MAIN_ADDFIELD_POS" }) }}
                             </td>
                             <td class="edittext" align="right">
-                                <input {{ readonly }} type="text" class="edittext" id="EditAddPos" name="sAddFieldPos" value="" size="15" style="width: 100px;">
+                                <input {{ addFieldDisabledAttributes }} type="text" class="edittext" id="EditAddPos" name="sAddFieldPos" value="" size="15" style="width: 100px;">
                                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_SELECTLIST_MAIN_ADDFIELD_POS"), 'sHelpText': help_text("HELP_SELECTLIST_MAIN_ADDFIELD_POS")} %}
                             </td>
                         </tr>
@@ -158,19 +163,19 @@ function onSelect_aField(){
                     <tr>
                         <td class="edittext" width="10">&nbsp;</td>
                         <td class="edittext" colspan="2" align="right">
-                         <input {{ readonly }} type="submit" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_FIELDS_ADD" }) }}" onClick="Javascript:document.myedit.fnc.value='addfield'" {{ readonly }} style="width: 100px;">
+                         <input {{ addFieldDisabledAttributes }} type="submit" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_FIELDS_ADD" }) }}" onClick="Javascript:document.myedit.fnc.value='addfield'" style="width: 100px;">
                         </td>
                     </tr>
                     <tr>
                         <td class="edittext" width="10">&nbsp;</td>
                         <td class="edittext" colspan="2" align="right">
-                         <input {{ readonly }} type="submit" id="submit_modify" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_FIELDS_MODIFY" }) }}" onClick="Javascript:document.myedit.fnc.value='changefield'" {{ readonly }} style="width: 100px;" DISABLED>
+                         <input {{ readonly }} type="submit" id="submit_modify" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_FIELDS_MODIFY" }) }}" onClick="Javascript:document.myedit.fnc.value='changefield'" style="width: 100px;" DISABLED>
                         </td>
                     </tr>
                     <tr>
                         <td class="edittext" width="10">&nbsp;</td>
                         <td class="edittext" colspan="2" align="right">
-                         <br /><input {{ readonly }} type="submit" id="submit_delete" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_FIELDS_DELETE" }) }}" onClick="Javascript:document.myedit.fnc.value='delfields'" {{ readonly }} style="width: 150px;" DISABLED>
+                         <br /><input {{ readonly }} type="submit" id="submit_delete" class="edittext" name="save" value="{{ translate({ ident: "GENERAL_FIELDS_DELETE" }) }}" onClick="Javascript:document.myedit.fnc.value='delfields'" style="width: 150px;" DISABLED>
                         </td>
                     </tr>
                 </table>
