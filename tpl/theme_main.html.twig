@@ -7,48 +7,48 @@
     <input type="hidden" name="editlanguage" value="{{ editlanguage }}">
 </form>
 
-{% if oTheme %}
+{% if theme %}
 {% block admin_theme_main_form %}
 <table cellspacing="10" width="98%">
     <tr>
-        <td width="20%" valign="top"><img src="{{ oViewConf.getBaseDir()|raw }}/out/{{ oTheme.getInfo('id') }}/{{ oTheme.getInfo('thumbnail') }}" hspace="20" vspace="10"></td>
+        <td width="20%" valign="top"><img src="{{ oViewConf.getBaseDir()|raw }}/out/{{ theme.getId() }}/{{ theme.getThumbnail() }}" hspace="20" vspace="10"></td>
         <td width="50%" valign="top">
-            <h1 style="color:#000;font-size:25px;">{{ oTheme.getInfo('title') }}</h1>
-            <p>{{ oTheme.getInfo('description') }}</p>
-            {% if parentThemeId %}
+            <h1 style="color:#000;font-size:25px;">{{ theme.getTitle() }}</h1>
+            <p>{{ theme.getDescription() }}</p>
+            {% if parentTheme %}
                 <strong>{{ translate({ ident: "THEME_PARENT_THEME_TITLE" }) }}: </strong>
-                {% if parentThemeTitle is not empty %}
-                    <a class="themetitle" href="{{ oViewConf.getSelfLink()|raw }}&amp;cl=theme_main&amp;oxid={{ parentThemeId }}&amp;updatelist=1">{{ parentThemeTitle }}</a>
+                {% if theme.getActivationError() %}
+                    <span class="error">{{ parentTheme.getId() }}</span>
                 {% else %}
-                    <span class="error">{{ parentThemeId }}</span>
+                    <a class="themetitle" href="{{ oViewConf.getSelfLink()|raw }}&amp;cl=theme_main&amp;oxid={{ parentTheme.getId() }}&amp;updatelist=1">{{ parentTheme.getTitle()|default(parentTheme.getId()) }}</a>
                 {% endif %}
                 <br>
-                <strong>{{ translate({ ident: "THEME_PARENT_VERSIONS" }) }}: </strong> {{ parentThemeVersions|join(', ') }}
+                <strong>{{ translate({ ident: "THEME_PARENT_VERSIONS" }) }}: </strong> {{ parentTheme.getVersions()|join(', ') }}
             {% endif %}
             <hr>
             <p style="color:#aaa;">
-            <b>{{ translate({ ident: "THEME_AUTHOR" }) }}</b> {{ oTheme.getInfo('author')|default(' - ')|raw() }} <br><br>
-            {{ translate({ ident: "THEME_VERSION" }) }} {{ oTheme.getInfo('version') }}
+            <b>{{ translate({ ident: "THEME_AUTHOR" }) }}</b> {{ theme.getAuthor()|default(' - ')|raw() }} <br><br>
+            {{ translate({ ident: "THEME_VERSION" }) }} {{ theme.getVersion() }}
             </p>
         </td>
-        {% if not oTheme.getInfo('active') %}
+        {% if not theme.isActive() %}
             <td width="1%">
                 <img src="{{ oViewConf.getImageUrl()|raw }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
             </td>
             <td width="19%" valign="top">
-                {% if not themeActivationError %}
+                {% if not theme.getActivationError() %}
                     <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
                         <p>
                         {{ oViewConf.getHiddenSid()|raw }}
                         <input type="hidden" name="cl" value="theme_main">
                         <input type="hidden" name="fnc" value="setTheme">
                         <input type="hidden" name="updatelist" value="1">
-                        <input type="hidden" name="oxid" value="{{ oTheme.getInfo('id') }}">
+                        <input type="hidden" name="oxid" value="{{ theme.getId() }}">
                         <input type="submit" value="{{ translate({ ident: "THEME_ACTIVATE" }) }}">
                         </p>
                     </form>
                 {% else %}
-                    <div class="error">{{ translate({ ident: themeActivationError }) }}</div>
+                    <div class="error">{{ translate({ ident: theme.getActivationError() }) }}</div>
                 {% endif %}
             </td>
         {% endif %}
