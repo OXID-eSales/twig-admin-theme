@@ -15,12 +15,12 @@
         <td width="50%" valign="top">
             <h1 style="color:#000;font-size:25px;">{{ theme.getTitle() }}</h1>
             <p>{{ theme.getDescription() }}</p>
-            {% if parentTheme %}
+            {% if theme.hasParentTheme() %}
                 <strong>{{ translate({ ident: "THEME_PARENT_THEME_TITLE" }) }}: </strong>
-                {% if theme.hasActivationError() %}
-                    <span class="error">{{ parentTheme.getId() }}</span>
-                {% else %}
+                {% if parentTheme.isCompatible() %}
                     <a class="themetitle" href="{{ oViewConf.getSelfLink()|raw }}&amp;cl=theme_main&amp;oxid={{ parentTheme.getId() }}&amp;updatelist=1">{{ parentTheme.getTitle()|default(parentTheme.getId()) }}</a>
+                {% else %}
+                    <span class="error">{{ parentTheme.getId() }}</span>
                 {% endif %}
                 <br>
                 <strong>{{ translate({ ident: "THEME_PARENT_VERSIONS" }) }}: </strong> {{ parentTheme.getVersions()|join(', ') }}
@@ -36,7 +36,7 @@
                 <img src="{{ oViewConf.getImageUrl()|raw }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
             </td>
             <td width="19%" valign="top">
-                {% if not theme.hasActivationError() %}
+                {% if not theme.hasParentTheme() or parentTheme.isCompatible() %}
                     <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
                         <p>
                         {{ oViewConf.getHiddenSid()|raw }}
