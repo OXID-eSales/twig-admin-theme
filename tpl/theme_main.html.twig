@@ -17,7 +17,7 @@
             <p>{{ theme.getDescription() }}</p>
             {% if parentTheme %}
                 <strong>{{ translate({ ident: "THEME_PARENT_THEME_TITLE" }) }}: </strong>
-                {% if theme.getActivationError() %}
+                {% if theme.hasActivationError() %}
                     <span class="error">{{ parentTheme.getId() }}</span>
                 {% else %}
                     <a class="themetitle" href="{{ oViewConf.getSelfLink()|raw }}&amp;cl=theme_main&amp;oxid={{ parentTheme.getId() }}&amp;updatelist=1">{{ parentTheme.getTitle()|default(parentTheme.getId()) }}</a>
@@ -36,7 +36,7 @@
                 <img src="{{ oViewConf.getImageUrl()|raw }}/grayline_vert.gif" width="2" height="270" alt="" border="0">
             </td>
             <td width="19%" valign="top">
-                {% if not theme.getActivationError() %}
+                {% if not theme.hasActivationError() %}
                     <form name="myedit" id="myedit" action="{{ oViewConf.getSelfLink()|raw }}" method="post">
                         <p>
                         {{ oViewConf.getHiddenSid()|raw }}
@@ -48,7 +48,7 @@
                         </p>
                     </form>
                 {% else %}
-                    <div class="error">{{ translate({ ident: theme.getActivationError() }) }}</div>
+                    <div class="error">{{ translate({ ident: "EXCEPTION_THEME_INHERITANCE_INVALID" }) }}</div>
                 {% endif %}
             </td>
         {% endif %}
