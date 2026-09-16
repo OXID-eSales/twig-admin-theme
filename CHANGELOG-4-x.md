@@ -10,6 +10,7 @@
 
 ### Changed
 - Theme settings page reads `themeId` and `themeTitle` view data instead of the `oTheme` object
+- Theme list template reads `ThemeView` objects instead of the `Theme` object
 
 ### Fixed
 - Number inputs on the theme settings page posted under an undefined variable name
