@@ -8,6 +8,7 @@
 ### Fixed
 - Fixed field controls incorrectly enabled for unsaved and inherited selection lists [#0007837](https://bugs.oxid-esales.com/view.php?id=7837)
 - Escape the customer URL field value in the admin user form
+- Fixed setting an assigned category as main on a product [#0007953](https://bugs.oxid-esales.com/view.php?id=7953)
 
 ## v3.1.0 - 2026-04-08
 
@@ -18,7 +19,6 @@
 - Fixed menu item counter for vendor-specific menu sections [PR-10](https://github.com/OXID-eSales/twig-admin-theme/pull/10)
 - Fixed wrong product picture counter showing 13 instead of 12 [PR-14](https://github.com/OXID-eSales/twig-admin-theme/pull/14)
 - Improved discount quantity help text to clarify display behavior based on "From" value [#0007907](https://bugs.oxid-esales.com/view.php?id=7907) [PR-15](https://github.com/OXID-eSales/twig-admin-theme/pull/15)
-- Fixed setting an assigned category as main on a product [#0007953](https://bugs.oxid-esales.com/view.php?id=7953)
 
 ## v3.0.1 - 2025-11-10
 
