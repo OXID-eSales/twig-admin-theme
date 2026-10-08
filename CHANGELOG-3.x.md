@@ -1,5 +1,10 @@
 # Change Log for OXID Twig admin theme
 
+## v3.2.1 - Unreleased
+
+### Fixed
+- Fixed AOC table reverting a column sorting chosen while the table was reloading
+
 ## v3.2.0 - 2026-10-06
 
 ### Added

@@ -67,6 +67,8 @@ window.YAHOO = {
 
             sortDir = 'asc';
 
+            loadController = null;
+
             startIndex = 0;
 
             baseData = [];
@@ -581,7 +583,9 @@ window.YAHOO = {
             }
 
             buildData (page = this.startIndex, append = false) {
-                let url = `${this.dataSource}&startIndex=${page * this.dataSize}&results=${this.dataSize}&dir=${this.sortDir}&sort=${this.sortCol}`;
+                const requestedSortCol = this.sortCol;
+                const requestedSortDir = this.sortDir;
+                let url = `${this.dataSource}&startIndex=${page * this.dataSize}&results=${this.dataSize}&dir=${requestedSortDir}&sort=${requestedSortCol}`;
 
                 if (!!Object.keys(this.filters).length) {
                     for (const key in this.filters) {
@@ -597,10 +601,21 @@ window.YAHOO = {
                     });
                 }
 
+                if (!append || !this.loadController) {
+                    this.loadController?.abort();
+                    this.loadController = new AbortController();
+                }
+                const { signal } = this.loadController;
+
                 return new Promise((resolve, reject) => {
-                    fetch(this.modRequest(url), { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+                    fetch(this.modRequest(url), { headers: { 'X-Requested-With': 'XMLHttpRequest' }, signal })
                         .then(response => response.json())
                         .then(({ records, totalRecords, sort, dir, startIndex }) => {
+                            if (signal.aborted) {
+                                resolve();
+                                return;
+                            }
+
                             this.selectedRows = new Set([]);
                             if (!append && this.data.length > 0) {
                                 this.data.splice(0, this.data.length);
@@ -610,10 +625,15 @@ window.YAHOO = {
                                 this.data.push(item);
                             });
                             this.totalRecords = totalRecords;
-                            this.sortCol = sort;
-                            this.dir = dir;
                             this.startIndex = startIndex;
                             this.page = page;
+
+                            if (this.sortCol === requestedSortCol && this.sortDir === requestedSortDir) {
+                                this.sortCol = sort;
+                                this.sortDir = dir;
+                            } else {
+                                this.sortData(this.sortCol, this.sortDir);
+                            }
 
                             if (this.totalRecords > 0) {
                                 this.scrollObserver.observe(this.dataTable.querySelector(':scope tr:last-child'));
@@ -627,6 +647,11 @@ window.YAHOO = {
                             resolve();
                         })
                         .catch((e) => {
+                            if (signal.aborted) {
+                                resolve();
+                                return;
+                            }
+
                             console.error(e);
                             this.onFailureCallback(e);
                             reject();
