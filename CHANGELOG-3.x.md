@@ -4,6 +4,7 @@
 
 ### Fixed
 - Fixed AOC table reverting a column sorting chosen while the table was reloading
+- Fixed assigned start category not being displayed when the category list reloads during the assignment
 
 ## v3.2.0 - 2026-10-06
 
