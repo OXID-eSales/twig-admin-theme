@@ -27,29 +27,25 @@
         YAHOO.oxid.container1.oRemoveBtn = new YAHOO.widget.Button('remBtn');
         YAHOO.oxid.container1.oSaveBtn = new YAHOO.widget.Button('saveBtn');
 
-        YAHOO.oxid.container1.onSave = function()
+        YAHOO.oxid.container1.onSave = function( sCategoryTitle )
         {
-            var aSelRows= YAHOO.oxid.container1.getSelectedRows();
-            if ( aSelRows.length ) {
-                oParam = YAHOO.oxid.container1.getRecord(aSelRows[0]);
-                $('defcat_title').innerHTML  = oParam._oData._0;
-                YAHOO.oxid.container1.oRemoveBtn.set("disabled",false);
-                $D.setStyle( $('_defcat'), 'visibility', '' );
-            }
+            $('defcat_title').innerHTML  = sCategoryTitle;
+            YAHOO.oxid.container1.oRemoveBtn.set("disabled",false);
+            $D.setStyle( $('_defcat'), 'visibility', '' );
         }
         YAHOO.oxid.container1.assignCat = function()
         {
+            var aSelRows= YAHOO.oxid.container1.getSelectedRows();
+            if ( !aSelRows.length ) {
+                return;
+            }
+            var oCategory = YAHOO.oxid.container1.getRecord(aSelRows[0])._oData;
             var callback = {
-                success: YAHOO.oxid.container1.onSave,
+                success: function() { YAHOO.oxid.container1.onSave( oCategory._0 ); },
                 failure: YAHOO.oxid.container1.onFailure,
                 scope:   YAHOO.oxid.container1
             };
-            var aSelRows= YAHOO.oxid.container1.getSelectedRows();
-            if ( aSelRows.length ) {
-                oParam = YAHOO.oxid.container1.getRecord(aSelRows[0]);
-                sRequest = '&oxcatid=' + oParam._oData._3;
-            }
-            YAHOO.util.Connect.asyncRequest( 'GET', '{{ oViewConf.getAjaxLink()|raw }}&cmpid=container1&container=shop_default_category&fnc=assignCat&oxid={{ oxid }}'+sRequest, callback );
+            YAHOO.util.Connect.asyncRequest( 'GET', '{{ oViewConf.getAjaxLink()|raw }}&cmpid=container1&container=shop_default_category&fnc=assignCat&oxid={{ oxid }}&oxcatid=' + encodeURIComponent( oCategory._3 ), callback );
 
         }
         YAHOO.oxid.container1.onRemove = function()
