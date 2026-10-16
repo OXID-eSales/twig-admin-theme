@@ -798,7 +798,7 @@ window.YAHOO = {
                 const panelContainer = document.getElementById('helpPanel_c');
                 const closeButton = document.getElementById('helpPanel_close');
                 const body = document.getElementById('helpPanel').getElementsByClassName('bd')[0];
-                const helpButton = $(`helpBtn_${helpId}`);
+                const helpButton = document.getElementById(`helpBtn_${helpId}`);
 
                 makeDraggable(header, panelContainer);
 
@@ -806,7 +806,7 @@ window.YAHOO = {
                     panelContainer.style.visibility = 'hidden';
                 });
 
-                body.innerHTML = $(`helpText_${helpId}`).innerHTML.trim();
+                body.innerHTML = document.getElementById(`helpText_${helpId}`).innerHTML.trim();
 
                 panelContainer.style.visibility = 'visible';
                 panelContainer.style.left = `${getOffset(helpButton).left + helpButton.offsetWidth + 5}px`;

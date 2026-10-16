@@ -1,5 +1,10 @@
 # Change Log for OXID Twig admin theme
 
+## v3.2.1 - Unreleased
+
+### Fixed
+- Fixed help buttons not working on admin pages with the WYSIWYG editor [#0008001](https://bugs.oxid-esales.com/view.php?id=8001)
+
 ## v3.2.0 - 2026-10-06
 
 ### Added
