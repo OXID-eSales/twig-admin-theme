@@ -1,6 +1,9 @@
 # Change Log for OXID Twig admin theme
 
-## v3.2.1 - Unreleased
+## v3.3.0 - Unreleased
+
+### Deprecated
+- Translations `EXCEPTION_PARENT_VERSION_UNSPECIFIED`, `EXCEPTION_UNSPECIFIED_PARENT_VERSIONS`, `EXCEPTION_PARENT_VERSION_MISMATCH` and `EXCEPTION_PARENT_THEME_NOT_FOUND`
 
 ### Fixed
 - AOC table reloads overriding a chosen sorting and hiding the assigned start category
