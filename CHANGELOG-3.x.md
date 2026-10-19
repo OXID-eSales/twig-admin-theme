@@ -4,6 +4,7 @@
 
 ### Fixed
 - AOC table reloads overriding a chosen sorting and hiding the assigned start category
+- Fixed help buttons not working on admin pages with the WYSIWYG editor [#0008001](https://bugs.oxid-esales.com/view.php?id=8001)
 
 ## v3.2.0 - 2026-10-06
 
