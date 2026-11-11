@@ -18,7 +18,7 @@
     "prefer-stable": true,
     "extra": {
         "oxideshop": {
-            "assets-directory": "out/admin_twig",
+            "assets-directory": "assets",
             "blacklist-filter": [
                 ".gitignore",
                 "CHANGELOG-2.x.md",

@@ -25,11 +25,12 @@ composer require oxid-esales/twig-component-ee
 
 **Note:**
 
-The Twig theme for admin will be registered during the installation. If you are having some issues, that the wrong Admin
-theme is loaded, please check if the `oxid_esales.theme.admin.name` parameter is set correctly:
+The shop reads the admin UI directly from this package in the `vendor` directory and links its `assets` directory to
+`out/admin_twig`. Package and link name are configured with the following shop parameters:
 ```yaml
 parameters:
-  oxid_esales.theme.admin.name: 'admin_twig'
+  oxid_esales.admin_ui.package_name: 'oxid-esales/twig-admin-theme'
+  oxid_esales.admin_ui.name: 'admin_twig'
 ```
 
 ## License

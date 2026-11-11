@@ -12,9 +12,11 @@
 ### Changed
 - Theme admin templates receive the theme data as separate variables instead of `oTheme`
 - Theme settings form posts `settings[<name>]` instead of the `conf*` parameters
+- Admin UI assets moved from `out/admin_twig` to `assets`
 
 ### Removed
 - Deprecated parent theme error translations
+- `cust_lang.php.dist` files, the shop no longer loads `cust_lang.php` of the admin UI
 
 ### Fixed
 - Saving of number settings on the theme settings page
