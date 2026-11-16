@@ -4,7 +4,7 @@
     "license": [
         "proprietary"
     ],
-    "type": "oxideshop-theme",
+    "type": "oxideshop-admin-ui",
     "keywords": [
         "oxid",
         "themes",
@@ -15,16 +15,5 @@
         "oxid-esales/twig-component": "*"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "extra": {
-        "oxideshop": {
-            "assets-directory": "assets",
-            "blacklist-filter": [
-                ".gitignore",
-                "CHANGELOG-2.x.md",
-                "composer.json"
-            ],
-            "target-directory": "admin_twig"
-        }
-    }
+    "prefer-stable": true
 }

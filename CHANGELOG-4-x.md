@@ -13,6 +13,7 @@
 - Theme admin templates receive the theme data as separate variables instead of `oTheme`
 - Theme settings form posts `settings[<name>]` instead of the `conf*` parameters
 - Admin UI assets moved from `out/admin_twig` to `assets`
+- Composer package type changed from `oxideshop-theme` to `oxideshop-admin-ui`
 
 ### Removed
 - Deprecated parent theme error translations
