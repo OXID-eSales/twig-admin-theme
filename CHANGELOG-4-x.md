@@ -15,6 +15,7 @@
 
 ### Removed
 - Deprecated parent theme error translations
+- The "Base SSL URL" field from the language settings and the translations `LANGUAGE_BASESSLURL`, `SHOP_MALL_SHOPSSLSHOPURL` and `SHOP_CONFIG_SETORDELETELANGUAGESSLURL`
 
 ### Fixed
 - Saving of number settings on the theme settings page

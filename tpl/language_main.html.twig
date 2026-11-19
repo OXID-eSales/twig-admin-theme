@@ -88,15 +88,6 @@ window.onload = function ()
                 {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_LANGUAGE_BASEURL"), 'sHelpText': help_text("HELP_LANGUAGE_BASEURL")} %}
                 </td>
             </tr>
-            <tr>
-                <td class="edittext">
-                {{ translate({ ident: "LANGUAGE_BASESSLURL" }) }}
-                </td>
-                <td class="edittext">
-                <input type="text" class="editinput" size="40" maxlength="255" name="editval[basesslurl]" value="{{ edit.basesslurl|raw }}" {{ readonly }}>
-                {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_LANGUAGE_BASESSLURL"), 'sHelpText': help_text("HELP_LANGUAGE_BASESSLURL")} %}
-                </td>
-            </tr>
             {% if oxid != -1 %}
             <tr>
                 <td class="edittext">
